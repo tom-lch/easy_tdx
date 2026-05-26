@@ -11,6 +11,7 @@ from typing import Any, TypeVar
 import pandas as pd
 
 from .._df import _to_df
+from ..codec.bitmap import Fields, PresetField
 from ..commands.base import BaseCommand
 from ..config import get_best_host, get_mac_hosts, get_port, get_timeout, save_best_host
 from ..exceptions import TdxConnectionError
@@ -35,7 +36,6 @@ from .commands import (
 from .commands.chart_sampling import ChartSamplingCmd
 from .commands.file_query import FileDownloadCmd, FileListCmd
 from .commands.goods_list import GoodsListCmd
-from ..codec.bitmap import Fields, PresetField
 from .enums import Adjust, BoardType, Category, FilterType, Period, SortOrder, SortType
 from .models import (
     MacBar,
@@ -583,6 +583,75 @@ class MacClient:
         """
         items = self._execute(SymbolBelongBoardCmd(market, code))
         return _to_df(items)
+
+    def get_board_summary(
+        self,
+        board_symbol: str,
+        sort_type: SortType = SortType.CHANGE_PCT,
+        sort_order: SortOrder = SortOrder.DESC,
+    ) -> dict[str, Any]:
+        """获取板块汇总：总成交金额、主力资金流向等（聚合成分股数据）。
+
+        基于 ``get_board_members`` 获取全部成分股报价，对成交额和资金流字段求和。
+
+        Args:
+            board_symbol: 板块代码（如 "881001"）。
+            sort_type: 排序字段。
+            sort_order: 排序方向。
+
+        Returns:
+            包含以下键的字典::
+
+                member_count    成分股数量
+                amount          板块总成交额（元）
+                vol             板块总成交量（股）
+                main_net_amount 板块主力净流入（元）
+                main_net_3d     板块近3日主力净流入（元）
+                main_net_5d     板块近5日主力净流入（元）
+                up_count        上涨家数
+                down_count      下跌家数
+                members         成分股明细 DataFrame
+        """
+        from ..codec.bitmap import FieldBit, PresetField
+
+        fields = (
+            PresetField.BASIC
+            + FieldBit.AMOUNT
+            + FieldBit.MAIN_NET_AMOUNT
+            + FieldBit.MAIN_NET_3D_AMOUNT
+            + FieldBit.MAIN_NET_5D_AMOUNT
+        )
+        df = self.get_board_members(
+            board_symbol,
+            sort_type=sort_type,
+            sort_order=sort_order,
+            fields=fields,
+        )
+
+        agg_keys = ("amount", "main_net_amount", "main_net_3d_amount", "main_net_5d_amount")
+        numeric_cols = [c for c in agg_keys if c in df.columns]
+        sums = df[numeric_cols].sum() if numeric_cols else pd.Series(dtype=float)
+
+        close_col = "close" if "close" in df.columns else None
+        pre_close_col = "pre_close" if "pre_close" in df.columns else None
+        if close_col and pre_close_col:
+            diff = df[close_col] - df[pre_close_col]
+            up_count = int((diff > 0).sum())
+            down_count = int((diff < 0).sum())
+        else:
+            up_count = down_count = 0
+
+        return {
+            "member_count": len(df),
+            "amount": float(sums.get("amount", 0.0)),
+            "vol": int(df["vol"].sum()) if "vol" in df.columns else 0,
+            "main_net_amount": float(sums.get("main_net_amount", 0.0)),
+            "main_net_3d": float(sums.get("main_net_3d_amount", 0.0)),
+            "main_net_5d": float(sums.get("main_net_5d_amount", 0.0)),
+            "up_count": up_count,
+            "down_count": down_count,
+            "members": df,
+        }
 
     # ------------------------------------------------------------------ #
     # 资金流向
@@ -1152,6 +1221,75 @@ class AsyncMacClient:
     async def get_belong_board(self, market: int, code: str) -> pd.DataFrame:
         items = await self._execute(SymbolBelongBoardCmd(market, code))
         return _to_df(items)
+
+    async def get_board_summary(
+        self,
+        board_symbol: str,
+        sort_type: SortType = SortType.CHANGE_PCT,
+        sort_order: SortOrder = SortOrder.DESC,
+    ) -> dict[str, Any]:
+        """获取板块汇总：总成交金额、主力资金流向等（聚合成分股数据）。
+
+        基于 ``get_board_members`` 获取全部成分股报价，对成交额和资金流字段求和。
+
+        Args:
+            board_symbol: 板块代码（如 "881001"）。
+            sort_type: 排序字段。
+            sort_order: 排序方向。
+
+        Returns:
+            包含以下键的字典::
+
+                member_count    成分股数量
+                amount          板块总成交额（元）
+                vol             板块总成交量（股）
+                main_net_amount 板块主力净流入（元）
+                main_net_3d     板块近3日主力净流入（元）
+                main_net_5d     板块近5日主力净流入（元）
+                up_count        上涨家数
+                down_count      下跌家数
+                members         成分股明细 DataFrame
+        """
+        from ..codec.bitmap import FieldBit, PresetField
+
+        fields = (
+            PresetField.BASIC
+            + FieldBit.AMOUNT
+            + FieldBit.MAIN_NET_AMOUNT
+            + FieldBit.MAIN_NET_3D_AMOUNT
+            + FieldBit.MAIN_NET_5D_AMOUNT
+        )
+        df = await self.get_board_members(
+            board_symbol,
+            sort_type=sort_type,
+            sort_order=sort_order,
+            fields=fields,
+        )
+
+        agg_keys = ("amount", "main_net_amount", "main_net_3d_amount", "main_net_5d_amount")
+        numeric_cols = [c for c in agg_keys if c in df.columns]
+        sums = df[numeric_cols].sum() if numeric_cols else pd.Series(dtype=float)
+
+        close_col = "close" if "close" in df.columns else None
+        pre_close_col = "pre_close" if "pre_close" in df.columns else None
+        if close_col and pre_close_col:
+            diff = df[close_col] - df[pre_close_col]
+            up_count = int((diff > 0).sum())
+            down_count = int((diff < 0).sum())
+        else:
+            up_count = down_count = 0
+
+        return {
+            "member_count": len(df),
+            "amount": float(sums.get("amount", 0.0)),
+            "vol": int(df["vol"].sum()) if "vol" in df.columns else 0,
+            "main_net_amount": float(sums.get("main_net_amount", 0.0)),
+            "main_net_3d": float(sums.get("main_net_3d_amount", 0.0)),
+            "main_net_5d": float(sums.get("main_net_5d_amount", 0.0)),
+            "up_count": up_count,
+            "down_count": down_count,
+            "members": df,
+        }
 
     # ------------------------------------------------------------------ #
     # 资金流向
