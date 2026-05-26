@@ -208,6 +208,20 @@ with MacClient.from_best_host() as c:
     df = c.get_board_list(BoardType.GN)                       # 概念板块
     df = c.get_board_members("881001", sort_type=SortType.CHANGE_PCT)
     df = c.get_belong_board(Market.SZ, "000001")              # 个股所属板块
+
+    # 板块汇总：成交额、主力净流入、涨跌家数
+    summary = c.get_board_summary("881001")
+    # summary = {
+    #     "member_count": 82,
+    #     "amount": 5823456000.0,        # 板块总成交额（元）
+    #     "vol": 412356789,              # 板块总成交量（股）
+    #     "main_net_amount": -123456.0,  # 当日主力净流入
+    #     "main_net_3d": -567890.0,      # 近3日主力净流入
+    #     "main_net_5d": -234567.0,      # 近5日主力净流入
+    #     "up_count": 45,
+    #     "down_count": 37,
+    #     "members": DataFrame(...),     # 成分股明细
+    # }
 ```
 
 #### 资金流向
@@ -389,6 +403,7 @@ bars = read_daily_bars(filepath)
 | `get_symbol_info(market, code)` | 个股特征快照 |
 | `get_board_list(board_type, ...)` | 板块列表 |
 | `get_board_members(board_symbol, ...)` | 板块成分股报价 |
+| `get_board_summary(board_symbol, ...)` | 板块汇总（成交额、主力净流入、涨跌家数） |
 | `get_belong_board(market, code)` | 个股所属板块 |
 | `get_capital_flow(market, code)` | 资金流向 |
 | `get_auction(market, code)` | 集合竞价 |
