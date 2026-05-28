@@ -98,6 +98,7 @@ easy-tdx indicator ATR -m SH -c 600519 --table        # ATR 真实波幅
 easy-tdx indicator WR -m SH -c 600519 --table         # WR 威廉指标
 easy-tdx indicator CCI -m SH -c 600519 --table        # CCI 顺势指标
 easy-tdx indicator BIAS -m SZ -c 000001 --table       # BIAS 乖离率
+easy-tdx indicator BIAS_SIGNAL -m SH -c 600519 --table # 30日乖离率信号
 easy-tdx indicator OBV -m SZ -c 000001 --table        # OBV 能量潮
 
 # 多指标同时计算
@@ -138,6 +139,46 @@ easy-tdx indicator ZHUOYAO,MACD,KDJ -m SH -c 600519 --count 20 --table
 
 **核心信号：** 四线全部 > 0 且短线 > 中线 > 长线 = 短中长趋势完全一致向上，是强势股特征。详见 [捉妖大师指标详解](docs/indicator-zhuoyao.md)。
 
+### 30日乖离率信号（重点）
+
+30日乖离率信号指标，在标准乖离率（BIAS）基础上叠加短/长信号线，通过三者位置关系判断趋势方向和转折点。源自通达信经典指标。
+
+```bash
+easy-tdx indicator BIAS_SIGNAL -m SH -c 600519 --count 60 --table
+
+# 自定义周期参数
+easy-tdx indicator BIAS_SIGNAL -m SZ -c 000001 --params P=5,M=20
+
+# 结合其他指标一起看
+easy-tdx indicator BIAS_SIGNAL,MACD,KDJ -m SH -c 600519 --count 30 --table
+```
+
+输出列说明：
+
+| 列名 | 含义 |
+|------|------|
+| `BS_X` | M日乖离率 — 当前价格偏离30日均线的百分比 |
+| `BS_SMA` | 短周期信号线 — 乖离率的 P 日均线，过滤短期噪音 |
+| `BS_LMA` | 长周期信号线 — 乖离率的 M 日均线，捕捉中期趋势方向 |
+
+**核心信号：** X > S_SMA 且 X_LMA 上升 = 多头确认（通达信红色）；S_SMA > X 或 X_LMA 下降 = 空头预警（通达信绿色）。多空判断非对称设计——多头需两个条件同时满足，空头只需其一，偏向保守预警。详见 [30日乖离率信号指标详解](docs/indicator-bias-signal.md)。
+
+```python
+# Python API 用法
+from easy_tdx import MacClient, Market
+
+with MacClient.from_best_host() as c:
+    df = c.get_stock_kline_with_indicators(
+        Market.SH, "600519",
+        indicators=["BIAS_SIGNAL"],
+        count=60,
+    )
+    # df 包含: datetime, open, close, high, low, vol, amount
+    #         + BS_X, BS_SMA, BS_LMA
+```
+
+支持 32 个指标：MACD, KDJ, RSI, BOLL, DMI, ATR, WR, CCI, BIAS, BIAS_SIGNAL, OBV, VR, EMV, MFI, BRAR, ASI, TRIX, DPO, MTM, ROC, EXPMA, BBI, PSY, DFMA, CR, KTN, XSII, MASS, TAQ, ZHUOYAO。
+
 ```python
 # Python API 用法
 from easy_tdx import MacClient, Market
@@ -152,7 +193,7 @@ with MacClient.from_best_host() as c:
     #         + ZY_LONG, ZY_MID, ZY_SHORT, ZY_TREND
 ```
 
-支持 30 个指标：MACD, KDJ, RSI, BOLL, DMI, ATR, WR, CCI, BIAS, OBV, VR, EMV, MFI, BRAR, ASI, TRIX, DPO, MTM, ROC, EXPMA, BBI, PSY, DFMA, CR, KTN, XSII, MASS, TAQ, ZHUOYAO。
+支持 32 个指标：MACD, KDJ, RSI, BOLL, DMI, ATR, WR, CCI, BIAS, BIAS_SIGNAL, OBV, VR, EMV, MFI, BRAR, ASI, TRIX, DPO, MTM, ROC, EXPMA, BBI, PSY, DFMA, CR, KTN, XSII, MASS, TAQ, ZHUOYAO。
 
 ### 财务
 
@@ -194,7 +235,7 @@ easy-tdx ex tick HK_MAIN_BOARD 00700 --table               # 港股分时
 | `market-stat` | 全市场涨跌统计 |
 | `server-info` | 服务器交易时段 |
 | `symbol-info` | 个股特征快照 |
-| `indicator` | 技术指标计算（31 个：MACD/KDJ/RSI/BOLL/DMI/ATR...） |
+| `indicator` | 技术指标计算（32 个：MACD/KDJ/RSI/BOLL/DMI/ATR...） |
 | `indicator-list` | 列出可用技术指标 |
 | `f10` | F10 公司信息 |
 | `fund-flow` | 历史资金流向 |
@@ -327,6 +368,7 @@ with MacClient.from_best_host() as c:
 | MASS | high, low | MASS, MASS_MA |
 | TAQ | high, low | TAQ_UP, TAQ_MID, TAQ_DOWN |
 | ZHUOYAO | close | ZY_LONG, ZY_MID, ZY_SHORT, ZY_TREND |
+| BIAS_SIGNAL | close | BS_X, BS_SMA, BS_LMA |
 
 #### 分时
 
@@ -630,7 +672,7 @@ src/easy_tdx/
 ├── client.py          # TdxClient / AsyncTdxClient（标准协议）
 ├── unified.py         # UnifiedTdxClient（统一入口）
 ├── config.py          # 服务器地址、端口、超时配置
-├── indicator.py       # 技术指标计算（31 个，基于 MyTT）
+├── indicator.py       # 技术指标计算（32 个，基于 MyTT）
 ├── MyTT.py            # 麦语言技术指标算法库
 ├── mac/
 │   ├── client.py      # MacClient / AsyncMacClient（MAC 协议）
@@ -673,6 +715,19 @@ ruff format --check src/ tests/                              # format check
 详见 [NOTICE](NOTICE) 和 [LICENSE](LICENSE)。
 
 ## Changelog
+
+### 1.4.3 (2026-05-28)
+
+**30日乖离率信号指标** — 新增 BIAS_SIGNAL 指标，在标准乖离率基础上叠加短/长信号线，通过三者位置关系判断趋势方向和转折点。源自通达信经典指标。
+
+- 新增 `BIAS_SIGNAL` 指标：输出 BS_X/BS_SMA/BS_LMA 三条线
+- CLI: `easy-tdx indicator BIAS_SIGNAL -m SH -c 600519 --table`
+- Python API: `indicators=["BIAS_SIGNAL"]`
+- 详见 [30日乖离率信号指标详解](docs/indicator-bias-signal.md)
+
+### 1.4.2 (2026-05-28)
+
+修复 1.4.1 发布遗漏：MyTT.py 中 ZHUOYAO 函数定义未包含在 1.4.1 的 PyPI 包中。
 
 ### 1.4.1 (2026-05-28)
 
