@@ -458,6 +458,75 @@ class MyStrategy(Strategy):
 
 完整 API 参考：[docs/backtest_usage.md](docs/backtest_usage.md)
 
+### 策略选股扫描（screen）
+
+把策略翻转成选股器：给定一个策略，扫描全市场找出今天触发买入信号的股票，再对这些信号做历史回测排名。**纯离线数据**，读取本地通达信 `.day` 文件，全市场约 30-60 秒。
+
+两步走工作流：
+
+**第一步：信号扫描（scan）**
+
+```bash
+# 扫描沪深全 A，找出 RSI 超卖触发的股票
+easy-tdx screen scan --strategy strategies/rsi_reversal.py --output signals.json
+
+# 缩小范围
+easy-tdx screen scan --strategy strategies/macd_cross.py --universe sz --output signals.json
+
+# 从自定义股票列表扫描
+easy-tdx screen scan --strategy strategies/bollinger_breakout.py --universe my_stocks.txt --output signals.json
+```
+
+输出示例（JSON）：
+
+```json
+{
+  "scan_time": "2026-06-10T18:30:00",
+  "strategy": "RSIStrategy",
+  "total_scanned": 4832,
+  "total_signals": 37,
+  "signals": [
+    {"code": "000001", "market": "SZ", "signal_date": 20260610, "last_close": 12.35},
+    {"code": "600519", "market": "SH", "signal_date": 20260610, "last_close": 1800.0}
+  ]
+}
+```
+
+**第二步：回测排名（rank）**
+
+```bash
+# 按夏普比率排名（默认）
+easy-tdx screen rank --from signals.json --sort sharpe --top 20 --table
+
+# 按最大回撤排名（越小越好，用 --sort-reverse）
+easy-tdx screen rank --from signals.json --sort max_drawdown --sort-reverse --table
+
+# 管道模式：一步到位
+easy-tdx screen scan --strategy strategies/rsi_reversal.py | easy-tdx screen rank --from - --table
+
+# 补齐股票名称（需要网络）
+easy-tdx screen rank --from signals.json --sort sharpe --top 10 --table --names
+```
+
+输出示例（`--table`）：
+
+```
+[*] 信号排名 (按 sharpe 降序, 共 37 只)
+══════════════════════════════════════════════════════════════════════════
+排名  代码       名称      总收益率  年化收益  最大回撤  夏普   胜率   交易
+ *1   SZ300308  中际旭创   45.23%   18.72%   12.35%   1.85  62.5%    16
+ *2   SH600519  贵州茅台   38.10%   15.90%    8.21%   1.62  58.3%    12
+```
+
+| 参数 | 说明 |
+|------|------|
+| `--universe` | `all`（默认，沪深全 A）/ `sh` / `sz` / 文件路径（每行 "市场 代码"） |
+| `--vipdoc` | 离线数据目录（默认自动检测通达信安装路径） |
+| `--sort` | 排序指标：`sharpe`（默认）/ `total_return` / `max_drawdown` / `win_rate` 等 |
+| `--sort-reverse` | 升序（用于回撤等越小越好的指标） |
+| `--names` | 在线补齐股票名称（默认关闭，只查排名中的几十只） |
+| `--count` | rank 使用最近 N 条 K 线（0=全部，默认 0） |
+
 ### 捉妖大师（重点）
 
 捉妖大师是多周期涨幅共振指标，通过 20/60/120 日涨幅及指数平滑判断短中长线趋势是否同向，用于筛选趋势刚启动的强势股。
@@ -610,6 +679,8 @@ easy-tdx offline sync-all
 | `indicator` | 技术指标计算（32 个：MACD/KDJ/RSI/BOLL/DMI/ATR...） |
 | `indicator-list` | 列出可用技术指标 |
 | `backtest` | 回测引擎（加载策略文件，输出绩效报告） |
+| `screen scan` | 策略选股扫描（纯离线，全市场信号扫描） |
+| `screen rank` | 扫描结果回测排名（按夏普/回撤等指标排序） |
 | `f10` | F10 公司信息 |
 | `fund-flow` | 历史资金流向 |
 | `ex kline` | 扩展市场 K 线 |
@@ -1130,6 +1201,7 @@ src/easy_tdx/
 ├── codec/             # price / volume / datetime / frame / bitmap 编解码
 ├── chanlun/           # 缠论技术分析（K线合并/分型/笔/线段/中枢/买卖点/背驰）
 ├── backtest/          # 回测引擎（Strategy基类/向量化引擎/多因子组合/绩效分析）
+├── screen/            # 策略选股扫描（scan信号扫描/rank回测排名）
 ├── models/            # 纯 dataclass，无业务逻辑
 ├── offline/           # 离线数据读写模块（读取 + 写入同步）
 └── cli/               # easy-tdx CLI（click）
@@ -1157,6 +1229,18 @@ ruff format --check src/ tests/                              # format check
 详见 [NOTICE](NOTICE) 和 [LICENSE](LICENSE)。
 
 ## Changelog
+
+### 1.9.2 (2026-06-10)
+
+**策略选股扫描器** — 新增 `screen` 命令组，用策略扫描全市场找出触发买入信号的股票，再做历史回测排名。纯离线数据，零网络 IO。
+
+- 新增 `screen scan` CLI 命令：纯离线扫描本地 `.day` 文件，提取策略信号，输出 JSON
+- 新增 `screen rank` CLI 命令：读取扫描结果，批量回测并按夏普/回撤等指标排名
+- 新增 `src/easy_tdx/screen/` 模块：`SignalScanner`（扫描引擎）、`SignalRanker`（排名引擎）
+- 两步走工作流：scan 几秒扫完全市场 → rank 对信号股做历史评估
+- 支持 `--universe` 指定范围（all/sh/sz/自定义文件）、`--sort` 排序、`--names` 在线补名称
+- 支持管道模式：`easy-tdx screen scan ... | easy-tdx screen rank --from - --table`
+- 新增 20 个单元测试（离线，无需网络）
 
 ### 1.9.0 (2026-06-10)
 

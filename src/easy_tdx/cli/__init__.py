@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import click
 
+from ..backtest.cli import backtest
+from ..screen.cli import screen
 from .cmd_admin import ping, version
 from .cmd_auction import auction
 from .cmd_board import belong_board, board_list, board_members, board_ranking, board_summary
@@ -19,11 +21,13 @@ from .cmd_offline import offline
 from .cmd_quote import quote, quote_list
 from .cmd_tick import tick
 from .cmd_transaction import transaction
-from ..backtest.cli import backtest
 
 
 @click.group()
-@click.version_option(version=__import__("importlib.metadata", fromlist=["version"]).version("easy-tdx"), prog_name="easy-tdx")
+@click.version_option(
+    version=__import__("importlib.metadata", fromlist=["version"]).version("easy-tdx"),
+    prog_name="easy-tdx",
+)
 def cli() -> None:
     """easy-tdx -- 通达信行情数据 CLI（默认 JSON 输出，适合 Agent 使用）。
 
@@ -68,3 +72,4 @@ cli.add_command(indicator_list)
 cli.add_command(offline)
 cli.add_command(chanlun)
 cli.add_command(backtest)
+cli.add_command(screen)
