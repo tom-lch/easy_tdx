@@ -13,6 +13,7 @@ import json
 import sys
 import time
 from pathlib import Path
+from typing import Any
 
 # 确保 easy_tdx 可导入
 sys.path.insert(0, str(Path(__file__).parent / "src"))
@@ -75,6 +76,7 @@ def run_all(
 
     # 3. 逐个运行策略
     results: list[dict] = []
+    backtest_results: dict[str, Any] = {}  # strategy_name -> BacktestResult
 
     for sf in strategy_files:
         strategy_name = sf.stem
@@ -132,6 +134,7 @@ def run_all(
                 "profit_factor": perf.get("profit_factor", 0),
                 "volatility": perf.get("volatility", 0),
             })
+            backtest_results[strategy_name] = result
         except Exception as e:
             elapsed = time.perf_counter() - t0
             click.echo(f" 错误 ({elapsed:.1f}s): {e}")
@@ -219,6 +222,45 @@ def run_all(
             f"{medal}{i:>2}  {r['strategy']:<22} {score:>10.2f} "
             f"{r['sharpe']:>8.2f} {ret_dd_ratio:>10.2f} {r['win_rate']:>7.1%}"
         )
+
+    # 最佳策略完整交易明细
+    best_name = valid[0]["strategy"]
+    if best_name in backtest_results:
+        bt = backtest_results[best_name]
+        bp = bt.performance
+        bc = bt.config
+
+        click.echo("\n" + "=" * 80)
+        click.echo(f"[DETAIL] 最佳策略交易明细: {best_name}")
+        click.echo("=" * 80)
+
+        click.echo("=== 回测绩效概要 ===")
+        click.echo(f"总收益率: {bp.get('total_return', 0):.2%}")
+        click.echo(f"年化收益: {bp.get('annual_return', 0):.2%}")
+        click.echo(f"最大回撤: {bp.get('max_drawdown', 0):.2%}")
+        click.echo(f"夏普比率: {bp.get('sharpe', 0):.2f}")
+        click.echo(f"胜率: {bp.get('win_rate', 0):.2%}")
+        click.echo(f"交易次数: {bp.get('total_trades', 0)}")
+        click.echo()
+        click.echo("=== 配置参数 ===")
+        click.echo(f"初始资金: {bc.get('cash', 0):.2f}")
+        click.echo(f"佣金率: {bc.get('commission', 0):.4f}")
+        click.echo(f"成交规则: {bc.get('execution', 'next_open')}")
+        click.echo()
+
+        if not bt.trades.empty:
+            click.echo("=== 最近交易记录 ===")
+            recent_trades = bt.trades.tail(10)
+            for _, trade in recent_trades.iterrows():
+                direction = "买入" if trade["direction"] == "BUY" else "卖出"
+                status = "拒绝" if trade["rejected"] else "成交"
+                click.echo(
+                    f"  [{trade['datetime']}] {direction} "
+                    f"数量={trade['size']:.0f} 价格={trade['price']:.2f} "
+                    f"盈亏={trade['pnl']:.2f} [{status}]"
+                )
+        else:
+            click.echo("无交易记录")
 
     # 报告错误
     if errored:

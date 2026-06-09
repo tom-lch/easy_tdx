@@ -1081,6 +1081,14 @@ ruff format --check src/ tests/                              # format check
 
 ## Changelog
 
+### 1.8.1 (2026-06-09)
+
+**回测增强** — 批量策略对比脚本新增最佳策略完整交易明细输出；版本号统一为单一来源（`pyproject.toml`）。
+
+- `run_all_strategies.py` 排名结束后自动输出最佳策略的绩效概要 + 最近 10 笔交易记录
+- 修复 `turtle_breakout` 策略 `TAQ()` 返回 3 值但只解包 2 个的 bug
+- 版本号统一：`pyproject.toml` 为唯一来源，`__init__.py` / `cli/__init__.py` / `docs/conf.py` 均动态读取
+
 ### 1.8.0 (2026-06-09)
 
 **回测引擎** — 内置向量回测引擎，支持自定义策略回测和全策略批量对比。

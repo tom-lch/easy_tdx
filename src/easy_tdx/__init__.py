@@ -107,4 +107,11 @@ __all__ = [
     "save_best_ex_host",
 ]
 
-__version__ = "1.8.0"
+
+def _get_version() -> str:
+    from importlib.metadata import version
+
+    return version("easy-tdx")
+
+
+__version__ = _get_version()

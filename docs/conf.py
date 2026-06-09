@@ -3,8 +3,16 @@ project = "easy-tdx"
 copyright = "2025, Justin Gu"
 author = "Justin Gu"
 
+
 # The full version, including alpha/beta/rc tags
-release = "1.8.0"
+# Read from package metadata to keep single source of truth (pyproject.toml)
+def _get_version() -> str:
+    from importlib.metadata import version
+
+    return version("easy-tdx")
+
+
+release = _get_version()
 
 # -- Extensions ---------------------------------------------------------------
 extensions = [
