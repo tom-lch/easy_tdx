@@ -1,6 +1,6 @@
 """乖离率反转策略。
 
-乖离率低于阈值（超跌）买入，乖离率高于阈值（超涨）卖出。
+6 日乖离率低于 -3%（超跌）买入，高于 3%（超涨）卖出。
 适合震荡市。
 
 用法::
@@ -16,10 +16,11 @@ class BIAStrategy(Strategy):
     """乖离率反转策略。"""
 
     def init(self) -> None:
-        self.bias = self.I(MyTT.BIAS, self.data.close, 6)
+        # BIAS 返回 3 个数组: BIAS6, BIAS12, BIAS24，只取 6 日
+        self.bias6, _, _ = self.I(MyTT.BIAS, self.data.close, 6)
 
     def next(self) -> None:
-        val = self.bias[self._bar_index]
+        val = float(self.bias6[self._bar_index])
 
         if val < -3 and self.position["size"] == 0:
             self.buy(size=0)
