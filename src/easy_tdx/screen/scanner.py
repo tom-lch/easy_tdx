@@ -536,16 +536,16 @@ def _get_strategy_file(strategy_cls: type) -> str:
     for attr_name in ("init", "next", "on_bar", "on_tick"):
         method = strategy_cls.__dict__.get(attr_name)
         if method is not None and hasattr(method, "__code__"):
-            filepath = method.__code__.co_filename
+            filepath: str = method.__code__.co_filename  # type: ignore[assignment]
             if filepath and not filepath.startswith("<"):
                 return filepath
 
     # 3. 任意自定义方法
     for attr_val in strategy_cls.__dict__.values():
         if callable(attr_val) and hasattr(attr_val, "__code__"):
-            filepath = attr_val.__code__.co_filename
-            if filepath and not filepath.startswith("<"):
-                return filepath
+            filepath2: str = attr_val.__code__.co_filename  # type: ignore[assignment]
+            if filepath2 and not filepath2.startswith("<"):
+                return filepath2
 
     raise ValueError(
         f"策略类 {strategy_cls.__name__} 无法定位源文件路径，"
