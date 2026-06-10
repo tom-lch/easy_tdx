@@ -1308,6 +1308,15 @@ ruff format --check src/ tests/                              # format check
 
 ## Changelog
 
+### 1.9.9 (2026-06-11)
+
+**Bug 修复** — 修复并发扫描（`--workers`）在动态加载策略时静默返回空结果的问题。
+
+- **根因**：`ProcessPoolExecutor` 将动态 `importlib` 加载的策略类 pickle 序列化后发送到子进程，子进程无法反序列化（模块未注册到 `sys.modules`），异常被 `except` 静默吞掉
+- **修复**：`_scan_parallel` 改为传递策略文件路径（字符串），子进程内通过 `_load_strategy_class` 自行加载策略类
+- 新增 `_get_strategy_file` 辅助函数：从类方法 `co_filename` 反查策略文件路径
+- 新增回归测试 `TestParallelPickleFix`
+
 ### 1.9.8 (2026-06-11)
 
 **CI 修复** — 修复 CI 流水线 ruff 和 pytest 配置问题。

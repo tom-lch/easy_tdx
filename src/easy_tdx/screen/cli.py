@@ -77,8 +77,8 @@ def scan(
     if workers > 0:
         click.echo(f"并发: {workers} 进程", err=True)
     if workers > 0 and cache_file:
-        click.echo("注意: 并发模式暂不支持增量缓存，--cache 参数将被忽略", err=True)
-    if cache_file:
+        click.echo("注意: 并发模式暂不支持增量缓存，--cache 仅串行模式生效", err=True)
+    if cache_file and workers <= 0:
         click.echo(f"缓存: {cache_file}", err=True)
 
     from .scanner import SignalScanner

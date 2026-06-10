@@ -201,9 +201,13 @@ class SignalScanner:
         """并发扫描（ProcessPoolExecutor）。"""
         import concurrent.futures
 
-        # 构建参数：每个任务需要的独立数据
+        # 策略类不可跨进程 pickle（动态 importlib 加载的类子进程无法解析），
+        # 改为传递策略文件路径，子进程自行加载
+        strategy_file = _get_strategy_file(self._strategy_cls)
+
+        # 构建参数：每个任务需要的独立数据（全部为可 pickle 的基础类型）
         tasks = [
-            (str(filepath), market, code, self._strategy_cls, self._cash, self._commission)
+            (str(filepath), market, code, strategy_file, self._cash, self._commission)
             for filepath, market, code in files
         ]
 
@@ -452,26 +456,29 @@ def _scan_one_file(
     filepath: str,
     market: str,
     code: str,
-    strategy_cls: type[Strategy],
+    strategy_file: str,
     cash: float,
     commission: float,
 ) -> ScanResult | None:
     """顶层扫描函数（供 ProcessPoolExecutor 调用）。
 
-    将实例方法逻辑提取为独立函数，避免 pickle 实例方法的问题。
+    在子进程内动态加载策略类，避免跨进程 pickle 序列化失败。
     逻辑与 SignalScanner._scan_one 完全一致。
 
     Args:
         filepath: .day 文件路径字符串
         market: 市场代码（SZ/SH）
         code: 6 位股票代码
-        strategy_cls: Strategy 子类
+        strategy_file: 策略文件路径（子进程内动态加载）
         cash: 初始资金
         commission: 佣金率
 
     Returns:
         ScanResult 如果触发信号，否则 None
     """
+    # 子进程内加载策略类（每次调用都重新加载，开销可忽略）
+    strategy_cls = _load_strategy_class(strategy_file)
+
     bars = read_daily_bars(filepath)
     if len(bars) < 30:
         return None
@@ -503,3 +510,76 @@ def _scan_one_file(
         signal_date=signal_date,
         last_close=last_close,
     )
+
+
+def _get_strategy_file(strategy_cls: type) -> str:
+    """获取策略类所在的文件路径。
+
+    按优先级尝试：sys.modules → 类方法 co_filename → inspect.getfile。
+    适用于标准 import 和 importlib 动态加载的模块。
+
+    Args:
+        strategy_cls: Strategy 子类
+
+    Returns:
+        策略文件路径字符串
+    """
+    import sys
+
+    # 1. 从 sys.modules 查找（适用于标准 import 加载的模块）
+    mod = sys.modules.get(strategy_cls.__module__)
+    if mod is not None and hasattr(mod, "__file__") and mod.__file__:
+        return mod.__file__
+
+    # 2. 从类自身定义的方法的 code object 反查文件路径
+    #    （适用于 importlib 动态加载的模块，__module__ 是临时名但方法保留了源文件信息）
+    for attr_name in ("init", "next", "on_bar", "on_tick"):
+        method = strategy_cls.__dict__.get(attr_name)
+        if method is not None and hasattr(method, "__code__"):
+            filepath = method.__code__.co_filename
+            if filepath and not filepath.startswith("<"):
+                return filepath
+
+    # 3. 任意自定义方法
+    for attr_val in strategy_cls.__dict__.values():
+        if callable(attr_val) and hasattr(attr_val, "__code__"):
+            filepath = attr_val.__code__.co_filename
+            if filepath and not filepath.startswith("<"):
+                return filepath
+
+    raise ValueError(
+        f"策略类 {strategy_cls.__name__} 无法定位源文件路径，"
+        "并发模式（--workers）仅支持从 .py 文件加载的策略"
+    )
+
+
+def _load_strategy_class(strategy_file: str) -> type[Strategy]:
+    """在子进程内动态加载策略类。
+
+    与 CLI 的 _load_strategy 逻辑一致，提取为顶层函数以便子进程调用。
+
+    Args:
+        strategy_file: 策略文件路径
+
+    Returns:
+        Strategy 子类
+    """
+    import importlib.util
+
+    file_path = Path(strategy_file)
+    spec = importlib.util.spec_from_file_location("strategy_module", file_path)
+    if spec is None or spec.loader is None:
+        return None  # type: ignore[return-value]
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    for attr_name in dir(module):
+        obj = getattr(module, attr_name)
+        try:
+            if isinstance(obj, type) and issubclass(obj, Strategy) and obj is not Strategy:
+                return obj
+        except TypeError:
+            pass
+
+    return None  # type: ignore[return-value]

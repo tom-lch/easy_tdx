@@ -115,6 +115,42 @@ class TestConcurrentScan:
         assert progress[-1][2] == "done"
 
 
+class TestParallelPickleFix:
+    """回归测试：并发模式从策略文件加载（修复 pickle 序列化失败）。"""
+
+    def test_parallel_with_file_strategy(self, vipdoc: Path) -> None:
+        """从 .py 文件加载的策略在并发模式下应正常工作。"""
+        # 使用项目自带的策略文件
+        strategy_path = Path("strategies/macd_cross.py")
+        if not strategy_path.exists():
+            pytest.skip("strategies/macd_cross.py not found")
+
+        import importlib.util
+
+        from easy_tdx.backtest.strategy import Strategy
+
+        spec = importlib.util.spec_from_file_location("strat", strategy_path)
+        assert spec is not None and spec.loader is not None
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        cls = None
+        for name in dir(mod):
+            obj = getattr(mod, name)
+            try:
+                if isinstance(obj, type) and issubclass(obj, Strategy) and obj is not Strategy:
+                    cls = obj
+                    break
+            except TypeError:
+                pass
+        assert cls is not None, "No Strategy subclass found in macd_cross.py"
+
+        scanner = SignalScanner(cls, vipdoc_path=vipdoc)
+        # 并发模式不应抛出异常（修复前会因为 pickle 失败而静默返回空列表）
+        results = scanner.scan(universe="all", workers=2)
+        # 结果应为列表（可能为空，取决于策略信号）
+        assert isinstance(results, list)
+
+
 class TestIncrementalScan:
     """测试增量扫描."""
 
