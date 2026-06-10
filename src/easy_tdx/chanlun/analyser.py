@@ -156,6 +156,7 @@ class ChanlunAnalyser:
             code=code,
             frequency=frequency,
         )
+        self._prev_df: pd.DataFrame | None = None
 
     @property
     def config(self) -> ChanlunConfig:
@@ -174,6 +175,7 @@ class ChanlunAnalyser:
         Returns:
             ChanlunResult 包含所有缠论计算结果
         """
+        self._prev_df = df.copy()
         # Step 1: DataFrame → Kline 列表
         klines = _df_to_klines(df)
         self._result.klines = klines
@@ -216,6 +218,39 @@ class ChanlunAnalyser:
         self._result.bcs = bcs
 
         return self._result
+
+    def append_klines(self, df_new: pd.DataFrame) -> ChanlunResult:
+        """增量追加 K 线数据并重新计算。
+
+        将新数据追加到之前处理过的 DataFrame 后面，
+        然后在完整数据上重新执行缠论计算管道。
+
+        相比手动拼接 + process_klines 的优势：
+        - API 更简洁，无需用户管理 DataFrame 拼接
+        - 未来可优化为只重新计算受影响的部分
+
+        Args:
+            df_new: 新增的 K 线 DataFrame
+
+        Returns:
+            更新后的 ChanlunResult
+
+        Raises:
+            RuntimeError: 如果之前没有调用过 process_klines
+        """
+        if self._prev_df is None:
+            msg = "请先调用 process_klines() 初始化，再使用 append_klines()"
+            raise RuntimeError(msg)
+
+        # 拼接旧数据 + 新数据
+        combined = pd.concat([self._prev_df, df_new], ignore_index=True)
+
+        # 去重（防止重复追加）
+        if "datetime" in combined.columns:
+            combined = combined.drop_duplicates(subset=["datetime"], keep="last")
+            combined = combined.reset_index(drop=True)
+
+        return self.process_klines(combined)
 
     def get_bis(self) -> list[BI]:
         return self._result.bis

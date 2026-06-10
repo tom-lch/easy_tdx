@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 
 import pandas as pd
+import pytest
 
 from easy_tdx.chanlun.bi import find_bis
 from easy_tdx.chanlun.fractal import find_fractals
@@ -146,6 +147,36 @@ class TestIncrementalUpdate:
 
         assert count2 == 100
         assert count2 > count1
+
+    def test_append_klines(self) -> None:
+        """append_klines 应追加数据并重新计算。"""
+        from easy_tdx.chanlun.analyser import ChanlunAnalyser
+
+        df1 = _make_df(30)
+        analyser = ChanlunAnalyser(code="SZ000001")
+        analyser.process_klines(df1)
+        count1 = len(analyser.result.klines)
+
+        df_new = _make_df(20)
+        # 使用不重复的日期
+        df_new["datetime"] = pd.date_range("2025-06-01", periods=20, freq="B")
+
+        analyser.append_klines(df_new)
+        count2 = len(analyser.result.klines)
+
+        # 追加后总数据量应增加
+        assert count2 >= count1
+        assert count2 == count1 + 20
+
+    def test_append_without_init_raises(self) -> None:
+        """未初始化时调用 append_klines 应抛异常。"""
+        from easy_tdx.chanlun.analyser import ChanlunAnalyser
+
+        analyser = ChanlunAnalyser(code="SZ000001")
+        df_new = _make_df(10)
+
+        with pytest.raises(RuntimeError, match="请先调用 process_klines"):
+            analyser.append_klines(df_new)
 
 
 # ── 走势段测试 ──────────────────────────────────────────────────────────
