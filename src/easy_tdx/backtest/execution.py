@@ -185,3 +185,339 @@ class ImmediateExecution(ExecutionModel):
             ]
 
         return []
+
+
+class TWAPExecution(ExecutionModel):
+    """时间加权平均价格执行。
+
+    将订单均匀拆分为 n_bars 份，在连续 n_bars 根 K 线上执行。
+    """
+
+    def __init__(self, n_bars: int = 5) -> None:
+        self._n_bars = max(1, n_bars)
+
+    def execute(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        cash: float,
+        position: float,
+        position_mode: str,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        if signal.direction == "BUY":
+            return self._execute_buy(
+                signal,
+                df,
+                bar_idx,
+                cash,
+                position_mode,
+                commission,
+                min_commission,
+                stamp_tax,
+                slippage_model,
+            )
+        return self._execute_sell(
+            signal,
+            df,
+            bar_idx,
+            position,
+            commission,
+            min_commission,
+            stamp_tax,
+            slippage_model,
+        )
+
+    def _execute_buy(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        cash: float,
+        position_mode: str,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        first_price = float(df["open"].iloc[bar_idx + 1]) if bar_idx + 1 < len(df) else 0
+        if first_price <= 0:
+            return []
+        total_size = self._calc_buy_size(
+            signal.size,
+            first_price,
+            cash,
+            position_mode,
+            commission,
+        )
+        if total_size <= 0:
+            return []
+
+        sub_size = int(total_size / self._n_bars / 100) * 100
+        if sub_size <= 0:
+            sub_size = 100
+
+        trades: list[Trade] = []
+        for i in range(self._n_bars):
+            exec_idx = bar_idx + 1 + i
+            if exec_idx >= len(df):
+                break
+            price = float(df["close"].iloc[exec_idx])
+            remaining = total_size - sum(t.size for t in trades)
+            actual_size = min(sub_size, remaining)
+            actual_size = int(actual_size / 100) * 100
+            if actual_size <= 0:
+                break
+            comm = self._calc_commission(
+                actual_size,
+                price,
+                False,
+                commission,
+                min_commission,
+                stamp_tax,
+            )
+            slip = self._calc_slippage(actual_size, price, False, slippage_model, df)
+            trades.append(
+                Trade(
+                    datetime=self._get_datetime_int(df, exec_idx),
+                    direction="BUY",
+                    size=float(actual_size),
+                    price=price,
+                    commission=comm,
+                    slippage=slip,
+                )
+            )
+        return trades
+
+    def _execute_sell(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        position: float,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        total_size = signal.size if signal.size > 0 else position
+        if total_size <= 0:
+            return []
+
+        sub_size = int(total_size / self._n_bars / 100) * 100
+        if sub_size <= 0:
+            sub_size = 100
+
+        trades: list[Trade] = []
+        for i in range(self._n_bars):
+            exec_idx = bar_idx + 1 + i
+            if exec_idx >= len(df):
+                break
+            price = float(df["close"].iloc[exec_idx])
+            remaining = total_size - sum(t.size for t in trades)
+            actual_size = min(sub_size, remaining)
+            actual_size = int(actual_size / 100) * 100
+            if actual_size <= 0:
+                break
+            comm = self._calc_commission(
+                actual_size,
+                price,
+                True,
+                commission,
+                min_commission,
+                stamp_tax,
+            )
+            slip = self._calc_slippage(actual_size, price, True, slippage_model, df)
+            trades.append(
+                Trade(
+                    datetime=self._get_datetime_int(df, exec_idx),
+                    direction="SELL",
+                    size=float(actual_size),
+                    price=price,
+                    commission=comm,
+                    slippage=slip,
+                )
+            )
+        return trades
+
+
+class VWAPExecution(ExecutionModel):
+    """成交量加权平均价格执行。
+
+    按历史成交量分布比例拆分订单。
+    """
+
+    def __init__(self, n_bars: int = 5, volume_lookback: int = 20) -> None:
+        self._n_bars = max(1, n_bars)
+        self._volume_lookback = max(1, volume_lookback)
+
+    def execute(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        cash: float,
+        position: float,
+        position_mode: str,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        if signal.direction == "BUY":
+            return self._execute_buy(
+                signal,
+                df,
+                bar_idx,
+                cash,
+                position_mode,
+                commission,
+                min_commission,
+                stamp_tax,
+                slippage_model,
+            )
+        return self._execute_sell(
+            signal,
+            df,
+            bar_idx,
+            position,
+            commission,
+            min_commission,
+            stamp_tax,
+            slippage_model,
+        )
+
+    def _get_volume_weights(self, df: pd.DataFrame, bar_idx: int) -> list[float]:
+        """获取成交量权重分布。"""
+        start = max(0, bar_idx - self._volume_lookback + 1)
+        lookback = df.iloc[start : bar_idx + 1]
+        if "volume" not in lookback.columns or len(lookback) == 0:
+            return [1.0 / self._n_bars] * self._n_bars
+
+        volumes = lookback["volume"].to_numpy()
+        total_vol = float(volumes.sum())
+        if total_vol <= 0:
+            return [1.0 / self._n_bars] * self._n_bars
+
+        weights: list[float] = []
+        for i in range(self._n_bars):
+            idx = max(0, len(volumes) - 1 - (i % max(1, len(volumes))))
+            weights.append(float(volumes[idx]) / total_vol)
+        total_w = sum(weights)
+        if total_w <= 0:
+            return [1.0 / self._n_bars] * self._n_bars
+        return [w / total_w for w in weights]
+
+    def _execute_buy(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        cash: float,
+        position_mode: str,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        first_price = float(df["open"].iloc[bar_idx + 1]) if bar_idx + 1 < len(df) else 0
+        if first_price <= 0:
+            return []
+        total_size = self._calc_buy_size(
+            signal.size,
+            first_price,
+            cash,
+            position_mode,
+            commission,
+        )
+        if total_size <= 0:
+            return []
+
+        weights = self._get_volume_weights(df, bar_idx)
+        trades: list[Trade] = []
+        for i in range(self._n_bars):
+            exec_idx = bar_idx + 1 + i
+            if exec_idx >= len(df):
+                break
+            price = float(df["close"].iloc[exec_idx])
+            w = weights[i] if i < len(weights) else 1.0 / self._n_bars
+            target = int(total_size * w / 100) * 100
+            remaining = total_size - sum(t.size for t in trades)
+            actual_size = min(target, remaining)
+            actual_size = int(actual_size / 100) * 100
+            if actual_size <= 0:
+                continue
+            comm = self._calc_commission(
+                actual_size,
+                price,
+                False,
+                commission,
+                min_commission,
+                stamp_tax,
+            )
+            slip = self._calc_slippage(actual_size, price, False, slippage_model, df)
+            trades.append(
+                Trade(
+                    datetime=self._get_datetime_int(df, exec_idx),
+                    direction="BUY",
+                    size=float(actual_size),
+                    price=price,
+                    commission=comm,
+                    slippage=slip,
+                )
+            )
+        return trades
+
+    def _execute_sell(
+        self,
+        signal: Signal,
+        df: pd.DataFrame,
+        bar_idx: int,
+        position: float,
+        commission: float,
+        min_commission: float,
+        stamp_tax: float,
+        slippage_model: SlippageModel | None,
+    ) -> list[Trade]:
+        total_size = signal.size if signal.size > 0 else position
+        if total_size <= 0:
+            return []
+
+        weights = self._get_volume_weights(df, bar_idx)
+        trades: list[Trade] = []
+        for i in range(self._n_bars):
+            exec_idx = bar_idx + 1 + i
+            if exec_idx >= len(df):
+                break
+            price = float(df["close"].iloc[exec_idx])
+            w = weights[i] if i < len(weights) else 1.0 / self._n_bars
+            target = int(total_size * w / 100) * 100
+            remaining = total_size - sum(t.size for t in trades)
+            actual_size = min(target, remaining)
+            actual_size = int(actual_size / 100) * 100
+            if actual_size <= 0:
+                continue
+            comm = self._calc_commission(
+                actual_size,
+                price,
+                True,
+                commission,
+                min_commission,
+                stamp_tax,
+            )
+            slip = self._calc_slippage(actual_size, price, True, slippage_model, df)
+            trades.append(
+                Trade(
+                    datetime=self._get_datetime_int(df, exec_idx),
+                    direction="SELL",
+                    size=float(actual_size),
+                    price=price,
+                    commission=comm,
+                    slippage=slip,
+                )
+            )
+        return trades
