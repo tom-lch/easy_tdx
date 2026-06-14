@@ -132,6 +132,16 @@ easy-tdx server-info --table
 easy-tdx symbol-info SZ 000001 --table
 ```
 
+### 公告检索（巨潮资讯网）
+
+```bash
+easy-tdx announcement 688017                          # 默认 30 条，JSON 输出
+easy-tdx announcement 600519 --count 50 --page 2      # 翻页
+easy-tdx announcement 000001 --table                  # 表格输出
+```
+
+> 独立数据源（巨潮资讯网），无需连接 TDX 行情服务器即可使用。
+
 ### 技术指标
 
 ```bash
@@ -855,6 +865,9 @@ curl "http://localhost:8000/api/v1/mac/symbol-info?market=SZ&code=000001"
 # 服务器交易时段信息
 curl "http://localhost:8000/api/v1/mac/server-info"
 
+# ── 公告检索（巨潮资讯网，独立数据源）──
+curl "http://localhost:8000/api/v1/announcements?code=688017&count=30&page=1"
+
 # ── 排行 / 竞价 / 异动 ──
 # 全 A 涨幅排行前 20
 curl "http://localhost:8000/api/v1/mac/quote-list?category=A&count=20&sort_type=CHANGE_PCT"
@@ -1514,6 +1527,16 @@ ruff format --check src/ tests/                              # format check
 详见 [NOTICE](NOTICE) 和 [LICENSE](LICENSE)。
 
 ## Changelog
+
+### 1.13.0 (2026-06-14)
+
+**新增巨潮公告检索** — 三层接入（编程 API / CLI / Web API），独立数据源，无需连接 TDX 行情服务器。
+
+- 新模块 `easy_tdx.cninfo`：`CninfoClient().get_announcements(code, count=, page=)` 返回 `DataFrame[title, type, date, url]`
+- CLI：`easy-tdx announcement 688017 [--count N --page N --table]`
+- Web：`GET /api/v1/announcements?code=&count=&page=`
+- 标准库 urllib 实现，零新依赖
+- 沿用 #19 修复的 orgId 动态映射 + 三段硬编码 fallback（保证 601xxx 段可查）
 
 ### 1.12.0 (2026-06-14)
 

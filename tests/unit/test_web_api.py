@@ -268,6 +268,7 @@ def test_full_app_routes_registered():
         "/api/v1/xdxr",
         "/api/v1/block",
         "/api/v1/chanlun",
+        "/api/v1/announcements",
         "/ws/realtime",
     ]
     for prefix in expected_prefixes:

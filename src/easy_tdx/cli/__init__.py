@@ -7,6 +7,7 @@ import click
 from ..backtest.cli import backtest, portfolio
 from ..screen.cli import screen
 from .cmd_admin import ping, version
+from .cmd_announcement import announcement
 from .cmd_auction import auction
 from .cmd_board import (
     belong_board,
@@ -59,6 +60,7 @@ def cli() -> None:
 
 cli.add_command(ping)
 cli.add_command(version)
+cli.add_command(announcement)
 cli.add_command(kline)
 cli.add_command(quote)
 cli.add_command(quote_list)
