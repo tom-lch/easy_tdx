@@ -1581,22 +1581,33 @@ ruff format --check src/ tests/                              # format check
 
 ## Changelog
 
+### 1.13.1 (2026-06-15)
+
+**cninfo 公告检索 Bug 修复 + PDF 下载**（实测 `easy-tdx announcement 601088` 暴露的 3 个 Bug + 新增 PDF 下载功能）。
+
+Bug 修复：
+
+- `url` 404：原仅拼 `announcementId` 一个参数，补全 4 参数 `stockCode`/`announcementId`/`orgId`/`announcementTime`（少任一参数 404）
+- `type` 列全 null：cninfo 对很多公告不填 `announcementTypeName`，回退到 `adjunctType`（如 "PDF"）
+- 表格输出 `url` 被截断成 `https://www.cninfo.com.cn/new/`：`output._render_table` 对 object 列硬切 30 字符；新增 `_render_table_full`，`announcement --table` 专用不截断
+
+新增功能 — PDF 下载：
+
+- `CninfoClient.download_pdf(announcement, dest_dir=, filename=)`：接受 `Announcement` 或 DataFrame 一行，自动建目录，默认文件名 `{YYYYMMDD}_{announcement_id}.PDF`
+- CLI：`--download N --download-dir DIR` 批量下载最新 N 条 PDF
+- `Announcement` dataclass 扩展字段：`code`/`org_id`/`announcement_id`/`announcement_time`/`pdf_url`（`pdf_url` 为 `static.cninfo.com.cn` 直链）
+
+测试：`tests/unit/test_cninfo.py` 24 → 35 个用例，新增 URL 4 参数、type 回退、pdf_url 构建、`download_pdf`（成功/无附件/建目录/Series 兼容/网络失败/自定义文件名）共 11 个场景。全部 621 单测通过，mypy strict + ruff 清洁。
+
 ### 1.13.0 (2026-06-14)
 
 **新增巨潮公告检索** — 三层接入（编程 API / CLI / Web API），独立数据源，无需连接 TDX 行情服务器。
 
-- 新模块 `easy_tdx.cninfo`：`CninfoClient().get_announcements(code, count=, page=)` 返回 `DataFrame[title, type, date, url, code, org_id, announcement_id, announcement_time, pdf_url]`
-- CLI：`easy-tdx announcement 688017 [--count N --page N --table] [--download N --download-dir DIR]`
+- 新模块 `easy_tdx.cninfo`：`CninfoClient().get_announcements(code, count=, page=)` 返回 `DataFrame[title, type, date, url]`
+- CLI：`easy-tdx announcement 688017 [--count N --page N --table]`
 - Web：`GET /api/v1/announcements?code=&count=&page=`
-- `CninfoClient().download_pdf(announcement, dest_dir=)` 下载公告 PDF（接受 `Announcement` 或 DataFrame 一行）
 - 标准库 urllib 实现，零新依赖
 - 沿用 #19 修复的 orgId 动态映射 + 三段硬编码 fallback（保证 601xxx 段可查）
-
-**Bug 修复**（实测 601088 暴露）：
-
-- `type` 列全 null：cninfo 对很多公告不填 `announcementTypeName`，回退到 `adjunctType`（如 "PDF"）
-- `url` 404：原仅拼 `announcementId` 一个参数，补全 4 参数 `stockCode`/`announcementId`/`orgId`/`announcementTime`
-- 表格输出 url 被截断成 `https://www.cninfo.com.cn/new/`：`announcement --table` 改用不截断渲染
 
 ### 1.12.0 (2026-06-14)
 
