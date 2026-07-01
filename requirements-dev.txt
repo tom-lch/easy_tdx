@@ -1,7 +1,11 @@
 # 开发工具链锁文件 —— 锁定 dev 依赖的具体版本，保证 CI 构建可复现。
 # 运行时依赖（pandas/tzdata/click 等）由 pyproject.toml 的下界+上界约束，
 # 此文件仅锁定 [dev] 工具链（pytest/mypy/ruff/scipy/coverage 等）。
-# 升级任一工具时请同步更新此文件并重新验证 CI。
+#
+# 版本兼容约束：pyproject.toml 声明 requires-python = ">=3.10"，CI 矩阵跑
+# ["3.10", "3.12", "3.13"]。因此所有锁定版本必须能在 Python 3.10 上安装。
+# 例：scipy>=1.16 要求 Python>=3.11，故本文件锁定 1.15.3（支持 >=3.10 的
+# 最新 scipy）。升级任一工具时请在本地用 Python 3.10 验证后再提交。
 
 # 测试框架
 pytest==8.3.5
@@ -14,7 +18,8 @@ mypy==2.1.0
 ruff==0.11.11
 
 # 科学计算（[dev] 与 [science] 可选依赖）
-scipy==1.17.0
+# scipy 1.16+ 要求 Python>=3.11，CI 还跑 3.10，故锁定 1.15.3（3.10 兼容上限）。
+scipy==1.15.3
 numpy==2.2.3
 
 # Web 可选依赖测试支持
