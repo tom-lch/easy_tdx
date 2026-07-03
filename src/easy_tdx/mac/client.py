@@ -388,7 +388,10 @@ class MacClient:
                 xd = tc.get_xdxr_info(Market(market), code)
         except Exception as exc:  # noqa: BLE001 - 降级，不中断 kline 获取
             _logger.warning(
-                "QFQ 本地重算：获取 %s %s XDXR 失败，降级返回服务端 QFQ：%s", market, code, exc,
+                "QFQ 本地重算：获取 %s %s XDXR 失败，降级返回服务端 QFQ：%s",
+                market,
+                code,
+                exc,
             )
             return None
         if xd is None or xd.empty:
@@ -422,7 +425,9 @@ class MacClient:
             _logger.warning("QFQ 本地重算后 %s %s 仍含非法价格，降级返回服务端 QFQ", market, code)
             return df
         _logger.warning(
-            "QFQ 本地重算：%s %s 服务端深层历史返回负价，已用 NONE+XDXR 重算前复权", market, code,
+            "QFQ 本地重算：%s %s 服务端深层历史返回负价，已用 NONE+XDXR 重算前复权",
+            market,
+            code,
         )
         return out
 
@@ -1342,7 +1347,10 @@ class AsyncMacClient(AsyncHeartbeatMixin):
                 xd = tc.get_xdxr_info(Market(market), code)
         except Exception as exc:  # noqa: BLE001 - 降级，不中断 kline 获取
             _logger.warning(
-                "QFQ 本地重算：获取 %s %s XDXR 失败，降级返回服务端 QFQ：%s", market, code, exc,
+                "QFQ 本地重算：获取 %s %s XDXR 失败，降级返回服务端 QFQ：%s",
+                market,
+                code,
+                exc,
             )
             return None
         if xd is None or xd.empty:
@@ -1351,7 +1359,10 @@ class AsyncMacClient(AsyncHeartbeatMixin):
         return xd
 
     def _local_recompute_qfq(
-        self, df: pd.DataFrame, market: int, code: str,
+        self,
+        df: pd.DataFrame,
+        market: int,
+        code: str,
     ) -> pd.DataFrame:
         """对 QFQ 异常的 K 线用 NONE+XDXR 本地重算前复权（同 MacClient）。"""
         from .adjust import apply_forward_adjust, has_bad_prices
@@ -1364,7 +1375,9 @@ class AsyncMacClient(AsyncHeartbeatMixin):
             _logger.warning("QFQ 本地重算后 %s %s 仍含非法价格，降级返回服务端 QFQ", market, code)
             return df
         _logger.warning(
-            "QFQ 本地重算：%s %s 服务端深层历史返回负价，已用 NONE+XDXR 重算前复权", market, code,
+            "QFQ 本地重算：%s %s 服务端深层历史返回负价，已用 NONE+XDXR 重算前复权",
+            market,
+            code,
         )
         return out
 
@@ -1425,8 +1438,13 @@ class AsyncMacClient(AsyncHeartbeatMixin):
                     nps = min(count - nfetched, _KLINE_PAGE_SIZE)
                     nb = await self._execute(
                         SymbolBarCmd(
-                            market=market, code=code, period=period, times=times,
-                            start=noffset, count=nps, fq=Adjust.NONE,
+                            market=market,
+                            code=code,
+                            period=period,
+                            times=times,
+                            start=noffset,
+                            count=nps,
+                            fq=Adjust.NONE,
                         )
                     )
                     if not nb:
@@ -1439,7 +1457,10 @@ class AsyncMacClient(AsyncHeartbeatMixin):
                 if none_bars:
                     # XDXR 获取涉及同步网络 IO，放线程执行
                     df = await asyncio.to_thread(
-                        self._local_recompute_qfq, _to_df(none_bars), market, code,
+                        self._local_recompute_qfq,
+                        _to_df(none_bars),
+                        market,
+                        code,
                     )
 
         delta = _period_to_minutes(period, times)

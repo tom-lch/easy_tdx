@@ -78,15 +78,21 @@ def test_qfq_negative_triggers_local_recompute():
     def fake_execute(cmd: SymbolBarCmd) -> list[MacBar]:
         return _qfq_broken_bars() if cmd._fq == Adjust.QFQ else _none_bars()
 
-    with patch.object(client, "_execute", side_effect=fake_execute), patch(
-        "easy_tdx.client.TdxClient"
-    ) as MockTdx:
+    with (
+        patch.object(client, "_execute", side_effect=fake_execute),
+        patch("easy_tdx.client.TdxClient") as MockTdx,
+    ):
         # 让 TdxClient 上下文返回手构 XDXR
         mock_inst = MockTdx.from_best_host.return_value.__enter__.return_value
         mock_inst.get_xdxr_info.return_value = _xdxr_df()
 
         df = client.get_stock_kline(
-            market=1, code="601088", period=Period.DAILY, start=0, count=4, adjust=Adjust.QFQ,
+            market=1,
+            code="601088",
+            period=Period.DAILY,
+            start=0,
+            count=4,
+            adjust=Adjust.QFQ,
         )
 
     # 重算后全部为正
@@ -107,11 +113,17 @@ def test_qfq_clean_does_not_trigger_recompute():
         _bar("2024-01-04", 9.0, Adjust.QFQ),
     ]
 
-    with patch.object(client, "_execute", return_value=clean_qfq) as mock_exec, patch(
-        "easy_tdx.client.TdxClient"
-    ) as MockTdx:
+    with (
+        patch.object(client, "_execute", return_value=clean_qfq) as mock_exec,
+        patch("easy_tdx.client.TdxClient") as MockTdx,
+    ):
         df = client.get_stock_kline(
-            market=1, code="601088", period=Period.DAILY, start=0, count=4, adjust=Adjust.QFQ,
+            market=1,
+            code="601088",
+            period=Period.DAILY,
+            start=0,
+            count=4,
+            adjust=Adjust.QFQ,
         )
         # QFQ 干净时不应再去拉 XDXR
         MockTdx.from_best_host.assert_not_called()
@@ -128,15 +140,21 @@ def test_qfq_recompute_xdxr_failure_degrades_gracefully():
     def fake_execute(cmd: SymbolBarCmd) -> list[MacBar]:
         return _qfq_broken_bars() if cmd._fq == Adjust.QFQ else _none_bars()
 
-    with patch.object(client, "_execute", side_effect=fake_execute), patch(
-        "easy_tdx.client.TdxClient"
-    ) as MockTdx:
+    with (
+        patch.object(client, "_execute", side_effect=fake_execute),
+        patch("easy_tdx.client.TdxClient") as MockTdx,
+    ):
         # XDXR 抛异常 → _fetch_xdxr_records 返回 None → 降级
         mock_inst = MockTdx.from_best_host.return_value.__enter__.return_value
         mock_inst.get_xdxr_info.side_effect = RuntimeError("host unreachable")
 
         df = client.get_stock_kline(
-            market=1, code="601088", period=Period.DAILY, start=0, count=4, adjust=Adjust.QFQ,
+            market=1,
+            code="601088",
+            period=Period.DAILY,
+            start=0,
+            count=4,
+            adjust=Adjust.QFQ,
         )
 
     # 降级：返回 NONE 数据（apply_forward_adjust 因 xd=None 原样返回 df）
@@ -148,11 +166,17 @@ def test_qfq_recompute_xdxr_failure_degrades_gracefully():
 def test_none_adjust_skips_recompute():
     """adjust=NONE 时完全跳过 QFQ 重算逻辑。"""
     client = _make_client()
-    with patch.object(client, "_execute", return_value=_none_bars()) as mock_exec, patch(
-        "easy_tdx.client.TdxClient"
-    ) as MockTdx:
+    with (
+        patch.object(client, "_execute", return_value=_none_bars()) as mock_exec,
+        patch("easy_tdx.client.TdxClient") as MockTdx,
+    ):
         df = client.get_stock_kline(
-            market=1, code="601088", period=Period.DAILY, start=0, count=4, adjust=Adjust.NONE,
+            market=1,
+            code="601088",
+            period=Period.DAILY,
+            start=0,
+            count=4,
+            adjust=Adjust.NONE,
         )
         MockTdx.from_best_host.assert_not_called()
 

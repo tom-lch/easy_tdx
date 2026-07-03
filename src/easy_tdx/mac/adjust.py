@@ -132,7 +132,11 @@ def apply_forward_adjust(
             if not np.isfinite(factor):
                 _logger.warning(
                     "QFQ 本地重算：事件 %s 因子非法（cum_close=%s fh=%s sz=%s pg=%s），跳过",
-                    ed.date(), cum_close, fh, sz, pg,
+                    ed.date(),
+                    cum_close,
+                    fh,
+                    sz,
+                    pg,
                 )
                 continue
             arr[: cum_idx + 1] *= factor
