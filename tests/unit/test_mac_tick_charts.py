@@ -93,6 +93,83 @@ def test_multi_tick_charts_oversized_minutes_no_crash():
     assert str(chart.charts[1].ticks[3].time) == "14:59:00"
 
 
+def _build_multi_tick_body_partial(
+    days: int,
+    page_size: int,
+    total: int,
+    flat_minutes: list[int],
+) -> bytes:
+    """构造一个 partial-day 多日分时图响应 body（PR #13 修复场景）。
+
+    与 _build_multi_tick_body 的区别：body 里只塞 total 条 tick（而非
+    days*page_size），用于模拟 start_date=None 且最新交易日数据不完整时
+    服务器实际返回的包。
+
+    Args:
+        days:       天数（写入 count）。
+        page_size:  每天额定分时点数。
+        total:      写入 total 字段的实际 tick 总数（< days*page_size）。
+        flat_minutes: 长度 total 的 minutes 值列表（按天连续铺开）。
+    """
+    body = bytearray(struct.pack("<H22s", int(Market.SH), b"600519" + b"\x00" * 16))
+    dates = [20250115, 20250114, 20250113, 20250110, 20250109]
+    pre_closes = [1509.0, 1512.0, 1510.0, 1508.0, 1511.0]
+    body += struct.pack("<5I", *dates)
+    body += struct.pack("<5f", *pre_closes)
+    body += struct.pack("<HBHH", days, 1, page_size, total)
+    assert len(flat_minutes) == total
+    for m in flat_minutes:
+        body += struct.pack("<HffHH", m, 1510.0, 1510.0, 100, 0)
+    # 尾部元数据（与 _build_multi_tick_body 完全一致）
+    body += struct.pack("<44s", "贵州茅台".encode("gbk") + b"\x00" * 32)
+    body += struct.pack("<BHf", 2, 0, 1.0)
+    body += b"\x00" * 5
+    body += struct.pack("<2I", 20250115, 0)
+    body += struct.pack("<5f", 1509.0, 1510.0, 1520.0, 1500.0, 1515.0)
+    body += struct.pack("<fI", 0.0, 100000)
+    body += struct.pack("<f", 1000000.0)
+    body += b"\x00" * 12
+    body += struct.pack("<2f", 0.5, 1512.0)
+    body += struct.pack("<I", 0)
+    return bytes(body)
+
+
+def test_multi_tick_charts_partial_day():
+    """PR #13 回归：total < count*page_size 时不应崩溃，tick 按天正确分配。
+
+    模拟 start_date=None 且最新交易日数据不完整的场景。修复前，
+    tail_offset = 71 + count*page_size*14 会偏大导致越界/尾部读错位。
+    修复后应按 actual_total 反推尾部偏移，并把首日分配为部分 tick。
+
+    构造：days=3, page_size=4, total=6
+        修复逻辑（tick_charts.py 的 partial 分支）：
+            complete_days = min(count-1, total//page_size) = min(2, 1) = 1
+            first_day_count = total - complete_days*page_size = 6 - 4 = 2
+            empty_days = count - complete_days - 1 = 1
+            => tick_counts = [2, 4, 0]
+    """
+    body = _build_multi_tick_body_partial(
+        days=3, page_size=4, total=6, flat_minutes=[570, 571, 570, 571, 572, 573]
+    )
+
+    chart = TickChartsCmd(int(Market.SH), "600519", None, 3).parse_response(body)
+
+    assert len(chart.charts) == 3
+    # 首日（最新交易日）部分数据：2 条 tick
+    assert len(chart.charts[0].ticks) == 2
+    assert str(chart.charts[0].ticks[0].time) == "09:30:00"
+    assert str(chart.charts[0].ticks[1].time) == "09:31:00"
+    # 第二天完整：4 条 tick
+    assert len(chart.charts[1].ticks) == 4
+    assert str(chart.charts[1].ticks[0].time) == "09:30:00"
+    # 第三天无数据（盘前/非交易日）
+    assert len(chart.charts[2].ticks) == 0
+    # 尾部元数据解析正确（未因偏移错误而乱码/越界）
+    assert chart.name == "贵州茅台"
+    assert chart.pre_close == 1509.0
+    assert chart.open == 1510.0
+
+
 def test_multi_tick_charts_request_layout():
     """验证请求包布局与文档一致：market + code(22) + start_ymd + days + 1。"""
     from datetime import date as date_cls
