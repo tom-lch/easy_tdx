@@ -7,7 +7,7 @@
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://www.mypy-lang.org/)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/handsomejustin/easy_tdx)
 
-
+<img src="./docs/top_img.png" alt="头部宣传图" />
 量化基金花百万买的毫秒级行情通道，散户连一根日线都要手动截图——这不是技术差距，这是数据霸凌。
 
 easy-tdx 要做的事很简单：**把机构的数据锁砸开，扔到每个普通人桌面。**
