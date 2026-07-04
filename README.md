@@ -436,11 +436,11 @@ easy-tdx portfolio --stocks SZ:000001,SH:600519 \
 
 **回测可视化 Web UI（v1.17 新增）：**
 
-<p align="center">
-  <img src="./docs/web-ui-page-1.png" alt="Web UI 截图 1" width="32%" />
-  <img src="./docs/web-ui-page-2.png" alt="Web UI 截图 2" width="32%" />
-  <img src="./docs/web-ui-page-3.png" alt="Web UI 截图 3" width="32%" />
-</p>
+<img src="./docs/web-ui-page-1.png" alt="Web UI 截图 1" />
+
+<img src="./docs/web-ui-page-2.png" alt="Web UI 截图 2" />
+
+<img src="./docs/web-ui-page-3.png" alt="Web UI 截图 3" />
 
 不想写命令行？用浏览器。`easy-tdx serve` 启动后端，`web-ui/` 目录跑前端，浏览器打开就是完整的回测可视化界面。
 
