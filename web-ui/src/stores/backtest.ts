@@ -18,6 +18,7 @@ import type {
   BacktestRequest,
   BacktestResult,
   Bar,
+  Category,
   MultiStrategyBacktestRequest,
   PortfolioBacktestRequest,
   PortfolioResult,
@@ -162,6 +163,21 @@ export const useBacktestStore = defineStore('backtest', () => {
   const optimizeResult = ref<OptimizeResult | null>(null)
   const optimizeRunning = ref(false)
 
+  /** 寻优实际使用的标的上下文（取行情成功那一刻冻结）。
+   * 放在 store 而非组件里，是为了在用户切走再回 /optimize 时，「查看」按钮仍能拼出正确 URL
+   * —— 组件 ref 在卸载后丢失，而 store 与 optimizeResult 同生命周期保留。
+   * 由 OptimizeView 在 loadBars() 成功后通过 setOptimizeContext() 写入。 */
+  const optimizeContext = ref<{
+    code: string
+    category: Category
+    startDate: string
+    endDate: string
+  } | null>(null)
+
+  function setOptimizeContext(ctx: { code: string; category: Category; startDate: string; endDate: string }) {
+    optimizeContext.value = ctx
+  }
+
   /** 提交寻优后台任务并轮询直到完成。 */
   async function runOptimize(req: OptimizeBacktestRequest) {
     optimizeRunning.value = true
@@ -240,6 +256,7 @@ export const useBacktestStore = defineStore('backtest', () => {
     multiStrategyRunning,
     optimizeResult,
     optimizeRunning,
+    optimizeContext,
     optimizeAllResult,
     optimizeAllRunning,
     // getters
@@ -255,5 +272,6 @@ export const useBacktestStore = defineStore('backtest', () => {
     clearMultiStrategy,
     runOptimize,
     runOptimizeAll,
+    setOptimizeContext,
   }
 })

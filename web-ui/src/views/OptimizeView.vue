@@ -66,6 +66,13 @@ async function onRun() {
   // 1. 先取行情
   const ok = await symbolPicker.value?.loadBars()
   if (!ok) return
+  // 取行情成功 → 冻结本次寻优真正使用的标的上下文，供「查看」拼 URL（存 store，跨路由保留）
+  store.setOptimizeContext({
+    code: code.value,
+    category: category.value,
+    startDate: startDate.value,
+    endDate: endDate.value,
+  })
   // 2. 校验寻优参数
   if (Object.keys(paramGrid.value).length === 0) {
     store.error = '请勾选至少 1 个参数并填入取值'
@@ -91,6 +98,13 @@ async function onRunAll() {
   // 1. 先取行情
   const ok = await symbolPicker.value?.loadBars()
   if (!ok) return
+  // 取行情成功 → 冻结本次寻优真正使用的标的上下文，供「查看」拼 URL（存 store，跨路由保留）
+  store.setOptimizeContext({
+    code: code.value,
+    category: category.value,
+    startDate: startDate.value,
+    endDate: endDate.value,
+  })
   // 2. 一键寻优
   await store.runOptimizeAll({
     cash: cash.value,
@@ -99,16 +113,20 @@ async function onRunAll() {
   })
 }
 
-/** 「查看」跳转时，把当前标的 + 周期 + 日期范围一并塞进 query，
- * 让回测页能完整复现寻优时的行情（而非只带策略参数）。 */
+/** 「查看」跳转时，把本次寻优实际使用的标的 + 周期 + 日期范围一并塞进 query，
+ * 让回测页能完整复现寻优时的行情（而非只带策略参数）。
+ * 注意：必须读 store.optimizeContext（取行情成功时冻结），不能读输入框实时值 ——
+ * 否则寻优完成后改了输入框代码，「查看」URL 会被污染，指向一个根本没被回测过的标的；
+ * 且不能读组件 ref，否则切走再回 /optimize 时排名还在但上下文已丢失。 */
 function buildBacktestQuery(strategyName: string, params: Record<string, number | string>) {
+  const ctx = store.optimizeContext
   return {
     strategy: strategyName,
     params: JSON.stringify(params),
-    symbol: code.value,
-    startDate: startDate.value,
-    endDate: endDate.value,
-    category: category.value,
+    symbol: ctx?.code ?? '',
+    startDate: ctx?.startDate ?? '',
+    endDate: ctx?.endDate ?? '',
+    category: ctx?.category ?? category.value,
   }
 }
 
