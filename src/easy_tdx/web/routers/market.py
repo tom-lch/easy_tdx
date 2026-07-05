@@ -53,6 +53,42 @@ async def security_list_all(
     return _df_response(df)
 
 
+# ── 股票搜索索引（声母检索） ───────────────────────────────────────────────────
+# 进程级缓存：5206 条记录的 {code, name, initials} 只算一次，热重启即丢。
+# 前端拉一次后模块级缓存，按 code/name.includes/initials.includes 三路过滤。
+_SEARCH_INDEX: list[dict[str, str]] | None = None
+
+
+@router.get("/security/search-index")
+async def security_search_index(
+    client: Any = Depends(get_client),
+) -> dict[str, Any]:
+    """返回股票搜索索引 ``[{code, name, initials}]``（供前端声母/代码/名字搜索）。
+
+    数据源复用 :meth:`get_security_list_all`（沪深 A 股，已有本地日级缓存）。
+    声母用 pypinyin ``FIRST_LETTER`` 预计算（如 中际旭创→zjxc）。
+    进程内缓存，首次请求算一次后常驻；强制刷新重启进程即可。
+    """
+    global _SEARCH_INDEX
+    if _SEARCH_INDEX is not None:
+        return {"count": len(_SEARCH_INDEX), "data": _SEARCH_INDEX}
+
+    from pypinyin import Style, lazy_pinyin
+
+    df = await client.get_security_list_all(pages="all")
+    index: list[dict[str, str]] = []
+    for row in df.itertuples(index=False):
+        name = str(getattr(row, "name", "") or "")
+        if not name:
+            continue
+        code = str(getattr(row, "code", ""))
+        initials = "".join(lazy_pinyin(name, style=Style.FIRST_LETTER))
+        index.append({"code": code, "name": name, "initials": initials})
+
+    _SEARCH_INDEX = index
+    return {"count": len(index), "data": index}
+
+
 @router.post("/quotes", response_model=DataFrameResponse)
 async def security_quotes(
     req: QuoteRequest,

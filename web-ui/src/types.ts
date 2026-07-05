@@ -330,3 +330,18 @@ export interface MultiStrategyBacktestRequest {
   slippage?: number
   execution?: ExecutionMode
 }
+
+// ── 股票搜索索引（GET /api/v1/security/search-index） ────────────────────────
+
+/** 搜索索引单条：code/name/initials（声母，如 中际旭创→zjxc）。 */
+export interface StockSearchEntry {
+  code: string
+  name: string
+  initials: string
+}
+
+/** 搜索索引响应。 */
+export interface StockSearchIndex {
+  count: number
+  data: StockSearchEntry[]
+}

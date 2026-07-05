@@ -14,6 +14,7 @@ import type {
   SavedStrategy,
   SavedStrategyCreate,
   SavedStrategyListResponse,
+  StockSearchIndex,
   StrategiesResponse,
   TaskListResponse,
   TaskState,
@@ -100,6 +101,14 @@ export async function fetchBars(
     // 否则引擎/图表只正确处理第一页的数据。
     bars.sort((a, b) => a.datetime.localeCompare(b.datetime))
     return bars
+}
+
+/** 拉取股票搜索索引（code/name/initials，约 5000 条，~150KB）。
+ *  前端 useStockSearch 会模块级缓存，整个会话只拉一次。 */
+export async function fetchSearchIndex(): Promise<StockSearchIndex> {
+  const resp = await fetch(`${BASE}/security/search-index`)
+  if (!resp.ok) await throwError(resp)
+  return (await resp.json()) as StockSearchIndex
 }
 
 /** 把后端 bars 的单条记录归一化为统一 Bar（datetime 字段）。 */
