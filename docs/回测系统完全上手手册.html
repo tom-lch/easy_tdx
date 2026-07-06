@@ -261,7 +261,7 @@
   <h1>easy-tdx 回测系统完全上手手册</h1>
   <p class="subtitle">从零开始,手把手教你在浏览器里完成股票策略回测</p>
   <div class="meta">
-    <span>适用版本 v1.18.0</span>
+    <span>适用版本 v1.19.1</span>
     <span>适用系统 Windows 10 / 11</span>
     <span>读者:零基础新手</span>
   </div>
@@ -270,8 +270,8 @@
 <div class="toc">
   <h2>目录</h2>
   <ol>
-    <li><a href="#ch1">第一章 准备工作:安装两个软件</a></li>
-    <li><a href="#ch2">第二章 下载项目并启动系统</a></li>
+    <li><a href="#ch1">第一章 准备工作:选一种方式开始(EXE / Python / 源码)</a></li>
+    <li><a href="#ch2">第二章 下载项目并启动系统(方式二/三用户)</a></li>
     <li><a href="#ch3">第三章 第一次回测:验证策略靠不靠谱</a></li>
     <li><a href="#ch4">第四章 参数寻优:让电脑帮你找最佳参数</a></li>
     <li><a href="#ch5">第五章 怎么确认寻优结果是不是真的好</a></li>
@@ -283,26 +283,67 @@
     <li><a href="#ch10b">第十章补 充:保存策略组合 + 一键看今日信号(新)</a></li>
     <li><a href="#ch11">第十一章 常见问题与排错</a></li>
     <li><a href="#ch12">第十二章 重要提醒(必读)</a></li>
+    <li><a href="#appendix-packaging">附录:自己打包 EXE 分发给朋友(方式三)</a></li>
   </ol>
 </div>
 
 <!-- ==================== 第一章 ==================== -->
 <section class="chapter" id="ch1">
-<h2>第一章 准备工作:安装两个软件</h2>
+<h2>第一章 准备工作:选一种方式开始</h2>
 
-<p>easy-tdx 的回测系统需要两个软件配合:<strong>Python</strong>(负责算数据和回测)和 <strong>Node.js</strong>(负责显示网页界面)。这两个软件都是免费的,我们一步一步来。</p>
+<p>easy-tdx 提供三种使用方式,难度从低到高。<strong>请根据自己的情况选一种</strong>,不需要三种都试。</p>
 
-<div class="warn">
-<strong>为什么需要两个?</strong> 简单理解:Python 是"厨房",负责做菜(算数据、跑回测);Node.js 是"服务员",负责把菜端到你面前(显示网页)。缺一个都不行。
+<div class="tip">
+<strong>不知道选哪个?</strong> 选<strong>方式一(下载 EXE)</strong>。它不用装任何软件,双击就能用,最适合零基础的朋友。
 </div>
 
-<h3>1.1 安装 Python(必须 3.10 或更高版本)</h3>
+<h3>方式一:下载 EXE,双击即用(零基础首选)</h3>
+
+<p>这是最简单的方式。我们提供了打包好的单个 EXE 文件(约 80-150MB),里面已经包含了所有需要的东西,<strong>不用装 Python、不用装 Node.js、不用敲命令</strong>。</p>
+
+<div class="step">
+<span class="step-num">1</span><strong>下载 EXE</strong>
+<p>用浏览器打开项目主页的 <strong>Releases(发布)</strong> 页面:<br>
+<code>https://github.com/handsomejustin/easy_tdx/releases</code></p>
+<p>找到最新版本,下载那个名字像 <code>easy-tdx-1.19.0-windows.exe</code> 的文件。</p>
+</div>
+
+<div class="step">
+<span class="step-num">2</span><strong>双击运行</strong>
+<p>下载后直接双击这个 EXE。</p>
+<p><strong>第一次运行会被 Windows 拦截</strong>(弹出蓝色"已保护你的电脑"窗口),这是正常的,因为我们的 EXE 还没有花钱买"数字签名"。处理方法:</p>
+<ol>
+  <li>点蓝色窗口里的 <strong>"更多信息"</strong></li>
+  <li>会出现 <strong>"仍要运行"</strong> 按钮,点它</li>
+</ol>
+</div>
+
+<div class="screenshot-ph">
+[此处应放截图:SmartScreen 蓝色窗口 → 点"更多信息" → 点"仍要运行"]
+</div>
+
+<div class="step">
+<span class="step-num">3</span><strong>等待 2-5 秒,浏览器自动打开</strong>
+<p>EXE 首次启动需要解压(所以会慢几秒),然后浏览器会自动打开回测界面。看到顶部导航栏有"单标的回测 / 组合回测 / 参数寻优 / 结果对比 / 策略库"五个标签,就大功告成了!</p>
+</div>
+
+<div class="warn">
+<strong>怎么关闭?</strong> 直接关浏览器标签页<strong>不会</strong>停止后台服务。完整退出请看屏幕<strong>右下角任务栏的小图标</strong>(一个 K 线图样式的图标),<strong>右键 → 退出</strong>即可干净关闭。
+</div>
+
+<div class="tip">
+<strong>选了方式一?</strong> 直接跳到 <a href="#ch3">第三章 第一次回测</a> 开始用。第二、十一章可以跳过(那是给方式二/三的用户看的)。
+</div>
+
+<h3>方式二:装 Python,一条命令启动(会点电脑的)</h3>
+
+<p>如果你愿意装一个软件(Python),用一条命令启动,这种方式更灵活,启动也更快。只需要装 <strong>Python</strong>,<strong>不需要 Node.js</strong>(网页界面已经预先编译好了,由后端自动提供)。</p>
 
 <div class="step">
 <span class="step-num">1</span><strong>下载 Python</strong>
 <p>打开浏览器,访问官网下载页:<br>
 <code>https://www.python.org/downloads/</code></p>
-<p>页面会自动推荐 Windows 版本,点黄色按钮 <strong>"Download Python 3.12.x"</strong>(3.12 是目前最稳定的版本)。如果推荐的是 3.13 也可以。</p>
+<p>页面会自动推荐 Windows 版本,点黄色按钮 <strong>"Download Python 3.12.x"</strong>(3.12 是目前最稳定的版本)。如果推荐的是 3.13 也可以。<strong>必须 3.10 或更高版本</strong>。</p>
 </div>
 
 <div class="step">
@@ -322,38 +363,45 @@
 <p>如果显示 <code>Python 3.12.x</code>(数字无所谓,3.10 以上都行),就成功了。如果提示"不是内部或外部命令",说明上一步 PATH 没勾,请卸载重装一次。</p>
 </div>
 
-<h3>1.2 安装 Node.js(选 LTS 长期支持版)</h3>
+<div class="tip">
+<strong>选了方式二?</strong> 接下来按 <a href="#ch2">第二章 下载项目并启动系统</a> 操作。不需要装 Node.js。
+</div>
+
+<h3>方式三:从源码运行 + 自己打包 EXE(开发者)</h3>
+
+<p>如果你想看代码、改代码,或者<strong>想自己打包一个 EXE 分发给朋友</strong>,用这种方式。需要同时装 <strong>Python</strong> 和 <strong>Node.js</strong>(Node.js 仅用于修改前端界面后重新编译,日常使用不需要)。</p>
 
 <div class="step">
-<span class="step-num">1</span><strong>下载 Node.js</strong>
-<p>访问官网:<br>
-<code>https://nodejs.org/zh-cn</code></p>
-<p>下载左边那个 <strong>"LTS"(长期支持版)</strong>,不要下右边那个最新尝鲜版。LTS 更稳定,新手用它不会出怪问题。版本号一般是 20.x 或 22.x。</p>
+<span class="step-num">1</span><strong>装 Python</strong>
+<p>按上面"方式二"的第 1-3 步装好 Python 3.10+。</p>
 </div>
 
 <div class="step">
-<span class="step-num">2</span><strong>一路下一步安装</strong>
-<p>双击安装包,全部点"下一步",不用改任何选项,点"Install"等完成。</p>
+<span class="step-num">2</span><strong>装 Node.js(LTS 长期支持版)</strong>
+<p>访问官网 <code>https://nodejs.org/zh-cn</code>,下载左边那个 <strong>"LTS"</strong> 版本。双击安装包,全部点"下一步"即可。</p>
+<p>验证:打开命令行输入 <code>node --version</code>,显示 <code>v20.x.x</code> 或更高就成功了。</p>
 </div>
 
 <div class="step">
-<span class="step-num">3</span><strong>验证安装</strong>
-<p>再次打开命令行(按 <span class="keyboard">Win</span> + <span class="keyboard">R</span> 输入 <code>cmd</code>),输入:</p>
-<pre><code>node --version</code></pre>
-<p>显示 <code>v20.x.x</code> 或更高版本就成功了。</p>
+<span class="step-num">3</span><strong>按第二章操作,然后看附录"自己打包 EXE"</strong>
+<p>先按 <a href="#ch2">第二章</a> 把项目跑起来。打包 EXE 的方法见第十二章附录 <a href="#appendix-packaging">"自己打包 EXE 分发"</a>。</p>
 </div>
 
 <div class="tip">
-<strong>两个软件都装好了?恭喜!最难的安装部分已经过去了一大半。</strong>
+<strong>三个方式都介绍完了。</strong> 方式一最简单,方式二最常用,方式三适合爱折腾的人。选好后翻到下一章。
 </div>
 
 </section>
 
 <!-- ==================== 第二章 ==================== -->
 <section class="chapter" id="ch2">
-<h2>第二章 下载项目并启动系统</h2>
+<h2>第二章 下载项目并启动系统(方式二/三用户)</h2>
 
-<p>easy-tdx 是一个开源项目,代码托管在 GitHub。我们需要把代码下载到本地,然后启动两个服务。</p>
+<div class="tip">
+<strong>选了"方式一(下载 EXE)"的朋友请跳过这一章</strong>,直接翻到 <a href="#ch3">第三章 第一次回测</a>。这一章是给用 Python 启动的朋友准备的。
+</div>
+
+<p>easy-tdx 是一个开源项目,代码托管在 GitHub。我们需要把代码下载到本地,装好 Python 依赖,然后<strong>一条命令启动</strong>。</p>
 
 <h3>2.1 下载项目代码</h3>
 
@@ -368,7 +416,7 @@
 <strong>路径千万别用中文!</strong> 不要解压到"我的文档"或"桌面",因为 Windows 用户名如果是中文,后续安装会出各种莫名其妙的错。直接放 <code>D:\easy_tdx</code> 最稳。
 </div>
 
-<h3>2.2 安装 Python 依赖(只装一次)</h3>
+<h3>2.2 创建虚拟环境并安装依赖(只做一次)</h3>
 
 <div class="step">
 <span class="step-num">1</span><strong>打开命令行,进入项目目录</strong>
@@ -379,8 +427,28 @@ cd \easy_tdx</code></pre>
 </div>
 
 <div class="step">
-<span class="step-num">2</span><strong>安装项目本体 + Web 服务依赖</strong>
-<pre><code><span class="comment"># 一次性安装项目本体和 Web 服务所需的所有 Python 依赖</span>
+<span class="step-num">2</span><strong>创建虚拟环境(强烈推荐)</strong>
+<p>虚拟环境可以把这个项目的依赖和系统里其他 Python 程序隔离开,避免冲突。在项目目录下输入:</p>
+<pre><code><span class="comment"># 创建一个叫 venv 的虚拟环境(只做一次)</span>
+python -m venv venv
+
+<span class="comment"># 激活虚拟环境(每次开新窗口都要做)</span>
+<span class="comment"># Windows cmd 用这句:</span>
+venv\Scripts\activate
+
+<span class="comment"># Windows Git Bash 用这句:</span>
+<span class="comment"># source venv/Scripts/activate</span></code></pre>
+<p>激活成功后,命令行最前面会多出一个 <code>(venv)</code> 标记,说明你已经在虚拟环境里了。</p>
+</div>
+
+<div class="warn">
+<strong>为什么要虚拟环境?</strong> 如果直接用系统 Python 装依赖,以后装别的 Python 软件可能版本冲突报错。虚拟环境就像给这个项目单独开了一个"小房间",干净不干扰。<strong>每次重新开 cmd 窗口,都要先 <code>venv\Scripts\activate</code> 激活</strong>,看到 <code>(venv)</code> 才说明进对了。
+</div>
+
+<div class="step">
+<span class="step-num">3</span><strong>安装项目本体 + Web 服务依赖</strong>
+<pre><code><span class="comment"># 确认命令行前面有 (venv) 后执行</span>
+<span class="comment"># 一次性安装项目本体和 Web 服务所需的所有 Python 依赖</span>
 <span class="comment"># 包括 FastAPI、Uvicorn、pandas、numpy 等</span>
 pip install -e ".[web]"</code></pre>
 <p>这步会下载很多文件(约 100MB),需要等 3 到 5 分钟。看到最后有 <code>Successfully installed ...</code> 就成功了。</p>
@@ -392,79 +460,55 @@ pip install -e ".[web]"</code></pre>
 </div>
 
 <div class="step">
-<span class="step-num">3</span><strong>验证安装成功</strong>
+<span class="step-num">4</span><strong>验证安装成功</strong>
 <pre><code><span class="comment"># 看到帮助信息就说明安装好了</span>
 easy-tdx --help</code></pre>
 </div>
 
-<h3>2.3 安装前端依赖(只装一次)</h3>
+<h3>2.3 启动系统(每次使用都要做)</h3>
+
+<p>装好之后,<strong>每次用只需要一条命令</strong>。打开命令行,激活虚拟环境,进入项目目录,然后:</p>
 
 <div class="step">
-<span class="step-num">1</span><strong>进入 web-ui 目录,装依赖</strong>
-<pre><code><span class="comment"># 还在项目目录里,进入前端目录</span>
-cd web-ui
-
-<span class="comment"># 安装前端依赖(第一次会下载约 200MB,耐心等 5 分钟)</span>
-npm install</code></pre>
-</div>
-
-<div class="warn">
-<strong>npm install 很慢怎么办?</strong> 用淘宝镜像加速(只执行一次,以后都快):
-<pre><code>npm config set registry https://registry.npmmirror.com
-npm install</code></pre>
-</div>
-
-<h3>2.4 启动系统(每次使用都要做)</h3>
-
-<p>这是新手最容易迷糊的地方:<strong>这个系统需要同时开两个命令行窗口</strong>,一个跑后端(算数据的厨房),一个跑前端(显示网页的服务员)。</p>
-
-<h4>第一个窗口:启动后端</h4>
-
-<div class="step">
-<span class="step-num">1</span><strong>新开一个命令行窗口</strong>
-<p>按 <span class="keyboard">Win</span> + <span class="keyboard">R</span> 输入 <code>cmd</code> 回车,进入项目根目录:</p>
-<pre><code>D:
-cd \easy_tdx</code></pre>
+<span class="step-num">1</span><strong>激活虚拟环境 + 进入项目目录</strong>
+<pre><code><span class="comment"># 每次开新窗口都先做这两步</span>
+D:
+cd \easy_tdx
+venv\Scripts\activate</code></pre>
 </div>
 
 <div class="step">
-<span class="step-num">2</span><strong>启动后端服务</strong>
-<pre><code>easy-tdx serve --port 8000</code></pre>
+<span class="step-num">2</span><strong>一条命令启动</strong>
+<pre><code>easy-tdx serve</code></pre>
 <p>看到类似下面的输出就成功了:</p>
 <pre><code>INFO:     Uvicorn running on http://0.0.0.0:8000
 INFO:     Application startup complete.</code></pre>
-<p><strong>这个窗口不要关!</strong> 它一直开着,前端才能取到数据。</p>
-</div>
-
-<h4>第二个窗口:启动前端</h4>
-
-<div class="step">
-<span class="step-num">1</span><strong>再开一个命令行窗口</strong>
-<p>按 <span class="keyboard">Win</span> + <span class="keyboard">R</span> 输入 <code>cmd</code> 回车,进入前端目录:</p>
-<pre><code>D:
-cd \easy_tdx\web-ui</code></pre>
+<p><strong>大约 1-2 秒后,浏览器会自动打开</strong> <code>http://localhost:8000</code>,直接看到回测界面。不用再手动开浏览器,也不用跑第二个命令。</p>
 </div>
 
 <div class="step">
-<span class="step-num">2</span><strong>启动前端开发服务器</strong>
-<pre><code>npm run dev</code></pre>
-<p>看到这样的输出:</p>
-<pre><code>  VITE v8.x.x  ready in 500 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose</code></pre>
-</div>
-
-<div class="step">
-<span class="step-num">3</span><strong>打开浏览器,访问网页</strong>
-<p>打开 Chrome 或 Edge 浏览器,地址栏输入:<br>
-<code>http://localhost:5173</code></p>
-<p>看到顶部导航栏有"单标的回测 / 组合回测 / 参数寻优 / 结果对比 / 策略库"五个标签,就大功告成了!</p>
+<span class="step-num">3</span><strong>关闭系统</strong>
+<p>用完后,在跑 <code>easy-tdx serve</code> 的命令行窗口里按 <span class="keyboard">Ctrl</span> + <span class="keyboard">C</span> 就能停止服务。然后关掉窗口即可。</p>
 </div>
 
 <div class="tip">
-<strong>关机后下次怎么用?</strong> 不用重新装,只要重复 2.4 节这两个步骤:开两个 cmd 窗口,一个跑 <code>easy-tdx serve --port 8000</code>,一个跑 <code>npm run dev</code>,然后浏览器打开 <code>http://localhost:5173</code> 就行。
+<strong>关机后下次怎么用?</strong> 不用重新装,只要:<br>
+1. 开一个 cmd 窗口<br>
+2. <code>D:</code> → <code>cd \easy_tdx</code> → <code>venv\Scripts\activate</code>(激活虚拟环境)<br>
+3. <code>easy-tdx serve</code><br>
+浏览器会自动弹出来。<strong>不用再跑 npm,不用开两个窗口了</strong>。
 </div>
+
+<h3>2.4 常用启动参数(可选)</h3>
+
+<pre><code><span class="comment"># 自定义端口(默认 8000,被占用时换一个)</span>
+easy-tdx serve --port 8080
+
+<span class="comment"># 不自动开浏览器(比如想用别的浏览器手动打开)</span>
+easy-tdx serve --no-open-browser
+
+<span class="comment"># 让局域网其他电脑也能访问(比如手机同 WiFi 访问)</span>
+easy-tdx serve --host 0.0.0.0</code></pre>
 
 </section>
 
@@ -1260,64 +1304,88 @@ SZ:000858  五粮液</code></pre>
 <h2>第十一章 常见问题与排错</h2>
 
 <details>
-<summary>Q1: 启动后端报错 "easy-tdx 不是内部或外部命令"</summary>
-<p>说明 Python 没装好或 PATH 没配置。回到第一章 1.1 重装 Python,务必勾选 "Add Python to PATH"。如果已装,在命令行输入 <code>pip install -e ".[web]"</code>(在项目目录下)重新安装。</p>
-</details>
-
-<details>
-<summary>Q2: 启动前端报错 "npm 不是内部或外部命令"</summary>
-<p>Node.js 没装或没重启命令行。回到第一章 1.2 重装 Node.js,然后<strong>关闭所有 cmd 窗口重新打开</strong>。</p>
-</details>
-
-<details>
-<summary>Q3: npm install 卡住不动或报错</summary>
-<p>网络问题。换淘宝镜像:<br>
-<pre><code>npm config set registry https://registry.npmmirror.com</code></pre>
-然后重新 <code>npm install</code>。</p>
-</details>
-
-<details>
-<summary>Q4: 浏览器打开 localhost:5173 显示空白或报错</summary>
-<p>检查两点:</p>
+<summary>Q1: 双击 EXE 没反应 / 浏览器没打开</summary>
+<p>EXE 启动需要 2-5 秒解压,请耐心等待。如果超过 30 秒还没反应:</p>
 <ol>
-  <li>后端窗口是否还开着?如果关了,重新跑 <code>easy-tdx serve --port 8000</code></li>
-  <li>看后端窗口有没有报错。如果有红色错误,截图找老师</li>
+  <li>看屏幕右下角任务栏有没有出现 K 线图标——有的话说明后台已启动,手动打开浏览器访问 <code>http://localhost:8000</code></li>
+  <li>没有图标的话,打开任务管理器(Ctrl+Shift+Esc)看有没有 <code>easy-tdx.exe</code> 进程</li>
+  <li>还不行就在 cmd 里拖入 EXE 加 <code> serve --no-open-browser</code> 跑,看报错信息</li>
 </ol>
 </details>
 
 <details>
-<summary>Q5: 回测时提示"取行情失败"或"连接通达信服务器超时"</summary>
+<summary>Q2: 双击 EXE 提示"SmartScreen 已保护你的电脑"</summary>
+<p>这是正常的。我们的 EXE 没有花钱买"数字签名",Windows 会拦截。处理方法:</p>
+<ol>
+  <li>点蓝色窗口里的 <strong>"更多信息"</strong></li>
+  <li>会出现 <strong>"仍要运行"</strong> 按钮,点它</li>
+</ol>
+<p>只需第一次这样做,之后 Windows 会记住。</p>
+</details>
+
+<details>
+<summary>Q3: 怎么完全退出 EXE?</summary>
+<p>直接关浏览器标签页<strong>不会</strong>停止后台服务。完整退出看屏幕<strong>右下角任务栏</strong>:</p>
+<ol>
+  <li>找到 K 线图样式的小图标</li>
+  <li><strong>右键 → 退出</strong></li>
+</ol>
+<p>或者打开任务管理器(Ctrl+Shift+Esc),结束 <code>easy-tdx.exe</code> 进程。</p>
+</details>
+
+<details>
+<summary>Q4: Python 方式启动报错 "easy-tdx 不是内部或外部命令"</summary>
+<p>两种可能:</p>
+<ol>
+  <li><strong>没激活虚拟环境</strong>:命令行前面没有 <code>(venv)</code> 标记。先 <code>cd \easy_tdx</code> 再 <code>venv\Scripts\activate</code>。</li>
+  <li><strong>Python 没装好或 PATH 没配</strong>:回到第一章"方式二"重装 Python,务必勾选 "Add Python to PATH"。</li>
+</ol>
+<p>如果已装,在项目目录下(激活 venv 后)重新执行 <code>pip install -e ".[web]"</code>。</p>
+</details>
+
+<details>
+<summary>Q5: 浏览器打开 localhost:8000 显示空白或报错</summary>
+<p>检查两点:</p>
+<ol>
+  <li>后端窗口是否还开着?如果关了,重新跑 <code>easy-tdx serve</code></li>
+  <li>看后端窗口有没有报错。如果有红色错误,截图反馈</li>
+  <li>EXE 用户看 <code>%USERPROFILE%\.easy_tdx\easy_tdx_runtime.log</code> 日志文件</li>
+</ol>
+</details>
+
+<details>
+<summary>Q6: 回测时提示"取行情失败"或"连接通达信服务器超时"</summary>
 <p>easy-tdx 需要连接通达信的行情服务器取数据。可能原因:</p>
 <ul>
   <li>网络问题:换网络或等一会再试</li>
-  <li>防火墙拦截:检查是否有安全软件拦截了 Python</li>
+  <li>防火墙拦截:检查是否有安全软件拦截了 Python 或 EXE</li>
   <li>非交易时段:周末和晚上有时连接不稳定</li>
 </ul>
 <p>可以换个时间再试,或者用其他股票代码试试。</p>
 </details>
 
 <details>
-<summary>Q6: 回测结果关机后就没了</summary>
+<summary>Q7: 回测结果关机后就没了</summary>
 <p>这是正常的。回测结果存在后端进程内存,重启就清空。<strong>重要的策略一定要点"保存策略"存进策略库</strong>,策略库的数据存在 SQLite 文件里,重启不丢。</p>
 </details>
 
 <details>
-<summary>Q7: 评级徽章显示 "⚠ 交易样本有限" 是什么意思</summary>
+<summary>Q8: 评级徽章显示 "⚠ 交易样本有限" 是什么意思</summary>
 <p>这只股票/策略在回测期间交易笔数少于 10 笔。系统已经把胜率和利润因子的权重降到 0,只看净值类指标(夏普/卡玛/回撤)。长线策略常常这样,不一定是坏事。详见第七章 7.5 节。</p>
 </details>
 
 <details>
-<summary>Q8: 寻优网格点数提示超过 200</summary>
+<summary>Q9: 寻优网格点数提示超过 200</summary>
 <p>参数取值组合太多。减少参数取值的数量,比如 fast 从 10 个值减到 5 个值,或者只寻优一个参数(不勾另一个)。</p>
 </details>
 
 <details>
-<summary>Q9: 评级看起来不准,某个明显好的策略却是 C 档</summary>
-<p>评级阈值是基于金融惯例校准的,可能在某些边界情况不完美。每个维度的打分逻辑在 <code>web-ui/src/grading/thresholds.ts</code> 文件里,如果你懂技术可以微调。或者截图给老师反馈。</p>
+<summary>Q10: 评级看起来不准,某个明显好的策略却是 C 档</summary>
+<p>评级阈值是基于金融惯例校准的,可能在某些边界情况不完美。每个维度的打分逻辑在 <code>web-ui/src/grading/thresholds.ts</code> 文件里,如果你懂技术可以微调。或者截图反馈。</p>
 </details>
 
 <details>
-<summary>Q10: 我想用分钟线或周线回测</summary>
+<summary>Q11: 我想用分钟线或周线回测</summary>
 <p>在行情数据区的"周期"下拉里选 MIN_5(5 分钟)、WEEK(周线)等。注意:分钟线数据量很大,回测会慢很多,新手建议只用日线(DAY)。</p>
 </details>
 
@@ -1392,8 +1460,107 @@ SZ:000858  五粮液</code></pre>
 
 </section>
 
+<!-- ==================== 附录:打包 EXE ==================== -->
+<section class="chapter" id="appendix-packaging">
+<h2>附录:自己打包 EXE 分发给朋友(方式三)</h2>
+
+<p>如果你想把 easy-tdx 打包成单个 EXE,发给不会装 Python 的朋友/家人用,按下面的步骤操作。打包后的 EXE 双击即用,对方不用装任何东西。</p>
+
+<h3>A.1 打包前提</h3>
+
+<ul>
+  <li>Windows 10/11(PyInstaller 不能跨系统打包,Mac 用户打不了 Windows EXE)</li>
+  <li>已按"方式三"装好 Python 3.10+ 和 Node.js 20+</li>
+  <li>已按第二章下载项目代码、创建虚拟环境、安装 <code>[web,packaging]</code> 依赖</li>
+</ul>
+
+<h3>A.2 安装打包所需的额外依赖</h3>
+
+<p>在项目目录、激活虚拟环境后,执行:</p>
+<pre><code><span class="comment"># web 依赖 + 打包依赖(系统托盘 pystray + 图标 Pillow)一起装</span>
+pip install -e ".[web,packaging]"
+
+<span class="comment"># 装 PyInstaller 打包工具</span>
+pip install pyinstaller</code></pre>
+
+<h3>A.3 构建前端</h3>
+
+<pre><code><span class="comment"># 进入前端目录</span>
+cd web-ui
+
+<span class="comment"># 装前端依赖(首次需要)</span>
+npm install
+
+<span class="comment"># 编译前端到 web-ui/dist/</span>
+npm run build
+
+<span class="comment"># 回到项目根目录</span>
+cd ..</code></pre>
+
+<div class="warn">
+<strong>这步必须做!</strong> 如果不编译前端,打包出来的 EXE 启动后浏览器会显示空白——因为前端文件还没有。
+</div>
+
+<h3>A.4 打包 EXE</h3>
+
+<pre><code><span class="comment"># 在项目根目录执行(venv 已激活)</span>
+pyinstaller easy_tdx.spec --noconfirm</code></pre>
+
+<p>打包过程约 1-3 分钟。完成后,在 <code>dist\</code> 目录下会出现 <code>easy-tdx.exe</code>(约 80-150MB)。</p>
+
+<h3>A.5 验证</h3>
+
+<div class="step">
+<span class="step-num">1</span><strong>双击 <code>dist\easy-tdx.exe</code></strong>
+<p>等待 2-5 秒,浏览器应自动打开 <code>http://localhost:8000</code>。</p>
+</div>
+
+<div class="step">
+<span class="step-num">2</span><strong>检查右下角任务栏</strong>
+<p>应出现 K 线图样式的小图标,右键有"打开浏览器 / 退出"菜单。</p>
+</div>
+
+<div class="step">
+<span class="step-num">3</span><strong>跑一次完整回测</strong>
+<p>选一只股票 + 一个策略,确认能完整出图、出指标。再试一次"一键寻优"(选 4 或 8 进程),确认多进程正常。</p>
+</div>
+
+<h3>A.6 分发给朋友</h3>
+
+<p>把 <code>dist\easy-tdx.exe</code> 这个<strong>单文件</strong>直接发给朋友即可(可以通过微信传文件、网盘等)。对方:</p>
+<ol>
+  <li>下载这个 EXE</li>
+  <li>双击运行(首次 SmartScreen 拦截,点"更多信息 → 仍要运行")</li>
+  <li>等 2-5 秒,浏览器自动打开</li>
+</ol>
+
+<p><strong>不用装任何东西,不用敲任何命令。</strong></p>
+
+<h3>A.7 常见打包问题</h3>
+
+<details>
+<summary>打包后双击 EXE 报错 "NoneType object has no attribute 'isatty'"</summary>
+<p>这是因为 Windows GUI 模式下标准流为 None,而 uvicorn 假设它们存在。我们的代码已经在 <code>__main__.py</code> 里做了重定向处理,如果还报这个错,说明你用的是旧版入口代码。请拉取最新代码后重新打包。</p>
+</details>
+
+<details>
+<summary>双击 EXE 后一键寻优报错 "day datetime: 数据不足"</summary>
+<p>多进程在打包模式下需要特殊处理。我们的代码已经在 <code>__main__.py</code> 加了 <code>freeze_support()</code> 和子进程检测。如果还报错,确认你拉的是最新代码。</p>
+</details>
+
+<details>
+<summary>打包过程 WARNING 一堆 "not found"</summary>
+<p>大部分是无害的:numba(可选加速库,没装正常)、jinja2(模板引擎,本项目用不到)、scipy 内部模块改名。只要最后 <code>dist\easy-tdx.exe</code> 能正常启动,这些 WARNING 都可以忽略。</p>
+</details>
+
+<div class="tip">
+<strong>想自动发版?</strong> 如果你在维护这个项目,可以打 git tag 触发 GitHub Actions 自动打包并发布到 Releases 页。详见项目根目录的 <code>.github/workflows/release.yml</code> 和 <code>docs/packaging.md</code>。
+</div>
+
+</section>
+
 <footer>
-  easy-tdx 回测系统完全上手手册 · 适用版本 v1.18.0 · 内部教学资料,请勿外传<br>
+  easy-tdx 回测系统完全上手手册 · 适用版本 v1.19.1 · 内部教学资料,请勿外传<br>
   本手册不构成任何投资建议,市场有风险,投资需谨慎
 </footer>
 

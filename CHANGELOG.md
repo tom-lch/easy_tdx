@@ -2,6 +2,28 @@
 
 本文件记录 easy-tdx 的版本变更。格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/)。
 
+## [1.19.1] — 2026-07-07
+
+**支持打包成单一 Windows EXE + GitHub Actions 自动发版** —— 面向"一点都不懂的老年"用户群，让 easy-tdx 能从"开发者双进程"形态变成"双击 EXE → 浏览器自动打开 → 看到回测界面"的零门槛形态。本版为 Phase 1（未签名自测版）；Phase 2 引入代码签名消除 SmartScreen 提示，Phase 3 加 macOS。
+
+### 新增
+
+- **后端同源托管前端 dist**（`src/easy_tdx/web/app.py`）—— `_resolve_web_dist_dir()` 三级探测（环境变量 → PyInstaller `_MEIPASS/web_dist` → 仓库根 `web-ui/dist`），在所有 API 路由注册后 `app.mount("/", StaticFiles(..., html=True))`。开发态可缺省（仅 API），打包态同源服务前端。**前置条件**：此前前端 Vite 单独跑、靠 CORS 跨端口，老人无法双进程操作；现单进程同源解决。
+- **`--open-browser` 启动选项**（`src/easy_tdx/cli/cmd_web.py`）—— uvicorn 启动后 `threading.Timer(1.5, ...)` 延迟开浏览器（等端口就绪），默认开、`--no-open-browser` 关闭、`--reload` 模式禁用（开发态不抢焦点）。
+- **PyInstaller 打包入口**（`src/easy_tdx/__main__.py` + `easy_tdx.spec`）—— `python -m easy_tdx` 等价 CLI；无参数时默认走 `serve`。`.spec` 用 `--onefile` + `console=False`（无黑窗）+ `collect_submodules('uvicorn' / 'easy_tdx' / 'pandas' / 'numpy')` 收集动态 import + 前端 dist 打到 `web_dist`。
+- **GitHub Actions 发版工作流**（`.github/workflows/release.yml`）—— `v*` tag 触发，`windows-latest` 构建前端 + EXE，重命名为 `easy-tdx-<版本>-windows.exe`，`softprops/action-gh-release` 上传。与 `publish.yml`（PyPI）完全独立并行，PyPI 失败不影响 EXE 发布。
+- **打包使用文档**（`docs/packaging.md`）—— 老人下载/运行/绕过 SmartScreen 图文说明 + 开发者本地构建步骤 + Phase 1/2/3 路线图。
+
+### 已知约束（非 bug）
+
+- **EXE 未签名，SmartScreen 会拦截** —— 老人首次运行需手动"更多信息 → 仍要运行"。这是 Phase 1 的明确取舍（你已确认"先打未签名包自测"），Phase 2 引入 OV/EV 代码签名证书后消除。
+- **EXE 体积 80-150MB** —— pandas/numpy/uvicorn/Vue dist 全量打包的必然结果。`--onefile` 首次启动解压需 2-5 秒。
+- **离线 .day 读取需要通达信** —— 老人若未安装 Windows 版通达信，离线读取本地数据功能不可用；在线行情不受影响。
+
+### 修复（打包过程暴露的既有 bug）
+
+- **K 线残缺尾记录导致 500**（`src/easy_tdx/commands/security_bars.py`）—— 通达信服务器偶发返回的 `ret_count`（K 线条数）字段与 body 实际字节数不匹配（pytdx/mootdx 均有同类报告），循环到中途 `pos` 读到底，下一条 datetime 解析抛 `TdxDecodeError: day datetime: 数据不足`，整批数据 500。实测日志证据：SH600519 首次请求 500、重试即 200，同一只股票时好时坏。改为把 `TdxDecodeError` 当记录边界——`try/except` 包住单条记录解析，异常时 `break` 退出循环，丢弃残缺尾记录，返回已成功解析的完整记录（少几根 K 线比整批 500 好）。`GetIndexBarsCmd`（指数 K 线）同改。`tests/unit/test_decode_errors.py` 加 4 个回归测试守卫。**此 bug 与 PyInstaller 打包无关**，是项目既有问题，只是打包版运行更频繁把它暴露了出来。
+
 ## [1.18.2] — 2026-07-06
 
 **回退拼音声母搜索功能，回到稳定的 6 位代码输入** —— v1.19.0 引入的拼音声母搜索（输 `zjxc` 命中中际旭创）因底层依赖过重被移除。该功能首次使用时需从通达信服务器爬取沪深 A 股约 5000 条完整名单（几十次协议往返，慢机器耗时几十秒到超时），且与共享的 TDX 连接耦合——爬名单期间会阻塞行情请求。虽经多轮优化（按需加载 / 全站遮罩 / 单飞去重 / 后台预热），均无法兼顾"不阻塞核心行情"与"首次可用"。本次回到 v1.18.1 的干净基线，代码输入框恢复为纯 6 位代码输入（市场自动识别）。

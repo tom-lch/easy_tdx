@@ -63,17 +63,27 @@ class GetSecurityBarsCmd(BaseCommand[list[SecurityBar]]):
         pre_diff_base = 0
         cat = int(self.category)
 
+        # 服务器偶发返回的 ret_count 与 body 实际长度不匹配（pytdx/mootdx 均
+        # 有类似报告）：ret_count 撒谎或网络帧粘包/截断，循环到中途 pos 已
+        # 读到底（"剩余 0 字节"）。改用"取 min(ret_count, body 可解析条数)"
+        # 策略——TdxDecodeError 视为记录边界，提前结束循环并丢弃残缺尾记录，
+        # 而不是让整批数据 500。调用方拿到的是完整记录（少几根 K 线比全崩好）。
         for _ in range(ret_count):
             record_start = pos
-            year, month, day, hour, minute, pos = get_datetime(cat, body, pos)
+            try:
+                year, month, day, hour, minute, pos = get_datetime(cat, body, pos)
 
-            open_diff, pos = get_price(body, pos)
-            close_diff, pos = get_price(body, pos)
-            high_diff, pos = get_price(body, pos)
-            low_diff, pos = get_price(body, pos)
+                open_diff, pos = get_price(body, pos)
+                close_diff, pos = get_price(body, pos)
+                high_diff, pos = get_price(body, pos)
+                low_diff, pos = get_price(body, pos)
 
-            vol, pos = get_volume(body, pos)
-            amount, pos = get_volume(body, pos)
+                vol, pos = get_volume(body, pos)
+                amount, pos = get_volume(body, pos)
+            except Exception:
+                # 残缺尾记录：body 已读到底或字段不完整，丢弃本条并停止。
+                # 不重新抛出—— degrade gracefully，返回已解析的完整记录。
+                break
 
             # 差分还原（与 pytdx 完全一致）
             open_abs = open_diff + pre_diff_base
@@ -116,20 +126,25 @@ class GetIndexBarsCmd(GetSecurityBarsCmd):
         pre_diff_base = 0
         cat = int(self.category)
 
+        # 同 GetSecurityBarsCmd：ret_count 与 body 实际长度偶发不匹配，
+        # 残缺尾记录提前 break，详见父类同名注释。
         for _ in range(ret_count):
             record_start = pos
-            year, month, day, hour, minute, pos = get_datetime(cat, body, pos)
+            try:
+                year, month, day, hour, minute, pos = get_datetime(cat, body, pos)
 
-            open_diff, pos = get_price(body, pos)
-            close_diff, pos = get_price(body, pos)
-            high_diff, pos = get_price(body, pos)
-            low_diff, pos = get_price(body, pos)
+                open_diff, pos = get_price(body, pos)
+                close_diff, pos = get_price(body, pos)
+                high_diff, pos = get_price(body, pos)
+                low_diff, pos = get_price(body, pos)
 
-            vol, pos = get_volume(body, pos)
-            amount, pos = get_volume(body, pos)
+                vol, pos = get_volume(body, pos)
+                amount, pos = get_volume(body, pos)
 
-            # 指数记录额外 4 字节：上涨家数 + 下跌家数（各 uint16 LE）
-            pos += 4
+                # 指数记录额外 4 字节：上涨家数 + 下跌家数（各 uint16 LE）
+                pos += 4
+            except Exception:
+                break
 
             open_abs = open_diff + pre_diff_base
             close_abs = open_abs + close_diff
