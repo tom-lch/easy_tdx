@@ -21,16 +21,18 @@ web = ["fastapi>=0.110,<1", "uvicorn[standard]>=0.29"]
 # 仅 PyInstaller 打包态需要，开发态 ``pip install -e .[web]`` 不强制装。
 packaging = ["pystray>=0.19", "Pillow>=10.0"]
 
+[tool.hatch.build]
+# 前端 dist 是构建产物（在 .gitignore 里），hatchling 默认不打包。
+# artifacts 让它被 sdist 和 wheel 都强制包含。
+artifacts = [
+    "web-ui/dist/",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/easy_tdx"]
-# 前端 dist 作为数据文件打进 wheel，让 PyPI 安装的用户也能开箱即用 web UI。
-# 前端必须先构建到 web-ui/dist/（release.yml / publish.yml 都会先 npm run build）。
-# 映射到包内 easy_tdx/web/dist/，运行时由 _resolve_web_dist_dir 第 4 级探测。
-artifacts = [
-    "src/easy_tdx/web/dist",
-]
-[tool.hatch.build.targets.wheel.force-include]
-"web-ui/dist" = "easy_tdx/web/dist"
+# 前端 dist 映射到包内 easy_tdx/web/dist/，让 pip install 后开箱即用 UI。
+# 运行时由 _resolve_web_dist_dir 第 4 级探测找到。
+force-include = { "web-ui/dist" = "easy_tdx/web/dist" }
 
 [tool.mypy]
 strict = true
