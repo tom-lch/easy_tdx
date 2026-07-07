@@ -30,8 +30,8 @@ artifacts = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/easy_tdx"]
-# 前端 dist 映射到包内 easy_tdx/web/dist/，让 pip install 后开箱即用 UI。
-# 运行时由 _resolve_web_dist_dir 第 4 级探测找到。
+# 前端 dist 映射到包内 easy_tdx/web/dist/。CI（ci.yml）、publish（publish.yml）
+# 和 release（release.yml）都会在 pip install / build 前先 npm run build。
 force-include = { "web-ui/dist" = "easy_tdx/web/dist" }
 
 [tool.mypy]
