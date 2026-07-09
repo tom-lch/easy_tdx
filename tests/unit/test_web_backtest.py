@@ -59,7 +59,8 @@ def test_registry_has_builtin_strategies():
     assert "boll_breakout" in names
     assert "rsi_reversal" in names
     assert "kdj_cross" in names
-    assert len(names) >= 18
+    assert "fsl" in names
+    assert len(names) >= 19
 
 
 def test_strategy_schema_serialization():

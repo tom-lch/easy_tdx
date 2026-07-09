@@ -25,6 +25,7 @@ from easy_tdx.MyTT import (
     DPO,
     EMA,
     EMV,
+    FSL,
     KDJ,
     KTN,
     MA,
@@ -551,4 +552,39 @@ class AtrBreakoutStrategy(ParametrizedStrategy):
         if close >= upper and self.position["size"] == 0:
             self.buy()
         elif close <= lower and self.position["size"] > 0:
+            self.sell()
+
+
+# ── FSL 分水岭指标 ────────────────────────────────────────────────────────────
+
+
+@register_strategy(
+    name="fsl",
+    label="FSL 分水岭",
+    description="SWL 上穿 SWS 买入（多头占优），SWL 下穿 SWS 卖出（空头占优）。",
+)
+class FslStrategy(ParametrizedStrategy):
+    """FSL 分水岭 SWL/SWS 金叉死叉。"""
+
+    params = [
+        Param(
+            "capital",
+            float,
+            default=1e8,
+            min_value=1e6,
+            max_value=1e12,
+            label="流通股本(股)",
+        ),
+    ]
+
+    def init(self) -> None:
+        self.swl, self.sws = self.I(FSL, self.data.close, self.data.vol, self.p["capital"])
+        self.gold = self.I(CROSS, self.swl, self.sws)
+        self.dead = self.I(CROSS, self.sws, self.swl)
+
+    def next(self) -> None:
+        i = self._bar_index
+        if self.gold[i]:
+            self.buy()
+        elif self.dead[i] and self.position["size"] > 0:
             self.sell()

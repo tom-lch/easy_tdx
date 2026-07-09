@@ -15,6 +15,7 @@
 # V3.3  2023-11-09 新增 SIN,COS,TAN序列处理的三角函数
 # V4.0  2026-06-02 handsomejustin 新增 ZHUOYAO,BIAS_SIGNAL两个自创函数
 # V4.1  2026-06-14 新增 SAR(抛物线转向), VWAP(成交量加权均价), AROON(阿隆指标); 注册 FK
+# V4.2  2026-07-09 新增 FSL(分水岭指标)
 
 # 以下所有函数如无特别说明，输入参数S均为numpy序列或者列表list，N为整型int
 # 应用层1级函数完美兼容通达信或同花顺，具体使用方法请参考通达信
@@ -557,6 +558,17 @@ def AROON(HIGH, LOW, N=25):  # 阿隆指标：趋势启动时机识别（N周期
     AROON_DOWN = (N - down_bars) / N * 100  # 越接近100=近期创新低=下跌动能强
     OSC = AROON_UP - AROON_DOWN  # 震荡指标：正值多头，负值空头
     return RD(AROON_UP), RD(AROON_DOWN), RD(OSC)
+
+
+def FSL(CLOSE, VOL, CAPITAL):  # 分水岭指标：多空趋势强弱分界（SWS含换手率动态平滑）
+    # SWL = (EMA(C,5)*7 + EMA(C,10)*3) / 10  : 5日/10日指数均值的加权合成
+    SWL = (EMA(CLOSE, 5) * 7 + EMA(CLOSE, 10) * 3) / 10
+    # SWS = DMA(EMA(C,12), MAX(1, 100*SUM(VOL,5)/(3*CAPITAL)))
+    #     平滑因子 = 5日成交量换手率放大值，CAPITAL 为流通股本
+    A = MAX(1, 100 * (SUM(VOL, 5) / (3 * CAPITAL)))
+    A = MIN(A, 1.0)  # 模拟通达信 DMA(X,A) 内部钳制 A<=1，避免序列因子越界发散
+    SWS = DMA(EMA(CLOSE, 12), A)
+    return RD(SWL), RD(SWS)
 
 
 # 望大家能提交更多指标和函数  https://github.com/mpquant/MyTT

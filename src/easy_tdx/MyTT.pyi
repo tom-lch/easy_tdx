@@ -105,6 +105,11 @@ def AROON(
     N: int = ...,
 ) -> tuple[NDArray, NDArray, NDArray]: ...
 def FK(CLOSE: npt.ArrayLike) -> NDArray: ...
+def FSL(
+    CLOSE: npt.ArrayLike,
+    VOL: npt.ArrayLike,
+    CAPITAL: float,
+) -> tuple[NDArray, NDArray]: ...
 
 # ── Utility Functions ────────────────────────────────────────────────────────
 
