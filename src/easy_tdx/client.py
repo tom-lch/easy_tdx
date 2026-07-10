@@ -506,7 +506,13 @@ class TdxClient:
                 （= 开始 + 周期时长，与 Tushare/同花顺对齐，上午最后一根标 11:30）。
                 仅对分钟级周期生效；日线及以上不受影响。
         """
-        df = _to_df(self._execute(GetSecurityBarsCmd(market, code, category, start, count)))
+        cmd = GetSecurityBarsCmd(market, code, category, start, count)
+        bars = self._execute(cmd)
+        # 空数据故障转移：部分服务器对所有证券返回空 body（不报错），延迟最低的不
+        # 一定有数据，故空时按延迟逐台实测找首台返回数据的 host。
+        if not bars and self._auto_reconnect:
+            bars = self._find_host_returning_bars(cmd)
+        df = _to_df(bars)
         delta = _category_to_minutes(int(category))
         is_intraday = delta is not None
         df = _apply_bar_time_align_df(
@@ -533,7 +539,13 @@ class TdxClient:
         Args:
             bar_time: 见 :meth:`get_security_bars`，分钟级周期时间戳可对齐 Tushare 右端点。
         """
-        df = _to_df(self._execute(GetIndexBarsCmd(market, code, category, start, count)))
+        cmd = GetIndexBarsCmd(market, code, category, start, count)
+        bars = self._execute(cmd)
+        # 空数据故障转移：指数/板块指数（880xxx 等）并非所有服务器都提供，延迟最低
+        # 的不一定返回数据，故空时按延迟逐台实测找首台返回数据的 host。
+        if not bars and self._auto_reconnect:
+            bars = self._find_host_returning_bars(cmd)
+        df = _to_df(bars)
         delta = _category_to_minutes(int(category))
         is_intraday = delta is not None
         df = _apply_bar_time_align_df(
@@ -765,6 +777,31 @@ class TdxClient:
         专供 ``get_market_stat`` 使用——统计指数并非所有服务器都提供，延迟最低
         的不一定返回数据，故需逐台实际查询。最多尝试 ``_WORKING_HOST_MAX_ATTEMPTS``
         台（见 ``_reconnect``）。找到后 client 停在该 host；全失败返回空。
+        """
+        bad_host = self._host
+        ranked = ping_all(get_known_hosts(), self._port, 5.0)
+
+        def _try(host: str) -> bool:
+            # 切换到候选 host 并实测；非空即视为该 host 可用
+            self._reconnect(host)
+            return bool(self._execute(cmd))
+
+        new_host = find_working_host_sync(ranked, _try, save_best_host, bad_host)
+        if new_host is None:
+            # 全部候选都不可用，回退到原 host（保持状态可预测）
+            if self._host != bad_host:
+                self._reconnect(bad_host)
+            return []
+        # _try 已把 client 切到 new_host 并执行过 cmd，重新取一次拿结果
+        return self._execute(cmd)
+
+    def _find_host_returning_bars(self, cmd: "BaseCommand[list[SecurityBar]]") -> list[SecurityBar]:
+        """空数据故障转移（K 线类）：与 :meth:`_find_host_returning_quotes` 同模式。
+
+        指数/板块指数（880xxx 等）并非所有服务器都提供，延迟最低的不一定返回
+        数据（实测约 1/8 的服务器对所有指数返回空 body 且不报错）。故 K 线查询
+        空数据时按延迟顺序逐台实测，返回首台返回非空 bars 的结果。最多尝试
+        ``_WORKING_HOST_MAX_ATTEMPTS`` 台；全失败回退原 host 并返回空。
         """
         bad_host = self._host
         ranked = ping_all(get_known_hosts(), self._port, 5.0)
@@ -1141,7 +1178,11 @@ class AsyncTdxClient(AsyncHeartbeatMixin):
         bar_time: str = "start",
     ) -> pd.DataFrame:
         """获取 K 线数据。``bar_time`` 见同步版 :meth:`get_security_bars`。"""
-        df = _to_df(await self._execute(GetSecurityBarsCmd(market, code, category, start, count)))
+        cmd = GetSecurityBarsCmd(market, code, category, start, count)
+        bars = await self._execute(cmd)
+        if not bars and self._auto_reconnect:
+            bars = await self._find_host_returning_bars(cmd)
+        df = _to_df(bars)
         delta = _category_to_minutes(int(category))
         is_intraday = delta is not None
         df = _apply_bar_time_align_df(
@@ -1164,7 +1205,11 @@ class AsyncTdxClient(AsyncHeartbeatMixin):
         bar_time: str = "start",
     ) -> pd.DataFrame:
         """获取指数 K 线数据。``bar_time`` 见同步版 :meth:`get_index_bars`。"""
-        df = _to_df(await self._execute(GetIndexBarsCmd(market, code, category, start, count)))
+        cmd = GetIndexBarsCmd(market, code, category, start, count)
+        bars = await self._execute(cmd)
+        if not bars and self._auto_reconnect:
+            bars = await self._find_host_returning_bars(cmd)
+        df = _to_df(bars)
         delta = _category_to_minutes(int(category))
         is_intraday = delta is not None
         df = _apply_bar_time_align_df(
@@ -1358,6 +1403,26 @@ class AsyncTdxClient(AsyncHeartbeatMixin):
         self, cmd: "BaseCommand[list[SecurityQuote]]"
     ) -> list[SecurityQuote]:
         """空数据故障转移（async）：与 sync ``_find_host_returning_quotes`` 对称。"""
+        bad_host = self._host
+        ranked = await asyncio.to_thread(ping_all, get_known_hosts(), self._port, 5.0)
+
+        async def _try(host: str) -> bool:
+            await self._areconnect(host)
+            # mypy 对 async 闭包内泛型参数的推断会宽化为 BaseCommand[object]
+            # （sync 同模式可正确推断），此处为已知 mypy 限制，非真实类型错误。
+            return bool(await self._execute(cmd))  # type: ignore[arg-type]
+
+        new_host = await find_working_host_async(ranked, _try, save_best_host, bad_host)
+        if new_host is None:
+            if self._host != bad_host:
+                await self._areconnect(bad_host)
+            return []
+        return await self._execute(cmd)
+
+    async def _find_host_returning_bars(
+        self, cmd: "BaseCommand[list[SecurityBar]]"
+    ) -> list[SecurityBar]:
+        """空数据故障转移（K 线类，async）：与 sync ``_find_host_returning_bars`` 对称。"""
         bad_host = self._host
         ranked = await asyncio.to_thread(ping_all, get_known_hosts(), self._port, 5.0)
 

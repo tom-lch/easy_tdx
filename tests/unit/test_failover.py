@@ -24,7 +24,8 @@ from easy_tdx._reconnect import (
 from easy_tdx.client import TdxClient
 from easy_tdx.commands.security_count import GetSecurityCountCmd
 from easy_tdx.exceptions import TdxConnectionError
-from easy_tdx.models.enums import Market
+from easy_tdx.models.bar import SecurityBar
+from easy_tdx.models.enums import KlineCategory, Market
 
 # --------------------------------------------------------------------------- #
 # select_best_host_sync 单元逻辑
@@ -396,3 +397,123 @@ class TestMarketStatEmptyFailover:
         # find_working_host 逐台实测了 hostA、hostB（_reconnect 被各调一次）
         reconnect_hosts = [c.args[0] for c in mock_reconnect.call_args_list]
         assert reconnect_hosts == ["hostA", "hostB"]
+
+
+# --------------------------------------------------------------------------- #
+# get_index_bars / get_security_bars 空数据故障转移
+# （与 TestMarketStatEmptyFailover 对称：指数/板块指数 880xxx 并非所有服务器都提供）
+# --------------------------------------------------------------------------- #
+
+
+class TestIndexBarsEmptyFailover:
+    """K 线空数据故障转移——验证 get_index_bars/get_security_bars 空时逐台实测切 host。"""
+
+    def setup_method(self) -> None:
+        import easy_tdx._reconnect as r
+
+        r._last_failover_ts = 0.0
+
+    def _make_bar(self) -> SecurityBar:
+        """构造一根字段合法的日 K，让 get_index_bars 下游处理走通。"""
+        return SecurityBar(
+            open=10.0,
+            close=10.5,
+            high=10.8,
+            low=9.9,
+            vol=1000.0,
+            amount=10500.0,
+            year=2026,
+            month=7,
+            day=10,
+            hour=15,
+            minute=0,
+        )
+
+    def test_empty_bars_finds_working_host_and_returns_data(self) -> None:
+        """空 bars 时按延迟顺序逐台实测，找到返回数据的 host。"""
+        bar = self._make_bar()
+        client = TdxClient("bad-host", 7709, 1.0, auto_reconnect=True, heartbeat_interval=0)
+
+        # _execute: 首次空（bad-host）→ 验证 hostA 空 → 验证 hostB 非空 → 最终再取一次
+        with (
+            patch.object(client, "_execute", side_effect=[[], [], [bar], [bar]]) as mock_exec,
+            patch.object(client, "_reconnect") as mock_reconnect,
+            patch(
+                "easy_tdx.client.ping_all",
+                return_value=[("hostA", 0.01), ("hostB", 0.02)],
+            ),
+        ):
+            df = client.get_index_bars(Market.SH, "880008", KlineCategory.DAY, 0, 10)
+
+        # _execute 调用序列：1 首次 + 2 次 find_working_host 验证(hostA空、hostB非空) + 1 最终取值
+        assert mock_exec.call_count == 4
+        # _reconnect 切换到 hostA、hostB（逐台实测），最终停在 hostB
+        reconnect_hosts = [c.args[0] for c in mock_reconnect.call_args_list]
+        assert reconnect_hosts == ["hostA", "hostB"]
+        assert len(df) == 1
+
+    def test_empty_bars_all_candidates_empty_returns_empty_df(self) -> None:
+        """所有候选都返回空时，返回空 DataFrame（不抛异常）。"""
+        client = TdxClient("bad-host", 7709, 1.0, auto_reconnect=True, heartbeat_interval=0)
+
+        with (
+            patch.object(client, "_execute", return_value=[]),
+            patch.object(client, "_reconnect") as mock_reconnect,
+            patch(
+                "easy_tdx.client.ping_all",
+                return_value=[("hostA", 0.01), ("hostB", 0.02)],
+            ),
+        ):
+            df = client.get_index_bars(Market.SH, "880008", KlineCategory.DAY, 0, 10)
+
+        # find_working_host 逐台实测了 hostA、hostB（_reconnect 被各调一次）
+        reconnect_hosts = [c.args[0] for c in mock_reconnect.call_args_list]
+        assert reconnect_hosts == ["hostA", "hostB"]
+        assert df.empty
+
+    def test_non_empty_bars_does_not_trigger_failover(self) -> None:
+        """首次即返回数据时，不触发空数据故障转移。"""
+        bar = self._make_bar()
+        client = TdxClient("good-host", 7709, 1.0, auto_reconnect=True, heartbeat_interval=0)
+
+        with (
+            patch.object(client, "_execute", return_value=[bar]) as mock_exec,
+            patch.object(client, "_find_host_returning_bars") as mock_failover,
+        ):
+            df = client.get_index_bars(Market.SH, "880008", KlineCategory.DAY, 0, 10)
+
+        assert mock_exec.call_count == 1
+        mock_failover.assert_not_called()
+        assert len(df) == 1
+
+    def test_failover_disabled_when_auto_reconnect_off(self) -> None:
+        """auto_reconnect=False 时空数据不触发故障转移。"""
+        client = TdxClient("bad-host", 7709, 1.0, auto_reconnect=False, heartbeat_interval=0)
+
+        with (
+            patch.object(client, "_execute", return_value=[]) as mock_exec,
+            patch.object(client, "_find_host_returning_bars") as mock_failover,
+        ):
+            df = client.get_index_bars(Market.SH, "880008", KlineCategory.DAY, 0, 10)
+
+        assert mock_exec.call_count == 1
+        mock_failover.assert_not_called()
+        assert df.empty
+
+    def test_security_bars_also_triggers_failover(self) -> None:
+        """get_security_bars（个股 K 线）同样接入空数据故障转移。"""
+        bar = self._make_bar()
+        client = TdxClient("bad-host", 7709, 1.0, auto_reconnect=True, heartbeat_interval=0)
+
+        with (
+            patch.object(client, "_execute", side_effect=[[], [], [bar], [bar]]) as mock_exec,
+            patch.object(client, "_reconnect"),
+            patch(
+                "easy_tdx.client.ping_all",
+                return_value=[("hostA", 0.01), ("hostB", 0.02)],
+            ),
+        ):
+            df = client.get_security_bars(Market.SH, "600000", KlineCategory.DAY, 0, 10)
+
+        assert mock_exec.call_count == 4
+        assert len(df) == 1
