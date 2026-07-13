@@ -2,6 +2,27 @@
 
 本文件记录 easy-tdx 的版本变更。格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/)。
 
+## [1.20.4] — 2026-07-13
+
+**引入服务器健康分引擎 + K线空数据故障转移**（PR #37）—— 彻底解决用户反馈的通达信服务器"跳来跳去"且指数 K 线取不到数据问题。此前代码库零服务器健康记忆（失败的服务器下次又会被低延迟选中），且指数 K 线空数据不触发故障转移（直接返回空 DataFrame）。本次新增进程级健康分引擎 + 泛化空数据转移 + 8 个 client 统一健康分联动。
+
+### 新增
+
+- **服务器健康分引擎**（`src/easy_tdx/_health.py`）—— 为每台候选主机维护 `score ∈ (0, 1.0]`：失败乘性降权（×0.5）、连续失败 ≥3 次进 120s 冷却期、成功加性恢复（+0.2，上限 1.0）。`rank_by_health` 按 `latency/score`（有效延迟）重排候选列表，冷却中的主机直接剔除。全健康时近似恒等映射，对既有测试零影响。频繁断连或数据不全的服务器会自动靠后，不再被低延迟反复选中又反复触发空数据转移。
+
+- **K线空数据故障转移**（`src/easy_tdx/client.py`）—— `get_index_bars`/`get_security_bars`（sync+async）空结果时自动逐台换台（此前直接返回空 DataFrame，是日志"指数K线响应在第1/800条处被截断"后用户拿不到数据的根因）。泛化 `_find_host_returning_quotes` → `_find_host_returning_data[T]`，支持 quotes/K线/未来任意命令，原 quotes 方法保留薄封装保兼容。全空返回空 DataFrame（不 raise，区分"真无历史数据"与"服务器缺数据"）。
+
+- **8 个 client 统一健康分联动**（`src/easy_tdx/{client,mac/client,ex/client,ex/mac_client}.py`）—— A股/MAC/EX/MAC-EX × sync/async 的 `_execute` 全部注入：成功 `record_success`、连接失败 `record_failure`。此前仅 A 股 client 写健康分，MAC/EX 的 6 个 `_execute` 漏改（审核发现并修复）。
+
+### 改进
+
+- **故障转移感知健康分**（`src/easy_tdx/_reconnect.py`）—— `select_best_host_*`/`find_working_host_*` 调 `rank_by_health` 重排候选；空数据验证失败/异常时调 `record_failure`，命中调 `record_success`。
+- **截断日志区分**（`src/easy_tdx/commands/security_bars.py`）—— 区分"首条即空（服务器无数据，该换台）"与"末尾截断（部分可用）"，便于人工排查。
+
+### 测试
+
+- 新增 26 个测试：`test_health.py`（15 个健康分引擎单测）+ `test_failover.py` 扩展（7 个健康分感知 + K线空数据转移）+ `test_ex_reconnect.py` 扩展（4 个 MAC/EX client 健康分追踪，防 pattern-fix 回归）。全量 reconnect/failover/decode/config 回归通过（70+ tests），ruff/mypy 全绿，CI 8/8 通过。
+
 ## [1.20.3] — 2026-07-10
 
 **修复回测绩效统计两个准确性 bug**（issues #30 / #31）—— 用户反馈升级到 1.20.2 后回测数据仍然不对：#31 调仓回测最大回撤荒谬（-92%），#30 单标的回测总收益恒为 0（但交易表有盈亏）。排查后定位为两处独立缺陷，逐一修复并补回归测试。
