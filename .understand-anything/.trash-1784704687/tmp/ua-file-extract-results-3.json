@@ -1,0 +1,1326 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/api_reference.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 630,
+      "nonEmptyLines": 450,
+      "sections": [
+        {
+          "heading": "easy_tdx API 参考文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "目录",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "快速开始",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "客户端",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "TdxClient（同步）",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "工厂方法",
+          "level": 4,
+          "line": 64
+        },
+        {
+          "heading": "AsyncTdxClient（异步）",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "连接与服务器选择",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "ping_all",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "connect / close",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "市场信息",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "get_security_count",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "get_security_list",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "get_security_list_all",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "get_security_quotes",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "K 线数据",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "get_security_bars",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "get_index_bars",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "分时数据",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "get_minute_time_data",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "get_history_minute_time_data",
+          "level": 3,
+          "line": 229
+        },
+        {
+          "heading": "逐笔成交",
+          "level": 2,
+          "line": 243
+        },
+        {
+          "heading": "get_transaction_data",
+          "level": 3,
+          "line": 245
+        },
+        {
+          "heading": "get_history_transaction_data",
+          "level": 3,
+          "line": 254
+        },
+        {
+          "heading": "财务与公司信息",
+          "level": 2,
+          "line": 271
+        },
+        {
+          "heading": "get_xdxr_info",
+          "level": 3,
+          "line": 273
+        },
+        {
+          "heading": "get_finance_info",
+          "level": 3,
+          "line": 281
+        },
+        {
+          "heading": "get_company_info_category",
+          "level": 3,
+          "line": 289
+        },
+        {
+          "heading": "get_company_info_content",
+          "level": 3,
+          "line": 297
+        },
+        {
+          "heading": "板块信息",
+          "level": 2,
+          "line": 308
+        },
+        {
+          "heading": "get_block_info",
+          "level": 3,
+          "line": 310
+        },
+        {
+          "heading": "资金流向",
+          "level": 2,
+          "line": 327
+        },
+        {
+          "heading": "get_fund_flow",
+          "level": 3,
+          "line": 329
+        },
+        {
+          "heading": "get_history_fund_flow",
+          "level": 3,
+          "line": 345
+        },
+        {
+          "heading": "文件下载",
+          "level": 2,
+          "line": 356
+        },
+        {
+          "heading": "get_report_file",
+          "level": 3,
+          "line": 358
+        },
+        {
+          "heading": "市场统计",
+          "level": 2,
+          "line": 374
+        },
+        {
+          "heading": "get_market_stat",
+          "level": 3,
+          "line": 376
+        },
+        {
+          "heading": "数据模型",
+          "level": 2,
+          "line": 388
+        },
+        {
+          "heading": "SecurityInfo",
+          "level": 3,
+          "line": 390
+        },
+        {
+          "heading": "SecurityQuote",
+          "level": 3,
+          "line": 405
+        },
+        {
+          "heading": "SecurityBar",
+          "level": 3,
+          "line": 429
+        },
+        {
+          "heading": "MinuteBar",
+          "level": 3,
+          "line": 448
+        },
+        {
+          "heading": "TransactionRecord",
+          "level": 3,
+          "line": 457
+        },
+        {
+          "heading": "XdxrRecord",
+          "level": 3,
+          "line": 469
+        },
+        {
+          "heading": "FinanceInfo",
+          "level": 3,
+          "line": 484
+        },
+        {
+          "heading": "CompanyInfoCategory",
+          "level": 3,
+          "line": 488
+        },
+        {
+          "heading": "TdxBlock",
+          "level": 3,
+          "line": 499
+        },
+        {
+          "heading": "MarketStat",
+          "level": 3,
+          "line": 510
+        },
+        {
+          "heading": "FundFlow",
+          "level": 3,
+          "line": 527
+        },
+        {
+          "heading": "HistoricalFundFlow",
+          "level": 3,
+          "line": 540
+        },
+        {
+          "heading": "枚举",
+          "level": 2,
+          "line": 546
+        },
+        {
+          "heading": "Market",
+          "level": 3,
+          "line": 548
+        },
+        {
+          "heading": "KlineCategory",
+          "level": 3,
+          "line": 556
+        },
+        {
+          "heading": "异常",
+          "level": 2,
+          "line": 575
+        },
+        {
+          "heading": "涨跌停价计算",
+          "level": 2,
+          "line": 588
+        },
+        {
+          "heading": "get_price_limits",
+          "level": 3,
+          "line": 590
+        },
+        {
+          "heading": "compute_price_limits（独立函数）",
+          "level": 3,
+          "line": 604
+        },
+        {
+          "heading": "全局常量",
+          "level": 2,
+          "line": 624
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 59
+      }
+    },
+    {
+      "path": "docs/backtest_usage.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 661,
+      "nonEmptyLines": 504,
+      "sections": [
+        {
+          "heading": "easy-tdx 回测引擎使用手册",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "目录",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "快速开始",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "编写策略",
+          "level": 2,
+          "line": 74
+        },
+        {
+          "heading": "策略生命周期",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "访问行情数据",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "注册技术指标",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "金叉检测",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "生成交易信号",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "引擎配置",
+          "level": 2,
+          "line": 220
+        },
+        {
+          "heading": "成交价规则",
+          "level": 3,
+          "line": 236
+        },
+        {
+          "heading": "仓位模式",
+          "level": 3,
+          "line": 248
+        },
+        {
+          "heading": "费用模型",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "订单拒绝策略",
+          "level": 3,
+          "line": 272
+        },
+        {
+          "heading": "获取回测结果",
+          "level": 2,
+          "line": 283
+        },
+        {
+          "heading": "绩效指标一览",
+          "level": 3,
+          "line": 291
+        },
+        {
+          "heading": "资金曲线",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "交易记录",
+          "level": 3,
+          "line": 335
+        },
+        {
+          "heading": "持仓快照",
+          "level": 3,
+          "line": 342
+        },
+        {
+          "heading": "序列化输出",
+          "level": 3,
+          "line": 349
+        },
+        {
+          "heading": "配置快照",
+          "level": 3,
+          "line": 362
+        },
+        {
+          "heading": "CLI 命令行",
+          "level": 2,
+          "line": 373
+        },
+        {
+          "heading": "进阶用法",
+          "level": 2,
+          "line": 424
+        },
+        {
+          "heading": "预计算指标列",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "缠论结果注入",
+          "level": 3,
+          "line": 452
+        },
+        {
+          "heading": "自定义策略文件",
+          "level": 3,
+          "line": 481
+        },
+        {
+          "heading": "完整示例",
+          "level": 2,
+          "line": 513
+        },
+        {
+          "heading": "示例 1：双均线交叉策略",
+          "level": 3,
+          "line": 515
+        },
+        {
+          "heading": "示例 2：MACD 策略 + 预计算指标",
+          "level": 3,
+          "line": 561
+        },
+        {
+          "heading": "示例 3：布林带突破 + 滑点模拟",
+          "level": 3,
+          "line": 588
+        },
+        {
+          "heading": "示例 4：从文件运行 CLI",
+          "level": 3,
+          "line": 621
+        },
+        {
+          "heading": "注意事项",
+          "level": 2,
+          "line": 654
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 32
+      }
+    },
+    {
+      "path": "docs/conf.py",
+      "language": "python",
+      "fileCategory": "script",
+      "totalLines": 41,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "_get_version",
+          "startLine": 9,
+          "endLine": 12,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_get_version",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_get_version",
+          "callee": "version",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "docs/field_mapping.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 315,
+      "nonEmptyLines": 248,
+      "sections": [
+        {
+          "heading": "easy_tdx 字段映射表",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "SecurityInfo（证券列表条目）",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "SecurityQuote（实时五档行情）",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "SecurityBar（K 线数据）",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "MinuteBar（分时数据）",
+          "level": 2,
+          "line": 76
+        },
+        {
+          "heading": "TransactionRecord（逐笔成交）",
+          "level": 2,
+          "line": 87
+        },
+        {
+          "heading": "XdxrRecord（除权除息记录）",
+          "level": 2,
+          "line": 101
+        },
+        {
+          "heading": "XDXR_CATEGORY_NAMES（事件类型映射）",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "FinanceInfo（最新财务数据）",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "股本结构（单位：万股）",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "基本信息",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "资产负债（单位：元）",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "利润指标（单位：元）",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "每股指标",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "CompanyInfoCategory（公司信息目录）",
+          "level": 2,
+          "line": 212
+        },
+        {
+          "heading": "TdxBlock（板块信息）",
+          "level": 2,
+          "line": 225
+        },
+        {
+          "heading": "MarketStat（市场统计）",
+          "level": 2,
+          "line": 238
+        },
+        {
+          "heading": "FundFlow（资金流向）",
+          "level": 2,
+          "line": 257
+        },
+        {
+          "heading": "HistoricalFundFlow（历史资金流向）",
+          "level": 2,
+          "line": 276
+        },
+        {
+          "heading": "枚举",
+          "level": 2,
+          "line": 290
+        },
+        {
+          "heading": "Market（市场）",
+          "level": 3,
+          "line": 292
+        },
+        {
+          "heading": "KlineCategory（K 线周期）",
+          "level": 3,
+          "line": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "docs/indicator-bias-signal.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 167,
+      "nonEmptyLines": 116,
+      "sections": [
+        {
+          "heading": "30日乖离率信号 (BIAS_SIGNAL) 技术指标",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "指标定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "通达信原公式",
+          "level": 3,
+          "line": 7
+        },
+        {
+          "heading": "MyTT 等价实现",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "调用方式",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "核心逻辑",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "三线含义",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "与标准 BIAS 的关系",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "零轴意义",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "交易信号",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "1. 趋势方向判断（通达信颜色逻辑）",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "2. 金叉/死叉信号",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "3. X_LMA 拐头信号",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "4. 极值信号",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "5. 典型入场场景",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "参数调优",
+          "level": 2,
+          "line": 129
+        },
+        {
+          "heading": "P（短期信号线周期）",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "M（乖离率 + 长期信号线周期）",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "调参建议",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "与其他指标的配合",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "注意事项",
+          "level": 2,
+          "line": 162
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 21
+      }
+    },
+    {
+      "path": "docs/indicator-zhuoyao.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 84,
+      "nonEmptyLines": 58,
+      "sections": [
+        {
+          "heading": "捉妖大师 (ZHUOYAO) 技术指标",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "指标定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "调用方式",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "核心逻辑",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "交易信号",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "1. 多线共振（核心信号）",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "2. 穿越信号",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "3. \"捉妖\"条件（强势股筛选）",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "4. 风险信号",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "注意事项",
+          "level": 2,
+          "line": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "docs/index.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "easy-tdx 文档",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "docs/packaging.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 123,
+      "nonEmptyLines": 84,
+      "sections": [
+        {
+          "heading": "打包为 Windows EXE（面向老年用户）",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "给最终用户（老人 / 量化初学者）",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "下载",
+          "level": 3,
+          "line": 8
+        },
+        {
+          "heading": "运行",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "关闭",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "已知限制",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "排查问题",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "给开发者：本地构建 EXE",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "前置",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "步骤",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "调试",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "GitHub Actions 自动发版",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "当前限制（Phase 1）",
+          "level": 2,
+          "line": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    },
+    {
+      "path": "docs/protocol-reverse-engineering.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 144,
+      "nonEmptyLines": 103,
+      "sections": [
+        {
+          "heading": "TDX 协议逆向工程全景",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "第一层：抓包 — 发现帧结构",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "第二层：握手 — 三条神秘命令",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "第三层：请求构造 — 猜解命令格式",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "第四层：响应解析 — 最难的部分",
+          "level": 2,
+          "line": 74
+        },
+        {
+          "heading": "第五层：编解码 — 自定义数据格式",
+          "level": 2,
+          "line": 98
+        },
+        {
+          "heading": "价格编码 (`codec/price.py`) — 类 LEB128 变长有符号整数",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "成交量编码 (`codec/volume.py`) — 完全自定义的 4 字节浮点",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "第六层：未知字段 — 逆向的痕迹",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "总结：逆向方法论",
+          "level": 2,
+          "line": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "docs/protocol-unknown-fields.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 384,
+      "nonEmptyLines": 266,
+      "sections": [
+        {
+          "heading": "TDX 协议未知字段逆向分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "一、实时行情 unknown 字段（security_quotes）",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "unknown_2 详细分析（已确认：指数集合竞价成交金额 / 个股舍入残差）",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "unknown_3 详细分析（已确认：个股集合竞价成交金额）",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "unknown_4 非停牌值分析",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "附：MAC 协议 build_bitmap() Bug",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "二、证券列表 unknown 字段（security_list）",
+          "level": 2,
+          "line": 96
+        },
+        {
+          "heading": "_unknown1（已确认：排序/分组字段）",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "_unknown2（已确认：私有时间戳）",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "重大发现：pre_close 实际是 IEEE float32",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "三、其他待破解字段",
+          "level": 2,
+          "line": 148
+        },
+        {
+          "heading": "3.1 响应帧头 16 字节（已确认）",
+          "level": 3,
+          "line": 150
+        },
+        {
+          "heading": "3.2 分时数据 unknown_1 字段",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "3.3 逐笔成交尾部字段",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "四、硬跳过的字节块",
+          "level": 2,
+          "line": 209
+        },
+        {
+          "heading": "4.1 xdxr_info 9字节响应头部（已确认：请求回显）",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "4.2 xdxr_info 每条记录1字节 padding（已确认：保留/对齐字节）",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "4.3 fund_flow 9字节响应头部（已确认：同 xdxr_info 格式）",
+          "level": 3,
+          "line": 234
+        },
+        {
+          "heading": "4.4 板块文件 384 字节头部（未确认）",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "4.5 板块记录 2813 字节（已确认：前13字节有效 + 2800字节股票列表）",
+          "level": 3,
+          "line": 250
+        },
+        {
+          "heading": "4.6 扩展行情 skip 字节（未确认）",
+          "level": 3,
+          "line": 257
+        },
+        {
+          "heading": "五、财务数据 unknown 字段",
+          "level": 2,
+          "line": 266
+        },
+        {
+          "heading": "六、完全未实现的命令",
+          "level": 2,
+          "line": 271
+        },
+        {
+          "heading": "七、逆向进展日志",
+          "level": 2,
+          "line": 281
+        },
+        {
+          "heading": "7.1 实时行情 unknown 字段",
+          "level": 3,
+          "line": 283
+        },
+        {
+          "heading": "7.2 证券列表 unknown 字段",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "7.3 响应帧头 16 字节",
+          "level": 3,
+          "line": 344
+        },
+        {
+          "heading": "7.4 分时数据 unknown_1",
+          "level": 3,
+          "line": 355
+        },
+        {
+          "heading": "7.5 跳过字节块",
+          "level": 3,
+          "line": 366
+        },
+        {
+          "heading": "已知 Bug 清单",
+          "level": 3,
+          "line": 381
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 30
+      }
+    },
+    {
+      "path": "docs/quantitative-guide.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 628,
+      "nonEmptyLines": 490,
+      "sections": [
+        {
+          "heading": "量化因子与组合管理 — 使用指南",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "目录",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "1. 因子引擎",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "1.1 内置因子一览",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "1.2 单股多因子计算",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "1.3 截面因子计算",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "1.4 远期收益计算",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "1.5 自定义因子",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "2. 因子预处理",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "3. 因子分析",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "4. 组合管理",
+          "level": 2,
+          "line": 209
+        },
+        {
+          "heading": "4.1 权重优化器",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "4.2 风险模型",
+          "level": 3,
+          "line": 250
+        },
+        {
+          "heading": "4.3 再平衡引擎",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "5. 高级回测",
+          "level": 2,
+          "line": 312
+        },
+        {
+          "heading": "5.1 滑点模型",
+          "level": 3,
+          "line": 314
+        },
+        {
+          "heading": "5.2 执行仿真",
+          "level": 3,
+          "line": 359
+        },
+        {
+          "heading": "5.3 归因分析",
+          "level": 3,
+          "line": 430
+        },
+        {
+          "heading": "6. CLI 命令",
+          "level": 2,
+          "line": 485
+        },
+        {
+          "heading": "7. 完整工作流示例",
+          "level": 2,
+          "line": 502
+        },
+        {
+          "heading": "向后兼容",
+          "level": 2,
+          "line": 616
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 21
+      }
+    },
+    {
+      "path": "docs/readme.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "sections": [
+        {
+          "heading": "easy-tdx",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "docs/requirements.txt",
+      "language": "txt",
+      "fileCategory": "config",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    }
+  ]
+}

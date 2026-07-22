@@ -1,0 +1,13 @@
+{
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "batchFiles": [
+    {"path": ".readthedocs.yaml", "language": "yaml", "sizeLines": 18, "fileCategory": "config"},
+    {"path": "CHANGELOG.md", "language": "markdown", "sizeLines": 1024, "fileCategory": "docs"},
+    {"path": "LICENSE", "language": "unknown", "sizeLines": 34, "fileCategory": "docs"},
+    {"path": "NOTICE", "language": "unknown", "sizeLines": 24, "fileCategory": "docs"},
+    {"path": "README.md", "language": "markdown", "sizeLines": 1823, "fileCategory": "docs"},
+    {"path": "pyproject.toml", "language": "toml", "sizeLines": 85, "fileCategory": "config"},
+    {"path": "requirements-dev.txt", "language": "txt", "sizeLines": 27, "fileCategory": "config"}
+  ],
+  "batchImportData": {"CHANGELOG.md":[],"LICENSE":[],"NOTICE":[],"README.md":[],"pyproject.toml":[],"requirements-dev.txt":[]}
+}

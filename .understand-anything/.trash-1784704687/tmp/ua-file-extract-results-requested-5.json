@@ -1,0 +1,346 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    "docs/superpowers/specs/2026-06-21-grading-system-design.md"
+  ],
+  "results": [
+    {
+      "path": "docs/superpowers/specs/2026-06-09-backtest-engine-design.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 549,
+      "nonEmptyLines": 431,
+      "sections": [
+        {
+          "heading": "Backtest Engine Design — easy-tdx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. 目标",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "核心约束",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "v1 范围（P0 vs P1）",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "2. 架构",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "2.1 文件结构",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "2.2 模块交互流",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "3. 核心数据类型",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "3.1 Signal",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "3.2 Trade",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "3.3 Position",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "3.4 BacktestResult",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "4. Strategy 基类",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "4.1 接口定义",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "4.2 StrategyDataProxy",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "4.3 Python 类策略示例",
+          "level": 3,
+          "line": 224
+        },
+        {
+          "heading": "5. DSL 策略定义 (P1)",
+          "level": 2,
+          "line": 296
+        },
+        {
+          "heading": "5.1 设计边界",
+          "level": 3,
+          "line": 298
+        },
+        {
+          "heading": "5.2 两种 DSL 模式",
+          "level": 3,
+          "line": 309
+        },
+        {
+          "heading": "5.3 内置 DSL 函数",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "5.4 DSL 编译器",
+          "level": 3,
+          "line": 349
+        },
+        {
+          "heading": "6. 引擎执行流",
+          "level": 2,
+          "line": 360
+        },
+        {
+          "heading": "6.1 BacktestEngine 构造参数",
+          "level": 3,
+          "line": 362
+        },
+        {
+          "heading": "6.2 四步执行管道",
+          "level": 3,
+          "line": 389
+        },
+        {
+          "heading": "6.3 OrderSimulator 成交价规则",
+          "level": 3,
+          "line": 398
+        },
+        {
+          "heading": "6.4 仓位管理规则",
+          "level": 3,
+          "line": 408
+        },
+        {
+          "heading": "6.5 订单拒绝策略",
+          "level": 3,
+          "line": 417
+        },
+        {
+          "heading": "6.6 费用模型",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "6.7 基准对齐规则",
+          "level": 3,
+          "line": 432
+        },
+        {
+          "heading": "6.8 多策略批量回测 (P1)",
+          "level": 3,
+          "line": 439
+        },
+        {
+          "heading": "7. 绩效指标",
+          "level": 2,
+          "line": 462
+        },
+        {
+          "heading": "8. CLI 集成",
+          "level": 2,
+          "line": 487
+        },
+        {
+          "heading": "8.1 命令",
+          "level": 3,
+          "line": 489
+        },
+        {
+          "heading": "8.2 输出格式",
+          "level": 3,
+          "line": 519
+        },
+        {
+          "heading": "9. 测试计划",
+          "level": 2,
+          "line": 525
+        },
+        {
+          "heading": "10. 未来扩展点（v1 不实现，架构不堵死）",
+          "level": 2,
+          "line": 541
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 36
+      }
+    },
+    {
+      "path": "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 355,
+      "nonEmptyLines": 280,
+      "sections": [
+        {
+          "heading": "高级回测增强 — 设计文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. 背景与目标",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "2. 模块总览",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "依赖关系",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "3. 滑点建模（`slippage.py`）",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "3.1 基类",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "3.2 四种内置模型",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "3.3 SquareRootSlippage 详解",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "3.4 集成点",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "4. 执行仿真（`execution.py`）",
+          "level": 2,
+          "line": 111
+        },
+        {
+          "heading": "4.1 基类",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "4.2 四种内置模型",
+          "level": 3,
+          "line": 137
+        },
+        {
+          "heading": "4.3 TWAPExecution 详解",
+          "level": 3,
+          "line": 146
+        },
+        {
+          "heading": "4.4 VWAPExecution 详解",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "4.5 LimitExecution 详解",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "4.6 集成点",
+          "level": 3,
+          "line": 217
+        },
+        {
+          "heading": "5. 归因分析（`attribution.py`）",
+          "level": 2,
+          "line": 244
+        },
+        {
+          "heading": "5.1 数据结构",
+          "level": 3,
+          "line": 246
+        },
+        {
+          "heading": "5.2 AttributionAnalyzer",
+          "level": 3,
+          "line": 268
+        },
+        {
+          "heading": "5.3 与现有模块衔接",
+          "level": 3,
+          "line": 311
+        },
+        {
+          "heading": "6. 向后兼容策略",
+          "level": 2,
+          "line": 318
+        },
+        {
+          "heading": "7. 版本计划",
+          "level": 2,
+          "line": 331
+        },
+        {
+          "heading": "v1.14.0 — 滑点 + 执行",
+          "level": 3,
+          "line": 333
+        },
+        {
+          "heading": "v1.15.0 — 归因分析",
+          "level": 3,
+          "line": 342
+        },
+        {
+          "heading": "8. 不做的事",
+          "level": 2,
+          "line": 350
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 25
+      }
+    }
+  ]
+}

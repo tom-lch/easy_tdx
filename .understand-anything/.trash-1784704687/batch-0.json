@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 0,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "language": "yaml",
+      "sizeLines": 78,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "language": "yaml",
+      "sizeLines": 45,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "language": "yaml",
+      "sizeLines": 94,
+      "fileCategory": "infra"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "pipeline:github-ci",
+      "type": "pipeline",
+      "name": "CI",
+      "filePath": ".github/workflows/ci.yml",
+      "summary": "GitHub Actions workflow running on push and pull_request to main. Three independent jobs: a matrix test job (ubuntu-latest + windows-latest x Python 3.10/3.12/3.13 with pytest + coverage gate of >=60% and ruff lint/format checks), a mypy static type-checking job (ubuntu-latest, Python 3.13), and a dedicated frontend build job (ubuntu-latest, runs npm ci + npm run build in web-ui to enforce the Vue/TypeScript type-check + vite build as a regression guard added after the v1.17.9 numerical bug). The frontend is built before `pip install -e .[dev,web]` in every job because pyproject.toml's hatchling force-include requires web-ui/dist to exist.",
+      "complexity": 6,
+      "tags": ["ci", "github-actions", "pytest", "mypy", "ruff", "frontend-build", "matrix", "windows-coverage", "regression-guard"],
+      "languageNotes": "YAML GitHub Actions workflow. Uses `matrix` strategy (os x python-version) with `fail-fast: false` so a Windows runner failure cannot mask a Linux runner failure (or vice versa). Triggers on push/PR to `main`. Pins action versions (`actions/checkout@v4`, `actions/setup-python@v5`, `actions/setup-node@v4`) and uses `actions/setup-node` cache keyed on `web-ui/package-lock.json` for fast npm install. Each job sets `working-directory: web-ui` for npm steps so the cache-dependency-path and the working directory align.",
+      "languageLesson": "Putting the frontend build inside every Python job (instead of once in a shared job) is the cheapest way to honor the hatchling force-include contract: each `pip install -e .` independently verifies web-ui/dist exists. The dedicated `frontend` job runs *only* the npm steps on ubuntu-latest so the matrix isn't repeated 6x for an OS- and Python-independent check."
+    },
+    {
+      "id": "pipeline:publish-pypi",
+      "type": "pipeline",
+      "name": "Publish to PyPI",
+      "filePath": ".github/workflows/publish.yml",
+      "summary": "GitHub Actions workflow that builds and publishes the package to PyPI when a version tag (v*) is pushed. Single job on ubuntu-latest in the `release` GitHub environment with OIDC trusted publishing (`id-token: write` + `attestations: true` for sigstore provenance). Steps: checkout -> setup-python 3.13 -> setup-node 20 -> npm ci + npm run build (web-ui) -> pip install build -> python -m build -> pypa/gh-action-pypi-publish@release/v1. Building the frontend before `python -m build` is required because hatchling's force-include brings web-ui/dist into the wheel so `pip install easy-tdx[web]` ships a working UI out of the box.",
+      "complexity": 4,
+      "tags": ["release", "pypi", "github-actions", "trusted-publishing", "sigstore", "attestations", "wheel-build"],
+      "languageNotes": "YAML GitHub Actions workflow. Triggers exclusively on `tags: ['v*']` (no manual `workflow_dispatch`). Uses OIDC `id-token: write` permission so `pypa/gh-action-pypi-publish@release/v1` can publish via PyPI trusted publishing without long-lived API tokens; `attestations: true` enables PEP 740 sigstore provenance so end users can cryptographically verify artifact origin.",
+      "languageLesson": "OIDC trusted publishing + PEP 740 sigstore attestations removes both the need for a PyPI API token (no long-lived secret in repo secrets) and the trust gap on provenance (each install can verify which workflow + commit produced the wheel). This is the modern, recommended PyPI release flow."
+    },
+    {
+      "id": "pipeline:release-exe",
+      "type": "pipeline",
+      "name": "Release EXE",
+      "filePath": ".github/workflows/release.yml",
+      "summary": "GitHub Actions workflow that builds a Windows single-file EXE via PyInstaller and publishes it as a GitHub Release asset when a `v*` tag is pushed. Two jobs: `build-windows` (windows-latest, Python 3.12, Node 20, builds web-ui, `pip install -e .[web,packaging]` + `pip install pyinstaller`, runs `pyinstaller easy_tdx.spec --noconfirm`, renames the output to `easy-tdx-${VERSION}-windows.exe` via shell, uploads as artifact) and `release` (ubuntu-latest, downloads the artifact, creates a GitHub Release via softprops/action-gh-release@v2 with auto-generated notes and a Chinese-language download guide that explains the SmartScreen bypass to elderly end users). Phase 1 produces unsigned binaries; Phase 2 will add code signing.",
+      "complexity": 5,
+      "tags": ["release", "github-actions", "pyinstaller", "windows-exe", "github-release", "smart-screen", "phase-1"],
+      "languageNotes": "YAML GitHub Actions workflow with two jobs and an explicit `needs: build-windows` dependency. Sets `permissions: contents: write` so softprops/action-gh-release can create the release. The release body (Chinese) explains the unsigned-binary SmartScreen flow to elderly end users (`更多信息` -> `仍要运行`). Job order is load-bearing: frontend build -> `pip install -e .[web,packaging]` (force-include requires dist) -> pyinstaller -> rename via shell.",
+      "languageLesson": "Splitting a release into two jobs that share work via `actions/upload-artifact` + `actions/download-artifact` lets the heavy Windows-only PyInstaller build happen once on `windows-latest` while the lighter GitHub Release publish runs on cheap `ubuntu-latest`. The same artifact flows across the runner boundary without checking it back into git."
+    }
+  ],
+  "edges": [
+    {
+      "source": "pipeline:release-exe",
+      "target": "pipeline:publish-pypi",
+      "type": "related",
+      "weight": 0.5,
+      "reason": "release.yml's header comment explicitly notes that the EXE release runs in parallel with PyPI publishing to maximize release resilience: both share the `v*` tag trigger and a single failing workflow does not block the other."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 3,
+    "edgesCreated": 1,
+    "complexity": {
+      "min": 4,
+      "max": 6,
+      "avg": 5.0
+    },
+    "notes": "All three files are GitHub Actions workflows (yaml, fileCategory=infra, node type `pipeline`). No source imports are resolved for these files (YAML infra does not import Python/TS modules) and the cross-batch NEIGHBOR_MAP was empty, so the only within-batch edge models the parallel `v*` tag-trigger relationship between release.yml and publish.yml explicitly documented in release.yml's header comment. All three workflows share an implicit upstream contract: web-ui/dist must be built before any `pip install -e .[web]` or `python -m build` step because pyproject.toml's hatchling force-include pulls web-ui/dist into the wheel; ci.yml even includes that npm build inside every Python job (test, mypy) and adds a dedicated frontend job to enforce the Vue/TypeScript type-check + vite build as a regression guard added after the v1.17.9 numerical bug. The release workflow is intentionally independent of the publish workflow (separate jobs, different runners) so that a failure in one (e.g. PyPI rejection, SmartScreen note mishandling) does not block the other."
+  }
+}

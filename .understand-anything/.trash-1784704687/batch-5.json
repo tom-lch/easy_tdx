@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 5,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "tests/fixtures/company_info_category.json",
+      "language": "json",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/company_info_content.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/ex_history_transaction.json",
+      "language": "json",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/finance_info.json",
+      "language": "json",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/history_minute_time.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/history_transaction.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/minute_time.json",
+      "language": "json",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_bars.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_count.json",
+      "language": "json",
+      "sizeLines": 2,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_list.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_quotes.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/transaction.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/xdxr_info.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:tests/fixtures/company_info_category.json",
+      "type": "config",
+      "name": "company_info_category.json",
+      "filePath": "tests/fixtures/company_info_category.json",
+      "summary": "Expected-values manifest (7 lines) for the `company_info_category` hex fixture. Records the company-info category index list returned by the 通达信 web API: num_records=16 categories, with the first record pointing to file `600000.txt` (length 11426 bytes) — i.e. the 浦发银行 company-info file has 16 sub-documents and the first is 11426 bytes long. Consumed by tests/unit/test_commands_offline.py::test_company_info_category_parse (line 513) and tests/unit/test_decode_errors.py (line 31) to assert parse_response output for GetCompanyInfoCategoryCmd.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "company-info", "category-list", "offline-test", "tdx-web-api"],
+      "languageNotes": "Plain JSON object with two top-level keys: `num_records` (int) and `first` (object with `filename`, `start`, `length`). The corresponding `.hex` file holds the raw decompressed server body that parse_response consumes; this .json is the human-readable oracle used by the offline tests."
+    },
+    {
+      "id": "file:tests/fixtures/company_info_content.json",
+      "type": "config",
+      "name": "company_info_content.json",
+      "filePath": "tests/fixtures/company_info_content.json",
+      "summary": "Expected-values manifest (3 lines) for the `company_info_content` hex fixture. Records the total byte length (8070) and the 31-byte UTF-8 prefix (`☆最新提示☆ ◇600000 浦发银行 更新日期：2026-04-10◇ 港澳资讯 灵通V9.0\\r\\n`) that prefixes the raw 灵通V9.0 company-info body so the parser can split header vs content. Consumed by tests/unit/test_commands_offline.py::test_company_info_content_parse (line 535) to validate GetCompanyInfoContentCmd.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "company-info", "content-prefix", "ling-tong-v9", "offline-test"],
+      "languageNotes": "JSON object with `length` (int) and `prefix` (string, contains CRLF). The `prefix` mirrors the exact byte sequence the parser must locate to know where the F10 text body begins; the .hex contains the full decoded body."
+    },
+    {
+      "id": "file:tests/fixtures/ex_history_transaction.json",
+      "type": "config",
+      "name": "ex_history_transaction.json",
+      "filePath": "tests/fixtures/ex_history_transaction.json",
+      "summary": "Expected-values manifest (22 lines) for the Hong-Kong `ex_history_transaction` hex fixture (HK_MAIN_BOARD, market=31, code=00700, 2026-07-03, issue #14 fixture). Encodes 10 historical ticks with integer prices in 0.001 HKD units (price_int=431800 → 431.8 HKD), including first tick at 15:59 (closing-auction small lot, vol=300) and last tick at 16:08 (closing-call-auction block trade, vol=934700). The leading `_comment` block documents the HKD unit convention so future readers understand the integer pricing. Consumed by tests/unit/test_hk_transaction.py (line 57) to verify HK tick parsing on the dedicated extension module.",
+      "complexity": 3,
+      "tags": ["fixture", "expected-values", "hk-stocks", "ex-extension", "history-transaction", "tick-data", "issue-14", "integer-price-hkd", "offline-test"],
+      "languageNotes": "JSON with leading `_comment` (string), then market/code/num_records + `first` + `last` blocks. The price_int/price_hkd pair is the key teaching artifact: HK tick decoding produces integer minor-units (0.001 HKD) that the public API must divide by 1000. The timestamps cross 16:00 to validate post-close auction handling."
+    },
+    {
+      "id": "file:tests/fixtures/finance_info.json",
+      "type": "config",
+      "name": "finance_info.json",
+      "filePath": "tests/fixtures/finance_info.json",
+      "summary": "Expected-values manifest (4 lines) for the `finance_info` hex fixture. Records three core share-structure fields for 600000 浦发银行: `liutong_guben` and `zong_guben` both 33,305,837,500 shares (流通股本 = 总股本, i.e. fully tradable) and `meigujing_zichan` (每股净资产) ≈ 22.13 CNY. Consumed by tests/unit/test_commands_offline.py::test_finance_info_parse (line 487) to validate GetFinanceInfoCmd + models/finance.py decoding of the binary financial-statement body.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "finance-info", "share-structure", "bvps", "offline-test"],
+      "languageNotes": "JSON with three flat float fields. Float values (`33305837500.0`, `22.1299991607666`) preserve the exact binary-decoded magnitudes — `meigujing_zichan` carries the extra decimals to detect IEEE-754 rounding regressions."
+    },
+    {
+      "id": "file:tests/fixtures/history_minute_time.json",
+      "type": "config",
+      "name": "history_minute_time.json",
+      "filePath": "tests/fixtures/history_minute_time.json",
+      "summary": "Expected-values manifest (6 lines) for the `history_minute_time` hex fixture (historical full-day 1-minute bars). Reports num_records=240 (a full A-share trading day = 240 one-minute bars) with the first bar at price=10.29, vol=10044. Consumed by tests/unit/test_commands_offline.py (line 343) to verify GetHistoryMinuteTimeCmd parses a full session of intraday bars back into a timeseries of (time, price, vol) tuples.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "history-minute", "intraday-bars", "full-session", "240-bars", "offline-test"],
+      "languageNotes": "JSON object with `num_records` (int) and `first` block. The `num_records=240` constant is the canonical A-share trading-day bar count (4h × 60m) and acts as a regression sentinel for the timeseries decoder."
+    },
+    {
+      "id": "file:tests/fixtures/history_transaction.json",
+      "type": "config",
+      "name": "history_transaction.json",
+      "filePath": "tests/fixtures/history_transaction.json",
+      "summary": "Expected-values manifest (8 lines) for the `history_transaction` hex fixture (historical intraday tick distribution). Reports num_records=10 historical ticks, first tick at 14:56 with price=10.3, vol=50. Consumed by tests/unit/test_commands_offline.py (line 395) to validate GetHistoryTransactionCmd — used for reconstructing minute-of-day price/volume distributions from a past date.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "history-transaction", "intraday-ticks", "offline-test"],
+      "languageNotes": "JSON object with `num_records` (int) and `first` block containing hour/minute/price/vol. Note the field name is `price` (float), in contrast to ex_history_transaction which uses integer minor-units for HK."
+    },
+    {
+      "id": "file:tests/fixtures/minute_time.json",
+      "type": "config",
+      "name": "minute_time.json",
+      "filePath": "tests/fixtures/minute_time.json",
+      "summary": "Expected-values manifest (7 lines) for the current-day `minute_time` hex fixture (1-minute bars for today's live session). Reports num_records=240 bars, first bar at price=0.01, vol=48, with an extra `_unknown_1` field set to 54 (a layout-decoding sentinel — the parser must skip an undocumented uint16/uint32 field without crashing). Consumed by tests/unit/test_commands_offline.py (line 314) to validate GetMinuteTimeCmd + timeseries decoding, including tolerance for the unknown leading field.",
+      "complexity": 3,
+      "tags": ["fixture", "expected-values", "minute-time", "current-day", "240-bars", "unknown-field", "offline-test"],
+      "languageNotes": "JSON with `num_records` (int), `first` (price/vol/_unknown_1). The `_unknown_1` field documents a parser-internal byte the decoder must consume but currently exposes as opaque — useful when regression-introducing fields appear in the protocol."
+    },
+    {
+      "id": "file:tests/fixtures/security_bars.json",
+      "type": "config",
+      "name": "security_bars.json",
+      "filePath": "tests/fixtures/security_bars.json",
+      "summary": "Expected-values manifest (9 lines) for the `security_bars` hex fixture (historical K-line / OHLCV bars). Reports num_records=5 bars; first bar is OHLCV = (10.25, 10.25, 10.08, 10.12, 41151820.0 shares). Consumed by tests/unit/test_commands_offline.py (lines 105, 136, 155) to validate GetSecurityBarsCmd against multiple slicing scenarios (partial first record, full 5-record session, boundary handling).",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "kline", "ohlcv", "daily-bars", "offline-test"],
+      "languageNotes": "JSON object with `num_records` (int) and `first` block (open/high/low/close/vol). The vol=41151820.0 float preserves the exact decoded share volume so the offline test can compare equality, not just range."
+    },
+    {
+      "id": "file:tests/fixtures/security_count.json",
+      "type": "config",
+      "name": "security_count.json",
+      "filePath": "tests/fixtures/security_count.json",
+      "summary": "Expected-values manifest (2 lines) for the `security_count` hex fixture. Reports count=26885 — the recorded number of securities on the SH market at capture time. The body is a fixed 2-byte unsigned int. Consumed by tests/unit/test_commands_offline.py::test_security_count_parse (line 29) to assert GetSecurityCountCmd returns exactly 26885 for the SH market.",
+      "complexity": 1,
+      "tags": ["fixture", "expected-values", "security-count", "sh-market", "2-byte", "offline-test"],
+      "languageNotes": "Minimal JSON: just `{\"count\": 26885}`. This is the simplest fixture in the suite and serves as a smoke test that the offline-test harness can load hex bodies at all."
+    },
+    {
+      "id": "file:tests/fixtures/security_list.json",
+      "type": "config",
+      "name": "security_list.json",
+      "filePath": "tests/fixtures/security_list.json",
+      "summary": "Expected-values manifest (8 lines) for the `security_list` hex fixture (paginated security list page 0). Reports num_records=1000 (a full page), with the first record being code=`999999` / name=`上证指数` / pre_close=3966.171142578125. Consumed by tests/unit/test_commands_offline.py (lines 48 and 90) to validate GetSecurityListCmd parses a full page and surfaces the correct first record (the SH composite index).",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "security-list", "pagination", "1000-records", "sh-index", "offline-test"],
+      "languageNotes": "JSON with `num_records` (int) and `first` block (code, name, pre_close). The `pre_close` value is an exact 32-bit float sentinel (3966.171142578125) used to detect any IEEE-754 rounding drift in the float decoder."
+    },
+    {
+      "id": "file:tests/fixtures/security_quotes.json",
+      "type": "config",
+      "name": "security_quotes.json",
+      "filePath": "tests/fixtures/security_quotes.json",
+      "summary": "Expected-values manifest (8 lines) for the `security_quotes` hex fixture (live snapshot quotes). Reports num_records=1 quote; the record is code=`600000` with `pre_close=9.93`, and two sentinel fields `unknown_2=-1` and `unknown_3=22694` that exercise the parser's tolerance for partially-decoded fields. Consumed by tests/unit/test_commands_offline.py::test_security_quotes_parse (line 175) to validate GetSecurityQuotesCmd survives unknown byte slots without raising.",
+      "complexity": 3,
+      "tags": ["fixture", "expected-values", "security-quotes", "live-snapshot", "unknown-fields", "offline-test"],
+      "languageNotes": "JSON with `num_records` (int) and `first` block (code, pre_close, unknown_2, unknown_3). The `unknown_*` keys are the parser-internal byte slots exposed to the offline test — they double as both regression sentinels and a documented placeholder for future protocol fields."
+    },
+    {
+      "id": "file:tests/fixtures/transaction.json",
+      "type": "config",
+      "name": "transaction.json",
+      "filePath": "tests/fixtures/transaction.json",
+      "summary": "Expected-values manifest (8 lines) for the current-day `transaction` hex fixture (today's tick distribution). Reports num_records=10 ticks; first tick at 14:59 with price=9.9, vol=0 (a zero-volume print at the very end of the regular session). Consumed by tests/unit/test_commands_offline.py (line 365) to validate GetTransactionCmd and confirm zero-volume ticks are tolerated.",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "transaction", "current-day", "ticks", "zero-volume", "offline-test"],
+      "languageNotes": "JSON with `num_records` (int) and `first` block (hour/minute/price/vol). The vol=0 sentinel is a deliberate edge case for downstream consumers that might divide by vol or compute VWAP."
+    },
+    {
+      "id": "file:tests/fixtures/xdxr_info.json",
+      "type": "config",
+      "name": "xdxr_info.json",
+      "filePath": "tests/fixtures/xdxr_info.json",
+      "summary": "Expected-values manifest (8 lines) for the `xdxr_info` hex fixture (除权除息 / ex-dividend & ex-rights event history). Reports num_records=87 events; first event dated 1999-11-10 with category=5 (拆股 / split, by tdx category code). Consumed by tests/unit/test_commands_offline.py (line 423) and tests/unit/test_decode_errors.py (line 39) to validate GetXdxrInfoCmd + the year/month/day/category decoder, including the long historical tail (87 records back to 1999).",
+      "complexity": 2,
+      "tags": ["fixture", "expected-values", "xdxr", "ex-dividend", "ex-rights", "category-5", "split", "offline-test"],
+      "languageNotes": "JSON with `num_records` (int) and `first` block (year, month, day, category). The category integer maps to a tdx enum (1=送股, 2=配股, 3=转股, 4=派息, 5=拆股, ...) — preserving the integer rather than the enum forces the offline test to also exercise the enum-mapping layer."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/fixtures/company_info_category.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py::test_company_info_category_parse (line 513) loads the paired .hex body and asserts the parser produces the num_records=16 + first-record shape encoded in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/company_info_category.json",
+      "target": "file:tests/unit/test_decode_errors.py",
+      "type": "tested_by",
+      "weight": 0.7,
+      "reason": "test_decode_errors.py (line 31) reuses the company_info_category hex to assert graceful decode-error handling, so this manifest documents the baseline that the error-path test compares against."
+    },
+    {
+      "source": "file:tests/fixtures/company_info_content.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py::test_company_info_content_parse (line 535) loads the paired .hex body and asserts GetCompanyInfoContentCmd splits header vs body using the 31-byte prefix recorded here."
+    },
+    {
+      "source": "file:tests/fixtures/ex_history_transaction.json",
+      "target": "file:tests/unit/test_hk_transaction.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_hk_transaction.py (line 57) loads the HK ex_history_transaction hex and asserts the HK extension module converts integer minor-units (431800) into HKD (431.8) as documented in this manifest's `_comment`."
+    },
+    {
+      "source": "file:tests/fixtures/ex_history_transaction.json",
+      "target": "file:src/easy_tdx/ex/hk_transaction.py",
+      "type": "validates",
+      "weight": 0.85,
+      "reason": "This manifest (issue #14 fixture, HK_MAIN_BOARD market=31) is the regression oracle for the HK tick-parsing extension that lives in src/easy_tdx/ex/, especially the integer-price-to-HKD conversion."
+    },
+    {
+      "source": "file:tests/fixtures/finance_info.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py::test_finance_info_parse (line 487) loads the paired .hex and asserts GetFinanceInfoCmd decodes liutong_guben=33305837500.0, zong_guben=33305837500.0, meigujing_zichan≈22.13 exactly as recorded here."
+    },
+    {
+      "source": "file:tests/fixtures/history_minute_time.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (line 343) loads history_minute_time hex and asserts a 240-bar full-session decode with first-bar price=10.29, vol=10044 as encoded in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/history_transaction.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (line 395) loads history_transaction hex and asserts GetHistoryTransactionCmd returns 10 historical ticks with first-record hour=14, minute=56, price=10.3, vol=50 as encoded here."
+    },
+    {
+      "source": "file:tests/fixtures/minute_time.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (line 314) loads minute_time hex and asserts GetMinuteTimeCmd returns 240 current-day bars, with the first bar carrying the price=0.01/vol=48/_unknown_1=54 tuple encoded in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/security_bars.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (lines 105, 136, 155) loads security_bars hex three times to assert GetSecurityBarsCmd parses OHLCV records correctly across partial/full/boundary slicing — the first-record OHLCV (10.25/10.25/10.08/10.12/41151820.0) is the oracle for all three cases."
+    },
+    {
+      "source": "file:tests/fixtures/security_count.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py::test_security_count_parse (line 29) loads security_count hex and asserts the 2-byte decoder yields the integer 26885 encoded in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/security_list.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (lines 48, 90) loads security_list hex and asserts GetSecurityListCmd yields 1000 records with first record code=999999/name=上证指数/pre_close=3966.171142578125 exactly as recorded here."
+    },
+    {
+      "source": "file:tests/fixtures/security_quotes.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py::test_security_quotes_parse (line 175) loads security_quotes hex and asserts GetSecurityQuotesCmd surfaces code=600000/pre_close=9.93 while tolerating the unknown_2/unknown_3 slots documented in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/transaction.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (line 365) loads transaction hex and asserts GetTransactionCmd returns 10 ticks with first tick at 14:59, price=9.9, vol=0 — the zero-volume sentinel here doubles as a VWAP/divide-by-vol regression check."
+    },
+    {
+      "source": "file:tests/fixtures/xdxr_info.json",
+      "target": "file:tests/unit/test_commands_offline.py",
+      "type": "tested_by",
+      "weight": 0.9,
+      "reason": "test_commands_offline.py (line 423) loads xdxr_info hex and asserts GetXdxrInfoCmd decodes 87 ex-rights/ex-dividend events with first event 1999-11-10 category=5 (拆股) as encoded in this manifest."
+    },
+    {
+      "source": "file:tests/fixtures/xdxr_info.json",
+      "target": "file:tests/unit/test_decode_errors.py",
+      "type": "tested_by",
+      "weight": 0.7,
+      "reason": "test_decode_errors.py (line 39) reuses the xdxr_info hex for error-path coverage, so this manifest documents the baseline (87 records, category=5) the error-path test compares against."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/security_count.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py instantiates GetSecurityCountCmd(Market.SH) and calls parse_response, so this test is the offline oracle for src/easy_tdx/commands/security_count.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/security_list.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py instantiates GetSecurityListCmd(Market.SH, 0) and asserts pagination decoding, so it is the offline oracle for src/easy_tdx/commands/security_list.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/security_bars.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py instantiates GetSecurityBarsCmd and asserts OHLCV decoding across three slicing scenarios, so it is the offline oracle for src/easy_tdx/commands/security_bars.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/security_quotes.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py asserts GetSecurityQuotesCmd parses live snapshots and tolerates unknown byte slots, making it the offline oracle for src/easy_tdx/commands/security_quotes.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/minute_time.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py asserts GetMinuteTimeCmd decodes a 240-bar current-day session with an unknown leading field, so it is the offline oracle for src/easy_tdx/commands/minute_time.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/transaction.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py asserts GetTransactionCmd parses current-day ticks and tolerates zero-volume records, making it the offline oracle for src/easy_tdx/commands/transaction.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/finance_info.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py asserts GetFinanceInfoCmd decodes liutong_guben/zong_guben/meigujing_zichan exactly, so it is the offline oracle for src/easy_tdx/commands/finance_info.py."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "file:src/easy_tdx/commands/xdxr_info.py",
+      "type": "tested_by",
+      "weight": 0.8,
+      "reason": "test_commands_offline.py asserts GetXdxrInfoCmd decodes 87 ex-rights/ex-dividend events back to 1999, so it is the offline oracle for src/easy_tdx/commands/xdxr_info.py."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 13,
+    "edgesCreated": 24,
+    "notes": "Batch 5 covers all 13 tests/fixtures/*.json expected-values manifests. Each is the human-readable oracle paired with a matching .hex file (the recorded raw server body that parse_response consumes). The batch covers 12 of the 13 Get*Cmd commands implemented under src/easy_tdx/commands/ — security_count, security_list, security_bars, security_quotes, minute_time, history_minute_time, transaction, history_transaction, finance_info, xdxr_info, company_info_category, company_info_content — plus the HK extension fixture ex_history_transaction (issue #14) consumed by tests/unit/test_hk_transaction.py and validated against src/easy_tdx/ex/. Two consumer test files are documented via edges: tests/unit/test_commands_offline.py (the main offline harness, covering 12 fixtures) and tests/unit/test_decode_errors.py (error-path coverage reusing company_info_category + xdxr_info hex). The .json manifests serve purely as documentation/regression sentinels — the test code itself only loads the .hex bodies and asserts parsed values; the .json files exist to make the oracles greppable and reviewable. Field-shape observations worth teaching: ex_history_transaction uses integer minor-units (431800 = 431.8 HKD) while A-share transaction/history_transaction use floats; finance_info preserves exact float magnitudes (33305837500.0, 22.1299991607666) so any IEEE-754 drift is detected; minute_time and security_quotes both contain `_unknown_*` fields documenting parser-internal byte slots that the offline tests must tolerate; security_list/security_bars/transaction/xdxr_info each use a num_records+first sentinel pattern that doubles as a regression oracle for the timeseries decoder."
+  }
+}

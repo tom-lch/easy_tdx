@@ -1,0 +1,3232 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 18,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "src/easy_tdx/web/app.py",
+      "language": "python",
+      "sizeLines": 295,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/backtest_schemas.py",
+      "language": "python",
+      "sizeLines": 414,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/convert.py",
+      "language": "python",
+      "sizeLines": 155,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/deps.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/errors.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/announcement.py",
+      "language": "python",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/backtest.py",
+      "language": "python",
+      "sizeLines": 724,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/bars.py",
+      "language": "python",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/block.py",
+      "language": "python",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/board_mac.py",
+      "language": "python",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/chanlun.py",
+      "language": "python",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/ex_market.py",
+      "language": "python",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/finance.py",
+      "language": "python",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/indicator.py",
+      "language": "python",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/mac_data.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/mac_quotes.py",
+      "language": "python",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/market.py",
+      "language": "python",
+      "sizeLines": 166,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/realtime.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/server.py",
+      "language": "python",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/sina.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/routers/strategies.py",
+      "language": "python",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/schemas.py",
+      "language": "python",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/strategy_store.py",
+      "language": "python",
+      "sizeLines": 232,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/web/task_runner.py",
+      "language": "python",
+      "sizeLines": 242,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:src/easy_tdx/web/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "src/easy_tdx/web/app.py",
+      "summary": "FastAPI application factory and lifespan management.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/app.py:SPAStaticFiles",
+      "type": "class",
+      "name": "SPAStaticFiles",
+      "filePath": "src/easy_tdx/web/app.py",
+      "summary": "StaticFiles + SPA fallback：404 时返回 index.html。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/app.py:_resolve_web_dist_dir",
+      "type": "function",
+      "name": "_resolve_web_dist_dir",
+      "filePath": "src/easy_tdx/web/app.py",
+      "summary": "定位前端构建产物目录（Vite build 输出的 ``web-ui/dist``）。  依次探测四处，命中即返回，全部缺失时返回 ``None``（仅 API 可用， 前端页面 404）：  1. ``EASY_TDX_WEB_DIST`` 环境变量——部署/调试时显式指定。 2. PyInstaller 运行态：``sys._MEIPASS / \"web_dist\"``——单 EXE 解压    后的临时目录（``--onefile`` 模式）。开发态无 ``_MEIPASS`` 属性，    此分支自动跳过。 3. 开发态：仓库根目录的 ``web-ui/dist``——支持 ``pip",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/app.py:lifespan",
+      "type": "function",
+      "name": "lifespan",
+      "filePath": "src/easy_tdx/web/app.py",
+      "summary": "管理 TDX 连接生命周期：启动时连接，关闭时断开。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/app.py:_create_app",
+      "type": "function",
+      "name": "_create_app",
+      "filePath": "src/easy_tdx/web/app.py",
+      "summary": "创建并配置 FastAPI 应用实例。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/backtest_schemas.py",
+      "type": "file",
+      "name": "backtest_schemas.py",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "回测 Web API 的请求/响应模型与结果序列化。  与 ``easy_tdx.web.schemas`` 分离，避免主 schemas 文件膨胀。结果序列化复用 主 schemas 的 numpy/datetime 清洗思路，但递归处理嵌套结构（BacktestResult 的 performance 是 dict、equity_curve 是 list[dict]、config 是 dict）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:BacktestRequest",
+      "type": "class",
+      "name": "BacktestRequest",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "单标的回测请求。  两种数据来源（二选一）： - ``ohlcv``: 直接内联 OHLCV 记录（前端已有数据时）。 - ``symbol`` + ``category`` + ``count``: 指定标的，由后端取行情。   两者都给则以内联数据为准。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:PortfolioBacktestRequest",
+      "type": "class",
+      "name": "PortfolioBacktestRequest",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "组合（多标的）回测请求。  与单标的 BacktestRequest 的区别：用 ``stocks`` 列表替代单个 ``symbol``， 资金按 equal 模式均分到各标的。日期范围过滤由前端完成（取满 800 根后过滤）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeBacktestRequest",
+      "type": "class",
+      "name": "OptimizeBacktestRequest",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "参数网格寻优请求。  在单个标的上，对策略的 1-2 个参数做网格搜索。数据来源与单标的回测一致 （ohlcv 内联或 symbol 取行情）。param_grid 指定寻优参数及其取值列表， 网格大小（各取值数乘积）上限 200。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllBacktestRequest",
+      "type": "class",
+      "name": "OptimizeAllBacktestRequest",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "一键寻优所有策略请求。  在单个标的上，对所有策略的预设参数网格（见 ``easy_tdx.backtest.strategies.presets.STRATEGY_PRESETS``）依次做网格寻优， 取各策略最优点汇总成全局排名，找出最佳策略 + 参数组合。数据来源与单标的 回测一致（ohlcv 内联或 symbol 取行情）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:StrategySchemaResponse",
+      "type": "class",
+      "name": "StrategySchemaResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "策略 schema 列表响应（/backtest/strategies）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:BacktestResultResponse",
+      "type": "class",
+      "name": "BacktestResultResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "回测结果响应（已清洗为 JSON 原生类型）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:TaskSubmitResponse",
+      "type": "class",
+      "name": "TaskSubmitResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "后台任务提交响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:TaskStateResponse",
+      "type": "class",
+      "name": "TaskStateResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "后台任务状态响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:TaskSummary",
+      "type": "class",
+      "name": "TaskSummary",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "任务摘要（列表用，不含完整 result）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:TaskListResponse",
+      "type": "class",
+      "name": "TaskListResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "任务摘要列表响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllRankEntry",
+      "type": "class",
+      "name": "OptimizeAllRankEntry",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "一键寻优全局排名单行：某策略的最优点摘要。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllResult",
+      "type": "class",
+      "name": "OptimizeAllResult",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "一键寻优所有策略的结果：全局排名 + 最佳 + 各策略最优点。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategyCreate",
+      "type": "class",
+      "name": "SavedStrategyCreate",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "新建一条已保存策略的请求体。  前端在单标的/组合回测结果区点「保存策略」时提交。``strategy`` + ``params`` 是回测引擎可直接消费的最小复现形态；``context`` 记录当时测的标的/日期， ``snapshot`` 记录保存时的关键绩效指标（\"为什么觉得它好\"）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategy",
+      "type": "class",
+      "name": "SavedStrategy",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "一条已保存策略（响应模型，含 id 与时间戳）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategyListResponse",
+      "type": "class",
+      "name": "SavedStrategyListResponse",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "策略库列表响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:MultiStrategyItem",
+      "type": "class",
+      "name": "MultiStrategyItem",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "多策略组合回测的单条策略槽位。  每条 = 一个策略 + 它的参数 + 它要跑的原标的 + 日期范围。资金由请求体的 ``cash`` 统一给出，引擎按策略数均分到各条。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/backtest_schemas.py:MultiStrategyBacktestRequest",
+      "type": "class",
+      "name": "MultiStrategyBacktestRequest",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "多策略组合回测请求（资金分仓）。  勾选 N 个策略，各跑在各自原标的上，总资金按策略数均分。响应该请求的后台任务 结果是 ``MultiStrategyResult``（结构同 ``PortfolioResult``，前端复用组合页图表）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/backtest_schemas.py:_clean_value",
+      "type": "function",
+      "name": "_clean_value",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "把单个值转为 JSON 原生类型（递归处理容器）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/backtest_schemas.py:serialize_result",
+      "type": "function",
+      "name": "serialize_result",
+      "filePath": "src/easy_tdx/web/backtest_schemas.py",
+      "summary": "把 BacktestResult（或其 to_dict()）清洗为纯 JSON 兼容字典。  递归处理 performance / equity_curve / trades / positions / config， 把 numpy scalar 转 Python 原生、NaN/Inf 转 None（JSON 不支持）、 datetime 转 ISO 字符串。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/convert.py",
+      "type": "file",
+      "name": "convert.py",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "共享参数转换工具（字符串 → 枚举）。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:market_from_str",
+      "type": "function",
+      "name": "market_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 Market 枚举，支持大小写，非法值抛 ValueError。  >>> market_from_str(\"SZ\")  # 正常 >>> market_from_str(\"sz\")  # 也正常（自动转大写） >>> market_from_str(\"ZZZ\")  # ValueError",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:market_value_from_str",
+      "type": "function",
+      "name": "market_value_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将市场字符串转为 int 值（MAC 客户端使用 int 而非枚举）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:category_from_str",
+      "type": "function",
+      "name": "category_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 KlineCategory 枚举，支持大小写和数字字符串。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:board_type_from_str",
+      "type": "function",
+      "name": "board_type_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 BoardType 枚举（ALL/HY/HY2/GN/FG/DQ/...）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:sort_type_from_str",
+      "type": "function",
+      "name": "sort_type_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 SortType 枚举（CHANGE_PCT/VOLUME/... 或 hex 数字）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:sort_order_from_str",
+      "type": "function",
+      "name": "sort_order_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 SortOrder 枚举（ASC/DESC）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:category_mac_from_str",
+      "type": "function",
+      "name": "category_mac_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 MAC Category 枚举（A/SH/SZ/KCB/BJ/CYB/...）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:ex_market_from_str",
+      "type": "function",
+      "name": "ex_market_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将字符串转为 ExMarket 整数值（HK_MAIN_BOARD/COMEX_FUTURES/... 或数字）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/convert.py:filter_types_from_str",
+      "type": "function",
+      "name": "filter_types_from_str",
+      "filePath": "src/easy_tdx/web/convert.py",
+      "summary": "将逗号分隔字符串转为 FilterType 列表（ST,KC,BJ,...）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/deps.py",
+      "type": "file",
+      "name": "deps.py",
+      "filePath": "src/easy_tdx/web/deps.py",
+      "summary": "Dependency injection for Web API routers.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/deps.py:get_client",
+      "type": "function",
+      "name": "get_client",
+      "filePath": "src/easy_tdx/web/deps.py",
+      "summary": "从 app.state 获取共享的 AsyncTdxClient 实例。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/deps.py:get_mac_client",
+      "type": "function",
+      "name": "get_mac_client",
+      "filePath": "src/easy_tdx/web/deps.py",
+      "summary": "从 app.state 获取共享的 AsyncMacClient 实例。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/deps.py:get_ex_client",
+      "type": "function",
+      "name": "get_ex_client",
+      "filePath": "src/easy_tdx/web/deps.py",
+      "summary": "从 app.state 获取共享的 AsyncExTdxClient 实例（可选）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/errors.py",
+      "type": "file",
+      "name": "errors.py",
+      "filePath": "src/easy_tdx/web/errors.py",
+      "summary": "Web API error handling.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/errors.py:ApiErrorResponse",
+      "type": "class",
+      "name": "ApiErrorResponse",
+      "filePath": "src/easy_tdx/web/errors.py",
+      "summary": "标准错误响应格式。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/errors.py:register_exception_handlers",
+      "type": "function",
+      "name": "register_exception_handlers",
+      "filePath": "src/easy_tdx/web/errors.py",
+      "summary": "注册全局异常处理器到 FastAPI app。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/web/routers/__init__.py",
+      "summary": "API route modules.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/announcement.py",
+      "type": "file",
+      "name": "announcement.py",
+      "filePath": "src/easy_tdx/web/routers/announcement.py",
+      "summary": "公告检索路由（巨潮资讯网，独立数据源，不依赖 TDX 服务器）。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/announcement.py:announcements",
+      "type": "function",
+      "name": "announcements",
+      "filePath": "src/easy_tdx/web/routers/announcement.py",
+      "summary": "检索公司公告列表（巨潮资讯网，独立于 TDX 行情服务器）。  TDX 行情不可用时本接口仍可调用。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/backtest.py",
+      "type": "file",
+      "name": "backtest.py",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "回测路由：策略枚举、同步回测、后台任务回测、任务轮询。  设计要点： - 回测是纯计算（不依赖行情连接的 lifespan），因此**不注入 tdx_client**——   只有「按标的取行情」才需要 client，且必须在 async 上下文里取好数据后再   交给后台线程跑回测（``get_security_bars`` 是 async，不能跨线程调用）。 - 后台任务用 :class:`~easy_tdx.web.task_runner.BacktestTaskRunner`，结果   线程安全，重启即丢。 - 同步回测仅支持内联 OHLCV（前端已有数据），避免长任务阻塞 event",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:list_strategies",
+      "type": "function",
+      "name": "list_strategies",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "枚举所有预置策略及其参数 schema（供前端动态渲染策略选择 + 参数表单）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_backtest",
+      "type": "function",
+      "name": "run_backtest",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "同步回测（仅支持内联 OHLCV 数据）。  适用于单标的快速回测（<3s）。需要取行情或长任务请用 ``/backtest/run/async``。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_backtest_async",
+      "type": "function",
+      "name": "run_backtest_async",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "提交后台回测任务，立即返回 task_id。  支持内联数据或按标的取行情。取行情在 async 上下文完成（client 是 async 的）， 之后回测在后台线程执行。通过 ``GET /backtest/tasks/{task_id}`` 轮询结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:list_tasks",
+      "type": "function",
+      "name": "list_tasks",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "列出最近 N 个任务摘要（按最近使用倒序，不含完整 result）。  供对比页选择要对比的 task；选中后再逐个调 /tasks/{task_id} 拉详情。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:get_task",
+      "type": "function",
+      "name": "get_task",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "查询后台回测任务状态。done 时 result 字段含完整回测结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_portfolio_backtest_async",
+      "type": "function",
+      "name": "run_portfolio_backtest_async",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "提交组合（多标的）回测后台任务。  逐个标的取行情（async），组装 StockData 列表后提交后台任务跑 PortfolioBacktestEngine。通过 GET /backtest/tasks/{task_id} 轮询结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_multi_strategy_backtest_async",
+      "type": "function",
+      "name": "run_multi_strategy_backtest_async",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "提交多策略组合回测后台任务（资金分仓 / 并行制）。  勾选 N 个策略，各自在原标的（取最新行情）上独立回测，各拿总资金 1/N。 单个策略取数失败则跳过（不中断整组），全部失败返回 400。结果为 MultiStrategyResult（结构同 PortfolioResult），通过 GET /backtest/tasks/{task_id} 轮询。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_optimize_async",
+      "type": "function",
+      "name": "run_optimize_async",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "提交参数网格寻优后台任务。  在单个标的上对策略参数做网格搜索。数据获取支持内联 ohlcv 或按 symbol 取行情。 通过 GET /backtest/tasks/{task_id} 轮询结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:run_optimize_all_async",
+      "type": "function",
+      "name": "run_optimize_all_async",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "提交「一键寻优所有策略」后台任务。  在单个标的上，对所有策略的预设参数网格（见 presets.STRATEGY_PRESETS）依次 做网格寻优，取各策略最优点汇总成全局排名。数据获取支持内联 ohlcv 或按 symbol 取行情。通过 GET /backtest/tasks/{task_id} 轮询结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_run_backtest",
+      "type": "function",
+      "name": "_run_backtest",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "执行回测并返回清洗后的结果字典（后台线程内调用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_ohlcv_to_df",
+      "type": "function",
+      "name": "_ohlcv_to_df",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "把内联 OHLCV 记录列表转为 DataFrame，校验必需列并把 datetime 转为真正的时间类型。  StrategyDataProxy 依赖 datetime 列为 datetime64/pandas Timestamp 才能正确 编码为 YYYYMMDD 整数；若内联数据传字符串日期，这里负责转换。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_fetch_bars",
+      "type": "function",
+      "name": "_fetch_bars",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "按标的取 K 线（async，必须在 event loop 内调用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_run_portfolio_backtest",
+      "type": "function",
+      "name": "_run_portfolio_backtest",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "执行组合回测并返回清洗后的结果字典（后台线程内调用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_fetch_portfolio_bars",
+      "type": "function",
+      "name": "_fetch_portfolio_bars",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "逐个标的取 K 线并组装 StockData 列表（async，必须在 event loop 内调用）。  当 start_date 超出单次 800 根覆盖范围时，自动翻页拉取（与前端 fetchBars 同逻辑）。单个标的取数失败时跳过（不中断整个组合），全部失败返回空列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_fetch_multi_strategy_bars",
+      "type": "function",
+      "name": "_fetch_multi_strategy_bars",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "逐个策略槽位取行情 + 构造策略实例，组装 StrategySlot 列表（async）。  每条 item 自带 symbol（如 \"SH:601088\"）、category、start/end_date、strategy+params。 单条取数或策略构造失败则跳过（不中断整组）。返回的 StrategySlot 已绑定好策略 实例与 df，可直接交给后台线程跑引擎（避免把 async client 带进线程）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_run_multi_strategy_backtest",
+      "type": "function",
+      "name": "_run_multi_strategy_backtest",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "执行多策略组合回测并返回清洗后的结果字典（后台线程内调用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_run_optimize",
+      "type": "function",
+      "name": "_run_optimize",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "执行参数网格寻优并返回清洗后的结果字典（后台线程内调用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_optimize_one_strategy",
+      "type": "function",
+      "name": "_optimize_one_strategy",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "跑单个策略的网格寻优，返回其最优点摘要（模块顶层，可被 ProcessPoolExecutor pickle）。  必须是模块级顶层函数：Windows 下 ProcessPoolExecutor 用 spawn 方式启动子进程， 子进程按 ``module.qualname`` 重新 import 本函数。lambda / 闭包 / 嵌套函数不可 pickle。  策略类（``registry.get(name).build()``）在子进程内构造，从不跨进程传递， 因此天然避开了 screen scanner 当年遇到的\"策略类不可 pickle\"问题。 返回纯 dict（所有值都是 JS",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_run_optimize_all",
+      "type": "function",
+      "name": "_run_optimize_all",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "对所有策略的预设网格逐策略寻优，汇总成全局排名（后台线程内调用）。  遍历 ``STRATEGY_PRESETS`` 中每个策略，用其预设参数网格跑 :class:`ParamGridOptimizer`，取各策略的最优点（best）组装排名。单个策略 无有效结果（如全网格回测失败）则跳过。  并发：``req.workers >= 2`` 时用 ``ProcessPoolExecutor`` 跨进程并行寻优 （回测是 CPU-bound，numpy/pandas 持 GIL，线程无加速，必须用进程）。 ``workers`` 为 0 或 1 时串行。进程池在函数内 ``with`` 创建/销",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_filter_df_by_date",
+      "type": "function",
+      "name": "_filter_df_by_date",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "按日期范围过滤 DataFrame（闭区间，比较 YYYY-MM-DD）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/backtest.py:_now",
+      "type": "function",
+      "name": "_now",
+      "filePath": "src/easy_tdx/web/routers/backtest.py",
+      "summary": "获取当前时间戳（隔离 import，便于测试）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/bars.py",
+      "type": "file",
+      "name": "bars.py",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "K线 / 分时 / 逐笔成交路由。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/bars.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:security_bars",
+      "type": "function",
+      "name": "security_bars",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取股票K线数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:index_bars",
+      "type": "function",
+      "name": "index_bars",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取指数K线数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:minute_time",
+      "type": "function",
+      "name": "minute_time",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取今日分时数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:history_minute_time",
+      "type": "function",
+      "name": "history_minute_time",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取历史某日分时数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:transaction_data",
+      "type": "function",
+      "name": "transaction_data",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取当日逐笔成交。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/bars.py:history_transaction_data",
+      "type": "function",
+      "name": "history_transaction_data",
+      "filePath": "src/easy_tdx/web/routers/bars.py",
+      "summary": "获取历史逐笔成交。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/block.py",
+      "type": "file",
+      "name": "block.py",
+      "filePath": "src/easy_tdx/web/routers/block.py",
+      "summary": "板块信息路由。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/block.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/block.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/block.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/block.py:block_info",
+      "type": "function",
+      "name": "block_info",
+      "filePath": "src/easy_tdx/web/routers/block.py",
+      "summary": "获取并解析板块文件。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/board_mac.py",
+      "type": "file",
+      "name": "board_mac.py",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "板块分析路由：板块列表、成分、归属、摘要、涨幅排名、N日涨幅。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/board_mac.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_list",
+      "type": "function",
+      "name": "board_list",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取板块列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_members",
+      "type": "function",
+      "name": "board_members",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取板块成分股。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_belong",
+      "type": "function",
+      "name": "board_belong",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取股票所属板块列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_summary",
+      "type": "function",
+      "name": "board_summary",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取板块摘要信息（含成分股资金流向）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_ranking",
+      "type": "function",
+      "name": "board_ranking",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取板块涨幅排名。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/board_mac.py:board_change_ranking",
+      "type": "function",
+      "name": "board_change_ranking",
+      "filePath": "src/easy_tdx/web/routers/board_mac.py",
+      "summary": "获取板块 N 日涨幅排名。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/chanlun.py",
+      "type": "file",
+      "name": "chanlun.py",
+      "filePath": "src/easy_tdx/web/routers/chanlun.py",
+      "summary": "缠论分析路由。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/chanlun.py:chanlun_analyze",
+      "type": "function",
+      "name": "chanlun_analyze",
+      "filePath": "src/easy_tdx/web/routers/chanlun.py",
+      "summary": "执行缠论分析。  自动从 TDX 服务器获取 K 线数据，运行完整缠论计算管道， 返回笔、中枢、线段、买卖点、背驰等分析结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/ex_market.py",
+      "type": "file",
+      "name": "ex_market.py",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "扩展市场路由：期货、港股、美股等扩展市场行情数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/ex_market.py:_records_to_df_resp",
+      "type": "function",
+      "name": "_records_to_df_resp",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "将 dataclass 列表转为 DataFrameResponse（过滤内部 _raw 字段）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/ex_market.py:ex_bars",
+      "type": "function",
+      "name": "ex_bars",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "获取扩展市场 K 线数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/ex_market.py:ex_quote",
+      "type": "function",
+      "name": "ex_quote",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "获取扩展市场实时报价。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/ex_market.py:ex_minute",
+      "type": "function",
+      "name": "ex_minute",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "获取扩展市场分时数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/ex_market.py:ex_transaction",
+      "type": "function",
+      "name": "ex_transaction",
+      "filePath": "src/easy_tdx/web/routers/ex_market.py",
+      "summary": "获取扩展市场逐笔成交数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/finance.py",
+      "type": "file",
+      "name": "finance.py",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "财务 / 公司信息路由。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/finance.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:xdxr_info",
+      "type": "function",
+      "name": "xdxr_info",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "获取除权除息历史记录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:finance_info",
+      "type": "function",
+      "name": "finance_info",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "获取最新财务数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:company_info_category",
+      "type": "function",
+      "name": "company_info_category",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "获取公司信息文件目录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:company_info_content",
+      "type": "function",
+      "name": "company_info_content",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "读取公司信息文本。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:financial_file_list",
+      "type": "function",
+      "name": "financial_file_list",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "获取可用的历史专业财报文件列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/finance.py:financial_records",
+      "type": "function",
+      "name": "financial_records",
+      "filePath": "src/easy_tdx/web/routers/finance.py",
+      "summary": "下载财报 zip 并解析为记录列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/indicator.py",
+      "type": "file",
+      "name": "indicator.py",
+      "filePath": "src/easy_tdx/web/routers/indicator.py",
+      "summary": "技术指标路由：指标列表、指标计算。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/indicator.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/indicator.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/indicator.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/indicator.py:indicator_list",
+      "type": "function",
+      "name": "indicator_list",
+      "filePath": "src/easy_tdx/web/routers/indicator.py",
+      "summary": "获取所有可用技术指标列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/indicator.py:indicator_compute",
+      "type": "function",
+      "name": "indicator_compute",
+      "filePath": "src/easy_tdx/web/routers/indicator.py",
+      "summary": "在 OHLCV 数据上计算技术指标。  请求体包含 K 线 records 和指标名称列表，返回计算后的 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/mac_data.py",
+      "type": "file",
+      "name": "mac_data.py",
+      "filePath": "src/easy_tdx/web/routers/mac_data.py",
+      "summary": "MAC 数据路由：资金流向、个股信息、服务器信息。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_data.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/mac_data.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/mac_data.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_data.py:capital_flow",
+      "type": "function",
+      "name": "capital_flow",
+      "filePath": "src/easy_tdx/web/routers/mac_data.py",
+      "summary": "获取个股资金流向（主力/散户净流入）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_data.py:symbol_info",
+      "type": "function",
+      "name": "symbol_info",
+      "filePath": "src/easy_tdx/web/routers/mac_data.py",
+      "summary": "获取个股基本信息快照。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_data.py:server_info",
+      "type": "function",
+      "name": "server_info",
+      "filePath": "src/easy_tdx/web/routers/mac_data.py",
+      "summary": "获取服务器交易时段信息。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/mac_quotes.py",
+      "type": "file",
+      "name": "mac_quotes.py",
+      "filePath": "src/easy_tdx/web/routers/mac_quotes.py",
+      "summary": "MAC 行情路由：排行行情列表、竞价数据、异动行情。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_quotes.py:_df_resp",
+      "type": "function",
+      "name": "_df_resp",
+      "filePath": "src/easy_tdx/web/routers/mac_quotes.py",
+      "summary": "Function _df_resp() defined in src/easy_tdx/web/routers/mac_quotes.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_quotes.py:quote_list",
+      "type": "function",
+      "name": "quote_list",
+      "filePath": "src/easy_tdx/web/routers/mac_quotes.py",
+      "summary": "获取分排行行情列表（涨幅/成交量/换手等排序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_quotes.py:auction",
+      "type": "function",
+      "name": "auction",
+      "filePath": "src/easy_tdx/web/routers/mac_quotes.py",
+      "summary": "获取集合竞价数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/mac_quotes.py:unusual",
+      "type": "function",
+      "name": "unusual",
+      "filePath": "src/easy_tdx/web/routers/mac_quotes.py",
+      "summary": "获取市场异动行情数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/market.py",
+      "type": "file",
+      "name": "market.py",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "市场信息路由：证券列表、实时行情、市场统计、资金流向。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:_df_response",
+      "type": "function",
+      "name": "_df_response",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "将 DataFrame 转为 API 响应。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:security_count",
+      "type": "function",
+      "name": "security_count",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取市场证券总数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:security_list",
+      "type": "function",
+      "name": "security_list",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取证券列表（每页约1000条）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:security_list_all",
+      "type": "function",
+      "name": "security_list_all",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取沪深 A 股完整列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:security_quotes",
+      "type": "function",
+      "name": "security_quotes",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "批量获取实时五档行情（最多80只/次）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:market_stat",
+      "type": "function",
+      "name": "market_stat",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取 A 股全市场涨跌统计。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:fund_flow",
+      "type": "function",
+      "name": "fund_flow",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取个股当日资金流向。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:history_fund_flow",
+      "type": "function",
+      "name": "history_fund_flow",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "获取个股历史日线资金流向。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/market.py:market_strength",
+      "type": "function",
+      "name": "market_strength",
+      "filePath": "src/easy_tdx/web/routers/market.py",
+      "summary": "全市场强势股排名（基于本地通达信 .day 日线文件）。  按 5/20/60 日涨幅加权合成强势分。三种预设：  - **steady**: 中长期稳健（60日主导 + 波动率惩罚），选出稳着涨的票 - **breakout**: 近期妖股爆发（5日主导，纯涨幅），选出短期最猛的票 - **balanced**: 三周期均衡 + 波动率调整  注意：需要本地 vipdoc 数据，扫描 ~5000 只约 30-60 秒。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/realtime.py",
+      "type": "file",
+      "name": "realtime.py",
+      "filePath": "src/easy_tdx/web/routers/realtime.py",
+      "summary": "实时数据 WebSocket 路由。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/realtime.py:realtime_websocket",
+      "type": "function",
+      "name": "realtime_websocket",
+      "filePath": "src/easy_tdx/web/routers/realtime.py",
+      "summary": "WebSocket 实时行情订阅。  连接后自动订阅指定标的的实时事件。 symbol 格式: SZ000001, SH600000 等。  客户端可发送 JSON 消息来控制订阅： - {\"action\": \"subscribe\", \"symbol\": \"SZ000001\"} - {\"action\": \"unsubscribe\", \"symbol\": \"SZ000001\"}  服务端推送消息格式： - {\"type\": \"tick\", \"market\": \"SZ\", \"code\": \"000001\", \"price\": 10.5, ...} - {\"type\": \"signal\", \"dir",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/server.py",
+      "type": "file",
+      "name": "server.py",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "服务器设置路由：列出/测速/切换标准 TDX 行情服务器。  让用户在 web UI 上看到候选 host 列表、一键测速、点选切换——解决\"有些 IP 能连通有些不能\"的问题（不同地区/运营商对通达信各服务器连通性不同）。 切换是热重连（``reconnect_to``），无需重启服务。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/routers/server.py:HostInfo",
+      "type": "class",
+      "name": "HostInfo",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "单个 host 的状态信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/routers/server.py:HostListResponse",
+      "type": "class",
+      "name": "HostListResponse",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "GET /server/hosts 的响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/routers/server.py:ServerTestRequest",
+      "type": "class",
+      "name": "ServerTestRequest",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "POST /server/test 的请求。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/routers/server.py:ServerSwitchRequest",
+      "type": "class",
+      "name": "ServerSwitchRequest",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "POST /server/switch 的请求。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/routers/server.py:SwitchResponse",
+      "type": "class",
+      "name": "SwitchResponse",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "POST /server/switch 的响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/server.py:list_hosts",
+      "type": "function",
+      "name": "list_hosts",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "列出所有候选 host + 当前正在使用的 host。  不做测速（避免 50+ host 全 ping 让首屏卡几秒）。前端点\"测试全部\"按钮 后调 ``POST /server/test`` 获取延迟。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/server.py:test_hosts",
+      "type": "function",
+      "name": "test_hosts",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "并发 ping 测试 host 列表，返回延迟和可达性。  用 ``asyncio.to_thread`` 包装同步的 ``ping_all``（它内部用 ThreadPoolExecutor 并发），避免阻塞事件循环。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/server.py:switch_host",
+      "type": "function",
+      "name": "switch_host",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "切换到指定 host（热重连，无需重启服务）。  顺序：先 reconnect_to 成功 → 再 save_best_host 持久化。 如果 reconnect 失败，不 save（避免污染 config，用户可再选别的）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/server.py:_get_current_host",
+      "type": "function",
+      "name": "_get_current_host",
+      "filePath": "src/easy_tdx/web/routers/server.py",
+      "summary": "获取当前 TDX 客户端实际连接的 host。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/sina.py",
+      "type": "file",
+      "name": "sina.py",
+      "filePath": "src/easy_tdx/web/routers/sina.py",
+      "summary": "新浪财报三表路由（独立数据源，不依赖 TDX 服务器）。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/sina.py:financial_report",
+      "type": "function",
+      "name": "financial_report",
+      "filePath": "src/easy_tdx/web/routers/sina.py",
+      "summary": "获取财报三表（新浪数据源，独立于 TDX 行情服务器）。  返回每行一期报告（最新在前），列为科目名 + ``{科目}_同比``（如有同比）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/routers/strategies.py",
+      "type": "file",
+      "name": "strategies.py",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "策略库路由：列出 / 查看 / 保存 / 删除用户收藏的策略。  设计要点： - 持久化走 :class:`~easy_tdx.web.strategy_store.StrategyStore`（SQLite 单文件），   与回测路由解耦——本路由纯数据 CRUD，不依赖行情连接。 - 纯计算路径，不注入 tdx_client（与 backtest router 同理由）。 - ``app_version`` 从 importlib.metadata 取，缺失时留空。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:_app_version",
+      "type": "function",
+      "name": "_app_version",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "Function _app_version() defined in src/easy_tdx/web/routers/strategies.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:_to_response",
+      "type": "function",
+      "name": "_to_response",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "dataclass 记录 → Pydantic 响应模型。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:list_saved_strategies",
+      "type": "function",
+      "name": "list_saved_strategies",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "列出全部已保存策略（按创建时间倒序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:get_saved_strategy",
+      "type": "function",
+      "name": "get_saved_strategy",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "按 id 查看单条已保存策略。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:create_saved_strategy",
+      "type": "function",
+      "name": "create_saved_strategy",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "保存一条策略（含当时的标的上下文与成绩快照）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/routers/strategies.py:delete_saved_strategy",
+      "type": "function",
+      "name": "delete_saved_strategy",
+      "filePath": "src/easy_tdx/web/routers/strategies.py",
+      "summary": "按 id 删除一条已保存策略。不存在则 400。  注：不用 204（No Content），因较新 FastAPI 在路由注册阶段就拒绝 status_code=204 且有响应模型的端点（\"204 must not have a response body\"）， 返回简单确认体更兼容、前端无需特判。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/schemas.py",
+      "type": "file",
+      "name": "schemas.py",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "Pydantic request/response schemas for the Web API.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:MarketEnum",
+      "type": "class",
+      "name": "MarketEnum",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "Market identifier.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:KlineCategoryEnum",
+      "type": "class",
+      "name": "KlineCategoryEnum",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "K-line period.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:StockIdentifier",
+      "type": "class",
+      "name": "StockIdentifier",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "A single stock identified by market + code.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:QuoteRequest",
+      "type": "class",
+      "name": "QuoteRequest",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "Batch quote request.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:ChanlunRequest",
+      "type": "class",
+      "name": "ChanlunRequest",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "缠论分析请求。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:ComputeIndicatorsRequest",
+      "type": "class",
+      "name": "ComputeIndicatorsRequest",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "技术指标计算请求。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:DataFrameResponse",
+      "type": "class",
+      "name": "DataFrameResponse",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "通用 DataFrame 响应（records 格式）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:DictResponse",
+      "type": "class",
+      "name": "DictResponse",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "通用 dict 响应（用于非 DataFrame 返回值）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/schemas.py:CountResponse",
+      "type": "class",
+      "name": "CountResponse",
+      "filePath": "src/easy_tdx/web/schemas.py",
+      "summary": "简单计数响应。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/strategy_store.py",
+      "type": "file",
+      "name": "strategy_store.py",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "已保存策略的 SQLite 持久化（用户在 Web UI 上\"收藏\"的策略 + 成绩快照）。  设计要点： - 单文件 SQLite，落在项目统一配置目录（``~/.easy_tdx/strategies.db``，   随 ``EASY_TDX_CONFIG_DIR`` 环境变量走），与 ``config.py`` 同约定。 - 只提供\"加入 / 列出 / 查看 / 删除\"四个动作（CRUD 中的 CR**D**，不含编辑），   对应用户诉求：\"策略能加入，也要能删除\"。 - 线程安全：每个公共方法内部 ``with sqlite3.connect(...)`` 短连接，配合   ``ch",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/strategy_store.py:SavedStrategy",
+      "type": "class",
+      "name": "SavedStrategy",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "一条已保存策略记录（存配置 + 当时成绩快照 + 上下文）。  - ``strategy`` + ``params`` 是回测引擎可直接消费的最小可复现形态。 - ``context`` 记录当时测的是什么（单标的 symbol 或组合 stocks、日期、周期）。 - ``snapshot`` 记录\"为什么觉得它好\"（保存时的关键绩效指标）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/strategy_store.py:StrategyStore",
+      "type": "class",
+      "name": "StrategyStore",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "已保存策略的 SQLite 存储。  单例由 :func:`get_store` 提供；测试时可注入独立 ``db_path``（用 tmp_path）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/strategy_store.py:_config_dir",
+      "type": "function",
+      "name": "_config_dir",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "返回统一配置目录（与 config.py 同约定，受 EASY_TDX_CONFIG_DIR 覆盖）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/strategy_store.py:_default_db_path",
+      "type": "function",
+      "name": "_default_db_path",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "Function _default_db_path() defined in src/easy_tdx/web/strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/strategy_store.py:_now_iso",
+      "type": "function",
+      "name": "_now_iso",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "UTC ISO8601 时间戳（带 Z 后缀，JSON 友好）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/strategy_store.py:get_store",
+      "type": "function",
+      "name": "get_store",
+      "filePath": "src/easy_tdx/web/strategy_store.py",
+      "summary": "返回全局 StrategyStore 单例（首次调用惰性建库）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/web/task_runner.py",
+      "type": "file",
+      "name": "task_runner.py",
+      "filePath": "src/easy_tdx/web/task_runner.py",
+      "summary": "回测后台任务执行器。  在进程内 ThreadPoolExecutor 上运行回测任务，通过 task_id 轮询结果。 不引入外部依赖（Celery/Redis），适合单机部署。  设计取舍： - 回测本身是 CPU-bound（numpy/pandas 持 GIL），线程池主要价值是**不阻塞   FastAPI 的 asyncio event loop**——回测在独立线程跑，HTTP handler 立即返回。 - 任务结果保留在进程内存，带 LRU 上限（默认 100），重启即丢。MVP 可接受；   若需持久化历史，未来再加 SQLite。  并发正确性要点（task_runner",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/task_runner.py:TaskState",
+      "type": "class",
+      "name": "TaskState",
+      "filePath": "src/easy_tdx/web/task_runner.py",
+      "summary": "单个回测任务的状态快照。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/web/task_runner.py:BacktestTaskRunner",
+      "type": "class",
+      "name": "BacktestTaskRunner",
+      "filePath": "src/easy_tdx/web/task_runner.py",
+      "summary": "回测任务执行器（全局单例）。  Thread-safety: 所有对 ``self._tasks`` 的读写都在 ``self._lock`` 内。 worker 线程的 ``_run`` 写状态时持锁，但写的是本地 ``state`` 引用—— 即使条目已被并发淘汰，写入也无副作用（写入的对象不再被 ``_tasks`` 引用， GC 回收）。``move_to_end`` 容忍 KeyError。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/task_runner.py:get_runner",
+      "type": "function",
+      "name": "get_runner",
+      "filePath": "src/easy_tdx/web/task_runner.py",
+      "summary": "获取全局回测任务执行器单例（惰性初始化，线程安全）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/web/task_runner.py:shutdown_runner",
+      "type": "function",
+      "name": "shutdown_runner",
+      "filePath": "src/easy_tdx/web/task_runner.py",
+      "summary": "关闭全局执行器（应用退出时调用，幂等）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/easy_tdx/web/app.py",
+      "target": "class:src/easy_tdx/web/app.py:SPAStaticFiles",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/app.py defines class SPAStaticFiles."
+    },
+    {
+      "source": "file:src/easy_tdx/web/app.py",
+      "target": "function:src/easy_tdx/web/app.py:_resolve_web_dist_dir",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/app.py defines function _resolve_web_dist_dir()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/app.py",
+      "target": "function:src/easy_tdx/web/app.py:lifespan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/app.py defines function lifespan()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/app.py",
+      "target": "function:src/easy_tdx/web/app.py:_create_app",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/app.py defines function _create_app()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:BacktestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class BacktestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:PortfolioBacktestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class PortfolioBacktestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeBacktestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class OptimizeBacktestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllBacktestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class OptimizeAllBacktestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:StrategySchemaResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class StrategySchemaResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:BacktestResultResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class BacktestResultResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:TaskSubmitResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class TaskSubmitResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:TaskStateResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class TaskStateResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:TaskSummary",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class TaskSummary."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:TaskListResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class TaskListResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllRankEntry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class OptimizeAllRankEntry."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:OptimizeAllResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class OptimizeAllResult."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategyCreate",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class SavedStrategyCreate."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class SavedStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:SavedStrategyListResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class SavedStrategyListResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:MultiStrategyItem",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class MultiStrategyItem."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "class:src/easy_tdx/web/backtest_schemas.py:MultiStrategyBacktestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines class MultiStrategyBacktestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "function:src/easy_tdx/web/backtest_schemas.py:_clean_value",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines function _clean_value()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/backtest_schemas.py",
+      "target": "function:src/easy_tdx/web/backtest_schemas.py:serialize_result",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/backtest_schemas.py defines function serialize_result()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:market_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function market_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:market_value_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function market_value_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:category_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function category_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:board_type_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function board_type_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:sort_type_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function sort_type_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:sort_order_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function sort_order_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:category_mac_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function category_mac_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:ex_market_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function ex_market_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/convert.py",
+      "target": "function:src/easy_tdx/web/convert.py:filter_types_from_str",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/convert.py defines function filter_types_from_str()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/deps.py",
+      "target": "function:src/easy_tdx/web/deps.py:get_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/deps.py defines function get_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/deps.py",
+      "target": "function:src/easy_tdx/web/deps.py:get_mac_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/deps.py defines function get_mac_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/deps.py",
+      "target": "function:src/easy_tdx/web/deps.py:get_ex_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/deps.py defines function get_ex_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/errors.py",
+      "target": "class:src/easy_tdx/web/errors.py:ApiErrorResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/errors.py defines class ApiErrorResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/errors.py",
+      "target": "function:src/easy_tdx/web/errors.py:register_exception_handlers",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/errors.py defines function register_exception_handlers()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/announcement.py",
+      "target": "function:src/easy_tdx/web/routers/announcement.py:announcements",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/announcement.py defines function announcements()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:list_strategies",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function list_strategies()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_backtest_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_backtest_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:list_tasks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function list_tasks()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:get_task",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function get_task()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_portfolio_backtest_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_portfolio_backtest_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_multi_strategy_backtest_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_multi_strategy_backtest_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_optimize_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_optimize_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:run_optimize_all_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function run_optimize_all_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_run_backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _run_backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_ohlcv_to_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _ohlcv_to_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_fetch_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _fetch_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_run_portfolio_backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _run_portfolio_backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_fetch_portfolio_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _fetch_portfolio_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_fetch_multi_strategy_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _fetch_multi_strategy_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_run_multi_strategy_backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _run_multi_strategy_backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_run_optimize",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _run_optimize()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_optimize_one_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _optimize_one_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_run_optimize_all",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _run_optimize_all()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_filter_df_by_date",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _filter_df_by_date()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/backtest.py",
+      "target": "function:src/easy_tdx/web/routers/backtest.py:_now",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/backtest.py defines function _now()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:security_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function security_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:index_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function index_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:minute_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function minute_time()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:history_minute_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function history_minute_time()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:transaction_data",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function transaction_data()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/bars.py",
+      "target": "function:src/easy_tdx/web/routers/bars.py:history_transaction_data",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/bars.py defines function history_transaction_data()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/block.py",
+      "target": "function:src/easy_tdx/web/routers/block.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/block.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/block.py",
+      "target": "function:src/easy_tdx/web/routers/block.py:block_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/block.py defines function block_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_members",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_members()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_belong",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_belong()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_summary",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_summary()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_ranking()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/board_mac.py",
+      "target": "function:src/easy_tdx/web/routers/board_mac.py:board_change_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/board_mac.py defines function board_change_ranking()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/chanlun.py",
+      "target": "function:src/easy_tdx/web/routers/chanlun.py:chanlun_analyze",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/chanlun.py defines function chanlun_analyze()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/ex_market.py",
+      "target": "function:src/easy_tdx/web/routers/ex_market.py:_records_to_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/ex_market.py defines function _records_to_df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/ex_market.py",
+      "target": "function:src/easy_tdx/web/routers/ex_market.py:ex_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/ex_market.py defines function ex_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/ex_market.py",
+      "target": "function:src/easy_tdx/web/routers/ex_market.py:ex_quote",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/ex_market.py defines function ex_quote()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/ex_market.py",
+      "target": "function:src/easy_tdx/web/routers/ex_market.py:ex_minute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/ex_market.py defines function ex_minute()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/ex_market.py",
+      "target": "function:src/easy_tdx/web/routers/ex_market.py:ex_transaction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/ex_market.py defines function ex_transaction()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:xdxr_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function xdxr_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:finance_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function finance_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:company_info_category",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function company_info_category()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:company_info_content",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function company_info_content()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:financial_file_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function financial_file_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/finance.py",
+      "target": "function:src/easy_tdx/web/routers/finance.py:financial_records",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/finance.py defines function financial_records()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/indicator.py",
+      "target": "function:src/easy_tdx/web/routers/indicator.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/indicator.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/indicator.py",
+      "target": "function:src/easy_tdx/web/routers/indicator.py:indicator_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/indicator.py defines function indicator_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/indicator.py",
+      "target": "function:src/easy_tdx/web/routers/indicator.py:indicator_compute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/indicator.py defines function indicator_compute()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_data.py",
+      "target": "function:src/easy_tdx/web/routers/mac_data.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_data.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_data.py",
+      "target": "function:src/easy_tdx/web/routers/mac_data.py:capital_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_data.py defines function capital_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_data.py",
+      "target": "function:src/easy_tdx/web/routers/mac_data.py:symbol_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_data.py defines function symbol_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_data.py",
+      "target": "function:src/easy_tdx/web/routers/mac_data.py:server_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_data.py defines function server_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_quotes.py",
+      "target": "function:src/easy_tdx/web/routers/mac_quotes.py:_df_resp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_quotes.py defines function _df_resp()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_quotes.py",
+      "target": "function:src/easy_tdx/web/routers/mac_quotes.py:quote_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_quotes.py defines function quote_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_quotes.py",
+      "target": "function:src/easy_tdx/web/routers/mac_quotes.py:auction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_quotes.py defines function auction()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/mac_quotes.py",
+      "target": "function:src/easy_tdx/web/routers/mac_quotes.py:unusual",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/mac_quotes.py defines function unusual()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:_df_response",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function _df_response()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:security_count",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function security_count()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:security_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function security_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:security_list_all",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function security_list_all()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:security_quotes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function security_quotes()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:market_stat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function market_stat()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:fund_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function fund_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:history_fund_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function history_fund_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/market.py",
+      "target": "function:src/easy_tdx/web/routers/market.py:market_strength",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/market.py defines function market_strength()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/realtime.py",
+      "target": "function:src/easy_tdx/web/routers/realtime.py:realtime_websocket",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/realtime.py defines function realtime_websocket()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "class:src/easy_tdx/web/routers/server.py:HostInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines class HostInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "class:src/easy_tdx/web/routers/server.py:HostListResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines class HostListResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "class:src/easy_tdx/web/routers/server.py:ServerTestRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines class ServerTestRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "class:src/easy_tdx/web/routers/server.py:ServerSwitchRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines class ServerSwitchRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "class:src/easy_tdx/web/routers/server.py:SwitchResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines class SwitchResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "function:src/easy_tdx/web/routers/server.py:list_hosts",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines function list_hosts()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "function:src/easy_tdx/web/routers/server.py:test_hosts",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines function test_hosts()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "function:src/easy_tdx/web/routers/server.py:switch_host",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines function switch_host()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/server.py",
+      "target": "function:src/easy_tdx/web/routers/server.py:_get_current_host",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/server.py defines function _get_current_host()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/sina.py",
+      "target": "function:src/easy_tdx/web/routers/sina.py:financial_report",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/sina.py defines function financial_report()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:_app_version",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function _app_version()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:_to_response",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function _to_response()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:list_saved_strategies",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function list_saved_strategies()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:get_saved_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function get_saved_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:create_saved_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function create_saved_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/routers/strategies.py",
+      "target": "function:src/easy_tdx/web/routers/strategies.py:delete_saved_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/routers/strategies.py defines function delete_saved_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:MarketEnum",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class MarketEnum."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:KlineCategoryEnum",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class KlineCategoryEnum."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:StockIdentifier",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class StockIdentifier."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:QuoteRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class QuoteRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:ChanlunRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class ChanlunRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:ComputeIndicatorsRequest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class ComputeIndicatorsRequest."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:DataFrameResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class DataFrameResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:DictResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class DictResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/schemas.py",
+      "target": "class:src/easy_tdx/web/schemas.py:CountResponse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/schemas.py defines class CountResponse."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "class:src/easy_tdx/web/strategy_store.py:SavedStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines class SavedStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "class:src/easy_tdx/web/strategy_store.py:StrategyStore",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines class StrategyStore."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "function:src/easy_tdx/web/strategy_store.py:_config_dir",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines function _config_dir()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "function:src/easy_tdx/web/strategy_store.py:_default_db_path",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines function _default_db_path()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "function:src/easy_tdx/web/strategy_store.py:_now_iso",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines function _now_iso()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/strategy_store.py",
+      "target": "function:src/easy_tdx/web/strategy_store.py:get_store",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/strategy_store.py defines function get_store()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/task_runner.py",
+      "target": "class:src/easy_tdx/web/task_runner.py:TaskState",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/task_runner.py defines class TaskState."
+    },
+    {
+      "source": "file:src/easy_tdx/web/task_runner.py",
+      "target": "class:src/easy_tdx/web/task_runner.py:BacktestTaskRunner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/task_runner.py defines class BacktestTaskRunner."
+    },
+    {
+      "source": "file:src/easy_tdx/web/task_runner.py",
+      "target": "function:src/easy_tdx/web/task_runner.py:get_runner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/task_runner.py defines function get_runner()."
+    },
+    {
+      "source": "file:src/easy_tdx/web/task_runner.py",
+      "target": "function:src/easy_tdx/web/task_runner.py:shutdown_runner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/web/task_runner.py defines function shutdown_runner()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 169,
+    "edgesCreated": 144,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 18 analyzed via AST. 169 nodes, 144 edges from 25 files."
+  }
+}

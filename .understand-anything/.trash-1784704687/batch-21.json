@@ -1,0 +1,4790 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 21,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "tests/unit/test_chanlun_phase3.py",
+      "language": "python",
+      "sizeLines": 242,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_chanlun.py",
+      "language": "python",
+      "sizeLines": 725,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_client_reconnect.py",
+      "language": "python",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_cninfo.py",
+      "language": "python",
+      "sizeLines": 730,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_codec_bitmap.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_codec_datetime.py",
+      "language": "python",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_codec_frame.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_codec_price.py",
+      "language": "python",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_codec_volume.py",
+      "language": "python",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_commands_offline.py",
+      "language": "python",
+      "sizeLines": 542,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_config.py",
+      "language": "python",
+      "sizeLines": 201,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_decode_errors.py",
+      "language": "python",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_ex_reconnect.py",
+      "language": "python",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_factor_analysis.py",
+      "language": "python",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_factor_base.py",
+      "language": "python",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_factor_builtin.py",
+      "language": "python",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_factor_engine.py",
+      "language": "python",
+      "sizeLines": 206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_factor_transform.py",
+      "language": "python",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_failover.py",
+      "language": "python",
+      "sizeLines": 398,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_financial_data.py",
+      "language": "python",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_heartbeat.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_hk_transaction.py",
+      "language": "python",
+      "sizeLines": 433,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_indicator.py",
+      "language": "python",
+      "sizeLines": 160,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_kline_bar_time.py",
+      "language": "python",
+      "sizeLines": 213,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_mac_qfq_adjust.py",
+      "language": "python",
+      "sizeLines": 209,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:tests/unit/test_chanlun_phase3.py",
+      "type": "file",
+      "name": "test_chanlun_phase3.py",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "缠论 Phase 3 单元测试：多级别分析、增量更新、走势段。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase3.py:TestMultiLevel",
+      "type": "class",
+      "name": "TestMultiLevel",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "MultiLevelAnalyser 测试。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase3.py:TestIncrementalUpdate",
+      "type": "class",
+      "name": "TestIncrementalUpdate",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "ChanlunAnalyser 增量更新测试。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase3.py:TestZsd",
+      "type": "class",
+      "name": "TestZsd",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "走势段/趋势段 测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun_phase3.py:_k",
+      "type": "function",
+      "name": "_k",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "Function _k() defined in tests/unit/test_chanlun_phase3.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun_phase3.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_chanlun_phase3.py",
+      "summary": "生成模拟K线 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_chanlun.py",
+      "type": "file",
+      "name": "test_chanlun.py",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "缠论核心计算 单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun.py:TestMergeKlines",
+      "type": "class",
+      "name": "TestMergeKlines",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "merge_klines 测试。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun.py:TestFindFractals",
+      "type": "class",
+      "name": "TestFindFractals",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "find_fractals 测试。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun.py:TestFindBis",
+      "type": "class",
+      "name": "TestFindBis",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "find_bis 测试。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun.py:TestFindZss",
+      "type": "class",
+      "name": "TestFindZss",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "find_zss 测试。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun.py:TestChanlunAnalyser",
+      "type": "class",
+      "name": "TestChanlunAnalyser",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "ChanlunAnalyser 完整管道测试。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun.py:_k",
+      "type": "function",
+      "name": "_k",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "快速构造 Kline。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun.py:_ck",
+      "type": "function",
+      "name": "_ck",
+      "filePath": "tests/unit/test_chanlun.py",
+      "summary": "快速构造 CLKline。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_client_reconnect.py",
+      "type": "file",
+      "name": "test_client_reconnect.py",
+      "filePath": "tests/unit/test_client_reconnect.py",
+      "summary": "TdxClient._execute 的指数退避重连测试（sync + async）。  之前 _execute 的 4 次 _RETRY_DELAYS 退避重连路径零测试（审计报告 #9）， 仅 async 有 transport 层的真实重连测试，未覆盖 _execute 自身的退避循环。 本文件 mock _conn.execute 让前 N 次抛 TdxConnectionError、第 N+1 次成功， 并 patch time.sleep / asyncio.sleep 验证退避序列。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_client_reconnect.py:TestSyncExecuteReconnect",
+      "type": "class",
+      "name": "TestSyncExecuteReconnect",
+      "filePath": "tests/unit/test_client_reconnect.py",
+      "summary": "Class TestSyncExecuteReconnect defined in tests/unit/test_client_reconnect.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_client_reconnect.py:TestAsyncExecuteReconnect",
+      "type": "class",
+      "name": "TestAsyncExecuteReconnect",
+      "filePath": "tests/unit/test_client_reconnect.py",
+      "summary": "Class TestAsyncExecuteReconnect defined in tests/unit/test_client_reconnect.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_client_reconnect.py:AsyncMockSleep",
+      "type": "class",
+      "name": "AsyncMockSleep",
+      "filePath": "tests/unit/test_client_reconnect.py",
+      "summary": "轻量 async sleep 替身，记录调用次数但不真实等待。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_cninfo.py",
+      "type": "file",
+      "name": "test_cninfo.py",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "巨潮（cninfo）模块离线测试 —— mock HTTP，零网络依赖。  覆盖：日期转换、orgId 解析（动态表/三段 fallback）、公告解析（含 URL 4 参数、 type 回退、pdf_url）、PDF 下载、分页、错误转换、模块导出。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_cninfo.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_public_exports",
+      "type": "function",
+      "name": "test_public_exports",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "模块应导出 CninfoClient / Announcement / CninfoError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_announcement_is_frozen_dataclass",
+      "type": "function",
+      "name": "test_announcement_is_frozen_dataclass",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Announcement 应为 frozen dataclass，含全部字段。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_cninfo_error_is_exception",
+      "type": "function",
+      "name": "test_cninfo_error_is_exception",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Function test_cninfo_error_is_exception() defined in tests/unit/test_cninfo.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_build_detail_url_has_four_params",
+      "type": "function",
+      "name": "test_build_detail_url_has_four_params",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "回归 Bug2：详情页 URL 必须含 4 参数 stockCode/announcementId/orgId/announcementTime。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_build_pdf_url",
+      "type": "function",
+      "name": "test_build_pdf_url",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "adjunctUrl 应拼成 static.cninfo.com.cn 直链。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_ts_to_date_from_millis",
+      "type": "function",
+      "name": "test_ts_to_date_from_millis",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Unix 毫秒整数应转为 YYYY-MM-DD。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_ts_to_date_from_string",
+      "type": "function",
+      "name": "test_ts_to_date_from_string",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "字符串输入应取前 10 字符。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_ts_to_date_empty",
+      "type": "function",
+      "name": "test_ts_to_date_empty",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "Function test_ts_to_date_empty() defined in tests/unit/test_cninfo.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:reset_orgid_cache",
+      "type": "function",
+      "name": "reset_orgid_cache",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "每个测试前后清空 orgId 缓存，保证隔离。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:_patch_stock_map",
+      "type": "function",
+      "name": "_patch_stock_map",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "让 _fetch_stock_map 返回给定映射（不触网）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_from_dynamic_map",
+      "type": "function",
+      "name": "test_resolve_orgid_from_dynamic_map",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "动态表命中应返回表中 orgId。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_6_prefix",
+      "type": "function",
+      "name": "test_resolve_orgid_fallback_6_prefix",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "动态表无此 code 且 6 开头 → gssh0{code}。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_8_prefix",
+      "type": "function",
+      "name": "test_resolve_orgid_fallback_8_prefix",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "北交所 8/4 开头 → gsbj0{code}。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_sz_default",
+      "type": "function",
+      "name": "test_resolve_orgid_fallback_sz_default",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "其他前缀（深圳）→ gssz0{code}。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_empty_map_does_not_cache",
+      "type": "function",
+      "name": "test_resolve_orgid_empty_map_does_not_cache",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "映射表为空时不写入缓存，下次仍会重试（避免永久 fallback）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fetch_failure_fallback",
+      "type": "function",
+      "name": "test_resolve_orgid_fetch_failure_fallback",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "映射表拉取异常应 graceful fallback 到硬编码规则，不抛错。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_resolve_orgid_cache_reused",
+      "type": "function",
+      "name": "test_resolve_orgid_cache_reused",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "第二次调用不应再次拉取映射表（缓存命中）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_returns_dataframe",
+      "type": "function",
+      "name": "test_get_announcements_returns_dataframe",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "应返回 DataFrame，含全部新字段。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_type_fallback_to_adjunct_type",
+      "type": "function",
+      "name": "test_get_announcements_type_fallback_to_adjunct_type",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "回归 Bug1：announcementTypeName 为 null 时回退 adjunctType。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_url_has_four_params",
+      "type": "function",
+      "name": "test_get_announcements_url_has_four_params",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "回归 Bug2：URL 必须含 4 参数才能打开（否则 404）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_pdf_url",
+      "type": "function",
+      "name": "test_get_announcements_pdf_url",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "pdf_url 应为 static.cninfo.com.cn 直链，无附件时为空。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_empty",
+      "type": "function",
+      "name": "test_get_announcements_empty",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "无公告应返回带列名的空 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_missing_key",
+      "type": "function",
+      "name": "test_get_announcements_missing_key",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "响应缺少 announcements 键应视为空结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_request_failure_raises_cninfo_error",
+      "type": "function",
+      "name": "test_get_announcements_request_failure_raises_cninfo_error",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "HTTP 异常应转为 CninfoError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_pagination",
+      "type": "function",
+      "name": "test_get_announcements_pagination",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "count/page 应正确传入 payload。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_uses_fallback_orgid",
+      "type": "function",
+      "name": "test_get_announcements_uses_fallback_orgid",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "601xxx 段动态表未命中时用 gssh0 fallback，stock 字段含该 orgId。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_skips_non_dict_items",
+      "type": "function",
+      "name": "test_get_announcements_skips_non_dict_items",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "announcements 列表中混入非 dict 元素应被跳过。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_response_not_dict",
+      "type": "function",
+      "name": "test_get_announcements_response_not_dict",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "响应非 dict（如 list）应视为空结果，不抛错。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_get_announcements_malformed_timestamp_wrapped_as_cninfo_error",
+      "type": "function",
+      "name": "test_get_announcements_malformed_timestamp_wrapped_as_cninfo_error",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "announcementTime 畸形（导致 fromtimestamp 溢出）应转 CninfoError，不裸抛。  回归 #2：修复前 _ts_to_date 在 try 块外，畸形时间戳会抛 OverflowError/ ValueError 裸异常；修复后整个解析路径统一转 CninfoError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:_make_anno",
+      "type": "function",
+      "name": "_make_anno",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "构造测试用 Announcement（默认有 pdf_url）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_success",
+      "type": "function",
+      "name": "test_download_pdf_success",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "download_pdf 应写入文件并返回绝对路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_custom_filename",
+      "type": "function",
+      "name": "test_download_pdf_custom_filename",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "自定义 filename 应被使用。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_no_attachment_raises",
+      "type": "function",
+      "name": "test_download_pdf_no_attachment_raises",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "pdf_url 为空应抛 CninfoError，不触网。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_creates_dest_dir",
+      "type": "function",
+      "name": "test_download_pdf_creates_dest_dir",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "目标目录不存在应自动创建。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_accepts_series",
+      "type": "function",
+      "name": "test_download_pdf_accepts_series",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "download_pdf 应兼容 pd.Series（DataFrame.iloc[i] 的返回类型）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_download_pdf_network_failure_wrapped",
+      "type": "function",
+      "name": "test_download_pdf_network_failure_wrapped",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "下载网络失败应转 CninfoError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_http_post_form_urlencoded_body",
+      "type": "function",
+      "name": "test_http_post_form_urlencoded_body",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "_http_post_form 应以 application/x-www-form-urlencoded 发送。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_cninfo.py:test_http_get_json_headers",
+      "type": "function",
+      "name": "test_http_get_json_headers",
+      "filePath": "tests/unit/test_cninfo.py",
+      "summary": "_http_get_json 应携带 User-Agent。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_codec_bitmap.py",
+      "type": "file",
+      "name": "test_codec_bitmap.py",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "codec/bitmap.py 单元测试 —— MAC 协议字段位图编解码。  之前 bitmap.py（~490 行）零测试（审计报告 #9）。本文件覆盖： FieldBit 字段属性、PresetField 组合、FieldSelection 去重、 build_bitmap 20 字节输出、get_active_fields 往返解析。  风格参照 test_codec_frame.py：纯函数式、无 mock、struct 构造输入。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestFieldBit",
+      "type": "class",
+      "name": "TestFieldBit",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestFieldBit defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestPresetField",
+      "type": "class",
+      "name": "TestPresetField",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestPresetField defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestFieldSelection",
+      "type": "class",
+      "name": "TestFieldSelection",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestFieldSelection defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestBuildBitmap",
+      "type": "class",
+      "name": "TestBuildBitmap",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestBuildBitmap defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestGetActiveFields",
+      "type": "class",
+      "name": "TestGetActiveFields",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestGetActiveFields defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_bitmap.py:TestBuildExcludeFlags",
+      "type": "class",
+      "name": "TestBuildExcludeFlags",
+      "filePath": "tests/unit/test_codec_bitmap.py",
+      "summary": "Class TestBuildExcludeFlags defined in tests/unit/test_codec_bitmap.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_codec_datetime.py",
+      "type": "file",
+      "name": "test_codec_datetime.py",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "日期时间解码单元测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestGetDatetimeMinute",
+      "type": "class",
+      "name": "TestGetDatetimeMinute",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Class TestGetDatetimeMinute defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestGetDatetimeDay",
+      "type": "class",
+      "name": "TestGetDatetimeDay",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Class TestGetDatetimeDay defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestGetDatetime",
+      "type": "class",
+      "name": "TestGetDatetime",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Class TestGetDatetime defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestGetTime",
+      "type": "class",
+      "name": "TestGetTime",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Class TestGetTime defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestCategoryToMinutes",
+      "type": "class",
+      "name": "TestCategoryToMinutes",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "分钟级 KlineCategory → 每根 bar 的分钟数；日线及以上返回 None。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_datetime.py:TestPeriodToMinutes",
+      "type": "class",
+      "name": "TestPeriodToMinutes",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "MAC 协议 Period → 每根 bar 的分钟数。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_codec_datetime.py:_pack_minute",
+      "type": "function",
+      "name": "_pack_minute",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Function _pack_minute() defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_codec_datetime.py:_pack_day",
+      "type": "function",
+      "name": "_pack_day",
+      "filePath": "tests/unit/test_codec_datetime.py",
+      "summary": "Function _pack_day() defined in tests/unit/test_codec_datetime.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_codec_frame.py",
+      "type": "file",
+      "name": "test_codec_frame.py",
+      "filePath": "tests/unit/test_codec_frame.py",
+      "summary": "响应帧头解析与解压单元测试。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_frame.py:TestParseHeader",
+      "type": "class",
+      "name": "TestParseHeader",
+      "filePath": "tests/unit/test_codec_frame.py",
+      "summary": "Class TestParseHeader defined in tests/unit/test_codec_frame.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_frame.py:TestDecompressBody",
+      "type": "class",
+      "name": "TestDecompressBody",
+      "filePath": "tests/unit/test_codec_frame.py",
+      "summary": "Class TestDecompressBody defined in tests/unit/test_codec_frame.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_codec_frame.py:_make_header",
+      "type": "function",
+      "name": "_make_header",
+      "filePath": "tests/unit/test_codec_frame.py",
+      "summary": "Function _make_header() defined in tests/unit/test_codec_frame.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_codec_price.py",
+      "type": "file",
+      "name": "test_codec_price.py",
+      "filePath": "tests/unit/test_codec_price.py",
+      "summary": "get_price / put_price 单元测试，测试向量来自 pytdx 实际报文。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_price.py:TestGetPrice",
+      "type": "class",
+      "name": "TestGetPrice",
+      "filePath": "tests/unit/test_codec_price.py",
+      "summary": "Class TestGetPrice defined in tests/unit/test_codec_price.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_price.py:TestPutPrice",
+      "type": "class",
+      "name": "TestPutPrice",
+      "filePath": "tests/unit/test_codec_price.py",
+      "summary": "Class TestPutPrice defined in tests/unit/test_codec_price.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_codec_volume.py",
+      "type": "file",
+      "name": "test_codec_volume.py",
+      "filePath": "tests/unit/test_codec_volume.py",
+      "summary": "get_volume 单元测试，测试向量来自 pytdx 注释中的已知值。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_codec_volume.py:TestGetVolume",
+      "type": "class",
+      "name": "TestGetVolume",
+      "filePath": "tests/unit/test_codec_volume.py",
+      "summary": "Class TestGetVolume defined in tests/unit/test_codec_volume.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_codec_volume.py:_pack",
+      "type": "function",
+      "name": "_pack",
+      "filePath": "tests/unit/test_codec_volume.py",
+      "summary": "Function _pack() defined in tests/unit/test_codec_volume.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_commands_offline.py",
+      "type": "file",
+      "name": "test_commands_offline.py",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "离线 fixture 测试：将录制的原始 body 字节喂给各命令 parse_response，验证解析结果。  fixtures/ 目录下每个 .hex 文件是一次真实服务器响应的 body（已解压）， 对应的 .json 文件记录关键预期值，供手工核对。 此测试文件直接断言解析结果，无需网络连接。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:load_hex",
+      "type": "function",
+      "name": "load_hex",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function load_hex() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_count_parse",
+      "type": "function",
+      "name": "test_security_count_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_security_count_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_list_parse",
+      "type": "function",
+      "name": "test_security_list_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_security_list_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_list_pre_close_uses_tdx_float_for_a_share",
+      "type": "function",
+      "name": "test_security_list_pre_close_uses_tdx_float_for_a_share",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_security_list_pre_close_uses_tdx_float_for_a_share() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_list_gbk_no_crash",
+      "type": "function",
+      "name": "test_security_list_gbk_no_crash",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Bug #2 修复验证：GBK 解码不崩溃，所有记录均有 code。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_bars_parse",
+      "type": "function",
+      "name": "test_security_bars_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_security_bars_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_bars_truncated_drops_partial_last_record",
+      "type": "function",
+      "name": "test_security_bars_truncated_drops_partial_last_record",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "TDX 服务端偶发截断：响应头声称有 N 条，但末尾记录被切。  解析器应丢弃残缺的末条，返回已成功解析的前若干条，而非整体抛 500。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_bars_truncated_first_record_returns_empty",
+      "type": "function",
+      "name": "test_security_bars_truncated_first_record_returns_empty",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "若连第一条都无法解析（body 完全没有记录数据），返回空列表而非抛异常。  v1.19.2 实测：SH600519 等正常股票偶发返回 ret_count>0 但 body 为空， 服务器侧问题。v1.18.3 的容错有 ``if bars:`` 条件导致此场景仍 raise → 500， 老人看到\"取行情失败\"。改为始终 return（空列表让前端分页重试比 500 好）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_quotes_parse",
+      "type": "function",
+      "name": "test_security_quotes_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_security_quotes_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:_build_quote_record",
+      "type": "function",
+      "name": "_build_quote_record",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "构造一条 security_quotes 记录：仅 price_raw 有值，其余全置 0。  price_raw 单位是「厘」(0.001 元)，由调用方按品种精度给出： 股票=分(×100)，ETF/指数=厘(×1000)。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:_build_quote_body",
+      "type": "function",
+      "name": "_build_quote_body",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function _build_quote_body() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_quotes_decimal_point_classification",
+      "type": "function",
+      "name": "test_security_quotes_decimal_point_classification",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Issue #8：价格小数位按 market+code 代码段推断。  同一代码不同市场含义不同：SZ 000001=平安银行(股票,2位)， SH 000001=上证指数(3位)，故必须结合市场判断。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_quotes_etf_price_not_inflated_10x",
+      "type": "function",
+      "name": "test_security_quotes_etf_price_not_inflated_10x",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Issue #8：ETF 价格必须按 3 位小数解析，不能仍被放大 10 倍。  159922 现价 6.123 元 → price_raw=6123（厘）。错误地按 /100 解析会得到 61.23。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_quotes_stock_price_unchanged",
+      "type": "function",
+      "name": "test_security_quotes_stock_price_unchanged",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Issue #8 回归保护：股票仍按 2 位小数解析，行为不变。  600000 现价 9.89 元 → price_raw=989（分）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_security_quotes_index_price_3_digits",
+      "type": "function",
+      "name": "test_security_quotes_index_price_3_digits",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Issue #8：上证指数 SH000001 现价 3123.456 → 按 3 位小数解析。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_minute_time_parse",
+      "type": "function",
+      "name": "test_minute_time_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_minute_time_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_history_minute_time_parse",
+      "type": "function",
+      "name": "test_history_minute_time_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_history_minute_time_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_transaction_parse",
+      "type": "function",
+      "name": "test_transaction_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_transaction_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_history_transaction_parse",
+      "type": "function",
+      "name": "test_history_transaction_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_history_transaction_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_xdxr_info_parse",
+      "type": "function",
+      "name": "test_xdxr_info_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_xdxr_info_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_xdxr_info_category_1_normalizes_per_10_share_fields",
+      "type": "function",
+      "name": "test_xdxr_info_category_1_normalizes_per_10_share_fields",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_xdxr_info_category_1_normalizes_per_10_share_fields() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_finance_info_parse",
+      "type": "function",
+      "name": "test_finance_info_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_finance_info_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_company_info_category_parse",
+      "type": "function",
+      "name": "test_company_info_category_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_company_info_category_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_commands_offline.py:test_company_info_content_parse",
+      "type": "function",
+      "name": "test_company_info_content_parse",
+      "filePath": "tests/unit/test_commands_offline.py",
+      "summary": "Function test_company_info_content_parse() defined in tests/unit/test_commands_offline.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_config.py",
+      "type": "file",
+      "name": "test_config.py",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "config.py 单元测试 —— 覆盖环境变量覆盖、config.json 原子读写、save_best_host 补全逻辑。  之前这三块（env 覆盖 / config.json 读写 / save_best_host 合并）零测试， 本文件补齐该缺口（审计报告 #9）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_config.py:TestEnvOverride",
+      "type": "class",
+      "name": "TestEnvOverride",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "Class TestEnvOverride defined in tests/unit/test_config.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_config.py:TestConfigReadWrite",
+      "type": "class",
+      "name": "TestConfigReadWrite",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "Class TestConfigReadWrite defined in tests/unit/test_config.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_config.py:TestSaveBestHost",
+      "type": "class",
+      "name": "TestSaveBestHost",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "Class TestSaveBestHost defined in tests/unit/test_config.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_config.py:TestBestHostPollutionGuard",
+      "type": "class",
+      "name": "TestBestHostPollutionGuard",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "MacClient.from_best_host 曾误调 save_best_host 把 MAC 服务器写入 best_host，导致标准 TdxClient 用错协议请求 MAC 服务器返回空 body。 get_best_host 现在含校验：缓存 host 不在标准列表里时自动重置。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_config.py:TestMacHostSeparation",
+      "type": "class",
+      "name": "TestMacHostSeparation",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "MAC 协议的 best host 应独立于标准 TDX 的 best_host。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_config.py:isolated_config",
+      "type": "function",
+      "name": "isolated_config",
+      "filePath": "tests/unit/test_config.py",
+      "summary": "把 config 模块的重定向到 tmp_path，测试间互不影响。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_decode_errors.py",
+      "type": "file",
+      "name": "test_decode_errors.py",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "坏包与解码异常回归测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:_load_hex",
+      "type": "function",
+      "name": "_load_hex",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function _load_hex() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_count_truncated_raises_tdxdecodeerror",
+      "type": "function",
+      "name": "test_security_count_truncated_raises_tdxdecodeerror",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function test_security_count_truncated_raises_tdxdecodeerror() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_company_info_category_truncated_raises_tdxdecodeerror",
+      "type": "function",
+      "name": "test_company_info_category_truncated_raises_tdxdecodeerror",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function test_company_info_category_truncated_raises_tdxdecodeerror() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_xdxr_info_truncated_raises_tdxdecodeerror",
+      "type": "function",
+      "name": "test_xdxr_info_truncated_raises_tdxdecodeerror",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function test_xdxr_info_truncated_raises_tdxdecodeerror() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_frame_bad_zlib_raises_tdxdecodeerror",
+      "type": "function",
+      "name": "test_frame_bad_zlib_raises_tdxdecodeerror",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function test_frame_bad_zlib_raises_tdxdecodeerror() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_frame_unzipsize_mismatch_raises_tdxdecodeerror",
+      "type": "function",
+      "name": "test_frame_unzipsize_mismatch_raises_tdxdecodeerror",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "Function test_frame_unzipsize_mismatch_raises_tdxdecodeerror() defined in tests/unit/test_decode_errors.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:_make_day_record",
+      "type": "function",
+      "name": "_make_day_record",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "构造一条合法日线记录：4B datetime + 4 price(0x00) + 8B volume(0)。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_bars_truncated_tail_returns_partial_results",
+      "type": "function",
+      "name": "test_security_bars_truncated_tail_returns_partial_results",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "ret_count=3 但 body 只够 1 条 + 残渣 → 返回 1 条，不抛异常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_bars_ret_count_lies_returns_actual_count",
+      "type": "function",
+      "name": "test_security_bars_ret_count_lies_returns_actual_count",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "ret_count 撒大谎（说 100 条实际 2 条）→ 按 body 实际长度截断。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_bars_empty_body_returns_empty_list",
+      "type": "function",
+      "name": "test_security_bars_empty_body_returns_empty_list",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "ret_count=0 → 空列表，不抛异常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_bars_complete_body_not_affected",
+      "type": "function",
+      "name": "test_security_bars_complete_body_not_affected",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "正常完整 body 不受 graceful degradation 影响（不能误伤）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_decode_errors.py:test_security_bars_ret_count_lies_body_completely_empty",
+      "type": "function",
+      "name": "test_security_bars_ret_count_lies_body_completely_empty",
+      "filePath": "tests/unit/test_decode_errors.py",
+      "summary": "ret_count 撒谎说有数据但 body 只有 ret_count 头（0 条记录数据）。  回归 v1.19.2 日志报错：SH600519 请求 count=800，服务器返回 ret_count=5 但 body 从 pos=2 开始就为空，第 1 条 datetime 解析即崩（偏移 2，剩余 0）。 v1.18.3 的容错有 ``if bars:`` 条件，bars 为空时走 ``raise`` → 500。 修复后无论 bars 是否为空都 return（空列表让调用方重试比 500 好）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_ex_reconnect.py",
+      "type": "file",
+      "name": "test_ex_reconnect.py",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "扩展行情 client 的指数退避重连测试（审计 #2）。  之前 ex 家族（ExTdxClient/MacExClient/AsyncExTdxClient/AsyncMacExClient）的 _execute 只重连 1 次无退避，与 A 股/MAC 的 4 次退避不一致。本测试验证统一后的退避行为， 并确认 MacExClient 重连后会重新 _login()。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestExTdxClientReconnect",
+      "type": "class",
+      "name": "TestExTdxClientReconnect",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "Class TestExTdxClientReconnect defined in tests/unit/test_ex_reconnect.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestMacExClientReconnect",
+      "type": "class",
+      "name": "TestMacExClientReconnect",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "Class TestMacExClientReconnect defined in tests/unit/test_ex_reconnect.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestAsyncExTdxClientReconnect",
+      "type": "class",
+      "name": "TestAsyncExTdxClientReconnect",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "Class TestAsyncExTdxClientReconnect defined in tests/unit/test_ex_reconnect.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestAsyncMacExClientReconnect",
+      "type": "class",
+      "name": "TestAsyncMacExClientReconnect",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "Class TestAsyncMacExClientReconnect defined in tests/unit/test_ex_reconnect.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestBackoffDelayValues",
+      "type": "class",
+      "name": "TestBackoffDelayValues",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "验证退避延迟值序列与 _RETRY_DELAYS 完全一致（防硬编码回归）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_ex_reconnect.py:TestMacExLoginRetriedOnConnectionError",
+      "type": "class",
+      "name": "TestMacExLoginRetriedOnConnectionError",
+      "filePath": "tests/unit/test_ex_reconnect.py",
+      "summary": "登录握手期抛 TdxConnectionError 应继续重试（验证 _login 纳入 inner try）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_factor_analysis.py",
+      "type": "file",
+      "name": "test_factor_analysis.py",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Test FactorAnalyzer and FactorReport.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorReport",
+      "type": "class",
+      "name": "TestFactorReport",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorReport defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerIC",
+      "type": "class",
+      "name": "TestFactorAnalyzerIC",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorAnalyzerIC defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerQuantile",
+      "type": "class",
+      "name": "TestFactorAnalyzerQuantile",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorAnalyzerQuantile defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerReport",
+      "type": "class",
+      "name": "TestFactorAnalyzerReport",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorAnalyzerReport defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerDecay",
+      "type": "class",
+      "name": "TestFactorAnalyzerDecay",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorAnalyzerDecay defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerTurnover",
+      "type": "class",
+      "name": "TestFactorAnalyzerTurnover",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Class TestFactorAnalyzerTurnover defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_factor_analysis.py:_make_factor_and_return",
+      "type": "function",
+      "name": "_make_factor_and_return",
+      "filePath": "tests/unit/test_factor_analysis.py",
+      "summary": "Function _make_factor_and_return() defined in tests/unit/test_factor_analysis.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_factor_base.py",
+      "type": "file",
+      "name": "test_factor_base.py",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Test Factor base class and registry.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:_StubFactor",
+      "type": "class",
+      "name": "_StubFactor",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "测试用因子。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:TestFactorABC",
+      "type": "class",
+      "name": "TestFactorABC",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class TestFactorABC defined in tests/unit/test_factor_base.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:TestRegistry",
+      "type": "class",
+      "name": "TestRegistry",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class TestRegistry defined in tests/unit/test_factor_base.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:TestFactorCompute",
+      "type": "class",
+      "name": "TestFactorCompute",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class TestFactorCompute defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:NoName",
+      "type": "class",
+      "name": "NoName",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class NoName defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:NoCategory",
+      "type": "class",
+      "name": "NoCategory",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class NoCategory defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:NoCompute",
+      "type": "class",
+      "name": "NoCompute",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class NoCompute defined in tests/unit/test_factor_base.py.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:RegFactor",
+      "type": "class",
+      "name": "RegFactor",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class RegFactor defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:Dup",
+      "type": "class",
+      "name": "Dup",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class Dup defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_base.py:Dup2",
+      "type": "class",
+      "name": "Dup2",
+      "filePath": "tests/unit/test_factor_base.py",
+      "summary": "Class Dup2 defined in tests/unit/test_factor_base.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_factor_builtin.py",
+      "type": "file",
+      "name": "test_factor_builtin.py",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Test built-in factor computation correctness.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestAutoRegistration",
+      "type": "class",
+      "name": "TestAutoRegistration",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestAutoRegistration defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestListAndGetFactors",
+      "type": "class",
+      "name": "TestListAndGetFactors",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestListAndGetFactors defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestMomentumCompute",
+      "type": "class",
+      "name": "TestMomentumCompute",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestMomentumCompute defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestVolatilityCompute",
+      "type": "class",
+      "name": "TestVolatilityCompute",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestVolatilityCompute defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestQualityCompute",
+      "type": "class",
+      "name": "TestQualityCompute",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestQualityCompute defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestVolumeCompute",
+      "type": "class",
+      "name": "TestVolumeCompute",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestVolumeCompute defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_builtin.py:TestTechnicalCompute",
+      "type": "class",
+      "name": "TestTechnicalCompute",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "Class TestTechnicalCompute defined in tests/unit/test_factor_builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_factor_builtin.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_factor_builtin.py",
+      "summary": "生成合成 OHLCV 数据（120 行，满足所有因子最小窗口）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_factor_engine.py",
+      "type": "file",
+      "name": "test_factor_engine.py",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Test FactorEngine.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:_SimpleMomentum",
+      "type": "class",
+      "name": "_SimpleMomentum",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Class _SimpleMomentum defined in tests/unit/test_factor_engine.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:_SimpleVolatility",
+      "type": "class",
+      "name": "_SimpleVolatility",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Class _SimpleVolatility defined in tests/unit/test_factor_engine.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:TestComputeSingle",
+      "type": "class",
+      "name": "TestComputeSingle",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Class TestComputeSingle defined in tests/unit/test_factor_engine.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:TestComputeCrossSection",
+      "type": "class",
+      "name": "TestComputeCrossSection",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Class TestComputeCrossSection defined in tests/unit/test_factor_engine.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:TestComputeForwardReturns",
+      "type": "class",
+      "name": "TestComputeForwardReturns",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "Class TestComputeForwardReturns defined in tests/unit/test_factor_engine.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_engine.py:TestFactorEngineWithBuiltins",
+      "type": "class",
+      "name": "TestFactorEngineWithBuiltins",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "FactorEngine 与内置因子的集成测试。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_factor_engine.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_factor_engine.py",
+      "summary": "生成合成 OHLCV 数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_factor_transform.py",
+      "type": "file",
+      "name": "test_factor_transform.py",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Test factor preprocessing functions.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestWinsorize",
+      "type": "class",
+      "name": "TestWinsorize",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestWinsorize defined in tests/unit/test_factor_transform.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestZscore",
+      "type": "class",
+      "name": "TestZscore",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestZscore defined in tests/unit/test_factor_transform.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestRankNormalize",
+      "type": "class",
+      "name": "TestRankNormalize",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestRankNormalize defined in tests/unit/test_factor_transform.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestFillMissing",
+      "type": "class",
+      "name": "TestFillMissing",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestFillMissing defined in tests/unit/test_factor_transform.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestOrthogonalize",
+      "type": "class",
+      "name": "TestOrthogonalize",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestOrthogonalize defined in tests/unit/test_factor_transform.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_factor_transform.py:TestPreprocess",
+      "type": "class",
+      "name": "TestPreprocess",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Class TestPreprocess defined in tests/unit/test_factor_transform.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_factor_transform.py:_make_cross_section",
+      "type": "function",
+      "name": "_make_cross_section",
+      "filePath": "tests/unit/test_factor_transform.py",
+      "summary": "Function _make_cross_section() defined in tests/unit/test_factor_transform.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_failover.py",
+      "type": "file",
+      "name": "test_failover.py",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "跨主机故障转移（failover）测试。  验证 8 个 client 的 ``_execute`` 在同主机重试耗尽（``_RETRY_DELAYS`` 走完仍 ``TdxConnectionError``）后，会通过 ``select_best_host_sync`` / ``_async`` 重新 测速、切到延迟最低的另一台服务器再试一轮。同时覆盖：  - ``select_best_host_sync`` 的节流（30s 窗口内不重复测速）与\"跳过当前 host\"语义。 - ``auto_reconnect=False`` 时 failover 不触发。 - ``get_market_",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_failover.py:TestSelectBestHostSync",
+      "type": "class",
+      "name": "TestSelectBestHostSync",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "Class TestSelectBestHostSync defined in tests/unit/test_failover.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_failover.py:TestFindWorkingHostSync",
+      "type": "class",
+      "name": "TestFindWorkingHostSync",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "Class TestFindWorkingHostSync defined in tests/unit/test_failover.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_failover.py:TestTdxClientFailover",
+      "type": "class",
+      "name": "TestTdxClientFailover",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "Class TestTdxClientFailover defined in tests/unit/test_failover.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_failover.py:TestMacClientFailover",
+      "type": "class",
+      "name": "TestMacClientFailover",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "锁定 v1.19.4 修复：MacClient 的 failover 必须用 save_best_mac_host， 而非 save_best_host，否则会把 MAC 服务器写进标准 best_host 配置项造成污染。  该 bug 曾在将 failover 改动从旧分支 cherry-pick 到含 v1.19.4 修复的 main 时 复现（_execute 的 failover 沿用了旧的 save_best_host）。本测试防止再次倒退。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_failover.py:TestMarketStatEmptyFailover",
+      "type": "class",
+      "name": "TestMarketStatEmptyFailover",
+      "filePath": "tests/unit/test_failover.py",
+      "summary": "Class TestMarketStatEmptyFailover defined in tests/unit/test_failover.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_financial_data.py",
+      "type": "file",
+      "name": "test_financial_data.py",
+      "filePath": "tests/unit/test_financial_data.py",
+      "summary": "离线测试：专业财务数据解析。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_financial_data.py:TestParseFinancialFileList",
+      "type": "class",
+      "name": "TestParseFinancialFileList",
+      "filePath": "tests/unit/test_financial_data.py",
+      "summary": "Class TestParseFinancialFileList defined in tests/unit/test_financial_data.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_financial_data.py:TestParseFinancialDat",
+      "type": "class",
+      "name": "TestParseFinancialDat",
+      "filePath": "tests/unit/test_financial_data.py",
+      "summary": "Class TestParseFinancialDat defined in tests/unit/test_financial_data.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_financial_data.py:TestFinancialModels",
+      "type": "class",
+      "name": "TestFinancialModels",
+      "filePath": "tests/unit/test_financial_data.py",
+      "summary": "Class TestFinancialModels defined in tests/unit/test_financial_data.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_heartbeat.py",
+      "type": "file",
+      "name": "test_heartbeat.py",
+      "filePath": "tests/unit/test_heartbeat.py",
+      "summary": "心跳机制单元测试。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_heartbeat.py:test_heartbeat_sends_periodically",
+      "type": "function",
+      "name": "test_heartbeat_sends_periodically",
+      "filePath": "tests/unit/test_heartbeat.py",
+      "summary": "Function test_heartbeat_sends_periodically() defined in tests/unit/test_heartbeat.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_heartbeat.py:test_heartbeat_stops_on_close",
+      "type": "function",
+      "name": "test_heartbeat_stops_on_close",
+      "filePath": "tests/unit/test_heartbeat.py",
+      "summary": "Function test_heartbeat_stops_on_close() defined in tests/unit/test_heartbeat.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_hk_transaction.py",
+      "type": "file",
+      "name": "test_hk_transaction.py",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "港股逐笔成交协议路由的回归测试（issue #14）。  issue #14：``MacExClient.goods_transaction`` 对港股返回空。根因是它对所有扩展市场 复用了 A 股 MAC 协议的 ``SymbolTransactionCmd``（0x122F），而 0x122F 的数据源未接入 港股。修复后港股股票类市场走 ex 扩展行情协议（当日 0x23FC / 历史 0x2406）。  本测试纯离线：    1. 用录制的真实港股 0x2406 响应 fixture 验证 ``GetExHistoryTransactionDataCmd``      解析正确（价格字",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:load_hex",
+      "type": "function",
+      "name": "load_hex",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "Function load_hex() defined in tests/unit/test_hk_transaction.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:load_json",
+      "type": "function",
+      "name": "load_json",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "Function load_json() defined in tests/unit/test_hk_transaction.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_parse_ex_history_transaction_hk",
+      "type": "function",
+      "name": "test_parse_ex_history_transaction_hk",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "港股 0x2406 响应解析：返回非空，price 为整数（单位 0.001 HKD）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_parse_ex_history_transaction_empty",
+      "type": "function",
+      "name": "test_parse_ex_history_transaction_empty",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "空响应（< 16 字节）应返回空列表，不抛异常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_map_record_price_conversion",
+      "type": "function",
+      "name": "test_map_record_price_conversion",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "整数价格 431800 → 431.8 港元浮点。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_map_record_nature_to_bs_flag",
+      "type": "function",
+      "name": "test_map_record_nature_to_bs_flag",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "nature（买卖方向）映射到 bs_flag。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_is_hk_stock_market",
+      "type": "function",
+      "name": "test_is_hk_stock_market",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "Function test_is_hk_stock_market() defined in tests/unit/test_hk_transaction.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_hk_stock_markets_constant",
+      "type": "function",
+      "name": "test_hk_stock_markets_constant",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "常量集合稳定，防止误改。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:_build_fake_records",
+      "type": "function",
+      "name": "_build_fake_records",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "构造 n 条 ExTransactionRecord。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_hk_uses_ex_protocol",
+      "type": "function",
+      "name": "test_goods_transaction_hk_uses_ex_protocol",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "港股 market=31 应走 ex 协议（GetExHistoryTransactionDataCmd），不走 0x122F。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_hk_today_uses_0x23fc",
+      "type": "function",
+      "name": "test_goods_transaction_hk_today_uses_0x23fc",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "港股 query_date=None 应走当日命令 GetExTransactionDataCmd（0x23FC）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_non_hk_keeps_0x122f",
+      "type": "function",
+      "name": "test_goods_transaction_non_hk_keeps_0x122f",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "非港股市场（如 CFFEX 期货 market=47）仍走 MAC 0x122F，不回归。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_fetch_hk_transactions_pagination",
+      "type": "function",
+      "name": "test_fetch_hk_transactions_pagination",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "count 超过单页（1800）应自动分页。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_fetch_hk_transactions_stops_on_empty",
+      "type": "function",
+      "name": "test_fetch_hk_transactions_stops_on_empty",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "空响应应立即停止，不无限循环。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_hk_uses_ex_protocol",
+      "type": "function",
+      "name": "test_async_goods_transaction_hk_uses_ex_protocol",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "异步版港股 market=31 也应走 ex 协议（GetExHistoryTransactionDataCmd）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_non_hk_keeps_0x122f",
+      "type": "function",
+      "name": "test_async_goods_transaction_non_hk_keeps_0x122f",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "异步版非港股市场（期货 market=47）仍走 MAC 0x122F。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_paginates_until_short_page",
+      "type": "function",
+      "name": "test_goods_transaction_all_paginates_until_short_page",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "全量取数：翻页直到某页返回不足 page_size（末页）即停。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_stops_on_empty",
+      "type": "function",
+      "name": "test_goods_transaction_all_stops_on_empty",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "全量取数：第一页空（休市日/无数据）应立即返回空。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_rejects_non_hk_market",
+      "type": "function",
+      "name": "test_goods_transaction_all_rejects_non_hk_market",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "全量取数仅限港股股票类市场；其他市场应报 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_all_paginates",
+      "type": "function",
+      "name": "test_async_goods_transaction_all_paginates",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "异步全量取数也按页翻到末页停止。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_all_rejects_non_hk",
+      "type": "function",
+      "name": "test_async_goods_transaction_all_rejects_non_hk",
+      "filePath": "tests/unit/test_hk_transaction.py",
+      "summary": "异步全量取数：非港股市场报 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_indicator.py",
+      "type": "file",
+      "name": "test_indicator.py",
+      "filePath": "tests/unit/test_indicator.py",
+      "summary": "indicator.py 离线单元测试。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_indicator.py:TestRegistry",
+      "type": "class",
+      "name": "TestRegistry",
+      "filePath": "tests/unit/test_indicator.py",
+      "summary": "Class TestRegistry defined in tests/unit/test_indicator.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_indicator.py:TestComputeIndicators",
+      "type": "class",
+      "name": "TestComputeIndicators",
+      "filePath": "tests/unit/test_indicator.py",
+      "summary": "Class TestComputeIndicators defined in tests/unit/test_indicator.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_indicator.py:_make_ohlcv",
+      "type": "function",
+      "name": "_make_ohlcv",
+      "filePath": "tests/unit/test_indicator.py",
+      "summary": "Function _make_ohlcv() defined in tests/unit/test_indicator.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_kline_bar_time.py",
+      "type": "file",
+      "name": "test_kline_bar_time.py",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "分钟级 K 线时间戳 bar_time（开始/结束时间）对齐的单元测试。  通达信协议用 bar 开始时间打时间戳（上午最后一根 5min 标 11:25、下午第一根标 13:00）； bar_time=\"end\" 切换为右端点（标 11:30/13:05），对齐 Tushare / 同花顺。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_kline_bar_time.py:TestAlignDfTimeColumns",
+      "type": "class",
+      "name": "TestAlignDfTimeColumns",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Class TestAlignDfTimeColumns defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_kline_bar_time.py:TestAlignDfDatetimeColumn",
+      "type": "class",
+      "name": "TestAlignDfDatetimeColumn",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Class TestAlignDfDatetimeColumn defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_kline_bar_time.py:TestAlignBars",
+      "type": "class",
+      "name": "TestAlignBars",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Class TestAlignBars defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_kline_bar_time.py:TestCategoryChain",
+      "type": "class",
+      "name": "TestCategoryChain",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Class TestCategoryChain defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_kline_bar_time.py:_bars_df",
+      "type": "function",
+      "name": "_bars_df",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "构造含 year/month/day/hour/minute 的 K 线 DataFrame（模拟 _to_df 输出）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_kline_bar_time.py:_mac_df",
+      "type": "function",
+      "name": "_mac_df",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Function _mac_df() defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_kline_bar_time.py:_make_ex_bar",
+      "type": "function",
+      "name": "_make_ex_bar",
+      "filePath": "tests/unit/test_kline_bar_time.py",
+      "summary": "Function _make_ex_bar() defined in tests/unit/test_kline_bar_time.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_mac_qfq_adjust.py",
+      "type": "file",
+      "name": "test_mac_qfq_adjust.py",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "本地前复权（QFQ）重算纯函数的单元测试。  覆盖 ``easy_tdx.mac.adjust`` 的因子计算与 OHLC 缩放，重点验证： - 除权日前后价格连续（前复权的定义性性质）； - 最新价锚定不动； - 无事件 / 非法因子时安全降级。  公式见 ``examples/06_finance/xdxr_info.py`` 与 ``src/easy_tdx/mac/adjust.py``。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:_kline",
+      "type": "function",
+      "name": "_kline",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "构造最小 NONE K 线：OHLC 全等于给定 close 序列，逐日递增。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:_xdxr_one",
+      "type": "function",
+      "name": "_xdxr_one",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "构造单条 category==1 除权除息记录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_pure_cash_dividend",
+      "type": "function",
+      "name": "test_factor_pure_cash_dividend",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "纯现金分红：f = (P - fh) / P。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_songzhuangu_split",
+      "type": "function",
+      "name": "test_factor_songzhuangu_split",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "10 送 10（songzhuangu=1.0）：f = P / (P*2) = 0.5。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_zero_cum_close_is_nan",
+      "type": "function",
+      "name": "test_factor_zero_cum_close_is_nan",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "cum_close<=0 返回 NaN（不抛）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_zero_denominator_is_nan",
+      "type": "function",
+      "name": "test_factor_zero_denominator_is_nan",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "分母 = P*(1+s+p) 为 0 时返回 NaN。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_pure_cash_dividend_scales_pre_event_only",
+      "type": "function",
+      "name": "test_apply_pure_cash_dividend_scales_pre_event_only",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "纯分红：除权日及之前价格乘 f，除权日之后不动。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_latest_price_anchored",
+      "type": "function",
+      "name": "test_apply_latest_price_anchored",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "最新价（最后一根）不被缩放，保持原值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_no_events_returns_unchanged",
+      "type": "function",
+      "name": "test_apply_no_events_returns_unchanged",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "空 XDXR 或无 category==1 → 原样返回（值相等）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_empty_xdxr_df",
+      "type": "function",
+      "name": "test_apply_empty_xdxr_df",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "XDXR 为 None 或 empty → 原样返回。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_nan_factor_event_skipped",
+      "type": "function",
+      "name": "test_apply_nan_factor_event_skipped",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "事件对应 cum_close<=0（因子非法）→ 跳过该事件，不抛异常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_multiple_events_cumulative",
+      "type": "function",
+      "name": "test_apply_multiple_events_cumulative",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "两次连续分红：因子累乘。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_songzhuangu_halves_pre_event_prices",
+      "type": "function",
+      "name": "test_apply_songzhuangu_halves_pre_event_prices",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "10 送 10：除权日前价格减半。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_does_not_mutate_input",
+      "type": "function",
+      "name": "test_apply_does_not_mutate_input",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "apply_forward_adjust 不就地修改输入 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_negative",
+      "type": "function",
+      "name": "test_has_bad_prices_detects_negative",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "Function test_has_bad_prices_detects_negative() defined in tests/unit/test_mac_qfq_adjust.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_zero",
+      "type": "function",
+      "name": "test_has_bad_prices_detects_zero",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "Function test_has_bad_prices_detects_zero() defined in tests/unit/test_mac_qfq_adjust.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_nan",
+      "type": "function",
+      "name": "test_has_bad_prices_detects_nan",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "Function test_has_bad_prices_detects_nan() defined in tests/unit/test_mac_qfq_adjust.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_clean_returns_false",
+      "type": "function",
+      "name": "test_has_bad_prices_clean_returns_false",
+      "filePath": "tests/unit/test_mac_qfq_adjust.py",
+      "summary": "Function test_has_bad_prices_clean_returns_false() defined in tests/unit/test_mac_qfq_adjust.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit/test_chanlun_phase3.py",
+      "target": "class:tests/unit/test_chanlun_phase3.py:TestMultiLevel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase3.py defines class TestMultiLevel."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase3.py",
+      "target": "class:tests/unit/test_chanlun_phase3.py:TestIncrementalUpdate",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase3.py defines class TestIncrementalUpdate."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase3.py",
+      "target": "class:tests/unit/test_chanlun_phase3.py:TestZsd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase3.py defines class TestZsd."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase3.py",
+      "target": "function:tests/unit/test_chanlun_phase3.py:_k",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase3.py defines function _k()."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase3.py",
+      "target": "function:tests/unit/test_chanlun_phase3.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase3.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "class:tests/unit/test_chanlun.py:TestMergeKlines",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines class TestMergeKlines."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "class:tests/unit/test_chanlun.py:TestFindFractals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines class TestFindFractals."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "class:tests/unit/test_chanlun.py:TestFindBis",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines class TestFindBis."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "class:tests/unit/test_chanlun.py:TestFindZss",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines class TestFindZss."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "class:tests/unit/test_chanlun.py:TestChanlunAnalyser",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines class TestChanlunAnalyser."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "function:tests/unit/test_chanlun.py:_k",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines function _k()."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun.py",
+      "target": "function:tests/unit/test_chanlun.py:_ck",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun.py defines function _ck()."
+    },
+    {
+      "source": "file:tests/unit/test_client_reconnect.py",
+      "target": "class:tests/unit/test_client_reconnect.py:TestSyncExecuteReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_client_reconnect.py defines class TestSyncExecuteReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_client_reconnect.py",
+      "target": "class:tests/unit/test_client_reconnect.py:TestAsyncExecuteReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_client_reconnect.py defines class TestAsyncExecuteReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_client_reconnect.py",
+      "target": "class:tests/unit/test_client_reconnect.py:AsyncMockSleep",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_client_reconnect.py defines class AsyncMockSleep."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "class:tests/unit/test_cninfo.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_public_exports",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_public_exports()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_announcement_is_frozen_dataclass",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_announcement_is_frozen_dataclass()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_cninfo_error_is_exception",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_cninfo_error_is_exception()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_build_detail_url_has_four_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_build_detail_url_has_four_params()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_build_pdf_url",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_build_pdf_url()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_ts_to_date_from_millis",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_ts_to_date_from_millis()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_ts_to_date_from_string",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_ts_to_date_from_string()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_ts_to_date_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_ts_to_date_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:reset_orgid_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function reset_orgid_cache()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:_patch_stock_map",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function _patch_stock_map()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_from_dynamic_map",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_from_dynamic_map()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_6_prefix",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_fallback_6_prefix()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_8_prefix",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_fallback_8_prefix()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fallback_sz_default",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_fallback_sz_default()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_empty_map_does_not_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_empty_map_does_not_cache()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_fetch_failure_fallback",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_fetch_failure_fallback()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_resolve_orgid_cache_reused",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_resolve_orgid_cache_reused()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_returns_dataframe",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_returns_dataframe()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_type_fallback_to_adjunct_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_type_fallback_to_adjunct_type()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_url_has_four_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_url_has_four_params()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_pdf_url",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_pdf_url()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_missing_key",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_missing_key()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_request_failure_raises_cninfo_error",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_request_failure_raises_cninfo_error()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_pagination",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_pagination()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_uses_fallback_orgid",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_uses_fallback_orgid()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_skips_non_dict_items",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_skips_non_dict_items()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_response_not_dict",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_response_not_dict()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_get_announcements_malformed_timestamp_wrapped_as_cninfo_error",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_get_announcements_malformed_timestamp_wrapped_as_cninfo_error()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:_make_anno",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function _make_anno()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_success",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_success()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_custom_filename",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_custom_filename()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_no_attachment_raises",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_no_attachment_raises()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_creates_dest_dir",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_creates_dest_dir()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_accepts_series",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_accepts_series()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_download_pdf_network_failure_wrapped",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_download_pdf_network_failure_wrapped()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_http_post_form_urlencoded_body",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_http_post_form_urlencoded_body()."
+    },
+    {
+      "source": "file:tests/unit/test_cninfo.py",
+      "target": "function:tests/unit/test_cninfo.py:test_http_get_json_headers",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_cninfo.py defines function test_http_get_json_headers()."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestFieldBit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestFieldBit."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestPresetField",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestPresetField."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestFieldSelection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestFieldSelection."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestBuildBitmap",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestBuildBitmap."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestGetActiveFields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestGetActiveFields."
+    },
+    {
+      "source": "file:tests/unit/test_codec_bitmap.py",
+      "target": "class:tests/unit/test_codec_bitmap.py:TestBuildExcludeFlags",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_bitmap.py defines class TestBuildExcludeFlags."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestGetDatetimeMinute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestGetDatetimeMinute."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestGetDatetimeDay",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestGetDatetimeDay."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestGetDatetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestGetDatetime."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestGetTime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestGetTime."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestCategoryToMinutes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestCategoryToMinutes."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "class:tests/unit/test_codec_datetime.py:TestPeriodToMinutes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines class TestPeriodToMinutes."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "function:tests/unit/test_codec_datetime.py:_pack_minute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines function _pack_minute()."
+    },
+    {
+      "source": "file:tests/unit/test_codec_datetime.py",
+      "target": "function:tests/unit/test_codec_datetime.py:_pack_day",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_datetime.py defines function _pack_day()."
+    },
+    {
+      "source": "file:tests/unit/test_codec_frame.py",
+      "target": "class:tests/unit/test_codec_frame.py:TestParseHeader",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_frame.py defines class TestParseHeader."
+    },
+    {
+      "source": "file:tests/unit/test_codec_frame.py",
+      "target": "class:tests/unit/test_codec_frame.py:TestDecompressBody",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_frame.py defines class TestDecompressBody."
+    },
+    {
+      "source": "file:tests/unit/test_codec_frame.py",
+      "target": "function:tests/unit/test_codec_frame.py:_make_header",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_frame.py defines function _make_header()."
+    },
+    {
+      "source": "file:tests/unit/test_codec_price.py",
+      "target": "class:tests/unit/test_codec_price.py:TestGetPrice",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_price.py defines class TestGetPrice."
+    },
+    {
+      "source": "file:tests/unit/test_codec_price.py",
+      "target": "class:tests/unit/test_codec_price.py:TestPutPrice",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_price.py defines class TestPutPrice."
+    },
+    {
+      "source": "file:tests/unit/test_codec_volume.py",
+      "target": "class:tests/unit/test_codec_volume.py:TestGetVolume",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_volume.py defines class TestGetVolume."
+    },
+    {
+      "source": "file:tests/unit/test_codec_volume.py",
+      "target": "function:tests/unit/test_codec_volume.py:_pack",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_codec_volume.py defines function _pack()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:load_hex",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function load_hex()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_count_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_count_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_list_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_list_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_list_pre_close_uses_tdx_float_for_a_share",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_list_pre_close_uses_tdx_float_for_a_share()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_list_gbk_no_crash",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_list_gbk_no_crash()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_bars_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_bars_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_bars_truncated_drops_partial_last_record",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_bars_truncated_drops_partial_last_record()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_bars_truncated_first_record_returns_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_bars_truncated_first_record_returns_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_quotes_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_quotes_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:_build_quote_record",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function _build_quote_record()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:_build_quote_body",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function _build_quote_body()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_quotes_decimal_point_classification",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_quotes_decimal_point_classification()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_quotes_etf_price_not_inflated_10x",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_quotes_etf_price_not_inflated_10x()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_quotes_stock_price_unchanged",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_quotes_stock_price_unchanged()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_security_quotes_index_price_3_digits",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_security_quotes_index_price_3_digits()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_minute_time_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_minute_time_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_history_minute_time_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_history_minute_time_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_transaction_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_transaction_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_history_transaction_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_history_transaction_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_xdxr_info_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_xdxr_info_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_xdxr_info_category_1_normalizes_per_10_share_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_xdxr_info_category_1_normalizes_per_10_share_fields()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_finance_info_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_finance_info_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_company_info_category_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_company_info_category_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_commands_offline.py",
+      "target": "function:tests/unit/test_commands_offline.py:test_company_info_content_parse",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_commands_offline.py defines function test_company_info_content_parse()."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "class:tests/unit/test_config.py:TestEnvOverride",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines class TestEnvOverride."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "class:tests/unit/test_config.py:TestConfigReadWrite",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines class TestConfigReadWrite."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "class:tests/unit/test_config.py:TestSaveBestHost",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines class TestSaveBestHost."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "class:tests/unit/test_config.py:TestBestHostPollutionGuard",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines class TestBestHostPollutionGuard."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "class:tests/unit/test_config.py:TestMacHostSeparation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines class TestMacHostSeparation."
+    },
+    {
+      "source": "file:tests/unit/test_config.py",
+      "target": "function:tests/unit/test_config.py:isolated_config",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_config.py defines function isolated_config()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:_load_hex",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function _load_hex()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_count_truncated_raises_tdxdecodeerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_count_truncated_raises_tdxdecodeerror()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_company_info_category_truncated_raises_tdxdecodeerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_company_info_category_truncated_raises_tdxdecodeerror()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_xdxr_info_truncated_raises_tdxdecodeerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_xdxr_info_truncated_raises_tdxdecodeerror()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_frame_bad_zlib_raises_tdxdecodeerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_frame_bad_zlib_raises_tdxdecodeerror()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_frame_unzipsize_mismatch_raises_tdxdecodeerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_frame_unzipsize_mismatch_raises_tdxdecodeerror()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:_make_day_record",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function _make_day_record()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_bars_truncated_tail_returns_partial_results",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_bars_truncated_tail_returns_partial_results()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_bars_ret_count_lies_returns_actual_count",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_bars_ret_count_lies_returns_actual_count()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_bars_empty_body_returns_empty_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_bars_empty_body_returns_empty_list()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_bars_complete_body_not_affected",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_bars_complete_body_not_affected()."
+    },
+    {
+      "source": "file:tests/unit/test_decode_errors.py",
+      "target": "function:tests/unit/test_decode_errors.py:test_security_bars_ret_count_lies_body_completely_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_decode_errors.py defines function test_security_bars_ret_count_lies_body_completely_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestExTdxClientReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestExTdxClientReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestMacExClientReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestMacExClientReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestAsyncExTdxClientReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestAsyncExTdxClientReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestAsyncMacExClientReconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestAsyncMacExClientReconnect."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestBackoffDelayValues",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestBackoffDelayValues."
+    },
+    {
+      "source": "file:tests/unit/test_ex_reconnect.py",
+      "target": "class:tests/unit/test_ex_reconnect.py:TestMacExLoginRetriedOnConnectionError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_ex_reconnect.py defines class TestMacExLoginRetriedOnConnectionError."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorReport",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorReport."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerIC",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorAnalyzerIC."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerQuantile",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorAnalyzerQuantile."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerReport",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorAnalyzerReport."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerDecay",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorAnalyzerDecay."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "class:tests/unit/test_factor_analysis.py:TestFactorAnalyzerTurnover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines class TestFactorAnalyzerTurnover."
+    },
+    {
+      "source": "file:tests/unit/test_factor_analysis.py",
+      "target": "function:tests/unit/test_factor_analysis.py:_make_factor_and_return",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_analysis.py defines function _make_factor_and_return()."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:_StubFactor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class _StubFactor."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:TestFactorABC",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class TestFactorABC."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:TestRegistry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class TestRegistry."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:TestFactorCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class TestFactorCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:NoName",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class NoName."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:NoCategory",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class NoCategory."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:NoCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class NoCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:RegFactor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class RegFactor."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:Dup",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class Dup."
+    },
+    {
+      "source": "file:tests/unit/test_factor_base.py",
+      "target": "class:tests/unit/test_factor_base.py:Dup2",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_base.py defines class Dup2."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestAutoRegistration",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestAutoRegistration."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestListAndGetFactors",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestListAndGetFactors."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestMomentumCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestMomentumCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestVolatilityCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestVolatilityCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestQualityCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestQualityCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestVolumeCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestVolumeCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "class:tests/unit/test_factor_builtin.py:TestTechnicalCompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines class TestTechnicalCompute."
+    },
+    {
+      "source": "file:tests/unit/test_factor_builtin.py",
+      "target": "function:tests/unit/test_factor_builtin.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_builtin.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:_SimpleMomentum",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class _SimpleMomentum."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:_SimpleVolatility",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class _SimpleVolatility."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:TestComputeSingle",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class TestComputeSingle."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:TestComputeCrossSection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class TestComputeCrossSection."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:TestComputeForwardReturns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class TestComputeForwardReturns."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "class:tests/unit/test_factor_engine.py:TestFactorEngineWithBuiltins",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines class TestFactorEngineWithBuiltins."
+    },
+    {
+      "source": "file:tests/unit/test_factor_engine.py",
+      "target": "function:tests/unit/test_factor_engine.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_engine.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestWinsorize",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestWinsorize."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestZscore",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestZscore."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestRankNormalize",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestRankNormalize."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestFillMissing",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestFillMissing."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestOrthogonalize",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestOrthogonalize."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "class:tests/unit/test_factor_transform.py:TestPreprocess",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines class TestPreprocess."
+    },
+    {
+      "source": "file:tests/unit/test_factor_transform.py",
+      "target": "function:tests/unit/test_factor_transform.py:_make_cross_section",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_factor_transform.py defines function _make_cross_section()."
+    },
+    {
+      "source": "file:tests/unit/test_failover.py",
+      "target": "class:tests/unit/test_failover.py:TestSelectBestHostSync",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_failover.py defines class TestSelectBestHostSync."
+    },
+    {
+      "source": "file:tests/unit/test_failover.py",
+      "target": "class:tests/unit/test_failover.py:TestFindWorkingHostSync",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_failover.py defines class TestFindWorkingHostSync."
+    },
+    {
+      "source": "file:tests/unit/test_failover.py",
+      "target": "class:tests/unit/test_failover.py:TestTdxClientFailover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_failover.py defines class TestTdxClientFailover."
+    },
+    {
+      "source": "file:tests/unit/test_failover.py",
+      "target": "class:tests/unit/test_failover.py:TestMacClientFailover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_failover.py defines class TestMacClientFailover."
+    },
+    {
+      "source": "file:tests/unit/test_failover.py",
+      "target": "class:tests/unit/test_failover.py:TestMarketStatEmptyFailover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_failover.py defines class TestMarketStatEmptyFailover."
+    },
+    {
+      "source": "file:tests/unit/test_financial_data.py",
+      "target": "class:tests/unit/test_financial_data.py:TestParseFinancialFileList",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_financial_data.py defines class TestParseFinancialFileList."
+    },
+    {
+      "source": "file:tests/unit/test_financial_data.py",
+      "target": "class:tests/unit/test_financial_data.py:TestParseFinancialDat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_financial_data.py defines class TestParseFinancialDat."
+    },
+    {
+      "source": "file:tests/unit/test_financial_data.py",
+      "target": "class:tests/unit/test_financial_data.py:TestFinancialModels",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_financial_data.py defines class TestFinancialModels."
+    },
+    {
+      "source": "file:tests/unit/test_heartbeat.py",
+      "target": "function:tests/unit/test_heartbeat.py:test_heartbeat_sends_periodically",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_heartbeat.py defines function test_heartbeat_sends_periodically()."
+    },
+    {
+      "source": "file:tests/unit/test_heartbeat.py",
+      "target": "function:tests/unit/test_heartbeat.py:test_heartbeat_stops_on_close",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_heartbeat.py defines function test_heartbeat_stops_on_close()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:load_hex",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function load_hex()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:load_json",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function load_json()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_parse_ex_history_transaction_hk",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_parse_ex_history_transaction_hk()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_parse_ex_history_transaction_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_parse_ex_history_transaction_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_map_record_price_conversion",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_map_record_price_conversion()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_map_record_nature_to_bs_flag",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_map_record_nature_to_bs_flag()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_is_hk_stock_market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_is_hk_stock_market()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_hk_stock_markets_constant",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_hk_stock_markets_constant()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:_build_fake_records",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function _build_fake_records()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_hk_uses_ex_protocol",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_hk_uses_ex_protocol()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_hk_today_uses_0x23fc",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_hk_today_uses_0x23fc()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_non_hk_keeps_0x122f",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_non_hk_keeps_0x122f()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_fetch_hk_transactions_pagination",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_fetch_hk_transactions_pagination()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_fetch_hk_transactions_stops_on_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_fetch_hk_transactions_stops_on_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_hk_uses_ex_protocol",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_async_goods_transaction_hk_uses_ex_protocol()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_non_hk_keeps_0x122f",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_async_goods_transaction_non_hk_keeps_0x122f()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_paginates_until_short_page",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_all_paginates_until_short_page()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_stops_on_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_all_stops_on_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_goods_transaction_all_rejects_non_hk_market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_goods_transaction_all_rejects_non_hk_market()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_all_paginates",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_async_goods_transaction_all_paginates()."
+    },
+    {
+      "source": "file:tests/unit/test_hk_transaction.py",
+      "target": "function:tests/unit/test_hk_transaction.py:test_async_goods_transaction_all_rejects_non_hk",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_hk_transaction.py defines function test_async_goods_transaction_all_rejects_non_hk()."
+    },
+    {
+      "source": "file:tests/unit/test_indicator.py",
+      "target": "class:tests/unit/test_indicator.py:TestRegistry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_indicator.py defines class TestRegistry."
+    },
+    {
+      "source": "file:tests/unit/test_indicator.py",
+      "target": "class:tests/unit/test_indicator.py:TestComputeIndicators",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_indicator.py defines class TestComputeIndicators."
+    },
+    {
+      "source": "file:tests/unit/test_indicator.py",
+      "target": "function:tests/unit/test_indicator.py:_make_ohlcv",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_indicator.py defines function _make_ohlcv()."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "class:tests/unit/test_kline_bar_time.py:TestAlignDfTimeColumns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines class TestAlignDfTimeColumns."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "class:tests/unit/test_kline_bar_time.py:TestAlignDfDatetimeColumn",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines class TestAlignDfDatetimeColumn."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "class:tests/unit/test_kline_bar_time.py:TestAlignBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines class TestAlignBars."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "class:tests/unit/test_kline_bar_time.py:TestCategoryChain",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines class TestCategoryChain."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "function:tests/unit/test_kline_bar_time.py:_bars_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines function _bars_df()."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "function:tests/unit/test_kline_bar_time.py:_mac_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines function _mac_df()."
+    },
+    {
+      "source": "file:tests/unit/test_kline_bar_time.py",
+      "target": "function:tests/unit/test_kline_bar_time.py:_make_ex_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_kline_bar_time.py defines function _make_ex_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:_kline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function _kline()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:_xdxr_one",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function _xdxr_one()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_pure_cash_dividend",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_factor_pure_cash_dividend()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_songzhuangu_split",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_factor_songzhuangu_split()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_zero_cum_close_is_nan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_factor_zero_cum_close_is_nan()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_factor_zero_denominator_is_nan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_factor_zero_denominator_is_nan()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_pure_cash_dividend_scales_pre_event_only",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_pure_cash_dividend_scales_pre_event_only()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_latest_price_anchored",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_latest_price_anchored()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_no_events_returns_unchanged",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_no_events_returns_unchanged()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_empty_xdxr_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_empty_xdxr_df()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_nan_factor_event_skipped",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_nan_factor_event_skipped()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_multiple_events_cumulative",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_multiple_events_cumulative()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_songzhuangu_halves_pre_event_prices",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_songzhuangu_halves_pre_event_prices()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_apply_does_not_mutate_input",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_apply_does_not_mutate_input()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_negative",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_has_bad_prices_detects_negative()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_zero",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_has_bad_prices_detects_zero()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_detects_nan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_has_bad_prices_detects_nan()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_adjust.py",
+      "target": "function:tests/unit/test_mac_qfq_adjust.py:test_has_bad_prices_clean_returns_false",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_adjust.py defines function test_has_bad_prices_clean_returns_false()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 251,
+    "edgesCreated": 226,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 21 analyzed via AST. 251 nodes, 226 edges from 25 files."
+  }
+}

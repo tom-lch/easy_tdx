@@ -1,0 +1,227 @@
+{
+  "nodes": [
+    {
+      "id": "document:docs/superpowers/plans/2026-06-09-backtest-engine.md",
+      "type": "document",
+      "name": "2026-06-09-backtest-engine.md",
+      "filePath": "docs/superpowers/plans/2026-06-09-backtest-engine.md",
+      "summary": "Backtest Engine implementation plan (2361 lines) describing the bottom-up construction of the new easy_tdx.backtest package: Signal/Trade/Position/BacktestResult dataclasses, a Strategy ABC with a StrategyDataProxy indirection, an OrderSimulator supporting multiple execution rules and a rejection strategy, a PortfolioTracker for positions and equity, a PerformanceAnalyzer delivering 18 metrics, and a BacktestEngine orchestrating vectorised execution. It also stubs out a @dsl_strategy decorator, adds a Click-based `easy-tdx backtest` sub-command, and includes TDD-style test files for types, strategy, orders, portfolio, performance, engine, and CLI. The plan targets the design spec at docs/superpowers/specs/2026-06-09-backtest-engine-design.md (rev 2.1) and is implemented in pure-Python (pandas + numpy + click) with zero network dependencies.",
+      "tags": ["documentation", "design", "backtest", "engine", "strategy", "cli", "tdd"],
+      "complexity": "complex",
+      "languageNotes": "Long bilingual (English headings, Chinese narrative) Markdown using checkbox task lists, fenced Python code blocks, file-path tables, and progressive TDD instructions (write failing test → implement → commit)."
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "type": "document",
+      "name": "2026-06-12-v1.11.0-factor-engine.md",
+      "filePath": "docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "summary": "v1.11.0 Factor Engine implementation plan (1790 lines) that introduces the easy_tdx.factor package: a Factor ABC plus FACTORY_REGISTRY with a register_factor decorator, a FactorEngine supporting compute_single, compute_cross_section, and compute_forward_returns modes, and 15 builtin factors spanning momentum, volatility, quality, volume, technical, ChanLun, and value categories (with pe_ratio/pb_ratio as placeholders). It bridges existing MyTT indicators and ChanlunAnalyser so factor computation reuses prior code, ships a `easy-tdx factor list` (plus category filter and table output) CLI command, and bumps pyproject.toml to 1.11.0. The plan covers only v1.11.0; v1.12.0 analysis/preprocessing and v1.13.0 portfolio are deferred to later plans.",
+      "tags": ["documentation", "design", "factor", "registry", "abc", "cli", "alpha-research"],
+      "complexity": "complex",
+      "languageNotes": "Bilingual Markdown mixing Chinese prose with English symbols/CLI flags; uses checkbox progress, fenced Python, file-action tables, and TDD step sequences including pytest assertions."
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "type": "document",
+      "name": "2026-06-12-v1.12.0-factor-analysis.md",
+      "filePath": "docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "summary": "v1.12.0 Factor Analysis & Preprocessing plan (877 lines) that layers six pure-function preprocessing routines on top of the v1.11.0 factor package — winsorize (MAD-based clipping), zscore (cross-section or time-series), rank_normalize, fill_missing, orthogonalize, and a top-level preprocess pipeline — plus a FactorAnalyzer offering IC, quantile, turnover, decay, and full_report analyses over long-format [date, code, factor] cross-section data. It adds the `easy-tdx factor analyze` CLI sub-command, wires exports through easy_tdx.factor, and bumps pyproject.toml to 1.12.0. The plan specifies the expected input schemas (factor_data columns date/code/factor_name*, return_data columns date/code/forward_Nd) and references design-spec section 3.4 and 3.5.",
+      "tags": ["documentation", "design", "factor", "preprocessing", "analysis", "ic", "quantile", "cli"],
+      "complexity": "moderate",
+      "languageNotes": "Bilingual Markdown; tabular file-action lists, fenced Python with class-based pytest skeletons, deterministic-RNG data factories, and ASCII input-schema descriptions."
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "type": "document",
+      "name": "2026-06-12-v1.13.0-portfolio.md",
+      "filePath": "docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "summary": "v1.13.0 Portfolio Management plan (956 lines) that completes the factor-to-portfolio closed loop with three layers under easy_tdx.portfolio: a WeightOptimizer ABC plus four registered optimizers (EqualWeightOptimizer, FactorWeightedOptimizer, MeanVarianceOptimizer with scipy-optional degradation, RiskParityOptimizer), a RiskModel covering covariance estimation and portfolio risk, and a RebalanceEngine orchestrating multi-period rebalancing backtests sourced from FactorEngine.compute_cross_section. It defines PortfolioState and RebalanceResult dataclasses, extends the `factor` CLI with a portfolio sub-command, and bumps pyproject.toml to 1.13.0. The plan references design-spec section 4 and keeps each layer independently usable.",
+      "tags": ["documentation", "design", "portfolio", "optimization", "risk-model", "rebalancing", "cli"],
+      "complexity": "moderate",
+      "languageNotes": "Bilingual Markdown with file-action tables, dataclass + registry-decorator Python snippets, scoped pytest fixtures (_make_market), and progressive commit messages keyed to each task."
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "type": "document",
+      "name": "2026-06-12-v1.14.0-slippage-execution.md",
+      "filePath": "docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "summary": "v1.14.0 Slippage Models and Execution Simulation plan (1724 lines) that extends the backtest engine with pluggable, fully backward-compatible realism. It introduces src/easy_tdx/backtest/slippage.py containing a SlippageModel ABC and four builtins (FixedSlippage, PercentSlippage, SquareRootSlippage, VolumeSlippage) and src/easy_tdx/backtest/execution.py with an ExecutionModel ABC plus ImmediateExecution, TWAPExecution, VWAPExecution, and LimitExecution. The plan modifies orders.py and engine.py to accept the new models via optional parameters so existing APIs and tests remain green, adds ~15 slippage tests and ~20 execution tests, and bumps pyproject.toml to 1.14.0.",
+      "tags": ["documentation", "design", "slippage", "execution", "backtest", "backward-compatibility"],
+      "complexity": "complex",
+      "languageNotes": "Bilingual Markdown heavily interspersed with pytest cases per model class, drawing helper functions like _volume_series, and reusing the existing TDD checkbox format with explicit ruff/mypy/test gates."
+    },
+    {
+      "id": "document:docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md",
+      "type": "document",
+      "name": "2026-06-12-v1.15.0-attribution.md",
+      "filePath": "docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md",
+      "summary": "v1.15.0 Performance Attribution plan (540 lines) that adds backtest/attribution.py containing an AttributionReport dataclass and an AttributionAnalyzer supporting three attribution views: cost attribution (decomposing commissions, slippage, and stamp tax 0.1% on SELL), Brinson-Hood-Beebower attribution (allocation vs selection vs interaction versus a benchmark), and factor attribution (factor returns plus specific return). The analyzer wires naturally into the existing trade and equity-curve outputs from BacktestEngine and accepts optional factor exposures/returns and group mappings, ships ~20 unit tests, and bumps pyproject.toml to 1.15.0.",
+      "tags": ["documentation", "design", "attribution", "brinson", "factor-decomposition", "cost-decomposition"],
+      "complexity": "moderate",
+      "languageNotes": "Compact bilingual Markdown focused on a single implementation task plus a closing version-bump task; uses dataclass field defaults, docstring-style method contracts, and TDD step ordering."
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:docs/superpowers/plans/2026-06-09-backtest-engine.md",
+      "target": "document:src/easy_tdx/backtest/engine.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan defines the file layout and behaviour of src/easy_tdx/backtest/engine.py (BacktestEngine orchestrator) along with the surrounding types, strategy, orders, portfolio, performance, dsl, and cli modules.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "target": "document:src/easy_tdx/factor/engine.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan specifies the Factor ABC + FACTORY_REGISTRY in src/easy_tdx/factor/base.py and the FactorEngine with compute_single / compute_cross_section / compute_forward_returns in src/easy_tdx/factor/engine.py.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "target": "document:src/easy_tdx/factor/analysis.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan defines src/easy_tdx/factor/transform.py (six preprocessing functions) and src/easy_tdx/factor/analysis.py (FactorAnalyzer with IC/quantile/turnover/decay/full_report).",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "target": "document:src/easy_tdx/portfolio/rebalance.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan defines src/easy_tdx/portfolio/{types.py, optimizer.py, risk.py, rebalance.py}, including the WeightOptimizer registry and RebalanceEngine that consumes FactorEngine.compute_cross_section.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "target": "document:src/easy_tdx/backtest/slippage.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan defines src/easy_tdx/backtest/slippage.py (SlippageModel ABC + 4 builtins) and src/easy_tdx/backtest/execution.py (ExecutionModel ABC + 4 builtins) and how orders.py / engine.py accept them via optional parameters.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md",
+      "target": "document:src/easy_tdx/backtest/attribution.py",
+      "type": "designs",
+      "direction": "forward",
+      "description": "This plan defines the single src/easy_tdx/backtest/attribution.py module containing AttributionReport and AttributionAnalyzer supporting Brinson, factor, and cost attribution views.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-09-backtest-engine.md",
+      "target": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "type": "precedes",
+      "direction": "forward",
+      "description": "The backtest engine plan precedes the factor engine plan chronologically (2026-06-09 then 2026-06-12) and establishes the BacktestResult/trade types that later factor-based pipelines ultimately consume.",
+      "weight": 0.7
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "target": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "type": "precedes",
+      "direction": "forward",
+      "description": "v1.11.0 delivers the Factor ABC, registry, and FactorEngine; v1.12.0 directly builds on top by adding preprocessing and FactorAnalyzer for IC/quantile/turnover/decay evaluation.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "target": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "type": "precedes",
+      "direction": "forward",
+      "description": "v1.12.0 factor analysis funnels factor scores into v1.13.0, where RebalanceEngine consumes FactorEngine.compute_cross_section outputs to drive multi-period portfolio backtests.",
+      "weight": 1.0
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "target": "document:docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "type": "precedes",
+      "direction": "forward",
+      "description": "v1.13.0 closes the factor-to-portfolio loop; v1.14.0 then hardens the realism of those backtests with pluggable slippage and execution models while remaining backward compatible.",
+      "weight": 0.8
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "target": "document:docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md",
+      "type": "precedes",
+      "direction": "forward",
+      "description": "v1.14.0 introduces the slippage and execution models whose cost components are decomposed in v1.15.0 by AttributionAnalyzer's cost_attribution method.",
+      "weight": 0.9
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "target": "config:pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "description": "The plan bumps pyproject.toml version from the prior release to 1.11.0 and is mirrored by an entry in CHANGELOG.md.",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "target": "config:pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "description": "The plan bumps pyproject.toml version to 1.12.0 with a corresponding chore commit.",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "target": "config:pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "description": "The plan bumps pyproject.toml version to 1.13.0 with a corresponding chore commit.",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md",
+      "target": "config:pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "description": "The plan bumps pyproject.toml version from 1.13.0 to 1.14.0 and updates CHANGELOG.md if present.",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md",
+      "target": "config:pyproject.toml",
+      "type": "documents",
+      "direction": "forward",
+      "description": "The plan bumps pyproject.toml version from 1.14.0 to 1.15.0 with a corresponding chore commit.",
+      "weight": 0.6
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-09-backtest-engine.md",
+      "target": "document:docs/superpowers/specs/2026-06-09-backtest-engine-design.md",
+      "type": "references",
+      "direction": "forward",
+      "description": "The plan cites the design spec docs/superpowers/specs/2026-06-09-backtest-engine-design.md (rev 2.1) as its authoritative source.",
+      "weight": 0.8
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md",
+      "target": "document:docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md",
+      "type": "references",
+      "direction": "forward",
+      "description": "Both factor-related plans (v1.11.0 and v1.12.0) reference docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md as the design source of truth.",
+      "weight": 0.8
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md",
+      "target": "document:docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md",
+      "type": "references",
+      "direction": "forward",
+      "description": "This plan points to design-spec sections 3.4 and 3.5 of docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md for the transform/analysis surface.",
+      "weight": 0.8
+    },
+    {
+      "source": "document:docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md",
+      "target": "document:docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md",
+      "type": "references",
+      "direction": "forward",
+      "description": "This plan points to design-spec section 4 of docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md for the portfolio/optimizer/risk/rebalance layering.",
+      "weight": 0.8
+    }
+  ],
+  "summary": "Analyzed 6 design/plan markdown files (8248 lines total) under docs/superpowers/plans/, each describing a sequenced easy-tdx release. The plans are: (1) backtest-engine — the foundational BacktestEngine, OrderSimulator, PortfolioTracker, PerformanceAnalyzer, and `easy-tdx backtest` CLI; (2) v1.11.0 factor-engine — Factor ABC, FACTORY_REGISTRY, FactorEngine, and 15 builtin factors plus `easy-tdx factor list`; (3) v1.12.0 factor-analysis — six preprocessing functions and FactorAnalyzer (IC/quantile/turnover/decay) with `easy-tdx factor analyze`; (4) v1.13.0 portfolio — WeightOptimizer registry, RiskModel, and RebalanceEngine closing the factor-to-portfolio loop; (5) v1.14.0 slippage-execution — pluggable SlippageModel and ExecutionModel hierarchies integrated into orders.py/engine.py without breaking existing APIs; (6) v1.15.0 attribution — AttributionAnalyzer providing Brinson, factor, and cost decomposition. Nodes capture each plan's goal, architecture, file layout, and tests; edges model designs-to-source, plan-to-plan release sequence, plan-to-pyproject version bumps, and plan-to-spec references."
+}

@@ -1,0 +1,2414 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 10,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "scripts/probe_unknowns.py",
+      "language": "python",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/ruff_hook.py",
+      "language": "python",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/verify_fixes_20260415.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/__init__.py",
+      "language": "python",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/__main__.py",
+      "language": "python",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/_binary.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/_df.py",
+      "language": "python",
+      "sizeLines": 238,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/_reconnect.py",
+      "language": "python",
+      "sizeLines": 311,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/__init__.py",
+      "language": "python",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/attribution.py",
+      "language": "python",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/cli.py",
+      "language": "python",
+      "sizeLines": 432,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/combo.py",
+      "language": "python",
+      "sizeLines": 458,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/dsl.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/engine.py",
+      "language": "python",
+      "sizeLines": 521,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/execution.py",
+      "language": "python",
+      "sizeLines": 655,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/multi_strategy_engine.py",
+      "language": "python",
+      "sizeLines": 249,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/optimizer.py",
+      "language": "python",
+      "sizeLines": 249,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/orders.py",
+      "language": "python",
+      "sizeLines": 518,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/performance.py",
+      "language": "python",
+      "sizeLines": 361,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/portfolio_engine.py",
+      "language": "python",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/portfolio.py",
+      "language": "python",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/slippage.py",
+      "language": "python",
+      "sizeLines": 129,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/strategies/__init__.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/strategies/builtin.py",
+      "language": "python",
+      "sizeLines": 554,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/strategies/presets.py",
+      "language": "python",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:scripts/probe_unknowns.py",
+      "type": "file",
+      "name": "probe_unknowns.py",
+      "filePath": "scripts/probe_unknowns.py",
+      "summary": "探测未知字段含义的辅助脚本。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:scripts/probe_unknowns.py:probe_minute_averages",
+      "type": "function",
+      "name": "probe_minute_averages",
+      "filePath": "scripts/probe_unknowns.py",
+      "summary": "探测分时数据中 unknown_1 的含义（疑似均价）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:scripts/probe_unknowns.py:probe_quote_limits",
+      "type": "function",
+      "name": "probe_quote_limits",
+      "filePath": "scripts/probe_unknowns.py",
+      "summary": "探测实时行情中 unknown_5/6 的含义（疑似涨跌停）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:scripts/probe_unknowns.py:probe_fund_flow_raw",
+      "type": "function",
+      "name": "probe_fund_flow_raw",
+      "filePath": "scripts/probe_unknowns.py",
+      "summary": "探测资金流原始数据分布。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:scripts/probe_unknowns.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/probe_unknowns.py",
+      "summary": "Function main() defined in scripts/probe_unknowns.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:scripts/ruff_hook.py",
+      "type": "file",
+      "name": "ruff_hook.py",
+      "filePath": "scripts/ruff_hook.py",
+      "summary": "PostToolUse hook: 对 Edit/Write 修改的 .py 文件自动运行 ruff check + format。  stdin 接收 JSON: {\"tool_name\": \"Edit\"|\"Write\", \"tool_input\": {\"file_path\": \"...\"}}",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:scripts/ruff_hook.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/ruff_hook.py",
+      "summary": "Function main() defined in scripts/ruff_hook.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:scripts/verify_fixes_20260415.py",
+      "type": "file",
+      "name": "verify_fixes_20260415.py",
+      "filePath": "scripts/verify_fixes_20260415.py",
+      "summary": "实测验证脚本 (2026-04-15 修复验证)。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:scripts/verify_fixes_20260415.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/verify_fixes_20260415.py",
+      "summary": "Function main() defined in scripts/verify_fixes_20260415.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/__init__.py",
+      "summary": "easy_tdx — 通达信 TCP 协议 A 股行情数据客户端。  快速开始::      from easy_tdx import TdxClient, Market, KlineCategory      with TdxClient(\"180.153.18.170\") as c:         count = c.get_security_count(Market.SH)         bars  = c.get_security_bars(Market.SH, \"600000\", KlineCategory.DAY, 0, 5)  asyncio 版本::      import",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/__init__.py:_get_version",
+      "type": "function",
+      "name": "_get_version",
+      "filePath": "src/easy_tdx/__init__.py",
+      "summary": "Function _get_version() defined in src/easy_tdx/__init__.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/__main__.py",
+      "type": "file",
+      "name": "__main__.py",
+      "filePath": "src/easy_tdx/__main__.py",
+      "summary": "``python -m easy_tdx`` 入口 + PyInstaller 打包入口（``easy-tdx.exe``）。  **两种启动形态**：  - **开发态**（``python -m easy_tdx``）：等价于 ``easy-tdx`` CLI，无托盘。 - **打包态**（双击 EXE）：uvicorn 后台线程 + 右下角系统托盘图标，老人右键   → 退出即可关闭，无需任务管理器。  **三个关键坑（PyInstaller frozen 模式）**：  1. **``console=False`` 下标准流为 None**：Windows GUI 子系统下    ``",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/__main__.py:_is_multiprocessing_child",
+      "type": "function",
+      "name": "_is_multiprocessing_child",
+      "filePath": "src/easy_tdx/__main__.py",
+      "summary": "判断当前进程是否为 multiprocessing fork 出来的子进程。  Windows spawn 模式下，子进程的 argv[0] 是父 EXE 路径，但会带特殊 flag： ``--multiprocessing-fork``（带或不带 ``=``）或新版 Python 的 ``--mp-main`` / ``-c`` 等。检测到这些就说明本进程是子进程，不应启动 CLI。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/__main__.py:_redirect_std_streams_to_log",
+      "type": "function",
+      "name": "_redirect_std_streams_to_log",
+      "filePath": "src/easy_tdx/__main__.py",
+      "summary": "``console=False`` 下把 None 的 stdout/stderr 重定向到日志文件。  PyInstaller ``--windowed``（Windows GUI 子系统）下 Python 的 sys.stdout / sys.stderr 为 ``None``。许多库（uvicorn/click/logging）假设它们存在， 调 ``.isatty()`` 或 ``.write()`` 即崩。本函数把它们重定向到家目录下的 ``easy_tdx_runtime.log``，并设 ``PYTHONUNBUFFERED=1`` 保证日志实时落盘。  只在 ``sys.std",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/__main__.py:_run_tray_server",
+      "type": "function",
+      "name": "_run_tray_server",
+      "filePath": "src/easy_tdx/__main__.py",
+      "summary": "打包态双击启动专用：uvicorn（后台线程）+ 系统托盘（主线程）。  提取为函数避免 ``__main__`` 顶层 import 拖累开发态启动——pystray/Pillow 只在打包态才需要。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/__main__.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/easy_tdx/__main__.py",
+      "summary": "进程入口：区分子进程 / 开发态 / 打包态三条路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/_binary.py",
+      "type": "file",
+      "name": "_binary.py",
+      "filePath": "src/easy_tdx/_binary.py",
+      "summary": "二进制解析辅助函数。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_binary.py:require_bytes",
+      "type": "function",
+      "name": "require_bytes",
+      "filePath": "src/easy_tdx/_binary.py",
+      "summary": "确保从 pos 起至少还能读取 size 字节。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_binary.py:unpack_from",
+      "type": "function",
+      "name": "unpack_from",
+      "filePath": "src/easy_tdx/_binary.py",
+      "summary": "带边界检查的 struct.unpack_from。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_binary.py:slice_bytes",
+      "type": "function",
+      "name": "slice_bytes",
+      "filePath": "src/easy_tdx/_binary.py",
+      "summary": "带边界检查的切片读取。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/_df.py",
+      "type": "file",
+      "name": "_df.py",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "Dataclass → DataFrame 转换工具。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_check_bar_time",
+      "type": "function",
+      "name": "_check_bar_time",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "校验 bar_time 取值，非法值立即抛错（fail-fast），避免静默按 \"end\" 处理。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_category_to_minutes",
+      "type": "function",
+      "name": "_category_to_minutes",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "分钟级 KlineCategory → 每根 bar 的分钟数；日线及以上返回 None。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_period_to_minutes",
+      "type": "function",
+      "name": "_period_to_minutes",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "MAC 协议 Period → 每根 bar 的分钟数。  MINS / SECONDS 配合 times 倍数；日线及以上 / 秒级（按分钟粒度对齐无意义）返回 None。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_to_df",
+      "type": "function",
+      "name": "_to_df",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "将 list[dataclass] 或单个 dataclass 转为 DataFrame。  自动丢弃以 ``_`` 开头的内部字段（如 ``_raw``）。 仅处理 year/month/day（无 hour/minute）→ date 的合并； SecurityBar 的完整 datetime 合并由调用方按周期决定。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_clean_dict",
+      "type": "function",
+      "name": "_clean_dict",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "Function _clean_dict() defined in src/easy_tdx/_df.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_merge_datetime_fields",
+      "type": "function",
+      "name": "_merge_datetime_fields",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "将仅含 year/month/day（无 hour/minute）的模型合并为 date 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_align_minutes_df",
+      "type": "function",
+      "name": "_align_minutes_df",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "对含 hour/minute 列的 DataFrame 做分钟级偏移（向量化，自动跨小时/跨日）。  用于 A 股 / 扩展行情路径：在 _merge_bar_datetime 拼字符串之前修正 hour/minute。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_align_datetime_df",
+      "type": "function",
+      "name": "_align_datetime_df",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "对含 datetime 列的 DataFrame 做分钟级偏移（MAC 路径用）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_apply_bar_time_align_df",
+      "type": "function",
+      "name": "_apply_bar_time_align_df",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "对 K 线 DataFrame 应用 bar 时间对齐。  Args:     is_intraday: 是否分钟级周期（False 时恒不偏移）。     delta_minutes: 每根 bar 的分钟数（None 或分钟级判定为 False 时不偏移）。     bar_time: \"start\"（默认，通达信原始）或 \"end\"（右端点，对齐 Tushare）。     has_time_columns: True=DataFrame 仍是分散的 hour/minute 列（A 股路径，         在 _merge_bar_datetime 之前调用）；False=已是 dat",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_apply_bar_time_align_bars",
+      "type": "function",
+      "name": "_apply_bar_time_align_bars",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "对 K 线 dataclass 列表应用 bar 时间对齐（扩展行情 ex client 用，返回 dataclass）。  用 dataclasses.replace 重建（保持 dataclass 不可变语义），跨小时自动进位； 收盘 bar 不会跨日，故不处理跨日。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_merge_bar_datetime",
+      "type": "function",
+      "name": "_merge_bar_datetime",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "根据 K 线周期将 SecurityBar 的分散字段合并为 date 或 datetime。  Args:     daily_plus: True 表示日线及以上周期（DAY/WEEK/MONTH/YEAR），只保留 date；                 False 表示分钟线（MIN_1/5/15/30/60），保留完整 datetime。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_merge_txn_datetime",
+      "type": "function",
+      "name": "_merge_txn_datetime",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "将逐笔成交的 date + hour:minute 合并为 datetime 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_df.py:_add_minute_datetime",
+      "type": "function",
+      "name": "_add_minute_datetime",
+      "filePath": "src/easy_tdx/_df.py",
+      "summary": "为分时 DataFrame 添加 datetime 列（从 bar 索引计算时间）。  A 股分时 240 条：0-119 = 9:30~11:29（上午），120-239 = 13:00~14:59（下午）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/_reconnect.py",
+      "type": "file",
+      "name": "_reconnect.py",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "连接重连与心跳策略的共享定义。  将原本在 ``client.py`` 与 ``mac/client.py`` 各自定义的 ``_RETRY_DELAYS`` 提取到此统一来源，并供扩展行情 client（``ex/*``）复用，消除\"6 处副本里 两套不一致韧性策略\"的问题（审计报告 #2）。  复审（L1）补充：4 个 async client（A股 / MAC / 扩展行情 / 扩展 MAC）的 ``_start_heartbeat`` / ``_stop_heartbeat`` / ``_heartbeat_loop`` 三件套此前 逐字节重复（仅心跳命令和 logger 名不同）。这",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/_reconnect.py:AsyncHeartbeatMixin",
+      "type": "class",
+      "name": "AsyncHeartbeatMixin",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "async client 心跳三件套的共享实现（审计复审 L1）。  子类约定：     - 在 ``__init__`` 中设置 ``self._heartbeat_interval: float`` 与       ``self._heartbeat_task: asyncio.Task | None = None``；     - 实现 ``_heartbeat_cmd()``，返回一个 awaitable（通常是一个轻量       业务请求，用于保活并触发断线重连）。  收敛后 ``_start_heartbeat`` / ``_stop_heartbeat`` / ``_heart",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:_throttled",
+      "type": "function",
+      "name": "_throttled",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "距上次全量测速是否仍在节流窗口内（True=应跳过本次测速）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:_mark_failover_done",
+      "type": "function",
+      "name": "_mark_failover_done",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "记录\"本次全量测速已完成\"，开启新一轮节流窗口。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:select_best_host_sync",
+      "type": "function",
+      "name": "select_best_host_sync",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "重新测速并选出优于当前主机的最佳主机（同步）。  Args:     hosts: 候选主机列表（如 ``get_known_hosts()``）。     ping_fn: 测速函数（``ping_all`` / ``ping_mac_all`` / ``ping_ex_all``），         签名 ``(hosts, port, timeout) -> [(host, latency), ...]``，已按         延迟升序返回，不可达主机不在结果中。     save_fn: 持久化函数（``save_best_host`` / ``save_best_ex_host``",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:select_best_host_async",
+      "type": "function",
+      "name": "select_best_host_async",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "重新测速并选出优于当前主机的最佳主机（异步）。  与 :func:`select_best_host_sync` 语义一致；测速在线程池中执行 （``ping_fn`` 是阻塞实现，用 ``asyncio.to_thread`` 避免阻塞事件循环）， 节流与持久化语义不变。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:find_working_host_sync",
+      "type": "function",
+      "name": "find_working_host_sync",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "按延迟顺序逐台测试候选主机，返回第一台\"可用\"的（同步）。  与 :func:`select_best_host_sync` 的区别：后者只按延迟选一台（用于连接 失败的故障转移）；本函数用于\"连接成功但数据空\"的场景（如 ``get_market_stat`` 的统计指数 880005/880001/880006 并非所有服务器都提供），需逐台实际查询 才能确定哪台返回有效数据。  Args:     ranked_hosts: 已按延迟升序排序的 ``[(host, latency), ...]``（来自         ``ping_fn`` 的返回值）。     try_fn: 对单台",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/_reconnect.py:find_working_host_async",
+      "type": "function",
+      "name": "find_working_host_async",
+      "filePath": "src/easy_tdx/_reconnect.py",
+      "summary": "按延迟顺序逐台测试候选主机，返回第一台\"可用\"的（异步）。  与 :func:`find_working_host_sync` 语义一致；``try_fn`` 为 async 函数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/backtest/__init__.py",
+      "summary": "easy_tdx.backtest — 向量化策略回测引擎（纯计算，零网络依赖）。  快速开始::      from easy_tdx.backtest import BacktestEngine, Strategy      class MyStrategy(Strategy):         def init(self):             self.ma5 = self.I(MA, self.data.close, 5)             self.ma20 = self.I(MA, self.data.close, 20)          def next(self)",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/attribution.py",
+      "type": "file",
+      "name": "attribution.py",
+      "filePath": "src/easy_tdx/backtest/attribution.py",
+      "summary": "归因分析模块。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/attribution.py:AttributionReport",
+      "type": "class",
+      "name": "AttributionReport",
+      "filePath": "src/easy_tdx/backtest/attribution.py",
+      "summary": "归因分析报告。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/attribution.py:AttributionAnalyzer",
+      "type": "class",
+      "name": "AttributionAnalyzer",
+      "filePath": "src/easy_tdx/backtest/attribution.py",
+      "summary": "收益归因分析器。  支持三种归因视角： 1. 成本归因：分解交易成本的来源（佣金/滑点/印花税） 2. Brinson 归因：分解超额收益（配置 vs 选股） 3. 因子归因：分解收益为因子贡献 + 特质收益",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/cli.py",
+      "type": "file",
+      "name": "cli.py",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "回测 CLI 命令。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:backtest",
+      "type": "function",
+      "name": "backtest",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "回测引擎：执行策略并返回绩效报告。  示例：    easy-tdx backtest SZ 000001 --strategy-file my_strategy.py    easy-tdx backtest SH 600519 --strategy-file ma_cross.py --table    easy-tdx backtest SZ 000001 --strategy-file my_strategy.py --indicators MACD,KDJ    easy-tdx backtest SZ 000001 --strategy-file chanlun_strategy.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:_load_strategy",
+      "type": "function",
+      "name": "_load_strategy",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "加载策略类。  优先从 Python 文件加载，其次从 DSL 表达式加载（未实现）。  Args:     strategy_str: DSL 策略表达式     strategy_file: Python 策略文件路径  Returns:     Strategy 子类",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:_load_strategy_from_file",
+      "type": "function",
+      "name": "_load_strategy_from_file",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "从 Python 文件加载 Strategy 子类。  Args:     path: Python 文件路径  Returns:     Strategy 子类",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:_load_combo_strategies",
+      "type": "function",
+      "name": "_load_combo_strategies",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "从逗号分隔的路径列表加载多个策略类。  Args:     combo_strategies: 逗号分隔的策略文件路径  Returns:     Strategy 子类列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:_print_table",
+      "type": "function",
+      "name": "_print_table",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "以表格形式输出回测结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:portfolio",
+      "type": "function",
+      "name": "portfolio",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "多标的组合回测：共享资金池，独立产生信号，统一管理仓位。  对多只股票同时回测，按均等比例分配资金，汇总组合整体绩效。  示例：    easy-tdx portfolio --stocks SZ:000001,SH:600519 --strategy-file ma_cross.py    easy-tdx portfolio --stocks SZ:000001,SH:600519,SH:600036 \\     --strategy-file my_strategy.py --cash 500000 --table    easy-tdx portfolio --stocks SZ:00",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/cli.py:_print_portfolio_table",
+      "type": "function",
+      "name": "_print_portfolio_table",
+      "filePath": "src/easy_tdx/backtest/cli.py",
+      "summary": "以表格形式输出组合回测结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/combo.py",
+      "type": "file",
+      "name": "combo.py",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "多因子组合回测引擎。  核心能力： - extract_factor_signals: 从策略提取买入/卖出信号遮罩 - combine_masks: 合并多个因子的信号（AND / OR / MAJORITY） - CombinationRunner: 批量遍历因子组合，自动寻找最优搭配  用法::      from easy_tdx.backtest.combo import CombinationRunner      runner = CombinationRunner(         strategy_classes=[MACDStrategy, RSIStrategy, Bol",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/combo.py:FactorSignals",
+      "type": "class",
+      "name": "FactorSignals",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "单个因子的信号遮罩。  Attributes:     name: 因子名称（通常为策略类名）     buy_mask: 每根 bar 是否产生买入信号     sell_mask: 每根 bar 是否产生卖出信号",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/combo.py:ComboResult",
+      "type": "class",
+      "name": "ComboResult",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "因子组合的回测结果。  Attributes:     name: 组合名称（如 \"MACDStrategy + RSIStrategy\"）     indices: 因子在原始列表中的索引     size: 因子数量     result: 回测结果",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/combo.py:_ComboStrategy",
+      "type": "class",
+      "name": "_ComboStrategy",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "将合并后的信号遮罩包装为 Strategy 子类。  与 dsl_strategy 思路一致，但增加了仓位检查， 避免重复买入和空仓卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/combo.py:CombinationRunner",
+      "type": "class",
+      "name": "CombinationRunner",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "多因子组合回测运行器。  用法::      runner = CombinationRunner(         strategy_classes=[MACDStrategy, RSIStrategy, BollingerStrategy],         df=df,         cash=100000.0,     )      # 遍历所有 2 因子组合     results = runner.screen(combo_sizes=(2,), mode=\"MAJORITY\")",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/combo.py:WrappedComboStrategy",
+      "type": "class",
+      "name": "WrappedComboStrategy",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "Class WrappedComboStrategy defined in src/easy_tdx/backtest/combo.py.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/combo.py:bool_array",
+      "type": "function",
+      "name": "bool_array",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "Ensure the result is a BoolArray (not a scalar bool_).",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/combo.py:extract_factor_signals",
+      "type": "function",
+      "name": "extract_factor_signals",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "从策略类提取买入/卖出信号遮罩。  运行策略的 bar-by-bar 信号生成，捕获每根 bar 的买卖意图。 复现 BacktestEngine._generate_signals 的仓位跟踪逻辑， 确保信号与实际运行一致。  Args:     strategy_cls: Strategy 子类     df: K线 DataFrame     cash: 初始资金（影响全仓计算）     commission: 佣金率  Returns:     FactorSignals 包含 buy_mask 和 sell_mask",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/combo.py:_update_position",
+      "type": "function",
+      "name": "_update_position",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "更新策略内部仓位状态。  复现 BacktestEngine._update_strategy_position 的逻辑， 使因子信号提取与实际回测行为一致。  Args:     strat: 策略实例     signals: 当前 bar 的信号列表     est_price: 估算价格（收盘价）     commission: 佣金率",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/combo.py:combine_masks",
+      "type": "function",
+      "name": "combine_masks",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "合并多个因子的信号遮罩。  Args:     signals_list: 因子信号列表     mode: 合并模式         - \"AND\": 所有因子都同意才触发         - \"OR\": 任一因子同意即触发         - \"MAJORITY\": 过半因子同意才触发  Returns:     (combined_buy_mask, combined_sell_mask)  Raises:     ValueError: 不支持的合并模式",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/combo.py:_make_combo_strategy",
+      "type": "function",
+      "name": "_make_combo_strategy",
+      "filePath": "src/easy_tdx/backtest/combo.py",
+      "summary": "将信号遮罩包装为 _ComboStrategy 子类。  Args:     buy_mask: 合并后的买入遮罩     sell_mask: 合并后的卖出遮罩  Returns:     _ComboStrategy 子类",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/dsl.py",
+      "type": "file",
+      "name": "dsl.py",
+      "filePath": "src/easy_tdx/backtest/dsl.py",
+      "summary": "DSL 策略定义模块 (P1 — 骨架)。  v1 提供 @dsl_strategy 装饰器的基本实现。 字符串 DSL 解析器将在后续版本实现。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/dsl.py:DSLStrategy",
+      "type": "class",
+      "name": "DSLStrategy",
+      "filePath": "src/easy_tdx/backtest/dsl.py",
+      "summary": "Class DSLStrategy defined in src/easy_tdx/backtest/dsl.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/dsl.py:dsl_strategy",
+      "type": "function",
+      "name": "dsl_strategy",
+      "filePath": "src/easy_tdx/backtest/dsl.py",
+      "summary": "将函数编译为 Strategy 子类。  函数签名: (df: pd.DataFrame) -> tuple[np.ndarray[bool], np.ndarray[bool]] 返回 (buy_mask, sell_mask)。  用法::      @dsl_strategy     def dual_ma(df):         buy = CROSS(MA(df.close, 5), MA(df.close, 20))         sell = CROSS(MA(df.close, 20), MA(df.close, 5))         return buy, sell",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/engine.py",
+      "type": "file",
+      "name": "engine.py",
+      "filePath": "src/easy_tdx/backtest/engine.py",
+      "summary": "BacktestEngine — orchestrate vectorized execution pipeline.  Coordinates Strategy → OrderSimulator → PortfolioTracker → PerformanceAnalyzer.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/engine.py:_StopCondition",
+      "type": "class",
+      "name": "_StopCondition",
+      "filePath": "src/easy_tdx/backtest/engine.py",
+      "summary": "Active stop-loss / take-profit condition tied to an open position.  Attributes:     stop_loss: Price below which a SELL is triggered (None = disabled)     take_profit: Price above which a SELL is triggered (None = disabled)",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/engine.py:BacktestEngine",
+      "type": "class",
+      "name": "BacktestEngine",
+      "filePath": "src/easy_tdx/backtest/engine.py",
+      "summary": "Orchestrate backtest execution pipeline.  Pipeline:     1. Signal generation (Strategy)     2. Order simulation (OrderSimulator)     3. Portfolio tracking (PortfolioTracker)     4. Performance analysis (PerformanceAnalyzer)  Example:     >>> engine = BacktestEngine(MyStrategy, cash=100000)     >>> r",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/execution.py",
+      "type": "file",
+      "name": "execution.py",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "可插拔执行仿真引擎。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/execution.py:ExecutionModel",
+      "type": "class",
+      "name": "ExecutionModel",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "执行仿真基类。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/execution.py:ImmediateExecution",
+      "type": "class",
+      "name": "ImmediateExecution",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "即时成交（向后兼容，与现有 OrderSimulator 行为一致）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/execution.py:TWAPExecution",
+      "type": "class",
+      "name": "TWAPExecution",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "时间加权平均价格执行。  将订单均匀拆分为 n_bars 份，在连续 n_bars 根 K 线上执行。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/execution.py:VWAPExecution",
+      "type": "class",
+      "name": "VWAPExecution",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "成交量加权平均价格执行。  按历史成交量分布比例拆分订单。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/execution.py:LimitExecution",
+      "type": "class",
+      "name": "LimitExecution",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "限价单执行。  在目标价位挂单，仅当 bar_low <= price（买入）或 bar_high >= price（卖出）时成交。 无限价时退化为 ImmediateExecution。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/execution.py:_volume_series",
+      "type": "function",
+      "name": "_volume_series",
+      "filePath": "src/easy_tdx/backtest/execution.py",
+      "summary": "取成交量序列，兼容真实行情的 ``vol`` 列与旧约定/测试的 ``volume`` 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/multi_strategy_engine.py",
+      "type": "file",
+      "name": "multi_strategy_engine.py",
+      "filePath": "src/easy_tdx/backtest/multi_strategy_engine.py",
+      "summary": "多策略组合回测引擎（资金分仓 / 并行制）。  与 :class:`~easy_tdx.backtest.portfolio_engine.PortfolioBacktestEngine` 的区别： - 后者是「**一个**策略 × **多只**股票」，资金按股票均分。 - 本引擎是「**多个**策略 × **各自**原标的」，资金按策略均分，每个策略独立回测，   各自的净值曲线按日期对齐后求和，得到组合整体净值曲线。  典型场景：用户在策略库勾选若干「好策略」，各跑在它保存时的标的上，看综合表现。  用法::      engine = MultiStrategyEngine(      ",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/multi_strategy_engine.py:StrategySlot",
+      "type": "class",
+      "name": "StrategySlot",
+      "filePath": "src/easy_tdx/backtest/multi_strategy_engine.py",
+      "summary": "单个策略槽位：一个已构造的策略实例 + 它要跑的标的标识与 K 线。  Attributes:     label: 策略展示名（如 \"双均线交叉\"），用于拼 individual_results 的 key。     symbol: 标的完整代码（如 \"SH:601088\"），仅用于标识与展示。     strategy: 已构造（带参数）的策略实例。     df: 该标的的 K 线 DataFrame。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/multi_strategy_engine.py:MultiStrategyResult",
+      "type": "class",
+      "name": "MultiStrategyResult",
+      "filePath": "src/easy_tdx/backtest/multi_strategy_engine.py",
+      "summary": "多策略组合回测结果（字段语义与 PortfolioResult 对齐，便于前端复用）。  Attributes:     total_performance: 组合整体绩效（资金加权收益率 + 策略数 + 总资金）。     individual_results: 每个策略槽位的独立回测结果，key 形如 \"{label}@{symbol}\"。     equity_allocation: 每个槽位的资金分配比例（均分时各 1/N）。     combined_equity: 组合整体净值曲线（各槽位按日期并集 ffill 对齐后求和），         列: datetime / total",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/multi_strategy_engine.py:MultiStrategyEngine",
+      "type": "class",
+      "name": "MultiStrategyEngine",
+      "filePath": "src/easy_tdx/backtest/multi_strategy_engine.py",
+      "summary": "多策略资金分仓组合回测引擎。  把总资金按策略数均分，每个策略在各自的 K 线上独立回测（各跑各的）， 再把各净值曲线按日期对齐求和，得到组合整体净值。资金分配方式固定为 \"equal\"（均分）——多策略组合的目标是\"看综合表现\"，均分是最直接的基线。  参数与 :class:`~easy_tdx.backtest.portfolio_engine.PortfolioBacktestEngine` 对齐（``strategy``/``stocks`` 换成 ``strategies``），便于复用资金/成本配置。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/optimizer.py",
+      "type": "file",
+      "name": "optimizer.py",
+      "filePath": "src/easy_tdx/backtest/optimizer.py",
+      "summary": "参数网格寻优器。  对单个策略的 1-2 个参数做网格搜索：遍历用户指定的取值列表的笛卡尔积， 每个组合跑一次回测，按 total_return 排序，返回排名 + 热力图矩阵。  设计镜像 :class:`~easy_tdx.backtest.combo.CombinationRunner` 的枚举/排序模式， 但遍历的是参数组合而非策略组合。网格大小硬上限 ``MAX_GRID_POINTS`` 防组合爆炸。  用法::      from easy_tdx.backtest.optimizer import ParamGridOptimizer      opt = ParamGridO",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/optimizer.py:GridPointResult",
+      "type": "class",
+      "name": "GridPointResult",
+      "filePath": "src/easy_tdx/backtest/optimizer.py",
+      "summary": "单个网格点的回测结果摘要。  Attributes:     params: 该点的参数取值（如 {\"fast\": 10, \"slow\": 20}）     total_return: 总收益率     sharpe: 夏普比率     max_drawdown: 最大回撤     total_trades: 总交易笔数     win_rate: 胜率（0-1）     profit_factor: 盈亏比",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/optimizer.py:OptimizeResult",
+      "type": "class",
+      "name": "OptimizeResult",
+      "filePath": "src/easy_tdx/backtest/optimizer.py",
+      "summary": "网格寻优完整结果。  Attributes:     strategy: 策略名     param_names: 寻优的参数名列表（1-2 个，决定热力图维度）     results: 所有网格点结果，按 total_return 降序排列     best: 最优点（results[0] 的引用）     heatmap: 2 参数时的热力图矩阵（x/y 轴取值 + cell 收益率）；1 参数或空时为 None",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/optimizer.py:ParamGridOptimizer",
+      "type": "class",
+      "name": "ParamGridOptimizer",
+      "filePath": "src/easy_tdx/backtest/optimizer.py",
+      "summary": "参数网格寻优器。  遍历 ``param_grid`` 的笛卡尔积，每个组合实例化策略 + 跑回测， 收集指标后排序。复用同一份 DataFrame（引擎无跨 run 缓存，安全）。  Args:     strategy_name: 策略名（从注册表解析）     param_grid: 参数取值网格，如 {\"fast\": [5,10,20], \"slow\": [10,20,30]}     df: OHLCV DataFrame（所有网格点共用）     cash: 初始资金     commission: 佣金率     min_commission: 最低佣金     stamp_ta",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/orders.py",
+      "type": "file",
+      "name": "orders.py",
+      "filePath": "src/easy_tdx/backtest/orders.py",
+      "summary": "订单撮合模拟器。  将策略信号转换为成交记录，支持多种执行模式、仓位管理和拒绝策略。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/orders.py:OrderSimulator",
+      "type": "class",
+      "name": "OrderSimulator",
+      "filePath": "src/easy_tdx/backtest/orders.py",
+      "summary": "订单撮合模拟器。  将策略信号（Signal）转换为成交记录（Trade），支持多种执行模式、 仓位管理和拒绝策略。  Attributes:     df: K线数据 DataFrame     execution: 成交价规则 (next_open/next_close)     position_mode: 仓位模式 (full/fixed/percent)     reject_policy: 拒绝策略 (reduce/skip)     commission: 佣金费率     min_commission: 最低佣金     stamp_tax: 印花税率（仅卖出）     sli",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/performance.py",
+      "type": "file",
+      "name": "performance.py",
+      "filePath": "src/easy_tdx/backtest/performance.py",
+      "summary": "回测绩效分析器。  计算资金曲线和交易记录的各项绩效指标。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/performance.py:PerformanceAnalyzer",
+      "type": "class",
+      "name": "PerformanceAnalyzer",
+      "filePath": "src/easy_tdx/backtest/performance.py",
+      "summary": "绩效分析器。  从资金曲线和交易记录计算 19 项绩效指标。  Attributes:     ANNUAL_DAYS: 年化交易日数（默认 252）     RISK_FREE_RATE: 无风险利率（默认 3%）",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/portfolio_engine.py",
+      "type": "file",
+      "name": "portfolio_engine.py",
+      "filePath": "src/easy_tdx/backtest/portfolio_engine.py",
+      "summary": "多标的组合回测引擎。  支持同时回测多只股票，共享资金池，按策略信号分配资金。 每只标的独立产生信号，引擎统一管理仓位和资金。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/portfolio_engine.py:StockData",
+      "type": "class",
+      "name": "StockData",
+      "filePath": "src/easy_tdx/backtest/portfolio_engine.py",
+      "summary": "单只标的的数据和标识。  Attributes:     code: 股票代码（如 \"000001\"）     market: 市场（如 \"SZ\"）     df: K线 DataFrame",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/portfolio_engine.py:PortfolioResult",
+      "type": "class",
+      "name": "PortfolioResult",
+      "filePath": "src/easy_tdx/backtest/portfolio_engine.py",
+      "summary": "组合回测结果。  Attributes:     total_performance: 组合整体绩效指标     individual_results: 每只标的的独立回测结果     equity_allocation: 每只标的的资金分配比例     combined_equity: 组合整体净值曲线（按日期对齐各标的求和），         列: datetime/total/drawdown/drawdown_pct。各标的独立回测日期范围         可能不同，此处按日期并集 forward-fill 对齐后求和。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/portfolio_engine.py:PortfolioBacktestEngine",
+      "type": "class",
+      "name": "PortfolioBacktestEngine",
+      "filePath": "src/easy_tdx/backtest/portfolio_engine.py",
+      "summary": "多标的组合回测引擎。  管理多只股票的共享资金池，独立运行策略， 按均等或自定义比例分配资金。  用法::      engine = PortfolioBacktestEngine(         strategy=MyStrategy,         stocks=[             StockData(\"000001\", \"SZ\", df1),             StockData(\"600000\", \"SH\", df2),         ],         total_cash=200000,     )     result = engine.run()    ",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/portfolio.py",
+      "type": "file",
+      "name": "portfolio.py",
+      "filePath": "src/easy_tdx/backtest/portfolio.py",
+      "summary": "回测引擎持仓追踪器。  负责应用交易记录、计算资金曲线和持仓快照。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/portfolio.py:PortfolioTracker",
+      "type": "class",
+      "name": "PortfolioTracker",
+      "filePath": "src/easy_tdx/backtest/portfolio.py",
+      "summary": "持仓追踪器。  预分配 numpy 数组存储每个 bar 的状态，遍历应用交易。  Attributes:     _close: 收盘价数组     _datetime: 时间戳数组     _n: bar 数量     _cash: 每个 bar 的现金     _position: 每个 bar 的持仓数量     _avg_price: 每个 bar 的平均成本价",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/slippage.py",
+      "type": "file",
+      "name": "slippage.py",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "可插拔滑点模型。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/slippage.py:SlippageModel",
+      "type": "class",
+      "name": "SlippageModel",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "滑点模型基类。  所有滑点模型必须实现 compute() 方法，返回总滑点成本（金额）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/slippage.py:FixedSlippage",
+      "type": "class",
+      "name": "FixedSlippage",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "固定每股滑点（向后兼容）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/slippage.py:PercentSlippage",
+      "type": "class",
+      "name": "PercentSlippage",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "按成交金额百分比滑点。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/slippage.py:SquareRootSlippage",
+      "type": "class",
+      "name": "SquareRootSlippage",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "方根市场冲击模型（Almgren-Chriss 简化版）。  impact = σ × √(participation_rate) × price × size × impact_coeff  当 volume=0 或 volatility=0 时退化为 PercentSlippage(rate=0.001)。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/slippage.py:VolumeSlippage",
+      "type": "class",
+      "name": "VolumeSlippage",
+      "filePath": "src/easy_tdx/backtest/slippage.py",
+      "summary": "成交量比例滑点。  cost = (base_bps / 10000) × (size / volume) × price × size  当 volume=0 时退化为 PercentSlippage(rate=base_bps/10000)。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/strategies/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/backtest/strategies/__init__.py",
+      "summary": "内置策略包：注册表 + 预置策略。  导入本包即触发所有内置策略的注册。调用方通过 :func:`get_registry` 发现策略::      from easy_tdx.backtest.strategies import get_registry      for entry in get_registry().all():         print(entry.name, entry.label, [p.to_schema() for p in entry.params])",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "strategy"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/__init__.py:_load_builtin",
+      "type": "function",
+      "name": "_load_builtin",
+      "filePath": "src/easy_tdx/backtest/strategies/__init__.py",
+      "summary": "导入内置策略模块以触发注册（惰性，避免循环导入）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "type": "file",
+      "name": "builtin.py",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "内置策略集合。  每个策略通过 :func:`~easy_tdx.backtest.strategies.registry.register_strategy` 登记到全局注册表，并声明参数 schema 供 Web API 表单动态渲染。  导入本模块即触发所有策略的注册。Web API / CLI 通过 ``get_registry()``` 发现策略，无需手动枚举。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "strategy"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:MaCrossStrategy",
+      "type": "class",
+      "name": "MaCrossStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "快慢均线金叉买入、死叉卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:MacdStrategy",
+      "type": "class",
+      "name": "MacdStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "MACD 金叉/死叉。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:BollBreakoutStrategy",
+      "type": "class",
+      "name": "BollBreakoutStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "价格触及下轨买入、触及上轨卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:RsiReversalStrategy",
+      "type": "class",
+      "name": "RsiReversalStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "RSI 超卖买入、超买卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:KdjCrossStrategy",
+      "type": "class",
+      "name": "KdjCrossStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "KDJ K/D 金叉死叉。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:EmaCrossStrategy",
+      "type": "class",
+      "name": "EmaCrossStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class EmaCrossStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:TripleMaStrategy",
+      "type": "class",
+      "name": "TripleMaStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class TripleMaStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:DonchianStrategy",
+      "type": "class",
+      "name": "DonchianStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class DonchianStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:KeltnerStrategy",
+      "type": "class",
+      "name": "KeltnerStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class KeltnerStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:BbiStrategy",
+      "type": "class",
+      "name": "BbiStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class BbiStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:CciStrategy",
+      "type": "class",
+      "name": "CciStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class CciStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:WrReversalStrategy",
+      "type": "class",
+      "name": "WrReversalStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class WrReversalStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:BiasReversalStrategy",
+      "type": "class",
+      "name": "BiasReversalStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class BiasReversalStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:DmiStrategy",
+      "type": "class",
+      "name": "DmiStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class DmiStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:TrixStrategy",
+      "type": "class",
+      "name": "TrixStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class TrixStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:EmvStrategy",
+      "type": "class",
+      "name": "EmvStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class EmvStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:DpoStrategy",
+      "type": "class",
+      "name": "DpoStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class DpoStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/builtin.py:AtrBreakoutStrategy",
+      "type": "class",
+      "name": "AtrBreakoutStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/builtin.py",
+      "summary": "Class AtrBreakoutStrategy defined in src/easy_tdx/backtest/strategies/builtin.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/strategies/presets.py",
+      "type": "file",
+      "name": "presets.py",
+      "filePath": "src/easy_tdx/backtest/strategies/presets.py",
+      "summary": "策略参数寻优预设网格。  每个内置策略 1-2 个关键参数的合理取值列表，供：  1. Web UI 参数寻优页（``ParamGridPicker``）切换策略时自动填充——用户开箱即用，    仍可编辑/取消勾选。 2. 「一键寻优所有策略」（``/backtest/optimize-all/run/async``）逐策略做网格    寻优再全局排名。  约束：单策略笛卡尔积 ≤ 200（``ParamGridOptimizer.MAX_GRID_POINTS``）。行尾注释 标注该策略的网格点数。修改本文件即同步生效，无需重启策略注册表。  新增策略时：在 :data:`STRATEGY",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "strategy"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/presets.py:get_preset",
+      "type": "function",
+      "name": "get_preset",
+      "filePath": "src/easy_tdx/backtest/strategies/presets.py",
+      "summary": "返回某策略的预设网格；未登记返回空 dict。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/probe_unknowns.py",
+      "target": "function:scripts/probe_unknowns.py:probe_minute_averages",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/probe_unknowns.py defines function probe_minute_averages()."
+    },
+    {
+      "source": "file:scripts/probe_unknowns.py",
+      "target": "function:scripts/probe_unknowns.py:probe_quote_limits",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/probe_unknowns.py defines function probe_quote_limits()."
+    },
+    {
+      "source": "file:scripts/probe_unknowns.py",
+      "target": "function:scripts/probe_unknowns.py:probe_fund_flow_raw",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/probe_unknowns.py defines function probe_fund_flow_raw()."
+    },
+    {
+      "source": "file:scripts/probe_unknowns.py",
+      "target": "function:scripts/probe_unknowns.py:main",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/probe_unknowns.py defines function main()."
+    },
+    {
+      "source": "file:scripts/ruff_hook.py",
+      "target": "function:scripts/ruff_hook.py:main",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/ruff_hook.py defines function main()."
+    },
+    {
+      "source": "file:scripts/verify_fixes_20260415.py",
+      "target": "function:scripts/verify_fixes_20260415.py:main",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "scripts/verify_fixes_20260415.py defines function main()."
+    },
+    {
+      "source": "file:src/easy_tdx/__init__.py",
+      "target": "function:src/easy_tdx/__init__.py:_get_version",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/__init__.py defines function _get_version()."
+    },
+    {
+      "source": "file:src/easy_tdx/__main__.py",
+      "target": "function:src/easy_tdx/__main__.py:_is_multiprocessing_child",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/__main__.py defines function _is_multiprocessing_child()."
+    },
+    {
+      "source": "file:src/easy_tdx/__main__.py",
+      "target": "function:src/easy_tdx/__main__.py:_redirect_std_streams_to_log",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/__main__.py defines function _redirect_std_streams_to_log()."
+    },
+    {
+      "source": "file:src/easy_tdx/__main__.py",
+      "target": "function:src/easy_tdx/__main__.py:_run_tray_server",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/__main__.py defines function _run_tray_server()."
+    },
+    {
+      "source": "file:src/easy_tdx/__main__.py",
+      "target": "function:src/easy_tdx/__main__.py:main",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/__main__.py defines function main()."
+    },
+    {
+      "source": "file:src/easy_tdx/_binary.py",
+      "target": "function:src/easy_tdx/_binary.py:require_bytes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_binary.py defines function require_bytes()."
+    },
+    {
+      "source": "file:src/easy_tdx/_binary.py",
+      "target": "function:src/easy_tdx/_binary.py:unpack_from",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_binary.py defines function unpack_from()."
+    },
+    {
+      "source": "file:src/easy_tdx/_binary.py",
+      "target": "function:src/easy_tdx/_binary.py:slice_bytes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_binary.py defines function slice_bytes()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_check_bar_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _check_bar_time()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_category_to_minutes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _category_to_minutes()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_period_to_minutes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _period_to_minutes()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_to_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _to_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_clean_dict",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _clean_dict()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_merge_datetime_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _merge_datetime_fields()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_align_minutes_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _align_minutes_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_align_datetime_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _align_datetime_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_apply_bar_time_align_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _apply_bar_time_align_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_apply_bar_time_align_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _apply_bar_time_align_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_merge_bar_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _merge_bar_datetime()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_merge_txn_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _merge_txn_datetime()."
+    },
+    {
+      "source": "file:src/easy_tdx/_df.py",
+      "target": "function:src/easy_tdx/_df.py:_add_minute_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_df.py defines function _add_minute_datetime()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "class:src/easy_tdx/_reconnect.py:AsyncHeartbeatMixin",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines class AsyncHeartbeatMixin."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:_throttled",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function _throttled()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:_mark_failover_done",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function _mark_failover_done()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:select_best_host_sync",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function select_best_host_sync()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:select_best_host_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function select_best_host_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:find_working_host_sync",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function find_working_host_sync()."
+    },
+    {
+      "source": "file:src/easy_tdx/_reconnect.py",
+      "target": "function:src/easy_tdx/_reconnect.py:find_working_host_async",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/_reconnect.py defines function find_working_host_async()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/attribution.py",
+      "target": "class:src/easy_tdx/backtest/attribution.py:AttributionReport",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/attribution.py defines class AttributionReport."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/attribution.py",
+      "target": "class:src/easy_tdx/backtest/attribution.py:AttributionAnalyzer",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/attribution.py defines class AttributionAnalyzer."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "file:src/easy_tdx/backtest/portfolio_engine.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .portfolio_engine"
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:_load_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function _load_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:_load_strategy_from_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function _load_strategy_from_file()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:_load_combo_strategies",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function _load_combo_strategies()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:_print_table",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function _print_table()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:portfolio",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function portfolio()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/cli.py",
+      "target": "function:src/easy_tdx/backtest/cli.py:_print_portfolio_table",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/cli.py defines function _print_portfolio_table()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "class:src/easy_tdx/backtest/combo.py:FactorSignals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines class FactorSignals."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "class:src/easy_tdx/backtest/combo.py:ComboResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines class ComboResult."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "class:src/easy_tdx/backtest/combo.py:_ComboStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines class _ComboStrategy."
+    },
+    {
+      "source": "class:src/easy_tdx/backtest/combo.py:_ComboStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "_ComboStrategy inherits Strategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "class:src/easy_tdx/backtest/combo.py:CombinationRunner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines class CombinationRunner."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "class:src/easy_tdx/backtest/combo.py:WrappedComboStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines class WrappedComboStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "function:src/easy_tdx/backtest/combo.py:bool_array",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines function bool_array()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "function:src/easy_tdx/backtest/combo.py:extract_factor_signals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines function extract_factor_signals()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "function:src/easy_tdx/backtest/combo.py:_update_position",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines function _update_position()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "function:src/easy_tdx/backtest/combo.py:combine_masks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines function combine_masks()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/combo.py",
+      "target": "function:src/easy_tdx/backtest/combo.py:_make_combo_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/combo.py defines function _make_combo_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/dsl.py",
+      "target": "class:src/easy_tdx/backtest/dsl.py:DSLStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/dsl.py defines class DSLStrategy."
+    },
+    {
+      "source": "class:src/easy_tdx/backtest/dsl.py:DSLStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "DSLStrategy inherits Strategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/dsl.py",
+      "target": "function:src/easy_tdx/backtest/dsl.py:dsl_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/dsl.py defines function dsl_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/engine.py",
+      "target": "class:src/easy_tdx/backtest/engine.py:_StopCondition",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/engine.py defines class _StopCondition."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/engine.py",
+      "target": "class:src/easy_tdx/backtest/engine.py:BacktestEngine",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/engine.py defines class BacktestEngine."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "class:src/easy_tdx/backtest/execution.py:ExecutionModel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines class ExecutionModel."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "class:src/easy_tdx/backtest/execution.py:ImmediateExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines class ImmediateExecution."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "class:src/easy_tdx/backtest/execution.py:TWAPExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines class TWAPExecution."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "class:src/easy_tdx/backtest/execution.py:VWAPExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines class VWAPExecution."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "class:src/easy_tdx/backtest/execution.py:LimitExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines class LimitExecution."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/execution.py",
+      "target": "function:src/easy_tdx/backtest/execution.py:_volume_series",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/execution.py defines function _volume_series()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/multi_strategy_engine.py",
+      "target": "class:src/easy_tdx/backtest/multi_strategy_engine.py:StrategySlot",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/multi_strategy_engine.py defines class StrategySlot."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/multi_strategy_engine.py",
+      "target": "class:src/easy_tdx/backtest/multi_strategy_engine.py:MultiStrategyResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/multi_strategy_engine.py defines class MultiStrategyResult."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/multi_strategy_engine.py",
+      "target": "class:src/easy_tdx/backtest/multi_strategy_engine.py:MultiStrategyEngine",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/multi_strategy_engine.py defines class MultiStrategyEngine."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/optimizer.py",
+      "target": "class:src/easy_tdx/backtest/optimizer.py:GridPointResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/optimizer.py defines class GridPointResult."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/optimizer.py",
+      "target": "class:src/easy_tdx/backtest/optimizer.py:OptimizeResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/optimizer.py defines class OptimizeResult."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/optimizer.py",
+      "target": "class:src/easy_tdx/backtest/optimizer.py:ParamGridOptimizer",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/optimizer.py defines class ParamGridOptimizer."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/orders.py",
+      "target": "class:src/easy_tdx/backtest/orders.py:OrderSimulator",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/orders.py defines class OrderSimulator."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/performance.py",
+      "target": "class:src/easy_tdx/backtest/performance.py:PerformanceAnalyzer",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/performance.py defines class PerformanceAnalyzer."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/portfolio_engine.py",
+      "target": "class:src/easy_tdx/backtest/portfolio_engine.py:StockData",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/portfolio_engine.py defines class StockData."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/portfolio_engine.py",
+      "target": "class:src/easy_tdx/backtest/portfolio_engine.py:PortfolioResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/portfolio_engine.py defines class PortfolioResult."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/portfolio_engine.py",
+      "target": "class:src/easy_tdx/backtest/portfolio_engine.py:PortfolioBacktestEngine",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/portfolio_engine.py defines class PortfolioBacktestEngine."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/portfolio.py",
+      "target": "class:src/easy_tdx/backtest/portfolio.py:PortfolioTracker",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/portfolio.py defines class PortfolioTracker."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/slippage.py",
+      "target": "class:src/easy_tdx/backtest/slippage.py:SlippageModel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/slippage.py defines class SlippageModel."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/slippage.py",
+      "target": "class:src/easy_tdx/backtest/slippage.py:FixedSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/slippage.py defines class FixedSlippage."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/slippage.py",
+      "target": "class:src/easy_tdx/backtest/slippage.py:PercentSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/slippage.py defines class PercentSlippage."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/slippage.py",
+      "target": "class:src/easy_tdx/backtest/slippage.py:SquareRootSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/slippage.py defines class SquareRootSlippage."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/slippage.py",
+      "target": "class:src/easy_tdx/backtest/slippage.py:VolumeSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/slippage.py defines class VolumeSlippage."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/__init__.py",
+      "target": "function:src/easy_tdx/backtest/strategies/__init__.py:_load_builtin",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/__init__.py defines function _load_builtin()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:MaCrossStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class MaCrossStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:MacdStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class MacdStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:BollBreakoutStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class BollBreakoutStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:RsiReversalStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class RsiReversalStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:KdjCrossStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class KdjCrossStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:EmaCrossStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class EmaCrossStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:TripleMaStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class TripleMaStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:DonchianStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class DonchianStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:KeltnerStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class KeltnerStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:BbiStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class BbiStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:CciStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class CciStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:WrReversalStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class WrReversalStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:BiasReversalStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class BiasReversalStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:DmiStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class DmiStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:TrixStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class TrixStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:EmvStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class EmvStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:DpoStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class DpoStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "target": "class:src/easy_tdx/backtest/strategies/builtin.py:AtrBreakoutStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/builtin.py defines class AtrBreakoutStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/presets.py",
+      "target": "function:src/easy_tdx/backtest/strategies/presets.py:get_preset",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/presets.py defines function get_preset()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 125,
+    "edgesCreated": 103,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 10 covers 25 Python files (6143 lines): 3 utility scripts (scripts/probe_unknowns.py — TDX protocol field hypothesis-prober; scripts/ruff_hook.py — PostToolUse hook for auto-ruff-check+format; scripts/verify_fixes_20260415.py — manual 5-check smoke suite for an Apr-2026 fix bundle), the easy_tdx package root (__init__.py public-API re-exports; __main__.py PyInstaller frozen-mode dispatcher handling three documented pitfalls: None stdout, multiprocessing spawn re-import, tray thread requirement; _binary.py bounds-checked struct helpers; _df.py dataclass→DataFrame conversion + bar-time start/end alignment for Tushare compatibility; _reconnect.py shared retry/heartbeat/failover primitives consolidated from 8 client classes per audit #2 / L1 review), and the entire backtest subpackage — 16 modules forming a tight dependency graph centered on BacktestEngine (engine.py orchestrates Strategy → OrderSimulator or pluggable ExecutionModel → PortfolioTracker → PerformanceAnalyzer; manages SL/TP via _StopCondition and stops gap-protection). Downstream consumers of BacktestEngine: CombinationRunner (combo.py multi-factor screen via itertools.combinations with AND/OR/MAJORITY merge + audit-#17 warning when n_factors<3), MultiStrategyEngine (multi_strategy_engine.py — many strategies × own symbols, equal cash), PortfolioBacktestEngine (portfolio_engine.py — single strategy × many symbols), ParamGridOptimizer (optimizer.py — grid search capped at MAX_GRID_POINTS=200, builds 2D heatmap), and the CLI backtest/portfolio commands. Pluggable families: ExecutionModel (Immediate/TWAP/VWAP/Limit — VWAP uses np.resize tile to avoid modulo artifacts and strictly lookback-only volumes to avoid look-ahead) and SlippageModel (Fixed/Percent/SquareRoot Algren-Chriss/Volume — both SquareRoot and Volume fall back to PercentSlippage on missing volume/volatility). The 18 builtin strategies (MaCross/Macd/BollBreakout/RsiReversal/KdjCross/EmaCross/TripleMa/Donchian/Keltner/Bbi/Cci/WrReversal/BiasReversal/Dmi/Trix/Emv/Dpo/AtrBreakout) all extend ParametrizedStrategy and register via @register_strategy. StrategyRegistry is consumed (not in batch) by optimizer.py for grid-search strategy lookup. Notes: edges use only contains/inherits/imports edge types — the deeper call/depends_on graph (CLI→engine, engine→orders/portfolio/performance, combo→engine, etc.) is not modelled because the prior batch-1 schema example does not include such edges and the pre-resolved import map was empty."
+  }
+}

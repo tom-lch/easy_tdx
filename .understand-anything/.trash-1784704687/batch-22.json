@@ -1,0 +1,4969 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 22,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "tests/unit/test_mac_qfq_integration.py",
+      "language": "python",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_mac_tick_charts.py",
+      "language": "python",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_multi_strategy.py",
+      "language": "python",
+      "sizeLines": 258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_mytt.py",
+      "language": "python",
+      "sizeLines": 216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_optimizer.py",
+      "language": "python",
+      "sizeLines": 153,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_portfolio_engine.py",
+      "language": "python",
+      "sizeLines": 197,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_portfolio_optimizer.py",
+      "language": "python",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_portfolio_rebalance.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_portfolio_risk.py",
+      "language": "python",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_protocol_fixes.py",
+      "language": "python",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_public_api.py",
+      "language": "python",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_realtime.py",
+      "language": "python",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_scanner.py",
+      "language": "python",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_screen.py",
+      "language": "python",
+      "sizeLines": 695,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_sina.py",
+      "language": "python",
+      "sizeLines": 526,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_strategy_store.py",
+      "language": "python",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_sync_transport.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_web_api.py",
+      "language": "python",
+      "sizeLines": 294,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_web_backtest.py",
+      "language": "python",
+      "sizeLines": 1008,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_write_daily.py",
+      "language": "python",
+      "sizeLines": 345,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_write_ex_daily.py",
+      "language": "python",
+      "sizeLines": 190,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_write_min_bar.py",
+      "language": "python",
+      "sizeLines": 276,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/scripts/run-grading-tests.mjs",
+      "language": "javascript",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/api.ts",
+      "language": "typescript",
+      "sizeLines": 300,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/App.vue",
+      "language": "vue",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:tests/unit/test_mac_qfq_integration.py",
+      "type": "file",
+      "name": "test_mac_qfq_integration.py",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "QFQ 本地重算的集成测试（monkeypatch，无 live server）。  验证 ``MacClient.get_stock_kline(adjust=QFQ)`` 在服务端返回负价时： 1. 触发 NONE 重抓 + XDXR 本地重算； 2. 结果全部为正、OHLC 同比缩放； 3. XDXR 取不到时降级返回原始（含负价）数据，不抛异常。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:_bar",
+      "type": "function",
+      "name": "_bar",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "构造单根 MacBar，OHLC 全等于 close。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:_none_bars",
+      "type": "function",
+      "name": "_none_bars",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "干净的 NONE 序列：除权日前 close=10，除权日 close=8（跌去 2 元分红），之后 9。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:_qfq_broken_bars",
+      "type": "function",
+      "name": "_qfq_broken_bars",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "模拟服务端 QFQ 异常：除权日及之前返回负价。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:_xdxr_df",
+      "type": "function",
+      "name": "_xdxr_df",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "单条除权除息记录：fenhong=2.0（除权日 2024-01-03）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:_make_client",
+      "type": "function",
+      "name": "_make_client",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "构造未连接的 MacClient（仅用于调用 _execute mock 路径）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_negative_triggers_local_recompute",
+      "type": "function",
+      "name": "test_qfq_negative_triggers_local_recompute",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "服务端 QFQ 返回负价 → 用 NONE+XDXR 重算，结果全正。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_clean_does_not_trigger_recompute",
+      "type": "function",
+      "name": "test_qfq_clean_does_not_trigger_recompute",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "服务端 QFQ 正常（无负价）→ 不触发重算，原样返回。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_recompute_xdxr_failure_degrades_gracefully",
+      "type": "function",
+      "name": "test_qfq_recompute_xdxr_failure_degrades_gracefully",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "XDXR 取不到 → 降级返回 NONE 数据（不再含负价），不抛异常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_qfq_integration.py:test_none_adjust_skips_recompute",
+      "type": "function",
+      "name": "test_none_adjust_skips_recompute",
+      "filePath": "tests/unit/test_mac_qfq_integration.py",
+      "summary": "adjust=NONE 时完全跳过 QFQ 重算逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_mac_tick_charts.py",
+      "type": "file",
+      "name": "test_mac_tick_charts.py",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "MAC 多日分时图（0x123E）解析测试。  包含 Issue #10 回归：当服务器返回的 minutes ≥ 1440（个别服务器累计或异常值） 时，parse_response 不应抛 ValueError，而应按 % 24 折算为日内时刻。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:_build_multi_tick_body",
+      "type": "function",
+      "name": "_build_multi_tick_body",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "构造一个多日分时图响应 body。  Args:     days:       天数（写入 count）。     page_size:  每天分时点数。     minutes_grid: 长度 days 的列表，每个元素是长度 page_size 的 minutes 值列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_normal_minutes",
+      "type": "function",
+      "name": "test_multi_tick_charts_normal_minutes",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "常规数据：minutes 每天 570..689, 780..899，解析正常。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_oversized_minutes_no_crash",
+      "type": "function",
+      "name": "test_multi_tick_charts_oversized_minutes_no_crash",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "Issue #10 回归：minutes ≥ 1440（如累计/异常值）不应抛 ValueError。  用户报告 hour must be in 0..23, not 1039（即 minutes // 60 == 1039）。 修复后应按 % 24 折算为日内时刻，保证不崩溃且结果合理。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:_build_multi_tick_body_partial",
+      "type": "function",
+      "name": "_build_multi_tick_body_partial",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "构造一个 partial-day 多日分时图响应 body（PR #13 修复场景）。  与 _build_multi_tick_body 的区别：body 里只塞 total 条 tick（而非 days*page_size），用于模拟 start_date=None 且最新交易日数据不完整时 服务器实际返回的包。  Args:     days:       天数（写入 count）。     page_size:  每天额定分时点数。     total:      写入 total 字段的实际 tick 总数（< days*page_size）。     flat_minutes: 长",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_partial_day",
+      "type": "function",
+      "name": "test_multi_tick_charts_partial_day",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "PR #13 回归：total < count*page_size 时不应崩溃，tick 按天正确分配。  模拟 start_date=None 且最新交易日数据不完整的场景。修复前， tail_offset = 71 + count*page_size*14 会偏大导致越界/尾部读错位。 修复后应按 actual_total 反推尾部偏移，并把首日分配为部分 tick。  构造：days=3, page_size=4, total=6     修复逻辑（tick_charts.py 的 partial 分支）：         complete_days = min(count-1, tot",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_request_layout",
+      "type": "function",
+      "name": "test_multi_tick_charts_request_layout",
+      "filePath": "tests/unit/test_mac_tick_charts.py",
+      "summary": "验证请求包布局与文档一致：market + code(22) + start_ymd + days + 1。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_multi_strategy.py",
+      "type": "file",
+      "name": "test_multi_strategy.py",
+      "filePath": "tests/unit/test_multi_strategy.py",
+      "summary": "单元测试：多策略资金分仓组合回测引擎（MultiStrategyEngine）。  覆盖： - 基本多策略回测（2~3 个策略，各跑各的 df，合并曲线） - 资金均分（1/N） - individual_results 的 key 格式 \"{label}@{symbol}\" - 合并净值曲线列结构 + 日期并集对齐 - 空策略列表兜底 - 同标的不同策略可区分",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_multi_strategy.py:SimpleBuyStrategy",
+      "type": "class",
+      "name": "SimpleBuyStrategy",
+      "filePath": "tests/unit/test_multi_strategy.py",
+      "summary": "简单策略：bar 5 买入，bar 30 卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_multi_strategy.py:HoldStrategy",
+      "type": "class",
+      "name": "HoldStrategy",
+      "filePath": "tests/unit/test_multi_strategy.py",
+      "summary": "从不交易的策略（净值曲线恒等于初始资金）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_multi_strategy.py:TestMultiStrategyEngine",
+      "type": "class",
+      "name": "TestMultiStrategyEngine",
+      "filePath": "tests/unit/test_multi_strategy.py",
+      "summary": "Class TestMultiStrategyEngine defined in tests/unit/test_multi_strategy.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_multi_strategy.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_multi_strategy.py",
+      "summary": "生成随机 OHLCV DataFrame（与 test_portfolio_engine 同构造方式）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_mytt.py",
+      "type": "file",
+      "name": "test_mytt.py",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "MyTT.py 新增指标函数（SAR/VWAP/AROON/FK）的数值正确性与边界测试。  这些测试针对 MyTT.py 里函数本身，不经过 indicator.py 注册层。 注册层的端到端覆盖在 test_indicator.py::TestComputeIndicators::test_all_registered_indicators_run。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_mytt.py:TestSAR",
+      "type": "class",
+      "name": "TestSAR",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "SAR 抛物线转向指标。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_mytt.py:TestVWAP",
+      "type": "class",
+      "name": "TestVWAP",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "VWAP 成交量加权均价。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_mytt.py:TestAROON",
+      "type": "class",
+      "name": "TestAROON",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "Aroon 阿隆指标。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_mytt.py:TestFK",
+      "type": "class",
+      "name": "TestFK",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "FK 趋势指标（布尔输出）。  慢线用 SLOPE(CLOSE,21)*20 做斜率外推：上涨时慢线被正斜率推高， 下跌时被负斜率压低。FK = fast(EMA2) > slow(外推 EMA42)， 语义是\"价格是否突破趋势外推线\"，本质是动量/反转偏离检测： - 强下跌时 fast 相对外推慢线偏高 → FK=True（超卖/反弹信号） - 强上涨时慢线被推高，fast 难以超越 → FK=False（未超买或接近超买）",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_mytt.py:_ohlcv",
+      "type": "function",
+      "name": "_ohlcv",
+      "filePath": "tests/unit/test_mytt.py",
+      "summary": "Function _ohlcv() defined in tests/unit/test_mytt.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_optimizer.py",
+      "type": "file",
+      "name": "test_optimizer.py",
+      "filePath": "tests/unit/test_optimizer.py",
+      "summary": "单元测试：参数网格寻优器.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_optimizer.py:TestParamGridOptimizer",
+      "type": "class",
+      "name": "TestParamGridOptimizer",
+      "filePath": "tests/unit/test_optimizer.py",
+      "summary": "寻优器核心逻辑.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_optimizer.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_optimizer.py",
+      "summary": "生成带趋势的合成 OHLCV（确保均线策略能产生交易）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_portfolio_engine.py",
+      "type": "file",
+      "name": "test_portfolio_engine.py",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "单元测试：多标的组合回测引擎.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_engine.py:SimpleBuyStrategy",
+      "type": "class",
+      "name": "SimpleBuyStrategy",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "简单策略：bar 5 买入，bar 30 卖出.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_engine.py:TestPortfolioBacktest",
+      "type": "class",
+      "name": "TestPortfolioBacktest",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "测试组合回测引擎.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_engine.py:TestStrategyInstanceParams",
+      "type": "class",
+      "name": "TestStrategyInstanceParams",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "测试策略实例（带参数）的透传——Phase 3 引擎改造的核心.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_engine.py:TestCombinedEquity",
+      "type": "class",
+      "name": "TestCombinedEquity",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "测试组合净值曲线生成.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_portfolio_engine.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_portfolio_engine.py",
+      "summary": "生成随机 OHLCV DataFrame.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_portfolio_optimizer.py",
+      "type": "file",
+      "name": "test_portfolio_optimizer.py",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Test portfolio optimizers.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_optimizer.py:TestEqualWeight",
+      "type": "class",
+      "name": "TestEqualWeight",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Class TestEqualWeight defined in tests/unit/test_portfolio_optimizer.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_optimizer.py:TestFactorWeighted",
+      "type": "class",
+      "name": "TestFactorWeighted",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Class TestFactorWeighted defined in tests/unit/test_portfolio_optimizer.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_optimizer.py:TestRiskParity",
+      "type": "class",
+      "name": "TestRiskParity",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Class TestRiskParity defined in tests/unit/test_portfolio_optimizer.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_optimizer.py:TestRegistry",
+      "type": "class",
+      "name": "TestRegistry",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Class TestRegistry defined in tests/unit/test_portfolio_optimizer.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_portfolio_optimizer.py:_make_scores",
+      "type": "function",
+      "name": "_make_scores",
+      "filePath": "tests/unit/test_portfolio_optimizer.py",
+      "summary": "Function _make_scores() defined in tests/unit/test_portfolio_optimizer.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_portfolio_rebalance.py",
+      "type": "file",
+      "name": "test_portfolio_rebalance.py",
+      "filePath": "tests/unit/test_portfolio_rebalance.py",
+      "summary": "Test RebalanceEngine.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_rebalance.py:TestRebalanceEngine",
+      "type": "class",
+      "name": "TestRebalanceEngine",
+      "filePath": "tests/unit/test_portfolio_rebalance.py",
+      "summary": "Class TestRebalanceEngine defined in tests/unit/test_portfolio_rebalance.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_portfolio_rebalance.py:_make_market",
+      "type": "function",
+      "name": "_make_market",
+      "filePath": "tests/unit/test_portfolio_rebalance.py",
+      "summary": "Function _make_market() defined in tests/unit/test_portfolio_rebalance.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_portfolio_risk.py",
+      "type": "file",
+      "name": "test_portfolio_risk.py",
+      "filePath": "tests/unit/test_portfolio_risk.py",
+      "summary": "Test RiskModel.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_risk.py:TestCovarianceEstimation",
+      "type": "class",
+      "name": "TestCovarianceEstimation",
+      "filePath": "tests/unit/test_portfolio_risk.py",
+      "summary": "Class TestCovarianceEstimation defined in tests/unit/test_portfolio_risk.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_portfolio_risk.py:TestPortfolioRisk",
+      "type": "class",
+      "name": "TestPortfolioRisk",
+      "filePath": "tests/unit/test_portfolio_risk.py",
+      "summary": "Class TestPortfolioRisk defined in tests/unit/test_portfolio_risk.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_portfolio_risk.py:_make_returns",
+      "type": "function",
+      "name": "_make_returns",
+      "filePath": "tests/unit/test_portfolio_risk.py",
+      "summary": "Function _make_returns() defined in tests/unit/test_portfolio_risk.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_protocol_fixes.py",
+      "type": "file",
+      "name": "test_protocol_fixes.py",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "协议底层修复验证（针对 2026-04-15 审查结论）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_security_bars_exact_layout",
+      "type": "function",
+      "name": "test_security_bars_exact_layout",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "验证 K 线请求包布局与旧版 working bytes 完全一致。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_history_fund_flow_exact_layout",
+      "type": "function",
+      "name": "test_history_fund_flow_exact_layout",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "验证历史资金流请求包布局与 K 线一致，只差 category=22。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_security_list_request_length",
+      "type": "function",
+      "name": "test_security_list_request_length",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "验证证券列表请求包载荷长度为 6 字节。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_security_quotes_limit_mapping",
+      "type": "function",
+      "name": "test_security_quotes_limit_mapping",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "验证涨跌停价现在返回 None，且 pre_close 正确。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_security_quotes_server_time_format",
+      "type": "function",
+      "name": "test_security_quotes_server_time_format",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "服务器时间应按“小时 + 百万分之一小时”统一解码。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_stocks",
+      "type": "function",
+      "name": "test_compute_price_limits_for_stocks",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "普通股票 / ST / 创业板 / 科创板 / 北交所规则应可正确计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_indices",
+      "type": "function",
+      "name": "test_compute_price_limits_for_indices",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "指数与板块类代码不应计算涨跌停。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_newly_listed_stocks",
+      "type": "function",
+      "name": "test_compute_price_limits_for_newly_listed_stocks",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "上市初期限价窗口应返回 None。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_protocol_fixes.py:test_history_fund_flow_uses_uint32_volume_words",
+      "type": "function",
+      "name": "test_history_fund_flow_uses_uint32_volume_words",
+      "filePath": "tests/unit/test_protocol_fixes.py",
+      "summary": "历史资金流金额字段必须按 uint32 传给 _decode_volume。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_public_api.py",
+      "type": "file",
+      "name": "test_public_api.py",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "公共 API 导出完整性测试 —— 防止 __all__ 与实际导出漂移（审计 #13）。  确保 easy_tdx.__all__ 中每个名字都能从顶层包成功导入， 且文档中描述的模型（FundFlow/MarketStat 等）确实可访问。  复审补充（L3）：进一步断言导出对象的**类型**，避免类名被意外绑成模块、 None、或常量。仅\"可导入\"不足以守住类型契约。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_public_api.py:test_all_names_are_importable",
+      "type": "function",
+      "name": "test_all_names_are_importable",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "__all__ 里每个名字都必须能从 easy_tdx 顶层获取到非 None 对象。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_public_api.py:test_expected_kind_contract_is_complete",
+      "type": "function",
+      "name": "test_expected_kind_contract_is_complete",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "_EXPECTED_KIND 必须覆盖 __all__ 的每个名字，否则契约会悄悄漂移（审计复审 L3）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_public_api.py:test_exported_objects_have_expected_type",
+      "type": "function",
+      "name": "test_exported_objects_have_expected_type",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "断言每个导出对象的类型符合契约（审计复审 L3）。  防止类名被绑成模块/None/常量——仅\"可导入\"不足以守住类型。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_public_api.py:test_documented_models_exported",
+      "type": "function",
+      "name": "test_documented_models_exported",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "api_reference.md 文档描述的模型必须在公共导出中（审计 #13）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_public_api.py:test_core_clients_exported",
+      "type": "function",
+      "name": "test_core_clients_exported",
+      "filePath": "tests/unit/test_public_api.py",
+      "summary": "8 个 client 类与门面都应导出且确实是类（审计 #13 + 复审 L3）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_realtime.py",
+      "type": "file",
+      "name": "test_realtime.py",
+      "filePath": "tests/unit/test_realtime.py",
+      "summary": "单元测试：实时数据推送引擎.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_realtime.py:TestMarketEvent",
+      "type": "class",
+      "name": "TestMarketEvent",
+      "filePath": "tests/unit/test_realtime.py",
+      "summary": "测试行情事件.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_realtime.py:TestEventBus",
+      "type": "class",
+      "name": "TestEventBus",
+      "filePath": "tests/unit/test_realtime.py",
+      "summary": "测试事件总线.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_realtime.py:TestRealtimeStrategy",
+      "type": "class",
+      "name": "TestRealtimeStrategy",
+      "filePath": "tests/unit/test_realtime.py",
+      "summary": "测试实时策略基类.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_scanner.py",
+      "type": "file",
+      "name": "test_scanner.py",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "单元测试：信号扫描引擎。  测试 SignalScanner 的并发扫描和增量扫描功能。 使用临时目录构造 .day 文件 fixture，无需真实数据。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_scanner.py:AlwaysBuyStrategy",
+      "type": "class",
+      "name": "AlwaysBuyStrategy",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "策略：每个 bar 都产生买入信号（用于扫描测试）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_scanner.py:TestConcurrentScan",
+      "type": "class",
+      "name": "TestConcurrentScan",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "测试并发扫描.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_scanner.py:TestParallelPickleFix",
+      "type": "class",
+      "name": "TestParallelPickleFix",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "回归测试：并发模式从策略文件加载（修复 pickle 序列化失败）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_scanner.py:TestIncrementalScan",
+      "type": "class",
+      "name": "TestIncrementalScan",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "测试增量扫描.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_scanner.py:TestScanFailureLogging",
+      "type": "class",
+      "name": "TestScanFailureLogging",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "扫描失败日志回归（审计复审 L2）。  首轮 #6 将扫描循环的 ``except Exception: continue`` 评为\"系统性失败被静默 吞掉\"。复审 L2 修复：单股失败记录 warning + 失败计数，失败率超阈值时 循环结束发出 summary。这些测试用 monkeypatch 让 ``_scan_one`` 抛错模拟 损坏 .day / 策略异常等场景，断言失败被记录（read_daily_bars 本身对短文件 容错返回 0 条，不会抛错，故用 monkeypatch 构造确定性失败）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_scanner.py:_write_day_file",
+      "type": "function",
+      "name": "_write_day_file",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "写一个最小的 .day 文件（通达信日线格式）。  格式: date(I) open(I) high(I) low(I) close(I) amount(f) vol(I) reserved(I) 每条 32 字节, 小端序. 价格以 0.01 为系数存储.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_scanner.py:vipdoc",
+      "type": "function",
+      "name": "vipdoc",
+      "filePath": "tests/unit/test_scanner.py",
+      "summary": "创建包含 .day 文件的临时 vipdoc 目录.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_screen.py",
+      "type": "file",
+      "name": "test_screen.py",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "screen 模块单元测试 — 纯离线，无需网络。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestBarsToDf",
+      "type": "class",
+      "name": "TestBarsToDf",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 scanner._bars_to_df 辅助函数。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestScanResult",
+      "type": "class",
+      "name": "TestScanResult",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 ScanResult 数据结构。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestSignalScanner",
+      "type": "class",
+      "name": "TestSignalScanner",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试信号扫描引擎。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestRankEntry",
+      "type": "class",
+      "name": "TestRankEntry",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 RankEntry 数据结构。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestRankerJson",
+      "type": "class",
+      "name": "TestRankerJson",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 Ranker 的 JSON 输出。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestLoadSignals",
+      "type": "class",
+      "name": "TestLoadSignals",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试信号 JSON 加载。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestScanOne",
+      "type": "class",
+      "name": "TestScanOne",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 scanner 的单股扫描逻辑（模拟策略信号）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestLoadStrategy",
+      "type": "class",
+      "name": "TestLoadStrategy",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 CLI 的策略加载。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestStrengthPresets",
+      "type": "class",
+      "name": "TestStrengthPresets",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试预设模式配置。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestComputeStrengthMetrics",
+      "type": "class",
+      "name": "TestComputeStrengthMetrics",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试纯计算函数 compute_strength_metrics。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestStrengthResult",
+      "type": "class",
+      "name": "TestStrengthResult",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 StrengthResult 数据结构。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestStrengthRankerOutput",
+      "type": "class",
+      "name": "TestStrengthRankerOutput",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 StrengthRanker 的 JSON/表格输出（不触及文件 IO）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_screen.py:TestStrengthRankerInit",
+      "type": "class",
+      "name": "TestStrengthRankerInit",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "测试 StrengthRanker 初始化（不触及文件 IO）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_screen.py:_make_bar",
+      "type": "function",
+      "name": "_make_bar",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "快速构造一个 SecurityBar。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_screen.py:_make_bars",
+      "type": "function",
+      "name": "_make_bars",
+      "filePath": "tests/unit/test_screen.py",
+      "summary": "构造 n 根连续日 K 线，收盘价从 base_close 开始递增。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_sina.py",
+      "type": "file",
+      "name": "test_sina.py",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "新浪财经财报模块离线测试 —— mock HTTP，零网络依赖。  覆盖：响应解析（三表）、数值转换（字符串→float）、报告期格式化、 同比键、paperCode 推导、错误转换、模块导出。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_sina.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_sina.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_sina.py:_FakeResp",
+      "type": "class",
+      "name": "_FakeResp",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Class _FakeResp defined in tests/unit/test_sina.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_public_exports",
+      "type": "function",
+      "name": "test_public_exports",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "模块应导出 SinaClient / ReportType / SinaError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_sina_error_subclasses_tdx_error",
+      "type": "function",
+      "name": "test_sina_error_subclasses_tdx_error",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "SinaError 必须继承 TdxError，保证全局 except TdxError 覆盖。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_normalize_report_type_standard",
+      "type": "function",
+      "name": "test_normalize_report_type_standard",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_normalize_report_type_standard() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_normalize_report_type_uppercase",
+      "type": "function",
+      "name": "test_normalize_report_type_uppercase",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_normalize_report_type_uppercase() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_normalize_report_type_chinese_alias",
+      "type": "function",
+      "name": "test_normalize_report_type_chinese_alias",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_normalize_report_type_chinese_alias() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_normalize_report_type_english_alias",
+      "type": "function",
+      "name": "test_normalize_report_type_english_alias",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_normalize_report_type_english_alias() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_normalize_report_type_invalid_raises",
+      "type": "function",
+      "name": "test_normalize_report_type_invalid_raises",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_normalize_report_type_invalid_raises() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_to_float_numeric_string",
+      "type": "function",
+      "name": "test_to_float_numeric_string",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_to_float_numeric_string() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_to_float_empty_and_none",
+      "type": "function",
+      "name": "test_to_float_empty_and_none",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_to_float_empty_and_none() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_to_float_non_numeric",
+      "type": "function",
+      "name": "test_to_float_non_numeric",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_to_float_non_numeric() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_format_period",
+      "type": "function",
+      "name": "test_format_period",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "Function test_format_period() defined in tests/unit/test_sina.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_build_paper_code_sh",
+      "type": "function",
+      "name": "test_build_paper_code_sh",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "6 开头 → sh 前缀。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_build_paper_code_sz",
+      "type": "function",
+      "name": "test_build_paper_code_sz",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "非 6 开头 → sz 前缀（含北交所 8/4）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:_make_response",
+      "type": "function",
+      "name": "_make_response",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "构造新浪 API 响应。periods = {period: [行项...]}",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:_patch_http",
+      "type": "function",
+      "name": "_patch_http",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "让 _http_get_json 返回固定响应（不触网）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_returns_dataframe",
+      "type": "function",
+      "name": "test_get_financial_report_returns_dataframe",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "应返回 DataFrame，第一列是报告期，其余是科目（float）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_tongbi_columns",
+      "type": "function",
+      "name": "test_get_financial_report_tongbi_columns",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "有同比的科目应附加 {科目}_同比 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_no_tongbi_omits_column",
+      "type": "function",
+      "name": "test_get_financial_report_no_tongbi_omits_column",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "tongbi 为 None/空时不应生成 _同比 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_dalei_header_row_preserved",
+      "type": "function",
+      "name": "test_get_financial_report_dalei_header_row_preserved",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "大类标题行（item_value=\"\")应保留，值为 None（不跳过）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_dalei_no_tongbi_column",
+      "type": "function",
+      "name": "test_get_financial_report_dalei_no_tongbi_column",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "大类标题行 tongbi=\"\" 不生成 _同比 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_non_numeric_value_to_none",
+      "type": "function",
+      "name": "test_get_financial_report_non_numeric_value_to_none",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "非数值 item_value（如 'N/A'）应转 None，不抛错。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_skips_no_title",
+      "type": "function",
+      "name": "test_get_financial_report_skips_no_title",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "item_title 为空应跳过该行项。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_empty",
+      "type": "function",
+      "name": "test_get_financial_report_empty",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "空 report_list → 带「报告期」列名的空 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_missing_keys",
+      "type": "function",
+      "name": "test_get_financial_report_missing_keys",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "响应缺少 result/data/report_list 链应视为空结果，不抛错。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_request_failure_raises_sina_error",
+      "type": "function",
+      "name": "test_get_financial_report_request_failure_raises_sina_error",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "HTTP 异常应转为 SinaError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_num_limit",
+      "type": "function",
+      "name": "test_get_financial_report_num_limit",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "num 应限制返回期数（sorted reverse 后取前 num）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_params_passed",
+      "type": "function",
+      "name": "test_get_financial_report_params_passed",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "paperCode/source/num 应正确传入 params。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_report_type_alias",
+      "type": "function",
+      "name": "test_get_financial_report_report_type_alias",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "中文别名（利润表）应归一化为 lrb 传入 source。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_invalid_report_type_raises",
+      "type": "function",
+      "name": "test_get_financial_report_invalid_report_type_raises",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "无法识别的 report_type 应抛 ValueError（normalize 阶段，不触网）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_get_financial_report_skips_non_dict_period",
+      "type": "function",
+      "name": "test_get_financial_report_skips_non_dict_period",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "report_list 中某期值非 dict（如 list）应跳过该期。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_http_get_json_builds_query_string",
+      "type": "function",
+      "name": "test_http_get_json_builds_query_string",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "_http_get_json 应把 params urlencode 到 URL。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sina.py:test_http_get_json_no_params",
+      "type": "function",
+      "name": "test_http_get_json_no_params",
+      "filePath": "tests/unit/test_sina.py",
+      "summary": "params 为空时 URL 不附加 ?。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_strategy_store.py",
+      "type": "file",
+      "name": "test_strategy_store.py",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "策略库（已保存策略）持久化 + Web API 测试（离线，无网络）。  覆盖： - ``StrategyStore``：加入 / 列出 / 查看 / 删除 / 时间戳自动填充 / 重复 id - 路由端到端：POST 创建、GET 列表、GET 详情、DELETE、404 路径、校验",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:store",
+      "type": "function",
+      "name": "store",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "每个测试独立 SQLite 文件，互不污染。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:_sample_single",
+      "type": "function",
+      "name": "_sample_single",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function _sample_single() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:_sample_portfolio",
+      "type": "function",
+      "name": "_sample_portfolio",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function _sample_portfolio() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_add_assigns_id_and_timestamps",
+      "type": "function",
+      "name": "test_add_assigns_id_and_timestamps",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_add_assigns_id_and_timestamps() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_list_round_trip_preserves_all_fields",
+      "type": "function",
+      "name": "test_list_round_trip_preserves_all_fields",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_list_round_trip_preserves_all_fields() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_list_orders_by_created_desc",
+      "type": "function",
+      "name": "test_list_orders_by_created_desc",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_list_orders_by_created_desc() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_get_returns_none_for_missing",
+      "type": "function",
+      "name": "test_get_returns_none_for_missing",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_get_returns_none_for_missing() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_get_returns_record",
+      "type": "function",
+      "name": "test_get_returns_record",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_get_returns_record() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_delete_removes_record",
+      "type": "function",
+      "name": "test_delete_removes_record",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_delete_removes_record() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_delete_missing_returns_false",
+      "type": "function",
+      "name": "test_delete_missing_returns_false",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_delete_missing_returns_false() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_store_creates_db_file_and_schema",
+      "type": "function",
+      "name": "test_store_creates_db_file_and_schema",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_store_creates_db_file_and_schema() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_json_fields_with_unicode",
+      "type": "function",
+      "name": "test_json_fields_with_unicode",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "中文标签/备注应无损往返（ensure_ascii=False 落库）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:client",
+      "type": "function",
+      "name": "client",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "构造一个用临时 SQLite 文件的独立 app + store 单例。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:_create_payload",
+      "type": "function",
+      "name": "_create_payload",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function _create_payload() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_create_then_list_get_delete",
+      "type": "function",
+      "name": "test_router_create_then_list_get_delete",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_create_then_list_get_delete() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_get_missing_returns_400",
+      "type": "function",
+      "name": "test_router_get_missing_returns_400",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_get_missing_returns_400() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_delete_missing_returns_400",
+      "type": "function",
+      "name": "test_router_delete_missing_returns_400",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_delete_missing_returns_400() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_rejects_empty_name",
+      "type": "function",
+      "name": "test_router_rejects_empty_name",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_rejects_empty_name() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_rejects_invalid_kind",
+      "type": "function",
+      "name": "test_router_rejects_invalid_kind",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_rejects_invalid_kind() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_strategy_store.py:test_router_accepts_portfolio_kind",
+      "type": "function",
+      "name": "test_router_accepts_portfolio_kind",
+      "filePath": "tests/unit/test_strategy_store.py",
+      "summary": "Function test_router_accepts_portfolio_kind() defined in tests/unit/test_strategy_store.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_sync_transport.py",
+      "type": "file",
+      "name": "test_sync_transport.py",
+      "filePath": "tests/unit/test_sync_transport.py",
+      "summary": "同步 transport 回归测试。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_sync_transport.py:_FakeSocket",
+      "type": "class",
+      "name": "_FakeSocket",
+      "filePath": "tests/unit/test_sync_transport.py",
+      "summary": "Class _FakeSocket defined in tests/unit/test_sync_transport.py.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sync_transport.py:test_sync_connection_closes_socket_when_setup_fails",
+      "type": "function",
+      "name": "test_sync_connection_closes_socket_when_setup_fails",
+      "filePath": "tests/unit/test_sync_transport.py",
+      "summary": "Function test_sync_connection_closes_socket_when_setup_fails() defined in tests/unit/test_sync_transport.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sync_transport.py:test_ping_host_returns_none_when_server_closes_during_handshake",
+      "type": "function",
+      "name": "test_ping_host_returns_none_when_server_closes_during_handshake",
+      "filePath": "tests/unit/test_sync_transport.py",
+      "summary": "握手期服务器关闭连接（_recv_exact_sock 抛 TdxConnectionError）应返回 None。  回归：ping_host 旧版仅 except OSError，未捕获 TdxConnectionError（继承自 TdxError(Exception) 而非 OSError），导致单个服务器握手失败就让整个 ping_all / `easy-tdx ping` 命令崩溃。非交易时间服务器 accept 后立即 FIN 时必现。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_sync_transport.py:test_ping_all_skips_handshake_failure_without_crash",
+      "type": "function",
+      "name": "test_ping_all_skips_handshake_failure_without_crash",
+      "filePath": "tests/unit/test_sync_transport.py",
+      "summary": "ping_all 中任一服务器握手失败（TdxConnectionError）应被跳过，不崩溃。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_web_api.py",
+      "type": "file",
+      "name": "test_web_api.py",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Web API tests (offline, no network).  Covers: schemas, error handling, app factory, DI, all routers,         CLI serve command, OpenAPI schema generation.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_market_enum_values",
+      "type": "function",
+      "name": "test_market_enum_values",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "MarketEnum should map string names to int values matching Market enum.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_kline_category_enum",
+      "type": "function",
+      "name": "test_kline_category_enum",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "KlineCategoryEnum should map string names to int values.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_quote_request_validation",
+      "type": "function",
+      "name": "test_quote_request_validation",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "QuoteRequest should validate stocks list.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_chanlun_request_defaults",
+      "type": "function",
+      "name": "test_chanlun_request_defaults",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "ChanlunRequest should have sensible defaults.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_api_error_response",
+      "type": "function",
+      "name": "test_api_error_response",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "ApiErrorResponse should serialize correctly.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_create_app_returns_fastapi_instance",
+      "type": "function",
+      "name": "test_create_app_returns_fastapi_instance",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "create_app should return a FastAPI app with routers mounted.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_deps_get_client_type",
+      "type": "function",
+      "name": "test_deps_get_client_type",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "get_client should be callable (actual client creation needs network).",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_market_router_endpoints",
+      "type": "function",
+      "name": "test_market_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Market router should define all expected endpoints.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_bars_router_endpoints",
+      "type": "function",
+      "name": "test_bars_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Bars router should define all expected endpoints.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_finance_router_endpoints",
+      "type": "function",
+      "name": "test_finance_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Finance router should define all expected endpoints.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_block_router_endpoints",
+      "type": "function",
+      "name": "test_block_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Block router should define expected endpoints.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_chanlun_router_endpoints",
+      "type": "function",
+      "name": "test_chanlun_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Chanlun router should define the analyze endpoint.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_realtime_router_endpoints",
+      "type": "function",
+      "name": "test_realtime_router_endpoints",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "Realtime router should define the WebSocket endpoint.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_serve_command_exists",
+      "type": "function",
+      "name": "test_serve_command_exists",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "CLI should have a serve command registered.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_convert_market_lowercase",
+      "type": "function",
+      "name": "test_convert_market_lowercase",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "market_from_str should accept lowercase input.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_convert_market_invalid_raises_valueerror",
+      "type": "function",
+      "name": "test_convert_market_invalid_raises_valueerror",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "market_from_str should raise ValueError for invalid market codes.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_convert_category_from_int_string",
+      "type": "function",
+      "name": "test_convert_category_from_int_string",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "category_from_str should accept numeric string like '4'.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_convert_category_invalid_raises_valueerror",
+      "type": "function",
+      "name": "test_convert_category_invalid_raises_valueerror",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "category_from_str should raise ValueError for invalid period.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_full_app_routes_registered",
+      "type": "function",
+      "name": "test_full_app_routes_registered",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "All routers should be mounted and accessible.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_api.py:test_openapi_schema_generated",
+      "type": "function",
+      "name": "test_openapi_schema_generated",
+      "filePath": "tests/unit/test_web_api.py",
+      "summary": "OpenAPI schema should be auto-generated and contain key paths.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_web_backtest.py",
+      "type": "file",
+      "name": "test_web_backtest.py",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "回测 Web API 测试（离线，无网络）。  覆盖： - 策略注册表（Param schema、校验、序列化） - 请求模型校验（数据来源二选一、参数范围） - 结果序列化（numpy/datetime/NaN 清洗） - 后台任务执行器（提交/轮询/失败/LRU 淘汰） - router 端到端（策略枚举、同步回测、后台任务、错误路径）",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:sample_ohlcv",
+      "type": "function",
+      "name": "sample_ohlcv",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "带趋势的合成 OHLCV（确保均线策略能产生交易）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_registry_has_builtin_strategies",
+      "type": "function",
+      "name": "test_registry_has_builtin_strategies",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "导入 strategies 包后应有 5 个内置策略注册。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_schema_serialization",
+      "type": "function",
+      "name": "test_strategy_schema_serialization",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "策略 schema 应含 name/label/description/params 列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_build_with_default_params",
+      "type": "function",
+      "name": "test_strategy_build_with_default_params",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "无参数构造应使用默认值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_build_with_custom_params",
+      "type": "function",
+      "name": "test_strategy_build_with_custom_params",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "自定义参数应覆盖默认值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_unknown_param",
+      "type": "function",
+      "name": "test_strategy_rejects_unknown_param",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "未知参数应抛 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_out_of_range_param",
+      "type": "function",
+      "name": "test_strategy_rejects_out_of_range_param",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "超出范围的参数应抛 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_unknown_name",
+      "type": "function",
+      "name": "test_strategy_rejects_unknown_name",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "未知策略名应抛 KeyError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_type_coercion",
+      "type": "function",
+      "name": "test_param_type_coercion",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "字符串传入 int 参数应自动转换。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_bool_coercion",
+      "type": "function",
+      "name": "test_param_bool_coercion",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "bool 参数接受多种真值表示。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_choices_validation",
+      "type": "function",
+      "name": "test_param_choices_validation",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "字符串型 choices 限制取值集合。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_requires_data_source",
+      "type": "function",
+      "name": "test_backtest_request_requires_data_source",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "请求必须提供 ohlcv 或 symbol 之一。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_symbol_pattern",
+      "type": "function",
+      "name": "test_backtest_request_symbol_pattern",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "symbol 必须符合 市场:代码 格式。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_cash_must_be_positive",
+      "type": "function",
+      "name": "test_backtest_request_cash_must_be_positive",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "初始资金必须 > 0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_execution_enum",
+      "type": "function",
+      "name": "test_backtest_request_execution_enum",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "execution 必须是预定义模式之一。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_defaults",
+      "type": "function",
+      "name": "test_backtest_request_defaults",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "默认值应合理。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_numpy",
+      "type": "function",
+      "name": "test_serialize_result_cleans_numpy",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "numpy scalar 应被转为 Python 原生类型。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_nan_inf",
+      "type": "function",
+      "name": "test_serialize_result_cleans_nan_inf",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "NaN/Inf 应被转为 None（JSON 不支持）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_datetime",
+      "type": "function",
+      "name": "test_serialize_result_cleans_datetime",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "datetime/timestamp 应被转为 ISO 字符串。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_submit_and_poll",
+      "type": "function",
+      "name": "test_task_runner_submit_and_poll",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "提交任务后应能轮询到 done 状态与结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_captures_failure",
+      "type": "function",
+      "name": "test_task_runner_captures_failure",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "任务内异常应记入 error，状态变 failed。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_lru_eviction",
+      "type": "function",
+      "name": "test_task_runner_lru_eviction",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "超过上限应丢弃最旧的非 running 任务。  注意：淘汰发生在 submit 时，淘汰对象是「当时最旧的非 running 任务」。 用 max_workers=1 串行执行时，哪个任务被淘汰取决于提交速度 vs 执行速度 的竞态（快机器上 t0 还在 running 会被跳过，慢机器上 t0 已完成会被淘汰）。 所以本测试不断言「特定 task_id 被淘汰」，而是验证： (1) 存活的 non-running 任务数 ≤ max_results (2) 最后提交的任务一定存活（它是最近的，不可能被 LRU 淘汰） (3) 至少有 2 个任务被淘汰（5 提交 - 3 上限 = 2）",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_unknown_task_raises",
+      "type": "function",
+      "name": "test_task_runner_unknown_task_raises",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "查询不存在的 task_id 应抛 KeyError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_does_not_evict_running",
+      "type": "function",
+      "name": "test_task_runner_does_not_evict_running",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "LRU 淘汰应跳过 running 任务——这是审计修复的关键并发正确性回归。  若回退此修复，正在执行的长任务会被新提交的任务淘汰，导致 worker 在 move_to_end 时抛 KeyError、任务结果丢失。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_shutdown_is_idempotent_and_rejects_submit",
+      "type": "function",
+      "name": "test_task_runner_shutdown_is_idempotent_and_rejects_submit",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "shutdown 应幂等，关闭后再 submit 应报错。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_runner_worker_tolerates_eviction",
+      "type": "function",
+      "name": "test_task_runner_worker_tolerates_eviction",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "worker 即使在运行期间被（理论上的）淘汰也不应抛未捕获异常。  直接验证 _run 的 move_to_end 容忍 KeyError：手动从 _tasks 移除条目后 触发完成路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_rejects_float_nan",
+      "type": "function",
+      "name": "test_param_rejects_float_nan",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "float 参数的 NaN 必须被拦（NaN 绕过比较，原实现漏网）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_rejects_float_inf",
+      "type": "function",
+      "name": "test_param_rejects_float_inf",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "float 参数的 Inf 必须被拦。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_rejects_int_from_inf_without_overflow",
+      "type": "function",
+      "name": "test_param_rejects_int_from_inf_without_overflow",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "int(inf) 应报 ValueError（→400）而非 OverflowError（→500）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_rejects_int_from_nan",
+      "type": "function",
+      "name": "test_param_rejects_int_from_nan",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "int(nan) 应报 ValueError（→400）而非 ValueError 逃逸。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_param_normal_values_still_work",
+      "type": "function",
+      "name": "test_param_normal_values_still_work",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "安全加固不应误伤正常值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_backtest_request_ohlcv_max_length",
+      "type": "function",
+      "name": "test_backtest_request_ohlcv_max_length",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "ohlcv 内联数据必须有上限（防 DoS）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:client",
+      "type": "function",
+      "name": "client",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "FastAPI TestClient（不触发真实行情连接——lifespan 连接失败不影响回测路由）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_list_strategies_endpoint",
+      "type": "function",
+      "name": "test_list_strategies_endpoint",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "GET /backtest/strategies 返回策略列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_sync_backtest_with_inline_data",
+      "type": "function",
+      "name": "test_sync_backtest_with_inline_data",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "POST /backtest/run 用内联数据同步回测应返回完整结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_missing_ohlcv",
+      "type": "function",
+      "name": "test_sync_backtest_rejects_missing_ohlcv",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "同步回测不给 ohlcv 应返回 400。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_bad_strategy",
+      "type": "function",
+      "name": "test_sync_backtest_rejects_bad_strategy",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "未知策略名应返回 400。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_bad_params",
+      "type": "function",
+      "name": "test_sync_backtest_rejects_bad_params",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "非法参数应返回 400。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_async_backtest_with_inline_data",
+      "type": "function",
+      "name": "test_async_backtest_with_inline_data",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "POST /backtest/run/async 提交后台任务，轮询到 done。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_task_poll_unknown_id",
+      "type": "function",
+      "name": "test_task_poll_unknown_id",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "轮询不存在的 task_id 应返回 400（ValueError → 全局 handler）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_async_backtest_failure_recorded",
+      "type": "function",
+      "name": "test_async_backtest_failure_recorded",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "后台任务内的异常应被记录为 failed 状态（而非 500 到客户端）。  通过 monkeypatch 让回测执行函数抛错，验证 task_runner 的异常捕获在 端到端链路里也生效。单元层 test_task_runner_captures_failure 已覆盖纯逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_portfolio_request_validates_stocks_format",
+      "type": "function",
+      "name": "test_portfolio_request_validates_stocks_format",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "组合请求的 stocks 字段格式校验。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_portfolio_request_defaults",
+      "type": "function",
+      "name": "test_portfolio_request_defaults",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "组合请求默认值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_portfolio_backtest_endpoint",
+      "type": "function",
+      "name": "test_portfolio_backtest_endpoint",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "POST /backtest/portfolio/run/async 端到端（mock 行情取数）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_portfolio_backtest_bad_strategy",
+      "type": "function",
+      "name": "test_portfolio_backtest_bad_strategy",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "未知策略在后台任务内抛错 → failed。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_optimize_request_validation",
+      "type": "function",
+      "name": "test_optimize_request_validation",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "寻优请求校验：param_grid 非空、至少 1 个数据源。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_optimize_endpoint",
+      "type": "function",
+      "name": "test_optimize_endpoint",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "POST /backtest/optimize/run/async 端到端（内联数据）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_optimize_single_param_no_heatmap",
+      "type": "function",
+      "name": "test_optimize_single_param_no_heatmap",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "单参数寻优不应返回热力图。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_optimize_all_endpoint",
+      "type": "function",
+      "name": "test_optimize_all_endpoint",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "POST /backtest/optimize-all/run/async 端到端：逐策略预设网格寻优 + 全局排名。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_optimize_all_request_validation",
+      "type": "function",
+      "name": "test_optimize_all_request_validation",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "optimize-all 请求必须提供数据源。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_list_tasks_endpoint",
+      "type": "function",
+      "name": "test_list_tasks_endpoint",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "GET /backtest/tasks 返回最近任务摘要列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_web_backtest.py:test_list_tasks_limit",
+      "type": "function",
+      "name": "test_list_tasks_limit",
+      "filePath": "tests/unit/test_web_backtest.py",
+      "summary": "limit 参数应限制返回数量。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_write_daily.py",
+      "type": "file",
+      "name": "test_write_daily.py",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "离线日线写入测试（纯离线，无网络）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_daily.py:TestEncodeDailyBar",
+      "type": "class",
+      "name": "TestEncodeDailyBar",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "编码测试：SecurityBar → 32 字节。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_daily.py:TestRoundTrip",
+      "type": "class",
+      "name": "TestRoundTrip",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "编码后写文件，再读回，验证数据一致。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_daily.py:TestGetLastBarDate",
+      "type": "class",
+      "name": "TestGetLastBarDate",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "Class TestGetLastBarDate defined in tests/unit/test_write_daily.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_daily.py:TestAppendDailyBars",
+      "type": "class",
+      "name": "TestAppendDailyBars",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "Class TestAppendDailyBars defined in tests/unit/test_write_daily.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_daily.py:TestSyncDailyBars",
+      "type": "class",
+      "name": "TestSyncDailyBars",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "模拟完整同步流程（不需要真实服务端，手动构造 SecurityBar 列表）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_daily.py:_make_bar",
+      "type": "function",
+      "name": "_make_bar",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "Function _make_bar() defined in tests/unit/test_write_daily.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_daily.py:_make_raw_bar",
+      "type": "function",
+      "name": "_make_raw_bar",
+      "filePath": "tests/unit/test_write_daily.py",
+      "summary": "直接用原始整数构造一条 32 字节 .day 记录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_write_ex_daily.py",
+      "type": "file",
+      "name": "test_write_ex_daily.py",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "离线扩展市场日线写入测试（纯离线，无网络）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_ex_daily.py:TestEncodeExDailyBar",
+      "type": "class",
+      "name": "TestEncodeExDailyBar",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Class TestEncodeExDailyBar defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_ex_daily.py:TestExRoundTrip",
+      "type": "class",
+      "name": "TestExRoundTrip",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Class TestExRoundTrip defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_ex_daily.py:TestGetLastExBarDate",
+      "type": "class",
+      "name": "TestGetLastExBarDate",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Class TestGetLastExBarDate defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_ex_daily.py:TestAppendExDailyBars",
+      "type": "class",
+      "name": "TestAppendExDailyBars",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Class TestAppendExDailyBars defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_ex_daily.py:_make_ex_bar",
+      "type": "function",
+      "name": "_make_ex_bar",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Function _make_ex_bar() defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_ex_daily.py:_make_raw_ex_bar",
+      "type": "function",
+      "name": "_make_raw_ex_bar",
+      "filePath": "tests/unit/test_write_ex_daily.py",
+      "summary": "Function _make_raw_ex_bar() defined in tests/unit/test_write_ex_daily.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_write_min_bar.py",
+      "type": "file",
+      "name": "test_write_min_bar.py",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "离线分钟线写入测试（纯离线，无网络）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestEncode5minBar",
+      "type": "class",
+      "name": "TestEncode5minBar",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestEncode5minBar defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:Test5minRoundTrip",
+      "type": "class",
+      "name": "Test5minRoundTrip",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class Test5minRoundTrip defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestGetLast5minBarDatetime",
+      "type": "class",
+      "name": "TestGetLast5minBarDatetime",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestGetLast5minBarDatetime defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestAppend5minBars",
+      "type": "class",
+      "name": "TestAppend5minBars",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestAppend5minBars defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestEncodeLcMinBar",
+      "type": "class",
+      "name": "TestEncodeLcMinBar",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestEncodeLcMinBar defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestLcMinRoundTrip",
+      "type": "class",
+      "name": "TestLcMinRoundTrip",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestLcMinRoundTrip defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestGetLastLcMinBarDatetime",
+      "type": "class",
+      "name": "TestGetLastLcMinBarDatetime",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestGetLastLcMinBarDatetime defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_write_min_bar.py:TestAppendLcMinBars",
+      "type": "class",
+      "name": "TestAppendLcMinBars",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Class TestAppendLcMinBars defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_min_bar.py:_make_min_bar",
+      "type": "function",
+      "name": "_make_min_bar",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Function _make_min_bar() defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_min_bar.py:_encode_tdx_date",
+      "type": "function",
+      "name": "_encode_tdx_date",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Function _encode_tdx_date() defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_min_bar.py:_encode_tdx_time",
+      "type": "function",
+      "name": "_encode_tdx_time",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Function _encode_tdx_time() defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_min_bar.py:_make_raw_5min_bar",
+      "type": "function",
+      "name": "_make_raw_5min_bar",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Function _make_raw_5min_bar() defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_write_min_bar.py:_make_raw_lc_min_bar",
+      "type": "function",
+      "name": "_make_raw_lc_min_bar",
+      "filePath": "tests/unit/test_write_min_bar.py",
+      "summary": "Function _make_raw_lc_min_bar() defined in tests/unit/test_write_min_bar.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function _bar()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:_none_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function _none_bars()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:_qfq_broken_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function _qfq_broken_bars()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:_xdxr_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function _xdxr_df()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:_make_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function _make_client()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_negative_triggers_local_recompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function test_qfq_negative_triggers_local_recompute()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_clean_does_not_trigger_recompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function test_qfq_clean_does_not_trigger_recompute()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:test_qfq_recompute_xdxr_failure_degrades_gracefully",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function test_qfq_recompute_xdxr_failure_degrades_gracefully()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_qfq_integration.py",
+      "target": "function:tests/unit/test_mac_qfq_integration.py:test_none_adjust_skips_recompute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_qfq_integration.py defines function test_none_adjust_skips_recompute()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:_build_multi_tick_body",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function _build_multi_tick_body()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_normal_minutes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function test_multi_tick_charts_normal_minutes()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_oversized_minutes_no_crash",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function test_multi_tick_charts_oversized_minutes_no_crash()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:_build_multi_tick_body_partial",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function _build_multi_tick_body_partial()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_partial_day",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function test_multi_tick_charts_partial_day()."
+    },
+    {
+      "source": "file:tests/unit/test_mac_tick_charts.py",
+      "target": "function:tests/unit/test_mac_tick_charts.py:test_multi_tick_charts_request_layout",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mac_tick_charts.py defines function test_multi_tick_charts_request_layout()."
+    },
+    {
+      "source": "file:tests/unit/test_multi_strategy.py",
+      "target": "class:tests/unit/test_multi_strategy.py:SimpleBuyStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_multi_strategy.py defines class SimpleBuyStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_multi_strategy.py:SimpleBuyStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuyStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_multi_strategy.py",
+      "target": "class:tests/unit/test_multi_strategy.py:HoldStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_multi_strategy.py defines class HoldStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_multi_strategy.py:HoldStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "HoldStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_multi_strategy.py",
+      "target": "class:tests/unit/test_multi_strategy.py:TestMultiStrategyEngine",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_multi_strategy.py defines class TestMultiStrategyEngine."
+    },
+    {
+      "source": "file:tests/unit/test_multi_strategy.py",
+      "target": "function:tests/unit/test_multi_strategy.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_multi_strategy.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_mytt.py",
+      "target": "class:tests/unit/test_mytt.py:TestSAR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mytt.py defines class TestSAR."
+    },
+    {
+      "source": "file:tests/unit/test_mytt.py",
+      "target": "class:tests/unit/test_mytt.py:TestVWAP",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mytt.py defines class TestVWAP."
+    },
+    {
+      "source": "file:tests/unit/test_mytt.py",
+      "target": "class:tests/unit/test_mytt.py:TestAROON",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mytt.py defines class TestAROON."
+    },
+    {
+      "source": "file:tests/unit/test_mytt.py",
+      "target": "class:tests/unit/test_mytt.py:TestFK",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mytt.py defines class TestFK."
+    },
+    {
+      "source": "file:tests/unit/test_mytt.py",
+      "target": "function:tests/unit/test_mytt.py:_ohlcv",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_mytt.py defines function _ohlcv()."
+    },
+    {
+      "source": "file:tests/unit/test_optimizer.py",
+      "target": "class:tests/unit/test_optimizer.py:TestParamGridOptimizer",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_optimizer.py defines class TestParamGridOptimizer."
+    },
+    {
+      "source": "file:tests/unit/test_optimizer.py",
+      "target": "function:tests/unit/test_optimizer.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_optimizer.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_engine.py",
+      "target": "class:tests/unit/test_portfolio_engine.py:SimpleBuyStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_engine.py defines class SimpleBuyStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_portfolio_engine.py:SimpleBuyStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuyStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_engine.py",
+      "target": "class:tests/unit/test_portfolio_engine.py:TestPortfolioBacktest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_engine.py defines class TestPortfolioBacktest."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_engine.py",
+      "target": "class:tests/unit/test_portfolio_engine.py:TestStrategyInstanceParams",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_engine.py defines class TestStrategyInstanceParams."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_engine.py",
+      "target": "class:tests/unit/test_portfolio_engine.py:TestCombinedEquity",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_engine.py defines class TestCombinedEquity."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_engine.py",
+      "target": "function:tests/unit/test_portfolio_engine.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_engine.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_optimizer.py",
+      "target": "class:tests/unit/test_portfolio_optimizer.py:TestEqualWeight",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_optimizer.py defines class TestEqualWeight."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_optimizer.py",
+      "target": "class:tests/unit/test_portfolio_optimizer.py:TestFactorWeighted",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_optimizer.py defines class TestFactorWeighted."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_optimizer.py",
+      "target": "class:tests/unit/test_portfolio_optimizer.py:TestRiskParity",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_optimizer.py defines class TestRiskParity."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_optimizer.py",
+      "target": "class:tests/unit/test_portfolio_optimizer.py:TestRegistry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_optimizer.py defines class TestRegistry."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_optimizer.py",
+      "target": "function:tests/unit/test_portfolio_optimizer.py:_make_scores",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_optimizer.py defines function _make_scores()."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_rebalance.py",
+      "target": "class:tests/unit/test_portfolio_rebalance.py:TestRebalanceEngine",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_rebalance.py defines class TestRebalanceEngine."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_rebalance.py",
+      "target": "function:tests/unit/test_portfolio_rebalance.py:_make_market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_rebalance.py defines function _make_market()."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_risk.py",
+      "target": "class:tests/unit/test_portfolio_risk.py:TestCovarianceEstimation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_risk.py defines class TestCovarianceEstimation."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_risk.py",
+      "target": "class:tests/unit/test_portfolio_risk.py:TestPortfolioRisk",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_risk.py defines class TestPortfolioRisk."
+    },
+    {
+      "source": "file:tests/unit/test_portfolio_risk.py",
+      "target": "function:tests/unit/test_portfolio_risk.py:_make_returns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_portfolio_risk.py defines function _make_returns()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_security_bars_exact_layout",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_security_bars_exact_layout()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_history_fund_flow_exact_layout",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_history_fund_flow_exact_layout()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_security_list_request_length",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_security_list_request_length()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_security_quotes_limit_mapping",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_security_quotes_limit_mapping()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_security_quotes_server_time_format",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_security_quotes_server_time_format()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_stocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_compute_price_limits_for_stocks()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_indices",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_compute_price_limits_for_indices()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_compute_price_limits_for_newly_listed_stocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_compute_price_limits_for_newly_listed_stocks()."
+    },
+    {
+      "source": "file:tests/unit/test_protocol_fixes.py",
+      "target": "function:tests/unit/test_protocol_fixes.py:test_history_fund_flow_uses_uint32_volume_words",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_protocol_fixes.py defines function test_history_fund_flow_uses_uint32_volume_words()."
+    },
+    {
+      "source": "file:tests/unit/test_public_api.py",
+      "target": "function:tests/unit/test_public_api.py:test_all_names_are_importable",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_public_api.py defines function test_all_names_are_importable()."
+    },
+    {
+      "source": "file:tests/unit/test_public_api.py",
+      "target": "function:tests/unit/test_public_api.py:test_expected_kind_contract_is_complete",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_public_api.py defines function test_expected_kind_contract_is_complete()."
+    },
+    {
+      "source": "file:tests/unit/test_public_api.py",
+      "target": "function:tests/unit/test_public_api.py:test_exported_objects_have_expected_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_public_api.py defines function test_exported_objects_have_expected_type()."
+    },
+    {
+      "source": "file:tests/unit/test_public_api.py",
+      "target": "function:tests/unit/test_public_api.py:test_documented_models_exported",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_public_api.py defines function test_documented_models_exported()."
+    },
+    {
+      "source": "file:tests/unit/test_public_api.py",
+      "target": "function:tests/unit/test_public_api.py:test_core_clients_exported",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_public_api.py defines function test_core_clients_exported()."
+    },
+    {
+      "source": "file:tests/unit/test_realtime.py",
+      "target": "class:tests/unit/test_realtime.py:TestMarketEvent",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_realtime.py defines class TestMarketEvent."
+    },
+    {
+      "source": "file:tests/unit/test_realtime.py",
+      "target": "class:tests/unit/test_realtime.py:TestEventBus",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_realtime.py defines class TestEventBus."
+    },
+    {
+      "source": "file:tests/unit/test_realtime.py",
+      "target": "class:tests/unit/test_realtime.py:TestRealtimeStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_realtime.py defines class TestRealtimeStrategy."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "class:tests/unit/test_scanner.py:AlwaysBuyStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines class AlwaysBuyStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_scanner.py:AlwaysBuyStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "AlwaysBuyStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "class:tests/unit/test_scanner.py:TestConcurrentScan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines class TestConcurrentScan."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "class:tests/unit/test_scanner.py:TestParallelPickleFix",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines class TestParallelPickleFix."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "class:tests/unit/test_scanner.py:TestIncrementalScan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines class TestIncrementalScan."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "class:tests/unit/test_scanner.py:TestScanFailureLogging",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines class TestScanFailureLogging."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "function:tests/unit/test_scanner.py:_write_day_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines function _write_day_file()."
+    },
+    {
+      "source": "file:tests/unit/test_scanner.py",
+      "target": "function:tests/unit/test_scanner.py:vipdoc",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_scanner.py defines function vipdoc()."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestBarsToDf",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestBarsToDf."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestScanResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestScanResult."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestSignalScanner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestSignalScanner."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestRankEntry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestRankEntry."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestRankerJson",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestRankerJson."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestLoadSignals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestLoadSignals."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestScanOne",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestScanOne."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestLoadStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestLoadStrategy."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestStrengthPresets",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestStrengthPresets."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestComputeStrengthMetrics",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestComputeStrengthMetrics."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestStrengthResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestStrengthResult."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestStrengthRankerOutput",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestStrengthRankerOutput."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "class:tests/unit/test_screen.py:TestStrengthRankerInit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines class TestStrengthRankerInit."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "function:tests/unit/test_screen.py:_make_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines function _make_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_screen.py",
+      "target": "function:tests/unit/test_screen.py:_make_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_screen.py defines function _make_bars()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "class:tests/unit/test_sina.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "class:tests/unit/test_sina.py:_FakeResp",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines class _FakeResp."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_public_exports",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_public_exports()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_sina_error_subclasses_tdx_error",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_sina_error_subclasses_tdx_error()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_normalize_report_type_standard",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_normalize_report_type_standard()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_normalize_report_type_uppercase",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_normalize_report_type_uppercase()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_normalize_report_type_chinese_alias",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_normalize_report_type_chinese_alias()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_normalize_report_type_english_alias",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_normalize_report_type_english_alias()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_normalize_report_type_invalid_raises",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_normalize_report_type_invalid_raises()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_to_float_numeric_string",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_to_float_numeric_string()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_to_float_empty_and_none",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_to_float_empty_and_none()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_to_float_non_numeric",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_to_float_non_numeric()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_format_period",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_format_period()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_build_paper_code_sh",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_build_paper_code_sh()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_build_paper_code_sz",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_build_paper_code_sz()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:_make_response",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function _make_response()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:_patch_http",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function _patch_http()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_returns_dataframe",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_returns_dataframe()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_tongbi_columns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_tongbi_columns()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_no_tongbi_omits_column",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_no_tongbi_omits_column()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_dalei_header_row_preserved",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_dalei_header_row_preserved()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_dalei_no_tongbi_column",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_dalei_no_tongbi_column()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_non_numeric_value_to_none",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_non_numeric_value_to_none()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_skips_no_title",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_skips_no_title()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_missing_keys",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_missing_keys()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_request_failure_raises_sina_error",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_request_failure_raises_sina_error()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_num_limit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_num_limit()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_params_passed",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_params_passed()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_report_type_alias",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_report_type_alias()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_invalid_report_type_raises",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_invalid_report_type_raises()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_get_financial_report_skips_non_dict_period",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_get_financial_report_skips_non_dict_period()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_http_get_json_builds_query_string",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_http_get_json_builds_query_string()."
+    },
+    {
+      "source": "file:tests/unit/test_sina.py",
+      "target": "function:tests/unit/test_sina.py:test_http_get_json_no_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sina.py defines function test_http_get_json_no_params()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:store",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function store()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:_sample_single",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function _sample_single()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:_sample_portfolio",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function _sample_portfolio()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_add_assigns_id_and_timestamps",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_add_assigns_id_and_timestamps()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_list_round_trip_preserves_all_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_list_round_trip_preserves_all_fields()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_list_orders_by_created_desc",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_list_orders_by_created_desc()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_get_returns_none_for_missing",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_get_returns_none_for_missing()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_get_returns_record",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_get_returns_record()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_delete_removes_record",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_delete_removes_record()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_delete_missing_returns_false",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_delete_missing_returns_false()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_store_creates_db_file_and_schema",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_store_creates_db_file_and_schema()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_json_fields_with_unicode",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_json_fields_with_unicode()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function client()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:_create_payload",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function _create_payload()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_create_then_list_get_delete",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_create_then_list_get_delete()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_get_missing_returns_400",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_get_missing_returns_400()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_delete_missing_returns_400",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_delete_missing_returns_400()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_rejects_empty_name",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_rejects_empty_name()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_rejects_invalid_kind",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_rejects_invalid_kind()."
+    },
+    {
+      "source": "file:tests/unit/test_strategy_store.py",
+      "target": "function:tests/unit/test_strategy_store.py:test_router_accepts_portfolio_kind",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_strategy_store.py defines function test_router_accepts_portfolio_kind()."
+    },
+    {
+      "source": "file:tests/unit/test_sync_transport.py",
+      "target": "class:tests/unit/test_sync_transport.py:_FakeSocket",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sync_transport.py defines class _FakeSocket."
+    },
+    {
+      "source": "file:tests/unit/test_sync_transport.py",
+      "target": "function:tests/unit/test_sync_transport.py:test_sync_connection_closes_socket_when_setup_fails",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sync_transport.py defines function test_sync_connection_closes_socket_when_setup_fails()."
+    },
+    {
+      "source": "file:tests/unit/test_sync_transport.py",
+      "target": "function:tests/unit/test_sync_transport.py:test_ping_host_returns_none_when_server_closes_during_handshake",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sync_transport.py defines function test_ping_host_returns_none_when_server_closes_during_handshake()."
+    },
+    {
+      "source": "file:tests/unit/test_sync_transport.py",
+      "target": "function:tests/unit/test_sync_transport.py:test_ping_all_skips_handshake_failure_without_crash",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_sync_transport.py defines function test_ping_all_skips_handshake_failure_without_crash()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_market_enum_values",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_market_enum_values()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_kline_category_enum",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_kline_category_enum()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_quote_request_validation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_quote_request_validation()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_chanlun_request_defaults",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_chanlun_request_defaults()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_api_error_response",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_api_error_response()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_create_app_returns_fastapi_instance",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_create_app_returns_fastapi_instance()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_deps_get_client_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_deps_get_client_type()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_market_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_market_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_bars_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_bars_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_finance_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_finance_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_block_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_block_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_chanlun_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_chanlun_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_realtime_router_endpoints",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_realtime_router_endpoints()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_serve_command_exists",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_serve_command_exists()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_convert_market_lowercase",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_convert_market_lowercase()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_convert_market_invalid_raises_valueerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_convert_market_invalid_raises_valueerror()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_convert_category_from_int_string",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_convert_category_from_int_string()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_convert_category_invalid_raises_valueerror",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_convert_category_invalid_raises_valueerror()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_full_app_routes_registered",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_full_app_routes_registered()."
+    },
+    {
+      "source": "file:tests/unit/test_web_api.py",
+      "target": "function:tests/unit/test_web_api.py:test_openapi_schema_generated",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_api.py defines function test_openapi_schema_generated()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:sample_ohlcv",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function sample_ohlcv()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_registry_has_builtin_strategies",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_registry_has_builtin_strategies()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_schema_serialization",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_schema_serialization()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_build_with_default_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_build_with_default_params()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_build_with_custom_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_build_with_custom_params()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_unknown_param",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_rejects_unknown_param()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_out_of_range_param",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_rejects_out_of_range_param()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_strategy_rejects_unknown_name",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_strategy_rejects_unknown_name()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_type_coercion",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_type_coercion()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_bool_coercion",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_bool_coercion()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_choices_validation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_choices_validation()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_requires_data_source",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_requires_data_source()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_symbol_pattern",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_symbol_pattern()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_cash_must_be_positive",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_cash_must_be_positive()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_execution_enum",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_execution_enum()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_defaults",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_defaults()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_numpy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_serialize_result_cleans_numpy()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_nan_inf",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_serialize_result_cleans_nan_inf()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_serialize_result_cleans_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_serialize_result_cleans_datetime()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_submit_and_poll",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_submit_and_poll()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_captures_failure",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_captures_failure()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_lru_eviction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_lru_eviction()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_unknown_task_raises",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_unknown_task_raises()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_does_not_evict_running",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_does_not_evict_running()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_shutdown_is_idempotent_and_rejects_submit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_shutdown_is_idempotent_and_rejects_submit()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_runner_worker_tolerates_eviction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_runner_worker_tolerates_eviction()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_rejects_float_nan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_rejects_float_nan()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_rejects_float_inf",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_rejects_float_inf()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_rejects_int_from_inf_without_overflow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_rejects_int_from_inf_without_overflow()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_rejects_int_from_nan",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_rejects_int_from_nan()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_param_normal_values_still_work",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_param_normal_values_still_work()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_backtest_request_ohlcv_max_length",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_backtest_request_ohlcv_max_length()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function client()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_list_strategies_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_list_strategies_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_sync_backtest_with_inline_data",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_sync_backtest_with_inline_data()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_missing_ohlcv",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_sync_backtest_rejects_missing_ohlcv()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_bad_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_sync_backtest_rejects_bad_strategy()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_sync_backtest_rejects_bad_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_sync_backtest_rejects_bad_params()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_async_backtest_with_inline_data",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_async_backtest_with_inline_data()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_task_poll_unknown_id",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_task_poll_unknown_id()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_async_backtest_failure_recorded",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_async_backtest_failure_recorded()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_portfolio_request_validates_stocks_format",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_portfolio_request_validates_stocks_format()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_portfolio_request_defaults",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_portfolio_request_defaults()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_portfolio_backtest_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_portfolio_backtest_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_portfolio_backtest_bad_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_portfolio_backtest_bad_strategy()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_optimize_request_validation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_optimize_request_validation()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_optimize_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_optimize_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_optimize_single_param_no_heatmap",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_optimize_single_param_no_heatmap()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_optimize_all_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_optimize_all_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_optimize_all_request_validation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_optimize_all_request_validation()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_list_tasks_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_list_tasks_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_web_backtest.py",
+      "target": "function:tests/unit/test_web_backtest.py:test_list_tasks_limit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_web_backtest.py defines function test_list_tasks_limit()."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "class:tests/unit/test_write_daily.py:TestEncodeDailyBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines class TestEncodeDailyBar."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "class:tests/unit/test_write_daily.py:TestRoundTrip",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines class TestRoundTrip."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "class:tests/unit/test_write_daily.py:TestGetLastBarDate",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines class TestGetLastBarDate."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "class:tests/unit/test_write_daily.py:TestAppendDailyBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines class TestAppendDailyBars."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "class:tests/unit/test_write_daily.py:TestSyncDailyBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines class TestSyncDailyBars."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "function:tests/unit/test_write_daily.py:_make_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines function _make_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_daily.py",
+      "target": "function:tests/unit/test_write_daily.py:_make_raw_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_daily.py defines function _make_raw_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "class:tests/unit/test_write_ex_daily.py:TestEncodeExDailyBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines class TestEncodeExDailyBar."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "class:tests/unit/test_write_ex_daily.py:TestExRoundTrip",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines class TestExRoundTrip."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "class:tests/unit/test_write_ex_daily.py:TestGetLastExBarDate",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines class TestGetLastExBarDate."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "class:tests/unit/test_write_ex_daily.py:TestAppendExDailyBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines class TestAppendExDailyBars."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "function:tests/unit/test_write_ex_daily.py:_make_ex_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines function _make_ex_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_ex_daily.py",
+      "target": "function:tests/unit/test_write_ex_daily.py:_make_raw_ex_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_ex_daily.py defines function _make_raw_ex_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestEncode5minBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestEncode5minBar."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:Test5minRoundTrip",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class Test5minRoundTrip."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestGetLast5minBarDatetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestGetLast5minBarDatetime."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestAppend5minBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestAppend5minBars."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestEncodeLcMinBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestEncodeLcMinBar."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestLcMinRoundTrip",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestLcMinRoundTrip."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestGetLastLcMinBarDatetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestGetLastLcMinBarDatetime."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "class:tests/unit/test_write_min_bar.py:TestAppendLcMinBars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines class TestAppendLcMinBars."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "function:tests/unit/test_write_min_bar.py:_make_min_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines function _make_min_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "function:tests/unit/test_write_min_bar.py:_encode_tdx_date",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines function _encode_tdx_date()."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "function:tests/unit/test_write_min_bar.py:_encode_tdx_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines function _encode_tdx_time()."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "function:tests/unit/test_write_min_bar.py:_make_raw_5min_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines function _make_raw_5min_bar()."
+    },
+    {
+      "source": "file:tests/unit/test_write_min_bar.py",
+      "target": "function:tests/unit/test_write_min_bar.py:_make_raw_lc_min_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_write_min_bar.py defines function _make_raw_lc_min_bar()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 258,
+    "edgesCreated": 240,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 22 analyzed via AST. 258 nodes, 240 edges from 25 files."
+  }
+}

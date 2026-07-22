@@ -1,0 +1,2223 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 11,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "src/easy_tdx/backtest/strategies/registry.py",
+      "language": "python",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/strategy.py",
+      "language": "python",
+      "sizeLines": 462,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/backtest/types.py",
+      "language": "python",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/__init__.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/analyser.py",
+      "language": "python",
+      "sizeLines": 285,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/beichi.py",
+      "language": "python",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/bi.py",
+      "language": "python",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/config.py",
+      "language": "python",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/fractal.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/kline_merge.py",
+      "language": "python",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/macd.py",
+      "language": "python",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/mmd.py",
+      "language": "python",
+      "sizeLines": 160,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/multi_level.py",
+      "language": "python",
+      "sizeLines": 259,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/types.py",
+      "language": "python",
+      "sizeLines": 213,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/xd.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/zs.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/chanlun/zsd.py",
+      "language": "python",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/__init__.py",
+      "language": "python",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_admin.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_announcement.py",
+      "language": "python",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_auction.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_board.py",
+      "language": "python",
+      "sizeLines": 240,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_capital.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_chanlun.py",
+      "language": "python",
+      "sizeLines": 238,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_company.py",
+      "language": "python",
+      "sizeLines": 253,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "type": "file",
+      "name": "registry.py",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "内置策略注册表。  提供策略的发现、参数自描述和实例化机制，供 Web API 表单动态渲染、 CLI 枚举和回测路由使用。  设计要点： - 每个策略通过类属性 ``params`` 声明参数 schema（list[Param]）。 - ``@register_strategy`` 装饰器读取 ``params`` 与元信息登记到全局 registry。 - 策略类继承 :class:`ParametrizedStrategy`，``__init__`` 接受 kwargs 并   做类型/范围校验，校验通过后存入 ``self.params`` 供 ``init()`` 使用。 - 不修",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "strategy"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/registry.py:Param",
+      "type": "class",
+      "name": "Param",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "单个策略参数的 schema 描述。  Attributes:     name: 参数名（与 ``__init__`` 关键字一致，存入 ``self.params`` 的键）。     type: 参数类型（int/float/bool/str）。     default: 默认值。     min_value: 数值型下限（含），None 表示不限。     max_value: 数值型上限（含），None 表示不限。     choices: 字符串型可选值；非空时限制取值集合。     label: 前端展示用的中文标签。     description: 参数说明（可选）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/registry.py:ParametrizedStrategy",
+      "type": "class",
+      "name": "ParametrizedStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "支持 kwargs 注入与校验的策略基类。  子类声明类属性 ``params: ClassVar[list[Param]]``（参数 schema）， ``__init__`` 接受同名关键字参数（缺省取 ``Param.default``），校验后存入 实例属性 ``self.p`` 字典（已解析的参数值）。  策略代码中用 ``self.p[\"fast\"]`` 访问参数值；注册表用 ``cls.params`` 读取 schema。两者类型不同（list vs dict），通过 ClassVar 隔离。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/registry.py:RegisteredStrategy",
+      "type": "class",
+      "name": "RegisteredStrategy",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "注册表条目。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategies/registry.py:StrategyRegistry",
+      "type": "class",
+      "name": "StrategyRegistry",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "内置策略注册表（全局单例）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/registry.py:_type_name",
+      "type": "function",
+      "name": "_type_name",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "把 Python 类型映射到 schema 类型字符串。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/registry.py:get_registry",
+      "type": "function",
+      "name": "get_registry",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "获取全局策略注册表单例。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/registry.py:register_strategy",
+      "type": "function",
+      "name": "register_strategy",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "类装饰器：把 ParametrizedStrategy 子类登记到全局注册表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategies/registry.py:resolve",
+      "type": "function",
+      "name": "resolve",
+      "filePath": "src/easy_tdx/backtest/strategies/registry.py",
+      "summary": "便捷函数：按 name 解析策略。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/strategy.py",
+      "type": "file",
+      "name": "strategy.py",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "策略基类和数据代理。  提供策略编写的声明式 API： - StrategyDataProxy: K线数据访问层，支持 OHLCV + 自定义指标列 - Strategy: 策略基类，init() 注册指标，next() 生成信号 - crossover: 金叉检测辅助函数",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategy.py:_SeriesAccessor",
+      "type": "class",
+      "name": "_SeriesAccessor",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "数据序列访问器，支持相对索引和 numpy 数组转换。  Examples:     >>> close = data.close     >>> close[0]      # 当前 bar 的收盘价     >>> close[-1]     # 前一根 bar 的收盘价     >>> ma = MyTT.MA(close.raw, 20)  # 传入 numpy 数组",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategy.py:StrategyDataProxy",
+      "type": "class",
+      "name": "StrategyDataProxy",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "K线数据代理，将 DataFrame 转为高效的 numpy 数组访问。  内部将所有列（除 datetime）转为 numpy 数组，通过 _SeriesAccessor 提供相对索引访问（[0] 当前, [-1] 前一根）。  支持标准 OHLCV 列和任意自定义列（如 MACD_DIF, BOLL_UPPER）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "class",
+      "name": "Strategy",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "策略基类，提供声明式回测 API。  用户子类实现：     - init(): 注册指标（通过 self.I()）     - next(): 生成交易信号（通过 self.buy()/self.sell()）  内部状态：     - self.data: StrategyDataProxy，访问 K线数据     - self.position: {\"size\": float}，当前持仓     - self.chanlun: 缠论分析结果（预留）  示例:     >>> class MyStrategy(Strategy):     ...     def init(self):  ",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategy.py:crossover",
+      "type": "function",
+      "name": "crossover",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "检测 a 从下方穿越 b（金叉）。  Args:     a: 快线序列     b: 慢线序列  Returns:     bool 数组，True 表示发生金叉  Examples:     >>> ma5 = MyTT.MA(data.close.raw, 5)     >>> ma20 = MyTT.MA(data.close.raw, 20)     >>> cross = crossover(ma5, ma20)  # ma5 上穿 ma20     >>> if cross[bar_index]:     ...     strategy.buy(size=100)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/backtest/strategy.py:_datetime_to_int",
+      "type": "function",
+      "name": "_datetime_to_int",
+      "filePath": "src/easy_tdx/backtest/strategy.py",
+      "summary": "将 datetime 数组转为 int (YYYYMMDD)。  向量化实现，自动处理 datetime64、object（Timestamp）和数值类型。  Args:     arr: datetime 数组（np.datetime64、pd.Timestamp 或数值）  Returns:     float64 数组，格式 YYYYMMDD",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/backtest/types.py",
+      "type": "file",
+      "name": "types.py",
+      "filePath": "src/easy_tdx/backtest/types.py",
+      "summary": "回测引擎核心数据类型定义。  使用纯 dataclass + 类型注解，保持 mypy strict 兼容。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/types.py:Signal",
+      "type": "class",
+      "name": "Signal",
+      "filePath": "src/easy_tdx/backtest/types.py",
+      "summary": "策略产生的交易信号。  Attributes:     datetime: 信号时间（YYYYMMDD 整数格式，如 20240101）     direction: 交易方向     size: 交易数量（0 = 全仓/清仓）     price: 限价（None = 市价单）     stop_loss: 止损价（None = 不设置）     take_profit: 止盈价（None = 不设置）     source: 信号来源。\"strategy\"=策略产生（默认）；         \"stop\"=止损/止盈触发。stop 来源的信号不在信号 bar 当根成交，         而",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/types.py:Trade",
+      "type": "class",
+      "name": "Trade",
+      "filePath": "src/easy_tdx/backtest/types.py",
+      "summary": "已成交记录。  Attributes:     datetime: 成交时间（YYYYMMDD 整数格式，如 20240101）     direction: 交易方向     size: 成交数量     price: 成交价格     commission: 手续费     slippage: 滑点成本     pnl: 已实现盈亏（仅平仓时计算，绝对金额单位：元）     cost_basis: SELL 对应的持仓成本基数（元），用于派生单笔收益率 pnl/cost_basis     rejected: 是否被拒绝（资金不足/不允许做空等）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/types.py:Position",
+      "type": "class",
+      "name": "Position",
+      "filePath": "src/easy_tdx/backtest/types.py",
+      "summary": "持仓快照。  Attributes:     datetime: 快照时间（YYYYMMDD 整数格式，如 20240101）     size: 持仓数量（正=多头，负=空头，0=空仓）     avg_price: 平均持仓成本     market_value: 市值     unrealized_pnl: 未实现盈亏",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/backtest/types.py:BacktestResult",
+      "type": "class",
+      "name": "BacktestResult",
+      "filePath": "src/easy_tdx/backtest/types.py",
+      "summary": "回测完整结果。  Attributes:     performance: 绩效指标字典（总收益率、夏普比率、最大回撤等）     equity_curve: 资金曲线 DataFrame（index=datetime, columns=equity/drawdown等）     trades: 成交记录 DataFrame     positions: 持仓快照 DataFrame     config: 配置参数字典",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/chanlun/__init__.py",
+      "summary": "缠论（ChanLun）技术分析模块。  基于缠论理论实现 K 线合并、分型识别、笔/线段/中枢/买卖点/背驰计算。  核心 API::      from easy_tdx.chanlun import ChanlunAnalyser, ChanlunConfig      analyser = ChanlunAnalyser(\"SZ000001\", \"DAILY\")     result = analyser.process_klines(df)     print(result.to_dict())",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/analyser.py",
+      "type": "file",
+      "name": "analyser.py",
+      "filePath": "src/easy_tdx/chanlun/analyser.py",
+      "summary": "缠论分析器主入口。  ChanlunAnalyser 接收 easy_tdx 的 K 线 DataFrame， 内部执行完整的缠论计算管道： K线合并 → 分型识别 → 笔计算 → 中枢计算 → 线段 → 买卖点 → 背驰。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/analyser.py:ChanlunResult",
+      "type": "class",
+      "name": "ChanlunResult",
+      "filePath": "src/easy_tdx/chanlun/analyser.py",
+      "summary": "缠论分析结果。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/analyser.py:ChanlunAnalyser",
+      "type": "class",
+      "name": "ChanlunAnalyser",
+      "filePath": "src/easy_tdx/chanlun/analyser.py",
+      "summary": "缠论分析器。  接收 easy_tdx K 线 DataFrame，执行缠论计算管道。  用法：     analyser = ChanlunAnalyser(\"SZ000001\", \"DAILY\")     analyser.process_klines(df)     result = analyser.result",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/analyser.py:_df_to_klines",
+      "type": "function",
+      "name": "_df_to_klines",
+      "filePath": "src/easy_tdx/chanlun/analyser.py",
+      "summary": "将 easy_tdx K 线 DataFrame 转为缠论 Kline 列表。  期望 DataFrame 包含列：datetime, open, close, high, low, vol",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/beichi.py",
+      "type": "file",
+      "name": "beichi.py",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "背驰判断。  背驰类型： - 笔背驰：相邻同向笔的力度比较（幅度或 MACD 面积减小） - 盘整背驰：中枢内最后一笔力度小于进入中枢的第一笔 - 趋势背驰：两个同向中枢之间，离开中枢的笔力度减小",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/beichi.py:check_bi_beichi",
+      "type": "function",
+      "name": "check_bi_beichi",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "检查笔级别的背驰。  简化算法： 1. 笔背驰：比较相邻同向笔的幅度（后 < 前 = 背驰） 2. 盘整背驰：中枢内最后一笔与进入笔比较 3. 趋势背驰：连续两个同向中枢，离开力度减小  Args:     bis: 笔列表     zss: 中枢列表     config: 缠论配置  Returns:     背驰列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/beichi.py:_check_bi_level_beichi",
+      "type": "function",
+      "name": "_check_bi_level_beichi",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "检查笔级别的力度背驰。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/beichi.py:_check_pz_beichi",
+      "type": "function",
+      "name": "_check_pz_beichi",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "检查盘整背驰。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/beichi.py:_check_qs_beichi",
+      "type": "function",
+      "name": "_check_qs_beichi",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "检查趋势背驰。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/beichi.py:_calc_bi_force",
+      "type": "function",
+      "name": "_calc_bi_force",
+      "filePath": "src/easy_tdx/chanlun/beichi.py",
+      "summary": "计算笔的力度（简化：用幅度表示）。  真正的力度应用 MACD 面积，这里用幅度作为简化替代。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/bi.py",
+      "type": "file",
+      "name": "bi.py",
+      "filePath": "src/easy_tdx/chanlun/bi.py",
+      "summary": "笔计算。  笔的定义： - 由相邻的顶底分型连接而成 - 顶→底 = 向下笔，底→顶 = 向上笔 - 新笔规则：分型之间至少有 1 根独立缠论 K 线（即分型中间 K 线的 index 差 > 2） - 老笔规则：分型之间至少有 3 根缠论 K 线 - 简单笔规则：只要顶底交替即可",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/bi.py:_can_form_bi",
+      "type": "function",
+      "name": "_can_form_bi",
+      "filePath": "src/easy_tdx/chanlun/bi.py",
+      "summary": "判断两个分型是否可以构成一笔。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/bi.py:find_bis",
+      "type": "function",
+      "name": "find_bis",
+      "filePath": "src/easy_tdx/chanlun/bi.py",
+      "summary": "从分型列表中计算笔。  算法（贪心，带 pending 保护）： 1. 遍历分型列表，维护最后一个有效分型（start_fx） 2. 如果当前分型与 start_fx 可以成笔，形成新笔 3. 如果当前分型与 start_fx 同类型，取更极端的替换（顶取更高，底取更低） 4. 如果当前分型与 start_fx 异类型但 gap 不够，记录为 pending_opposite 5. 当存在 pending_opposite 时，不替换 start_fx，保留其在较前的位置，    使后续异类型分型自然满足 gap 要求（避免\"分型陷阱\"）  \"分型陷阱\"场景：持续下跌/上涨中，密集交替分型导致",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "src/easy_tdx/chanlun/config.py",
+      "summary": "缠论计算配置项。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/config.py:ChanlunConfig",
+      "type": "class",
+      "name": "ChanlunConfig",
+      "filePath": "src/easy_tdx/chanlun/config.py",
+      "summary": "缠论计算配置。  所有配置项均有默认值，开箱即用。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/fractal.py",
+      "type": "file",
+      "name": "fractal.py",
+      "filePath": "src/easy_tdx/chanlun/fractal.py",
+      "summary": "分型识别。  顶分型：中间 K 线的高点和低点均为三根中最高。 底分型：中间 K 线的高点和低点均为三根中最低。  严格模式下不允许相等（使用 > 而非 >=）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/fractal.py:find_fractals",
+      "type": "function",
+      "name": "find_fractals",
+      "filePath": "src/easy_tdx/chanlun/fractal.py",
+      "summary": "从缠论 K 线列表中识别分型。  扫描每三根相邻的缠论 K 线，判断是否构成顶分型或底分型。  Args:     cklines: 合并后的缠论 K 线列表     config: 缠论配置（默认使用 ChanlunConfig()）  Returns:     分型列表，按时间顺序排列",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/kline_merge.py",
+      "type": "file",
+      "name": "kline_merge.py",
+      "filePath": "src/easy_tdx/chanlun/kline_merge.py",
+      "summary": "K 线包含处理（合并）。  缠论 K 线合并规则： 1. 如果前一根 K 线方向向上，当前 K 线被包含时，取「高高」合并 2. 如果前一根 K 线方向向下，当前 K 线被包含时，取「低低」合并 3. 包含关系判定：K1.high >= K2.high AND K1.low <= K2.low",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/kline_merge.py:_is_included",
+      "type": "function",
+      "name": "_is_included",
+      "filePath": "src/easy_tdx/chanlun/kline_merge.py",
+      "summary": "判断 a 是否包含 b（a 的高低范围覆盖 b）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/kline_merge.py:_to_clkline",
+      "type": "function",
+      "name": "_to_clkline",
+      "filePath": "src/easy_tdx/chanlun/kline_merge.py",
+      "summary": "将原始 Kline 转为 CLKline。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/kline_merge.py:merge_klines",
+      "type": "function",
+      "name": "merge_klines",
+      "filePath": "src/easy_tdx/chanlun/kline_merge.py",
+      "summary": "对原始 K 线列表进行包含处理，返回缠论 K 线列表。  算法： 1. 第一根 K 线直接转为缠论 K 线 2. 后续每根 K 线与前一根缠论 K 线比较：    a. 如果存在包含关系，根据前一根的方向合并（向上取高高，向下取低低）    b. 如果不存在包含关系，作为新的缠论 K 线追加",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/macd.py",
+      "type": "file",
+      "name": "macd.py",
+      "filePath": "src/easy_tdx/chanlun/macd.py",
+      "summary": "MACD 指标计算（纯 numpy 实现）。  MACD 由三部分组成： - DIF（快线）: EMA(fast) - EMA(slow) - DEA（慢线）: EMA(DIF, signal) - HIST（柱状图）: 2 * (DIF - DEA)",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/macd.py:calc_macd",
+      "type": "function",
+      "name": "calc_macd",
+      "filePath": "src/easy_tdx/chanlun/macd.py",
+      "summary": "计算 MACD 指标。  Args:     closes: 收盘价序列     fast: 快线周期     slow: 慢线周期     signal: 信号线周期  Returns:     {\"dif\": [...], \"dea\": [...], \"hist\": [...]}",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/macd.py:_calc_ema",
+      "type": "function",
+      "name": "_calc_ema",
+      "filePath": "src/easy_tdx/chanlun/macd.py",
+      "summary": "计算指数移动平均线。  EMA(t) = price(t) * k + EMA(t-1) * (1 - k) k = 2 / (period + 1)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/macd.py:calc_macd_force",
+      "type": "function",
+      "name": "calc_macd_force",
+      "filePath": "src/easy_tdx/chanlun/macd.py",
+      "summary": "计算区间内的 MACD 力度（用于背驰判断）。  Args:     closes: 完整收盘价序列     start_idx: 起始索引     end_idx: 结束索引（含）     fast, slow, signal: MACD 参数  Returns:     {\"hist_sum\": 总柱子面积, \"hist_up_sum\": 红柱总和, \"hist_down_sum\": 绿柱总和}",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/mmd.py",
+      "type": "file",
+      "name": "mmd.py",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "买卖点识别。  缠论三类买卖点： - 一类买点：下跌趋势中最后一个中枢下方的底背驰点 - 二类买点：一类买点后回调不创新低的底分型 - 三类买点：向上突破中枢后回调不跌破中枢上沿的底分型 - 一类卖点：上涨趋势中最后一个中枢上方的顶背驰点（对称） - 二类卖点：一类卖点后反弹不创新高的顶分型 - 三类卖点：向下跌破中枢后反弹不突破中枢下沿的顶分型  简化实现：基于笔和中枢的相对位置关系判断。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/mmd.py:find_mmds",
+      "type": "function",
+      "name": "find_mmds",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "从笔和中枢中识别买卖点。  Args:     bis: 笔列表     zss: 中枢列表     config: 缠论配置  Returns:     买卖点列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/mmd.py:_check_bi_mmd",
+      "type": "function",
+      "name": "_check_bi_mmd",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "检查单笔是否在某中枢附近形成买卖点。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/mmd.py:_check_buy_point",
+      "type": "function",
+      "name": "_check_buy_point",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "检查向下笔是否形成买点。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/mmd.py:_check_sell_point",
+      "type": "function",
+      "name": "_check_sell_point",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "检查向上笔是否形成卖点。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/mmd.py:_check_force_decreasing",
+      "type": "function",
+      "name": "_check_force_decreasing",
+      "filePath": "src/easy_tdx/chanlun/mmd.py",
+      "summary": "检查力度是否衰减（简化版：比较相邻同向笔的幅度）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/multi_level.py",
+      "type": "file",
+      "name": "multi_level.py",
+      "filePath": "src/easy_tdx/chanlun/multi_level.py",
+      "summary": "多级别联立分析。  支持同时分析多个 K 线周期（如日线 + 30 分钟）的缠论数据， 查看高级别笔在低级别中的走势结构，辅助判断买卖点的有效性。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/multi_level.py:MultiLevelAnalyser",
+      "type": "class",
+      "name": "MultiLevelAnalyser",
+      "filePath": "src/easy_tdx/chanlun/multi_level.py",
+      "summary": "多级别缠论分析器。  管理多个 ChanlunAnalyser 实例，每个对应一个 K 线周期。 支持跨级别查询：高级别笔对应的低级别走势信息。  用法::      mla = MultiLevelAnalyser()     mla.add_level(\"daily\", ChanlunAnalyser(\"SZ000001\", \"DAILY\"))     mla.add_level(\"30min\", ChanlunAnalyser(\"SZ000001\", \"30MIN\"))     mla.process(\"daily\", df_daily)     mla.process(\"30min\",",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/multi_level.py:_detect_trend_direction",
+      "type": "function",
+      "name": "_detect_trend_direction",
+      "filePath": "src/easy_tdx/chanlun/multi_level.py",
+      "summary": "判断笔序列的趋势方向。  如果连续 3 笔以上高点递增且低点递增 → 上升趋势。 如果连续 3 笔以上高点递减且低点递减 → 下降趋势。 否则 → None（盘整或数据不足）。  Args:     bis: 低级别笔列表  Returns:     \"up\", \"down\", 或 None",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/multi_level.py:_detect_bi_overlap",
+      "type": "function",
+      "name": "_detect_bi_overlap",
+      "filePath": "src/easy_tdx/chanlun/multi_level.py",
+      "summary": "检测相邻笔是否有价格重叠（盘整特征）。  两笔重叠 = 一笔的低点 <= 另一笔的高点（反向）。 如果存在重叠 → 盘整，不重叠 → 趋势。  Args:     bis: 低级别笔列表  Returns:     True 如果存在相邻笔重叠",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/multi_level.py:_check_divergence_condition",
+      "type": "function",
+      "name": "_check_divergence_condition",
+      "filePath": "src/easy_tdx/chanlun/multi_level.py",
+      "summary": "检查是否具备背驰条件。  背驰条件（简化版）： 1. 至少 2 个中枢（趋势结构） 2. 有足够的笔（至少 5 笔，即 a+A0+b+A1+c 结构） 3. 最后一笔的斜率或幅度小于前一笔（力度衰减）  Args:     bis: 低级别笔列表     zss: 低级别中枢列表  Returns:     True 如果可能形成背驰",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/types.py",
+      "type": "file",
+      "name": "types.py",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "缠论核心数据结构定义。  参考 chanlun-pro cl_interface.py，去除对 db/exchange 的依赖， 使用纯 dataclass + 类型注解，保持 mypy strict 兼容。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:Kline",
+      "type": "class",
+      "name": "Kline",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "原始 K 线。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:CLKline",
+      "type": "class",
+      "name": "CLKline",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "缠论 K 线（包含处理后的合并 K 线）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:FXType",
+      "type": "class",
+      "name": "FXType",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "分型类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:FX",
+      "type": "class",
+      "name": "FX",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "分型对象。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:Direction",
+      "type": "class",
+      "name": "Direction",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "方向。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:Line",
+      "type": "class",
+      "name": "Line",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "线的基本定义，笔和线段的基类。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:BI",
+      "type": "class",
+      "name": "BI",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "笔。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:XD",
+      "type": "class",
+      "name": "XD",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "线段。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:ZS",
+      "type": "class",
+      "name": "ZS",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "中枢对象。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:MMDType",
+      "type": "class",
+      "name": "MMDType",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "买卖点类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:MMD",
+      "type": "class",
+      "name": "MMD",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "买卖点。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:BCType",
+      "type": "class",
+      "name": "BCType",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "背驰类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/chanlun/types.py:BC",
+      "type": "class",
+      "name": "BC",
+      "filePath": "src/easy_tdx/chanlun/types.py",
+      "summary": "背驰。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/xd.py",
+      "type": "file",
+      "name": "xd.py",
+      "filePath": "src/easy_tdx/chanlun/xd.py",
+      "summary": "线段计算。  线段定义： - 由至少3笔构成 - 特征序列：将笔的高低点转化为特征序列 - 特征序列分型：判断线段的转折 - 简化实现：使用笔的方向和重叠关系判断线段",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/xd.py:find_xds",
+      "type": "function",
+      "name": "find_xds",
+      "filePath": "src/easy_tdx/chanlun/xd.py",
+      "summary": "从笔列表中计算线段。  简化算法（基于中枢）： 1. 将笔序列划分为线段，每个线段对应一个中枢的形成和离开 2. 从第一笔开始，累积笔直到形成中枢（至少3笔有重叠） 3. 当后续笔离开中枢时，关闭当前线段，开始新线段  Args:     bis: 笔列表     config: 缠论配置  Returns:     线段列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/xd.py:_forms_xd",
+      "type": "function",
+      "name": "_forms_xd",
+      "filePath": "src/easy_tdx/chanlun/xd.py",
+      "summary": "判断一组笔是否构成线段。  简化条件： 1. 至少3笔 2. 中间的笔有价格重叠区域（类似中枢） 3. 最后一笔与重叠区有明确的方向性突破",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/xd.py:_create_xd",
+      "type": "function",
+      "name": "_create_xd",
+      "filePath": "src/easy_tdx/chanlun/xd.py",
+      "summary": "从一组笔创建线段。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/zs.py",
+      "type": "file",
+      "name": "zs.py",
+      "filePath": "src/easy_tdx/chanlun/zs.py",
+      "summary": "中枢计算。  中枢定义：至少三笔（或线段）的价格区间有重叠。 - zg（上沿）= 重叠区间的最高点 - zd（下沿）= 重叠区间的最低点 - gg = 中枢内所有笔的最高价 - dd = 中枢内所有笔的最低价  标准中枢算法： 1. 逐笔扫描，维护当前中枢的 zg/zd 2. 新笔进入时，更新 gg/dd 3. 新笔离开（不再与 [zd, zg] 重叠）时，关闭中枢",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/zs.py:find_zss",
+      "type": "function",
+      "name": "find_zss",
+      "filePath": "src/easy_tdx/chanlun/zs.py",
+      "summary": "从笔列表中计算中枢。  算法： 1. 逐笔扫描 2. 维护当前中枢的 zg/zd（重叠区间） 3. 新笔与 [zd, zg] 有重叠 → 加入中枢，更新重叠区间 4. 新笔与 [zd, zg] 无重叠 → 关闭当前中枢，开始新中枢  Args:     bis: 笔列表     config: 缠论配置  Returns:     中枢列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/chanlun/zsd.py",
+      "type": "file",
+      "name": "zsd.py",
+      "filePath": "src/easy_tdx/chanlun/zsd.py",
+      "summary": "走势段/趋势段计算。  走势段（ZSD）：由线段（XD）构成，类似于笔由分型构成。 走势段的识别基于线段的方向和重叠关系。  趋势段（QSD）：具有明确方向性的走势段，连续同向排列。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/zsd.py:find_zsds",
+      "type": "function",
+      "name": "find_zsds",
+      "filePath": "src/easy_tdx/chanlun/zsd.py",
+      "summary": "从线段列表中计算走势段。  算法： 1. 将相邻同向线段合并为走势段 2. 当线段方向反转时，前一个走势段结束，新的走势段开始 3. 走势段的方向由其中线段的主方向决定  Args:     xds: 线段列表     config: 缠论配置  Returns:     走势段列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/zsd.py:find_qsds",
+      "type": "function",
+      "name": "find_qsds",
+      "filePath": "src/easy_tdx/chanlun/zsd.py",
+      "summary": "从线段列表中计算趋势段。  趋势段是具有明确趋势方向的走势段： - 向上趋势：每个线段的高点和低点逐步抬高 - 向下趋势：每个线段的高点和低点逐步降低  Args:     xds: 线段列表     config: 缠论配置  Returns:     趋势段列表",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/zsd.py:_create_zsd",
+      "type": "function",
+      "name": "_create_zsd",
+      "filePath": "src/easy_tdx/chanlun/zsd.py",
+      "summary": "从起止线段创建走势段。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/chanlun/zsd.py:_is_trending",
+      "type": "function",
+      "name": "_is_trending",
+      "filePath": "src/easy_tdx/chanlun/zsd.py",
+      "summary": "判断走势段是否形成趋势。  简化判断：走势段跨越的幅度是否足够大（至少 2 个线段的范围）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/cli/__init__.py",
+      "summary": "easy-tdx CLI -- Agent 友好的通达信行情命令行工具。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/__init__.py:cli",
+      "type": "function",
+      "name": "cli",
+      "filePath": "src/easy_tdx/cli/__init__.py",
+      "summary": "easy-tdx -- 通达信行情数据 CLI（默认 JSON 输出，适合 Agent 使用）。  所有命令默认输出 JSON。使用 --table 切换为表格，--output 指定格式。  示例：    easy-tdx ping    easy-tdx kline SZ 000001 --table    easy-tdx quote \"SZ 000001,SH 600519\"    easy-tdx quote-list A --count 20 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_admin.py",
+      "type": "file",
+      "name": "cmd_admin.py",
+      "filePath": "src/easy_tdx/cli/cmd_admin.py",
+      "summary": "管理命令：ping, version。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_admin.py:ping",
+      "type": "function",
+      "name": "ping",
+      "filePath": "src/easy_tdx/cli/cmd_admin.py",
+      "summary": "测量通达信服务器延迟。  示例：    easy-tdx ping    easy-tdx ping --timeout 3 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_admin.py:version",
+      "type": "function",
+      "name": "version",
+      "filePath": "src/easy_tdx/cli/cmd_admin.py",
+      "summary": "显示版本号。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_announcement.py",
+      "type": "file",
+      "name": "cmd_announcement.py",
+      "filePath": "src/easy_tdx/cli/cmd_announcement.py",
+      "summary": "公告检索命令（巨潮资讯网数据源，无需 TDX 服务器）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_announcement.py:announcement",
+      "type": "function",
+      "name": "announcement",
+      "filePath": "src/easy_tdx/cli/cmd_announcement.py",
+      "summary": "检索公司公告（巨潮资讯网，独立数据源，无需连接 TDX）。  \b 示例：    easy-tdx announcement 688017    easy-tdx announcement 601088 --count 50 --page 2    easy-tdx announcement 000001 --table    # 下载最新 5 条公告的 PDF 到 ./pdfs 目录   easy-tdx announcement 601088 --count 5 --download 5 --download-dir ./pdfs",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_auction.py",
+      "type": "file",
+      "name": "cmd_auction.py",
+      "filePath": "src/easy_tdx/cli/cmd_auction.py",
+      "summary": "集合竞价命令。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_auction.py:auction",
+      "type": "function",
+      "name": "auction",
+      "filePath": "src/easy_tdx/cli/cmd_auction.py",
+      "summary": "获取集合竞价数据。  示例：    easy-tdx auction SZ 000001    easy-tdx auction SH 600519 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_board.py",
+      "type": "file",
+      "name": "cmd_board.py",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "板块命令：board-list, board-members, belong-board。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:board_list",
+      "type": "function",
+      "name": "board_list",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取板块列表。  示例：    easy-tdx board-list --table    easy-tdx board-list --type GN --count 200    easy-tdx board-list --type HY",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:board_members",
+      "type": "function",
+      "name": "board_members",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取板块成分股报价。  BOARD_SYMBOL: 板块代码（如 881001）  示例：    easy-tdx board-members 881001 --table    easy-tdx board-members 881001 --sort VOLUME --count 20",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:belong_board",
+      "type": "function",
+      "name": "belong_board",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取个股所属板块列表。  示例：    easy-tdx belong-board SZ 000001    easy-tdx belong-board SH 600519 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:board_summary",
+      "type": "function",
+      "name": "board_summary",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取板块汇总（成交额、主力净流入、涨跌家数）。  BOARD_SYMBOL: 板块代码（如 881001）  示例：    easy-tdx board-summary 881001 --table    easy-tdx board-summary 881001 --members --table    easy-tdx board-summary 881001 --sort VOLUME --order ASC",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:board_ranking",
+      "type": "function",
+      "name": "board_ranking",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取板块涨跌幅排行榜（行业/概念排行）。  示例：    easy-tdx board-ranking --table    easy-tdx board-ranking --type GN --top 20 --table    easy-tdx board-ranking --type HY --sort-by amount --asc",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_board.py:board_change_ranking",
+      "type": "function",
+      "name": "board_change_ranking",
+      "filePath": "src/easy_tdx/cli/cmd_board.py",
+      "summary": "获取板块 N 日涨跌幅排行榜。  示例：    easy-tdx board-change-ranking --table    easy-tdx board-change-ranking --type GN --days 10 --top 15 --table    easy-tdx board-change-ranking --type HY --date 20250530 --days 20 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_capital.py",
+      "type": "file",
+      "name": "cmd_capital.py",
+      "filePath": "src/easy_tdx/cli/cmd_capital.py",
+      "summary": "资金流向命令。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_capital.py:capital_flow",
+      "type": "function",
+      "name": "capital_flow",
+      "filePath": "src/easy_tdx/cli/cmd_capital.py",
+      "summary": "获取个股资金流向数据。  示例：    easy-tdx capital-flow SZ 000001    easy-tdx capital-flow SH 600519 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_chanlun.py",
+      "type": "file",
+      "name": "cmd_chanlun.py",
+      "filePath": "src/easy_tdx/cli/cmd_chanlun.py",
+      "summary": "缠论分析命令。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_chanlun.py:chanlun",
+      "type": "function",
+      "name": "chanlun",
+      "filePath": "src/easy_tdx/cli/cmd_chanlun.py",
+      "summary": "缠论分析：计算 K 线的笔、中枢等缠论指标。  示例：    easy-tdx chanlun SZ 000001    easy-tdx chanlun SH 600519 --adjust QFQ --table    easy-tdx chanlun SZ 000001 --period 30MIN    easy-tdx chanlun SZ 000001 --multi-level 30MIN --table    easy-tdx chanlun SZ 000001 --multi-level 5MIN",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_chanlun.py:_print_table",
+      "type": "function",
+      "name": "_print_table",
+      "filePath": "src/easy_tdx/cli/cmd_chanlun.py",
+      "summary": "以表格形式输出缠论分析结果。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_chanlun.py:_run_multi_level",
+      "type": "function",
+      "name": "_run_multi_level",
+      "filePath": "src/easy_tdx/cli/cmd_chanlun.py",
+      "summary": "运行多级别联立分析。  获取低级别数据，分析高级别最后一笔在低级别中的走势结构。  Args:     client: TdxClient 实例     mkt: Market 枚举值     code: 股票代码     high_period: 高级别周期     low_period: 低级别周期     count: K线数量     adjust: 复权方式     high_analyser: 高级别分析器（已处理）     high_result: 高级别分析结果  Returns:     多级别分析信息字典，或 None（数据不足时）",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_company.py",
+      "type": "file",
+      "name": "cmd_company.py",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "通达信原生 F10 / 财务快照命令（TDX 协议，与 Web 层 ``/finance`` ``/company/*`` 同源）。  与 ``cmd_finance.py`` 的新浪三表（``f10``）区别：   - ``f10``                走新浪 HTTP，输出多期结构化利润表/负债表/现金流   - 本模块走通达信协议，输出最新一期财务快照 + F10 全文板块",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/cli/cmd_company.py:_ResolveError",
+      "type": "class",
+      "name": "_ResolveError",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "板块名解析失败（内部信号异常，与 TdxError 分开捕获）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:finance_info",
+      "type": "function",
+      "name": "finance_info",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "获取最新财务快照（通达信协议，30+ 项单期指标）。  含股本结构、资产负债、利润、现金流、每股指标等最新一期数据。 与 ``f10``（新浪多期三表）互补，本命令仅返回最新一期。  \b 示例：    easy-tdx finance-info SH 600519 --table    easy-tdx finance-info SZ 000001",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:company_info",
+      "type": "function",
+      "name": "company_info",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "获取 F10 公司信息：无板块名参数列目录，有板块名参数读正文。  \b 两种用法：    # 1. 列出 F10 板块目录（最新提示/公司概况/财务分析/... 共 16 板块）   easy-tdx company-info SH 600519 --table    # 2. 读取指定板块的完整正文（板块名自动解析定位，自动读全，无需 offset/length）   easy-tdx company-info SH 600519 \"公司概况\"   easy-tdx company-info SH 600519 \"公司大事\"     # 大板块自动分块循环读全  \b 传板块名时自动读取该板块",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:company_info_content",
+      "type": "function",
+      "name": "company_info_content",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "[已弃用，改用 company-info] 读取 F10 公司信息板块正文。  此命令为向后兼容保留（隐藏，不出现在 --help）。新用法::      easy-tdx company-info SH 600519 \"公司概况\"",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:_run_category",
+      "type": "function",
+      "name": "_run_category",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "列出 F10 板块目录并输出。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:_run_content",
+      "type": "function",
+      "name": "_run_content",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "读取 F10 板块正文并输出。  传板块名时自动读取该板块**完整内容**（按目录里的 length 分块循环，单次上限 30720 字节）；--offset/--length 仅在传文件名时生效。  通达信多服务器返回的 F10 目录版本可能不一致（有的含新板块名、有的含旧板块名）， 因此传板块名时若未命中会重试多个服务器（新建连接），直至命中或耗尽。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:_read_full_section",
+      "type": "function",
+      "name": "_read_full_section",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "分块循环读取板块完整内容（单次上限 30720 字节）。  offset/length 均为服务器端字节偏移，按请求的 n 推进 pos （解码后字符串无法精确还原字节数，且有 GBK 无法解码的字节会产生 U+FFFD）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_company.py:_resolve_filename",
+      "type": "function",
+      "name": "_resolve_filename",
+      "filePath": "src/easy_tdx/cli/cmd_company.py",
+      "summary": "把板块名解析为 (filename, 板块起始 offset, 板块长度, True)。  注意：通达信多服务器目录版本不一致，命中与否取决于连到哪台服务器， 调用方应配合重试（见 _run_content）。未命中抛 _ResolveError（含可用板块名）。 仅处理板块名；文件名解析在 _run_content 顶部完成。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "class:src/easy_tdx/backtest/strategies/registry.py:Param",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines class Param."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "class:src/easy_tdx/backtest/strategies/registry.py:ParametrizedStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines class ParametrizedStrategy."
+    },
+    {
+      "source": "class:src/easy_tdx/backtest/strategies/registry.py:ParametrizedStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "ParametrizedStrategy inherits Strategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "class:src/easy_tdx/backtest/strategies/registry.py:RegisteredStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines class RegisteredStrategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "class:src/easy_tdx/backtest/strategies/registry.py:StrategyRegistry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines class StrategyRegistry."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "function:src/easy_tdx/backtest/strategies/registry.py:_type_name",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines function _type_name()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "function:src/easy_tdx/backtest/strategies/registry.py:get_registry",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines function get_registry()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "function:src/easy_tdx/backtest/strategies/registry.py:register_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines function register_strategy()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "target": "function:src/easy_tdx/backtest/strategies/registry.py:resolve",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategies/registry.py defines function resolve()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategy.py",
+      "target": "class:src/easy_tdx/backtest/strategy.py:_SeriesAccessor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategy.py defines class _SeriesAccessor."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategy.py",
+      "target": "class:src/easy_tdx/backtest/strategy.py:StrategyDataProxy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategy.py defines class StrategyDataProxy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategy.py",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategy.py defines class Strategy."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategy.py",
+      "target": "function:src/easy_tdx/backtest/strategy.py:crossover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategy.py defines function crossover()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/strategy.py",
+      "target": "function:src/easy_tdx/backtest/strategy.py:_datetime_to_int",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/strategy.py defines function _datetime_to_int()."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/types.py",
+      "target": "class:src/easy_tdx/backtest/types.py:Signal",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/types.py defines class Signal."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/types.py",
+      "target": "class:src/easy_tdx/backtest/types.py:Trade",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/types.py defines class Trade."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/types.py",
+      "target": "class:src/easy_tdx/backtest/types.py:Position",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/types.py defines class Position."
+    },
+    {
+      "source": "file:src/easy_tdx/backtest/types.py",
+      "target": "class:src/easy_tdx/backtest/types.py:BacktestResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/backtest/types.py defines class BacktestResult."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/analyser.py",
+      "target": "class:src/easy_tdx/chanlun/analyser.py:ChanlunResult",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/analyser.py defines class ChanlunResult."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/analyser.py",
+      "target": "class:src/easy_tdx/chanlun/analyser.py:ChanlunAnalyser",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/analyser.py defines class ChanlunAnalyser."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/analyser.py",
+      "target": "function:src/easy_tdx/chanlun/analyser.py:_df_to_klines",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/analyser.py defines function _df_to_klines()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/beichi.py",
+      "target": "function:src/easy_tdx/chanlun/beichi.py:check_bi_beichi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/beichi.py defines function check_bi_beichi()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/beichi.py",
+      "target": "function:src/easy_tdx/chanlun/beichi.py:_check_bi_level_beichi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/beichi.py defines function _check_bi_level_beichi()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/beichi.py",
+      "target": "function:src/easy_tdx/chanlun/beichi.py:_check_pz_beichi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/beichi.py defines function _check_pz_beichi()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/beichi.py",
+      "target": "function:src/easy_tdx/chanlun/beichi.py:_check_qs_beichi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/beichi.py defines function _check_qs_beichi()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/beichi.py",
+      "target": "function:src/easy_tdx/chanlun/beichi.py:_calc_bi_force",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/beichi.py defines function _calc_bi_force()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/bi.py",
+      "target": "function:src/easy_tdx/chanlun/bi.py:_can_form_bi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/bi.py defines function _can_form_bi()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/bi.py",
+      "target": "function:src/easy_tdx/chanlun/bi.py:find_bis",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/bi.py defines function find_bis()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/config.py",
+      "target": "class:src/easy_tdx/chanlun/config.py:ChanlunConfig",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/config.py defines class ChanlunConfig."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/fractal.py",
+      "target": "function:src/easy_tdx/chanlun/fractal.py:find_fractals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/fractal.py defines function find_fractals()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/kline_merge.py",
+      "target": "function:src/easy_tdx/chanlun/kline_merge.py:_is_included",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/kline_merge.py defines function _is_included()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/kline_merge.py",
+      "target": "function:src/easy_tdx/chanlun/kline_merge.py:_to_clkline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/kline_merge.py defines function _to_clkline()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/kline_merge.py",
+      "target": "function:src/easy_tdx/chanlun/kline_merge.py:merge_klines",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/kline_merge.py defines function merge_klines()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/macd.py",
+      "target": "function:src/easy_tdx/chanlun/macd.py:calc_macd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/macd.py defines function calc_macd()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/macd.py",
+      "target": "function:src/easy_tdx/chanlun/macd.py:_calc_ema",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/macd.py defines function _calc_ema()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/macd.py",
+      "target": "function:src/easy_tdx/chanlun/macd.py:calc_macd_force",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/macd.py defines function calc_macd_force()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/mmd.py",
+      "target": "function:src/easy_tdx/chanlun/mmd.py:find_mmds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/mmd.py defines function find_mmds()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/mmd.py",
+      "target": "function:src/easy_tdx/chanlun/mmd.py:_check_bi_mmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/mmd.py defines function _check_bi_mmd()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/mmd.py",
+      "target": "function:src/easy_tdx/chanlun/mmd.py:_check_buy_point",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/mmd.py defines function _check_buy_point()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/mmd.py",
+      "target": "function:src/easy_tdx/chanlun/mmd.py:_check_sell_point",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/mmd.py defines function _check_sell_point()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/mmd.py",
+      "target": "function:src/easy_tdx/chanlun/mmd.py:_check_force_decreasing",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/mmd.py defines function _check_force_decreasing()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/multi_level.py",
+      "target": "class:src/easy_tdx/chanlun/multi_level.py:MultiLevelAnalyser",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/multi_level.py defines class MultiLevelAnalyser."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/multi_level.py",
+      "target": "function:src/easy_tdx/chanlun/multi_level.py:_detect_trend_direction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/multi_level.py defines function _detect_trend_direction()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/multi_level.py",
+      "target": "function:src/easy_tdx/chanlun/multi_level.py:_detect_bi_overlap",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/multi_level.py defines function _detect_bi_overlap()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/multi_level.py",
+      "target": "function:src/easy_tdx/chanlun/multi_level.py:_check_divergence_condition",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/multi_level.py defines function _check_divergence_condition()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:Kline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class Kline."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:CLKline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class CLKline."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:FXType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class FXType."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:FX",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class FX."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:Direction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class Direction."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:Line",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class Line."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:BI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class BI."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:XD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class XD."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:ZS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class ZS."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:MMDType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class MMDType."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:MMD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class MMD."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:BCType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class BCType."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/types.py",
+      "target": "class:src/easy_tdx/chanlun/types.py:BC",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/types.py defines class BC."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/xd.py",
+      "target": "function:src/easy_tdx/chanlun/xd.py:find_xds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/xd.py defines function find_xds()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/xd.py",
+      "target": "function:src/easy_tdx/chanlun/xd.py:_forms_xd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/xd.py defines function _forms_xd()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/xd.py",
+      "target": "function:src/easy_tdx/chanlun/xd.py:_create_xd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/xd.py defines function _create_xd()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/zs.py",
+      "target": "function:src/easy_tdx/chanlun/zs.py:find_zss",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/zs.py defines function find_zss()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/zsd.py",
+      "target": "function:src/easy_tdx/chanlun/zsd.py:find_zsds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/zsd.py defines function find_zsds()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/zsd.py",
+      "target": "function:src/easy_tdx/chanlun/zsd.py:find_qsds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/zsd.py defines function find_qsds()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/zsd.py",
+      "target": "function:src/easy_tdx/chanlun/zsd.py:_create_zsd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/zsd.py defines function _create_zsd()."
+    },
+    {
+      "source": "file:src/easy_tdx/chanlun/zsd.py",
+      "target": "function:src/easy_tdx/chanlun/zsd.py:_is_trending",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/chanlun/zsd.py defines function _is_trending()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_admin.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_admin"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_announcement.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_announcement"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_auction.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_auction"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_board.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_board"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_capital.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_capital"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_chanlun.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_chanlun"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "file:src/easy_tdx/cli/cmd_company.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .cmd_company"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/__init__.py",
+      "target": "function:src/easy_tdx/cli/__init__.py:cli",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/__init__.py defines function cli()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_admin.py",
+      "target": "function:src/easy_tdx/cli/cmd_admin.py:ping",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_admin.py defines function ping()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_admin.py",
+      "target": "function:src/easy_tdx/cli/cmd_admin.py:version",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_admin.py defines function version()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_announcement.py",
+      "target": "function:src/easy_tdx/cli/cmd_announcement.py:announcement",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_announcement.py defines function announcement()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_auction.py",
+      "target": "function:src/easy_tdx/cli/cmd_auction.py:auction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_auction.py defines function auction()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:board_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function board_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:board_members",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function board_members()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:belong_board",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function belong_board()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:board_summary",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function board_summary()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:board_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function board_ranking()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_board.py",
+      "target": "function:src/easy_tdx/cli/cmd_board.py:board_change_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_board.py defines function board_change_ranking()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_capital.py",
+      "target": "function:src/easy_tdx/cli/cmd_capital.py:capital_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_capital.py defines function capital_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_chanlun.py",
+      "target": "function:src/easy_tdx/cli/cmd_chanlun.py:chanlun",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_chanlun.py defines function chanlun()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_chanlun.py",
+      "target": "function:src/easy_tdx/cli/cmd_chanlun.py:_print_table",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_chanlun.py defines function _print_table()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_chanlun.py",
+      "target": "function:src/easy_tdx/cli/cmd_chanlun.py:_run_multi_level",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_chanlun.py defines function _run_multi_level()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "class:src/easy_tdx/cli/cmd_company.py:_ResolveError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines class _ResolveError."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:finance_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function finance_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:company_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function company_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:company_info_content",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function company_info_content()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:_run_category",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function _run_category()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:_run_content",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function _run_content()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:_read_full_section",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function _read_full_section()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_company.py",
+      "target": "function:src/easy_tdx/cli/cmd_company.py:_resolve_filename",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_company.py defines function _resolve_filename()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 113,
+    "edgesCreated": 96,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 11 analyzed via AST. 113 nodes, 96 edges from 25 files."
+  }
+}

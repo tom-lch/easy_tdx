@@ -1,0 +1,1270 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".readthedocs.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "build",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "sphinx",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "formats",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "python",
+          "level": 1,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 1024,
+      "nonEmptyLines": 680,
+      "sections": [
+        {
+          "heading": "更新日志",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1.20.0] — 2026-07-08",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "[1.19.7] — 2026-07-07",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "设计决策",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "[1.19.6] — 2026-07-07",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "[1.19.5] — 2026-07-07",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "[1.19.4] — 2026-07-07",
+          "level": 2,
+          "line": 56
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "[1.19.3] — 2026-07-07",
+          "level": 2,
+          "line": 66
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "[1.19.2] — 2026-07-07",
+          "level": 2,
+          "line": 75
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "[1.19.1] — 2026-07-07",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "文档",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "[1.18.3] — 2026-07-06",
+          "level": 2,
+          "line": 107
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "[1.18.2] — 2026-07-06",
+          "level": 2,
+          "line": 119
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "[1.18.1] — 2026-07-06",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 146
+        },
+        {
+          "heading": "[1.18.0] — 2026-07-05",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 155
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 170
+        },
+        {
+          "heading": "[1.17.15] — 2026-07-05",
+          "level": 2,
+          "line": 176
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "[1.17.14] — 2026-07-05",
+          "level": 2,
+          "line": 190
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 194
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 203
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "[1.17.13] — 2026-07-04",
+          "level": 2,
+          "line": 212
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "[1.17.12] — 2026-07-04",
+          "level": 2,
+          "line": 221
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 225
+        },
+        {
+          "heading": "[1.17.11] — 2026-07-04",
+          "level": 2,
+          "line": 229
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 242
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 247
+        },
+        {
+          "heading": "[1.17.10] — 2026-07-04",
+          "level": 2,
+          "line": 252
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 260
+        },
+        {
+          "heading": "已知约束（非 bug）",
+          "level": 3,
+          "line": 265
+        },
+        {
+          "heading": "[1.17.9] — 2026-07-04",
+          "level": 2,
+          "line": 269
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 273
+        },
+        {
+          "heading": "回归守卫",
+          "level": 3,
+          "line": 280
+        },
+        {
+          "heading": "[1.17.8] — 2026-07-04",
+          "level": 2,
+          "line": 286
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 290
+        },
+        {
+          "heading": "[1.17.7] — 2026-07-04",
+          "level": 2,
+          "line": 294
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 298
+        },
+        {
+          "heading": "[1.17.6] — 2026-07-04",
+          "level": 2,
+          "line": 302
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 306
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 310
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 314
+        },
+        {
+          "heading": "[1.17.5] — 2026-07-04",
+          "level": 2,
+          "line": 318
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 322
+        },
+        {
+          "heading": "说明",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "[1.17.4] — 2026-07-04",
+          "level": 2,
+          "line": 332
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 336
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 343
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 351
+        },
+        {
+          "heading": "[1.17.2] — 2026-07-03",
+          "level": 2,
+          "line": 355
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 359
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 368
+        },
+        {
+          "heading": "[1.17.0] — 2026-07-03",
+          "level": 2,
+          "line": 374
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 378
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 402
+        },
+        {
+          "heading": "[1.16.3] — 2026-07-02",
+          "level": 2,
+          "line": 413
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 415
+        },
+        {
+          "heading": "[1.16.2] — 2026-07-02",
+          "level": 2,
+          "line": 422
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 438
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 447
+        },
+        {
+          "heading": "发布工程",
+          "level": 3,
+          "line": 453
+        },
+        {
+          "heading": "[1.16.1] — 2026-07-01",
+          "level": 2,
+          "line": 461
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "[1.16.0] — 2026-06-30",
+          "level": 2,
+          "line": 472
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 474
+        },
+        {
+          "heading": "[1.15.4] — 2026-06-29",
+          "level": 2,
+          "line": 484
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 486
+        },
+        {
+          "heading": "[1.15.3] — 2026-06-27",
+          "level": 2,
+          "line": 495
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 497
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 503
+        },
+        {
+          "heading": "[1.15.2] — 2026-06-27",
+          "level": 2,
+          "line": 507
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 509
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 517
+        },
+        {
+          "heading": "[1.15.1] — 2026-06-27",
+          "level": 2,
+          "line": 525
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 527
+        },
+        {
+          "heading": "[1.15.0] — 2026-06-25",
+          "level": 2,
+          "line": 535
+        },
+        {
+          "heading": "新增",
+          "level": 3,
+          "line": 537
+        },
+        {
+          "heading": "修复",
+          "level": 3,
+          "line": 551
+        },
+        {
+          "heading": "变更",
+          "level": 3,
+          "line": 556
+        },
+        {
+          "heading": "[1.14.5] (2026-06-17)",
+          "level": 2,
+          "line": 561
+        },
+        {
+          "heading": "[1.14.4] (2026-06-16)",
+          "level": 2,
+          "line": 567
+        },
+        {
+          "heading": "[1.14.3] (2026-06-16)",
+          "level": 2,
+          "line": 571
+        },
+        {
+          "heading": "[1.14.2] (2026-06-16)",
+          "level": 2,
+          "line": 579
+        },
+        {
+          "heading": "[1.14.1] (2026-06-15)",
+          "level": 2,
+          "line": 591
+        },
+        {
+          "heading": "[1.14.0] (2026-06-15)",
+          "level": 2,
+          "line": 605
+        },
+        {
+          "heading": "[1.13.1] (2026-06-15)",
+          "level": 2,
+          "line": 620
+        },
+        {
+          "heading": "[1.13.0] (2026-06-14)",
+          "level": 2,
+          "line": 638
+        },
+        {
+          "heading": "[1.12.0] (2026-06-14)",
+          "level": 2,
+          "line": 648
+        },
+        {
+          "heading": "[1.11.6] (2026-06-13)",
+          "level": 2,
+          "line": 671
+        },
+        {
+          "heading": "[1.11.5] (2026-06-13)",
+          "level": 2,
+          "line": 687
+        },
+        {
+          "heading": "[1.11.1] (2026-06-12)",
+          "level": 2,
+          "line": 708
+        },
+        {
+          "heading": "[1.10.5] (2026-06-12)",
+          "level": 2,
+          "line": 740
+        },
+        {
+          "heading": "[1.10.0] (2026-06-12)",
+          "level": 2,
+          "line": 758
+        },
+        {
+          "heading": "[1.9.10] (2026-06-11)",
+          "level": 2,
+          "line": 772
+        },
+        {
+          "heading": "[1.9.9] (2026-06-11)",
+          "level": 2,
+          "line": 783
+        },
+        {
+          "heading": "[1.9.8] (2026-06-11)",
+          "level": 2,
+          "line": 792
+        },
+        {
+          "heading": "[1.9.7] (2026-06-11)",
+          "level": 2,
+          "line": 801
+        },
+        {
+          "heading": "[1.9.6] (2026-06-11)",
+          "level": 2,
+          "line": 812
+        },
+        {
+          "heading": "[1.9.5] (2026-06-10)",
+          "level": 2,
+          "line": 830
+        },
+        {
+          "heading": "[1.9.4] (2026-06-10)",
+          "level": 2,
+          "line": 840
+        },
+        {
+          "heading": "[1.9.3] (2026-06-10)",
+          "level": 2,
+          "line": 847
+        },
+        {
+          "heading": "[1.9.2] (2026-06-10)",
+          "level": 2,
+          "line": 857
+        },
+        {
+          "heading": "[1.9.0] (2026-06-10)",
+          "level": 2,
+          "line": 869
+        },
+        {
+          "heading": "[1.8.2] (2026-06-09)",
+          "level": 2,
+          "line": 881
+        },
+        {
+          "heading": "[1.8.1] (2026-06-09)",
+          "level": 2,
+          "line": 894
+        },
+        {
+          "heading": "[1.8.0] (2026-06-09)",
+          "level": 2,
+          "line": 902
+        },
+        {
+          "heading": "[1.7.1] (2026-06-08)",
+          "level": 2,
+          "line": 914
+        },
+        {
+          "heading": "[1.7.0] (2026-06-07)",
+          "level": 2,
+          "line": 924
+        },
+        {
+          "heading": "[1.6.1] (2026-06-07)",
+          "level": 2,
+          "line": 935
+        },
+        {
+          "heading": "[1.6.0] (2026-06-07)",
+          "level": 2,
+          "line": 943
+        },
+        {
+          "heading": "[1.5.0] (2026-06-02)",
+          "level": 2,
+          "line": 955
+        },
+        {
+          "heading": "[1.4.3] (2026-05-28)",
+          "level": 2,
+          "line": 968
+        },
+        {
+          "heading": "[1.4.2] (2026-05-28)",
+          "level": 2,
+          "line": 977
+        },
+        {
+          "heading": "[1.4.1] (2026-05-28)",
+          "level": 2,
+          "line": 981
+        },
+        {
+          "heading": "[1.4.0] (2026-05-28)",
+          "level": 2,
+          "line": 990
+        },
+        {
+          "heading": "[1.3.1] (2025-05-15)",
+          "level": 2,
+          "line": 1001
+        },
+        {
+          "heading": "[1.3.0] (2025-05-12)",
+          "level": 2,
+          "line": 1007
+        },
+        {
+          "heading": "[1.2.1] (2025-04-20)",
+          "level": 2,
+          "line": 1015
+        },
+        {
+          "heading": "[1.0.0] (2025-03-01)",
+          "level": 2,
+          "line": 1020
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 143
+      }
+    },
+    {
+      "path": "LICENSE",
+      "language": "unknown",
+      "fileCategory": "docs",
+      "totalLines": 34,
+      "nonEmptyLines": 26,
+      "metrics": {}
+    },
+    {
+      "path": "NOTICE",
+      "language": "unknown",
+      "fileCategory": "docs",
+      "totalLines": 24,
+      "nonEmptyLines": 18,
+      "metrics": {}
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 1823,
+      "nonEmptyLines": 1389,
+      "sections": [
+        {
+          "heading": "easy-tdx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "安装",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "CLI 参考",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "基础",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "行情",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "分时 / 成交",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "板块",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "资金 / 监控",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "公告检索（巨潮资讯网）",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "技术指标",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "缠论分析",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "输出示例",
+          "level": 4,
+          "line": 197
+        },
+        {
+          "heading": "回测引擎",
+          "level": 3,
+          "line": 302
+        },
+        {
+          "heading": "`--show` 可视化效果",
+          "level": 4,
+          "line": 570
+        },
+        {
+          "heading": "自带策略示例",
+          "level": 4,
+          "line": 594
+        },
+        {
+          "heading": "量化因子与组合管理",
+          "level": 3,
+          "line": 637
+        },
+        {
+          "heading": "策略选股扫描（screen）",
+          "level": 3,
+          "line": 672
+        },
+        {
+          "heading": "强势股排名（strength）",
+          "level": 4,
+          "line": 749
+        },
+        {
+          "heading": "捉妖大师（重点）",
+          "level": 3,
+          "line": 830
+        },
+        {
+          "heading": "30日乖离率信号（重点）",
+          "level": 3,
+          "line": 855
+        },
+        {
+          "heading": "财务",
+          "level": 3,
+          "line": 911
+        },
+        {
+          "heading": "通达信原生 F10 与最新财务快照",
+          "level": 3,
+          "line": 922
+        },
+        {
+          "heading": "扩展市场（港股/美股/期货）",
+          "level": 3,
+          "line": 938
+        },
+        {
+          "heading": "离线数据（读取 + 写入同步）",
+          "level": 3,
+          "line": 949
+        },
+        {
+          "heading": "Web API",
+          "level": 2,
+          "line": 977
+        },
+        {
+          "heading": "安装",
+          "level": 3,
+          "line": 981
+        },
+        {
+          "heading": "快速启动",
+          "level": 3,
+          "line": 991
+        },
+        {
+          "heading": "REST API 示例",
+          "level": 3,
+          "line": 1009
+        },
+        {
+          "heading": "WebSocket 实时行情",
+          "level": 3,
+          "line": 1109
+        },
+        {
+          "heading": "API 文档",
+          "level": 3,
+          "line": 1124
+        },
+        {
+          "heading": "编程 API",
+          "level": 3,
+          "line": 1130
+        },
+        {
+          "heading": "CLI 命令汇总",
+          "level": 2,
+          "line": 1140
+        },
+        {
+          "heading": "Python API",
+          "level": 2,
+          "line": 1194
+        },
+        {
+          "heading": "连接管理",
+          "level": 3,
+          "line": 1196
+        },
+        {
+          "heading": "MAC 协议（推荐）",
+          "level": 3,
+          "line": 1214
+        },
+        {
+          "heading": "报价",
+          "level": 4,
+          "line": 1216
+        },
+        {
+          "heading": "K 线（支持复权）",
+          "level": 4,
+          "line": 1235
+        },
+        {
+          "heading": "技术指标",
+          "level": 4,
+          "line": 1249
+        },
+        {
+          "heading": "分时",
+          "level": 4,
+          "line": 1323
+        },
+        {
+          "heading": "逐笔成交",
+          "level": 4,
+          "line": 1332
+        },
+        {
+          "heading": "板块",
+          "level": 4,
+          "line": 1340
+        },
+        {
+          "heading": "资金流向",
+          "level": 4,
+          "line": 1375
+        },
+        {
+          "heading": "监控",
+          "level": 4,
+          "line": 1384
+        },
+        {
+          "heading": "扩展市场",
+          "level": 3,
+          "line": 1394
+        },
+        {
+          "heading": "统一客户端",
+          "level": 3,
+          "line": 1413
+        },
+        {
+          "heading": "标准协议",
+          "level": 3,
+          "line": 1428
+        },
+        {
+          "heading": "SecurityQuote 字段说明",
+          "level": 3,
+          "line": 1448
+        },
+        {
+          "heading": "离线数据读取",
+          "level": 3,
+          "line": 1468
+        },
+        {
+          "heading": "离线数据写入同步",
+          "level": 3,
+          "line": 1483
+        },
+        {
+          "heading": "缠论分析",
+          "level": 3,
+          "line": 1514
+        },
+        {
+          "heading": "公告检索（巨潮资讯网）",
+          "level": 3,
+          "line": 1540
+        },
+        {
+          "heading": "下载公告 PDF",
+          "level": 4,
+          "line": 1570
+        },
+        {
+          "heading": "财报三表（新浪财经）",
+          "level": 3,
+          "line": 1586
+        },
+        {
+          "heading": "枚举参考",
+          "level": 2,
+          "line": 1614
+        },
+        {
+          "heading": "Period（K 线周期）",
+          "level": 3,
+          "line": 1616
+        },
+        {
+          "heading": "Adjust（复权类型）",
+          "level": 3,
+          "line": 1631
+        },
+        {
+          "heading": "Category（市场分类）",
+          "level": 3,
+          "line": 1639
+        },
+        {
+          "heading": "BoardType（板块类型）",
+          "level": 3,
+          "line": 1651
+        },
+        {
+          "heading": "SortType（排序字段）",
+          "level": 3,
+          "line": 1662
+        },
+        {
+          "heading": "ExMarket（扩展市场）",
+          "level": 3,
+          "line": 1674
+        },
+        {
+          "heading": "Market（市场）",
+          "level": 3,
+          "line": 1686
+        },
+        {
+          "heading": "完整 API 列表",
+          "level": 2,
+          "line": 1694
+        },
+        {
+          "heading": "MacClient / AsyncMacClient",
+          "level": 3,
+          "line": 1696
+        },
+        {
+          "heading": "MacExClient / AsyncMacExClient",
+          "level": 3,
+          "line": 1722
+        },
+        {
+          "heading": "TdxClient / AsyncTdxClient",
+          "level": 3,
+          "line": 1735
+        },
+        {
+          "heading": "架构",
+          "level": 2,
+          "line": 1760
+        },
+        {
+          "heading": "开发",
+          "level": 2,
+          "line": 1797
+        },
+        {
+          "heading": "致谢",
+          "level": 2,
+          "line": 1807
+        },
+        {
+          "heading": "更新日志",
+          "level": 2,
+          "line": 1816
+        },
+        {
+          "heading": "免责声明",
+          "level": 2,
+          "line": 1820
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 70
+      }
+    },
+    {
+      "path": "pyproject.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 85,
+      "nonEmptyLines": 69,
+      "sections": [
+        {
+          "heading": "build-system",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "project",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "project.scripts",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "project.optional-dependencies",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "tool.hatch.build",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "tool.hatch.build.targets.wheel",
+          "level": 5,
+          "line": 31
+        },
+        {
+          "heading": "tool.mypy",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "[[tool.mypy.overrides]]",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "[[tool.mypy.overrides]]",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "[[tool.mypy.overrides]]",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "[[tool.mypy.overrides]]",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "[[tool.mypy.overrides]]",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "tool.ruff",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "tool.ruff.lint",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "tool.pytest.ini_options",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "tool.coverage.run",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "tool.coverage.report",
+          "level": 3,
+          "line": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": "requirements-dev.txt",
+      "language": "txt",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "metrics": {}
+    }
+  ]
+}

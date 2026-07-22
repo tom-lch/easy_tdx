@@ -1,0 +1,33 @@
+{
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "batchFiles": [
+    {"path": "tests/fixtures/company_info_category.json", "language": "json", "sizeLines": 7, "fileCategory": "config"},
+    {"path": "tests/fixtures/company_info_content.json", "language": "json", "sizeLines": 3, "fileCategory": "config"},
+    {"path": "tests/fixtures/ex_history_transaction.json", "language": "json", "sizeLines": 22, "fileCategory": "config"},
+    {"path": "tests/fixtures/finance_info.json", "language": "json", "sizeLines": 4, "fileCategory": "config"},
+    {"path": "tests/fixtures/history_minute_time.json", "language": "json", "sizeLines": 6, "fileCategory": "config"},
+    {"path": "tests/fixtures/history_transaction.json", "language": "json", "sizeLines": 8, "fileCategory": "config"},
+    {"path": "tests/fixtures/minute_time.json", "language": "json", "sizeLines": 7, "fileCategory": "config"},
+    {"path": "tests/fixtures/security_bars.json", "language": "json", "sizeLines": 9, "fileCategory": "config"},
+    {"path": "tests/fixtures/security_count.json", "language": "json", "sizeLines": 2, "fileCategory": "config"},
+    {"path": "tests/fixtures/security_list.json", "language": "json", "sizeLines": 8, "fileCategory": "config"},
+    {"path": "tests/fixtures/security_quotes.json", "language": "json", "sizeLines": 8, "fileCategory": "config"},
+    {"path": "tests/fixtures/transaction.json", "language": "json", "sizeLines": 8, "fileCategory": "config"},
+    {"path": "tests/fixtures/xdxr_info.json", "language": "json", "sizeLines": 8, "fileCategory": "config"}
+  ],
+  "batchImportData": {
+    "tests/fixtures/company_info_category.json": [],
+    "tests/fixtures/company_info_content.json": [],
+    "tests/fixtures/ex_history_transaction.json": [],
+    "tests/fixtures/finance_info.json": [],
+    "tests/fixtures/history_minute_time.json": [],
+    "tests/fixtures/history_transaction.json": [],
+    "tests/fixtures/minute_time.json": [],
+    "tests/fixtures/security_bars.json": [],
+    "tests/fixtures/security_count.json": [],
+    "tests/fixtures/security_list.json": [],
+    "tests/fixtures/security_quotes.json": [],
+    "tests/fixtures/transaction.json": [],
+    "tests/fixtures/xdxr_info.json": []
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "steps": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "easy-tdx is an open-source Python library for accessing 通达信 (TongDaXin) market data over TCP. It includes a Python library at src/easy_tdx/, a Vue3 + TypeScript web UI in web-ui/, a FastAPI server, a Click CLI, 18 built-in trading strategies, and a backtesting engine. Start with the README to understand the project's purpose.",
+      "nodeIds": [
+        "document:readme-md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "CLI Entry Point",
+      "description": "The package is wired up via the easy_tdx.cli:cli Click group (pyproject.toml entry point). Each cmd_*.py file is one CLI subcommand — 25+ subcommands cover market info, quotes, kline, tick, transaction, backtest, chanlun, optimize, and admin.",
+      "nodeIds": [
+        "file:src/easy_tdx/cli/__init__.py",
+        "file:src/easy_tdx/cli/cmd_admin.py",
+        "file:src/easy_tdx/cli/cmd_board.py",
+        "file:src/easy_tdx/cli/cmd_capital.py",
+        "file:src/easy_tdx/cli/cmd_chanlun.py",
+        "file:src/easy_tdx/cli/cmd_company.py",
+        "file:src/easy_tdx/cli/cmd_finance.py",
+        "file:src/easy_tdx/cli/cmd_kline.py",
+        "file:src/easy_tdx/cli/cmd_quote.py"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Protocol Codec Layer",
+      "description": "The lowest layer — pure binary encoders/decoders for the TDX TCP protocol. The 16-byte response frame (magic=0x0074CBB1), zlib body inflation, the variable-length signed price encoding, the 4-byte custom volume float, the MAC protocol 10-byte request frame, the financial-data .dat binary format, the industry-config .cfg parser, and the A-share price-limit rules engine. No I/O lives here.",
+      "nodeIds": [
+        "file:src/easy_tdx/codec/financial.py",
+        "file:src/easy_tdx/codec/frame.py",
+        "file:src/easy_tdx/codec/industry.py",
+        "file:src/easy_tdx/codec/mac_frame.py",
+        "file:src/easy_tdx/codec/price.py",
+        "file:src/easy_tdx/codec/price_rules.py",
+        "file:src/easy_tdx/codec/volume.py"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Protocol Command Layer",
+      "description": "One BaseCommand subclass per TDX protocol command. Each class encapsulates build_request (bytes out) and parse_response (dict/list in). Pure data shape — transport layer feeds them bytes. ~20 commands cover A-share quotes, K-line, transaction, finance, fund-flow, xdxr, company-info, minute data, and report-file download.",
+      "nodeIds": [
+        "file:src/easy_tdx/commands/base.py",
+        "file:src/easy_tdx/commands/finance_info.py",
+        "file:src/easy_tdx/commands/security_bars.py",
+        "file:src/easy_tdx/commands/security_quotes.py",
+        "file:src/easy_tdx/commands/setup.py",
+        "file:src/easy_tdx/commands/transaction.py",
+        "file:src/easy_tdx/commands/xdxr_info.py"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Transport Layer",
+      "description": "TCP connection lifecycle: handshake, frame send/receive, zlib decompression, reconnect/backoff, best-host selection, async transport. The v1.20.0 auto-ping failover lives here — tracks failed hosts and switches to a fresh server without manual intervention. Includes ex/transport.py for the alternative MAC protocol on port 7727.",
+      "nodeIds": [
+        "file:src/easy_tdx/_binary.py",
+        "file:src/easy_tdx/_reconnect.py",
+        "file:src/easy_tdx/client.py",
+        "file:src/easy_tdx/config.py",
+        "file:src/easy_tdx/ex/__init__.py",
+        "file:src/easy_tdx/transport/__init__.py"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Domain Core & Public API",
+      "description": "The single entry point most users touch: TdxClient (sync), AsyncTdxClient (async), the unified() facade for market info / quotes / kline / tick / transaction, MyTT (60+ technical indicators in pure Python), and the DataFrame proxy. Also exposes chanlun (缠论) analysis and the high-level realtime server.",
+      "nodeIds": [
+        "file:src/easy_tdx/MyTT.py",
+        "file:src/easy_tdx/__init__.py",
+        "file:src/easy_tdx/chanlun/__init__.py",
+        "file:src/easy_tdx/chanlun/analyser.py",
+        "file:src/easy_tdx/realtime/__init__.py",
+        "file:src/easy_tdx/unified.py"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "MAC Protocol Extension",
+      "description": "Alternative MAC protocol on port 7727 for futures / HK / foreign markets. Has its own command base class and frame convention (10-byte header with head_flag=0x1c). 22+ commands under src/easy_tdx/mac/commands/. Includes qfq adjustment, tick charts, capital flow, board info, auction, and ex_* commands for HK stocks.",
+      "nodeIds": [
+        "file:src/easy_tdx/ex/client.py",
+        "file:src/easy_tdx/mac/__init__.py",
+        "file:src/easy_tdx/mac/adjust.py",
+        "file:src/easy_tdx/mac/client.py",
+        "file:src/easy_tdx/mac/commands/__init__.py"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Backtest Engine",
+      "description": "Backtesting framework driven by `easy-tdx backtest`. Strategy ABC, OrderSimulator, PerformanceAnalyzer, slippage models (fixed/percentage/square-root/volume), execution models (immediate/TWAP/VWAP/limit), Brinson + factor + transaction-cost attribution. The 18 built-in strategies under strategies/*.py are thin Strategy subclasses built on MyTT.",
+      "nodeIds": [
+        "file:src/easy_tdx/backtest/__init__.py",
+        "file:src/easy_tdx/backtest/engine.py",
+        "file:src/easy_tdx/backtest/orders.py",
+        "file:src/easy_tdx/backtest/performance.py",
+        "file:src/easy_tdx/backtest/strategy.py",
+        "file:src/easy_tdx/factor/engine.py"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "FastAPI Web Server",
+      "description": "FastAPI application exposing the library as REST endpoints. app.py handles bootstrap; the routers/ subdirectory contains 20+ feature routers (bars, block, board_mac, chanlun, finance, ex_market, etc.) backed by service modules. Designed for `easy-tdx web` and `pip install easy-tdx[web]` consumers.",
+      "nodeIds": [
+        "file:src/easy_tdx/web/__init__.py",
+        "file:src/easy_tdx/web/app.py",
+        "file:src/easy_tdx/web/routers/__init__.py",
+        "file:src/easy_tdx/web/routers/backtest.py",
+        "file:src/easy_tdx/web/routers/bars.py",
+        "file:src/easy_tdx/web/routers/chanlun.py"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Vue 3 Frontend",
+      "description": "Vue 3 + TypeScript + Vite web UI. Pinia stores, vue-router, SFC components (charts via ECharts: KlineChart, EquityChart, CompareChart; tables: MetricTable, CompareTable; badges: GradeBadge; heatmaps: OptimizeHeatmap), and view pages (BacktestView, OptimizeView, CompareView, plus grading/mac views). Built into web-ui/dist/ which the hatchling force-include ships into the wheel — frontend must be built before pip install.",
+      "nodeIds": [
+        "file:web-ui/src/components/EquityChart.vue",
+        "file:web-ui/src/components/KlineChart.vue",
+        "file:web-ui/src/main.ts",
+        "file:web-ui/src/router.ts",
+        "file:web-ui/src/stores/backtest.ts",
+        "file:web-ui/src/views/BacktestView.vue",
+        "file:web-ui/src/views/OptimizeView.vue"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Built-in Trading Strategies",
+      "description": "18 canonical strategies users copy as templates. Categories: trend-following (ma_cross, expma_cross, macd_cross, trix_cross, dmi_trend, turtle_breakout), reversal/oscillator (rsi_reversal, kdj_golden, bias_reversal, bollinger_breakout, cci_breakout), volume-based (mfi_volume, obv_trend, volume_price), momentum (mtm_momentum), and multi-timeframe (zhuoyao_momentum). Each is a Strategy subclass using MyTT indicators.",
+      "nodeIds": [
+        "file:strategies/README.md",
+        "file:strategies/ma_cross.py",
+        "file:strategies/macd_cross.py",
+        "file:strategies/zhuoyao_momentum.py"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "CI/CD & Release",
+      "description": "Three GitHub Actions workflows: ci.yml (matrix test on Ubuntu+Windows × Python 3.10/3.12/3.13 + mypy + frontend build), publish.yml (PyPI trusted publishing + sigstore via OIDC), release.yml (PyInstaller Windows EXE → GitHub Release). Plus readthedocs.yaml, easy_tdx.spec (PyInstaller spec), and pyproject.toml (hatchling backend with web-ui/dist force-include).",
+      "nodeIds": [
+        "config:easy_tdx.spec",
+        "file:.readthedocs.yaml",
+        "pipeline:github-ci",
+        "pipeline:publish-pypi",
+        "pipeline:release-exe"
+      ]
+    }
+  ]
+}

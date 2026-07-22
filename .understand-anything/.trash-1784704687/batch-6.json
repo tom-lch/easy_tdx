@@ -1,0 +1,488 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 6,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "tests/fixtures/company_info_category.json",
+      "language": "json",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/company_info_content.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/ex_history_transaction.json",
+      "language": "json",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/finance_info.json",
+      "language": "json",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/history_minute_time.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/history_transaction.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/minute_time.json",
+      "language": "json",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_bars.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_count.json",
+      "language": "json",
+      "sizeLines": 2,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_list.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/security_quotes.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/transaction.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tests/fixtures/xdxr_info.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "config:tests/fixtures/company_info_category.json",
+      "type": "config",
+      "name": "company_info_category.json",
+      "filePath": "tests/fixtures/company_info_category.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for the GetCompanyInfoCategoryCmd parser. Captures the response size and the position of the first category entry (filename '600000.txt', start offset 0, 11426-byte payload) parsed from `tests/fixtures/company_info_category.hex`. Used by `tests/unit/test_commands_offline.py::test_company_info_category_parse` to assert that the binary parser produces the expected file index structure.",
+      "tags": ["test-fixture", "offline", "company-info", "ground-truth", "tdx-protocol", "category-index"],
+      "sizeLines": 7,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/company_info_content.json",
+      "type": "config",
+      "name": "company_info_content.json",
+      "filePath": "tests/fixtures/company_info_content.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for the GetCompanyInfoContentCmd parser. Holds the body length (8070) and the visible prefix string (SPDF headers and the 2026-04-10 update stamp) extracted from the matching `company_info_content.hex` blob. Used to verify that the parser preserves length and decodes the GBK-prefixed company narrative correctly.",
+      "tags": ["test-fixture", "offline", "company-info", "ground-truth", "tdx-protocol", "gbk-text"],
+      "sizeLines": 3,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/ex_history_transaction.json",
+      "type": "config",
+      "name": "ex_history_transaction.json",
+      "filePath": "tests/fixtures/ex_history_transaction.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for the HK-market `GetExHistoryTransactionDataCmd` parser (ex protocol 0x2406). Captures market=31 (HK_MAIN_BOARD), code 00700, num_records=10, and first/last record timestamps+prices around the 2026-07-03 HK closing auction. Crucially exposes the integer price unit (0.001 HKD, e.g. 431800=HK$431.8) and is anchored to issue #14. Consumed by `tests/unit/test_hk_transaction.py::test_parse_ex_history_transaction_hk` to lock down the HK price-decimal-digits conversion.",
+      "tags": ["test-fixture", "offline", "hk-market", "ex-protocol", "0x2406", "ground-truth", "issue-14", "price-integer-unit"],
+      "sizeLines": 22,
+      "complexity": "simple",
+      "languageNotes": "JSON fixture for a HK-specific ex-protocol response; the leading `_comment` key (ignored by `load_json`) documents the protocol quirks (price integer unit, market id, closing-call timestamps)."
+    },
+    {
+      "id": "config:tests/fixtures/finance_info.json",
+      "type": "config",
+      "name": "finance_info.json",
+      "filePath": "tests/fixtures/finance_info.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetFinanceInfoCmd. Captures three representative financial indicators (流通股本/总股本/每股净资产, all aligned to 浦发银行 SH 2026 snapshot) parsed from the matching .hex blob. Used by `test_commands_offline.py` to assert that the float32 / fixed-point decoder yields the expected numerics (33.305B shares, NAV 22.13 CNY).",
+      "tags": ["test-fixture", "offline", "finance", "ground-truth", "tdx-protocol"],
+      "sizeLines": 4,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/history_minute_time.json",
+      "type": "config",
+      "name": "history_minute_time.json",
+      "filePath": "tests/fixtures/history_minute_time.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetHistoryMinuteTimeDataCmd. Records num_records=240 (one trading day of 1-minute bars) plus the first parsed bar (price 10.29, volume 10044). Pair file for `history_minute_time.hex`. Used to verify that historical minute K-line decoding produces a full 240-row frame and correct decimal price.",
+      "tags": ["test-fixture", "offline", "minute-bar", "history", "ground-truth", "tdx-protocol"],
+      "sizeLines": 6,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/history_transaction.json",
+      "type": "config",
+      "name": "history_transaction.json",
+      "filePath": "tests/fixtures/history_transaction.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetHistoryTransactionDataCmd. Captures num_records=10 plus the first record (14:56, price 10.3, vol 50). Pair file for `history_transaction.hex`. Used to validate the historical-tick record shape (timestamp, price, volume) and decimal handling.",
+      "tags": ["test-fixture", "offline", "history-transaction", "tick-data", "ground-truth", "tdx-protocol"],
+      "sizeLines": 8,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/minute_time.json",
+      "type": "config",
+      "name": "minute_time.json",
+      "filePath": "tests/fixtures/minute_time.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetMinuteTimeDataCmd. Records 240 intraday bars plus the first row (price 0.01, vol 48, unknown_1=54). The presence of `_unknown_1` documents known open-question fields flagged by the parser and forwarded untouched to the consumer; used as a regression sentinel so future decoders don't silently lose unknown tail bytes.",
+      "tags": ["test-fixture", "offline", "minute-bar", "intraday", "ground-truth", "unknown-field-sentinel"],
+      "sizeLines": 7,
+      "complexity": "trivial",
+      "languageNotes": "Contains an `_unknown_<n>`-style key. These names match the protocol-decoder convention for fields whose semantics are not yet mapped; tests assert that unknowns are passed through rather than dropped."
+    },
+    {
+      "id": "config:tests/fixtures/security_bars.json",
+      "type": "config",
+      "name": "security_bars.json",
+      "filePath": "tests/fixtures/security_bars.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetSecurityBarsCmd / GetIndexBarsCmd. Holds num_records=5 plus the canonical OHLCV row of the first K-line bar (open 10.25, high 10.25, low 10.08, close 10.12, vol 41.15M). Pair file for `security_bars.hex`. Used by multiple offline tests including `test_security_bars_parse`, range/shrink-paging tests, and the pre_close float-precision test.",
+      "tags": ["test-fixture", "offline", "kline", "ohlcv", "ground-truth", "tdx-protocol"],
+      "sizeLines": 9,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/security_count.json",
+      "type": "config",
+      "name": "security_count.json",
+      "filePath": "tests/fixtures/security_count.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetSecurityCountCmd. Asserts the security universe size is exactly 26885 for the SH market snapshot. With the response body being a fixed 2-byte count, this fixture pins down the exact wire-format value so any change to the TDX universe size is flagged by the test.",
+      "tags": ["test-fixture", "offline", "security-count", "market-info", "ground-truth", "tdx-protocol"],
+      "sizeLines": 2,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/security_list.json",
+      "type": "config",
+      "name": "security_list.json",
+      "filePath": "tests/fixtures/security_list.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetSecurityListCmd. Captures num_records=1000 (one page of the SH universe) and the first record (code 999999 / 上证指数, pre_close 3966.171142578125). Used to assert that list parsing returns a full page, that code/name GBK decoding works, and that `pre_close` is a TDX-decimal float (verified to ~1e-2 precision).",
+      "tags": ["test-fixture", "offline", "security-list", "market-info", "ground-truth", "tdx-protocol", "page-size-1000"],
+      "sizeLines": 8,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/security_quotes.json",
+      "type": "config",
+      "name": "security_quotes.json",
+      "filePath": "tests/fixtures/security_quotes.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetSecurityQuotesCmd. One-record snapshot (code 600000, pre_close 9.93) with unknown_2=-1 and unknown_3=22694 captured alongside. Documents server-side fields whose meaning has not yet been reverse-engineered; pair file for `security_quotes.hex`.",
+      "tags": ["test-fixture", "offline", "security-quotes", "market-info", "ground-truth", "unknown-field-sentinel", "tdx-protocol"],
+      "sizeLines": 8,
+      "complexity": "trivial",
+      "languageNotes": "unknown_2 / unknown_3 fields track the project's TDX-protocol reverse-engineering ledger; tests assert these are preserved rather than swallowed by the decoder."
+    },
+    {
+      "id": "config:tests/fixtures/transaction.json",
+      "type": "config",
+      "name": "transaction.json",
+      "filePath": "tests/fixtures/transaction.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetTransactionDataCmd. Captures num_records=10 plus the first tick (14:59, price 9.9, vol 0 — the vol=0 row reflects a closing-call record). Pair file for `transaction.hex`. Used to validate intraday tick decoding, decimal price, and the 0x122f wire format.",
+      "tags": ["test-fixture", "offline", "tick-data", "transaction", "ground-truth", "tdx-protocol", "0x122f"],
+      "sizeLines": 8,
+      "complexity": "trivial"
+    },
+    {
+      "id": "config:tests/fixtures/xdxr_info.json",
+      "type": "config",
+      "name": "xdxr_info.json",
+      "filePath": "tests/fixtures/xdxr_info.json",
+      "language": "json",
+      "fileCategory": "config",
+      "summary": "Ground-truth fixture for GetXdxrInfoCmd. Records num_records=87 dividend/split/ex-rights events plus the first entry (1999-11-10, category 5). Pair file for `xdxr_info.hex`. The `category=5` value maps through `_normalize_per_10_shares` to verify per-10-share scaling rules are applied correctly.",
+      "tags": ["test-fixture", "offline", "xdxr", "dividend", "split", "ground-truth", "tdx-protocol"],
+      "sizeLines": 8,
+      "complexity": "trivial"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:tests/fixtures/company_info_category.json",
+      "target": "config:tests/fixtures/company_info_category.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; load_hex() feeds the bytes into GetCompanyInfoCategoryCmd and the JSON defines the expected parsed output."
+    },
+    {
+      "source": "config:tests/fixtures/company_info_content.json",
+      "target": "config:tests/fixtures/company_info_content.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; asserts decoded length and decoded GBK prefix of the GetCompanyInfoContentCmd output."
+    },
+    {
+      "source": "config:tests/fixtures/ex_history_transaction.json",
+      "target": "config:tests/fixtures/ex_history_transaction.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; together they lock down the 0x2406 ex-protocol parsing for HK market."
+    },
+    {
+      "source": "config:tests/fixtures/finance_info.json",
+      "target": "config:tests/fixtures/finance_info.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; finance numeric ground-truth for GetFinanceInfoCmd."
+    },
+    {
+      "source": "config:tests/fixtures/history_minute_time.json",
+      "target": "config:tests/fixtures/history_minute_time.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; defines expected 240-row minute-bar decode."
+    },
+    {
+      "source": "config:tests/fixtures/history_transaction.json",
+      "target": "config:tests/fixtures/history_transaction.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; ground-truth for the historical-tick (0x122f) decoder."
+    },
+    {
+      "source": "config:tests/fixtures/minute_time.json",
+      "target": "config:tests/fixtures/minute_time.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; intraday minute-bar ground-truth (incl. unknown-field sentinel)."
+    },
+    {
+      "source": "config:tests/fixtures/security_bars.json",
+      "target": "config:tests/fixtures/security_bars.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; canonical OHLCV ground-truth for K-line parsing."
+    },
+    {
+      "source": "config:tests/fixtures/security_count.json",
+      "target": "config:tests/fixtures/security_count.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; pins the 2-byte SH market security-count to 26885."
+    },
+    {
+      "source": "config:tests/fixtures/security_list.json",
+      "target": "config:tests/fixtures/security_list.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; defines a 1000-row page including 999999 上证指数 index record."
+    },
+    {
+      "source": "config:tests/fixtures/security_quotes.json",
+      "target": "config:tests/fixtures/security_quotes.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; ground-truth for security-quote decoding incl. unknown_2/unknown_3 sentinels."
+    },
+    {
+      "source": "config:tests/fixtures/transaction.json",
+      "target": "config:tests/fixtures/transaction.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; tick-record (0x122f) ground-truth."
+    },
+    {
+      "source": "config:tests/fixtures/xdxr_info.json",
+      "target": "config:tests/fixtures/xdxr_info.hex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Pairs 1:1 with the matching .hex raw payload; dividend/split ground-truth including the per-10-shares category=5 entry."
+    },
+    {
+      "source": "config:tests/fixtures/company_info_category.json",
+      "target": "file:src/easy_tdx/commands/company_info.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for `test_commands_offline.py::test_company_info_category_parse`, which exercises GetCompanyInfoCategoryCmd (defined in src/easy_tdx/commands/company_info.py)."
+    },
+    {
+      "source": "config:tests/fixtures/company_info_content.json",
+      "target": "file:src/easy_tdx/commands/company_info.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetCompanyInfoContentCmd parse test in test_commands_offline.py (the second company_info test covers content decoding)."
+    },
+    {
+      "source": "config:tests/fixtures/finance_info.json",
+      "target": "file:src/easy_tdx/commands/finance_info.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for test_commands_offline.py::test_finance_info_parse (or similar), exercising GetFinanceInfoCmd."
+    },
+    {
+      "source": "config:tests/fixtures/history_minute_time.json",
+      "target": "file:src/easy_tdx/commands/minute_time.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetHistoryMinuteTimeDataCmd branch in src/easy_tdx/commands/minute_time.py."
+    },
+    {
+      "source": "config:tests/fixtures/history_transaction.json",
+      "target": "file:src/easy_tdx/commands/transaction.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetHistoryTransactionDataCmd parser (defined in src/easy_tdx/commands/transaction.py)."
+    },
+    {
+      "source": "config:tests/fixtures/minute_time.json",
+      "target": "file:src/easy_tdx/commands/minute_time.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetMinuteTimeDataCmd parser (intraday branch), including unknown_1 sentinel preservation."
+    },
+    {
+      "source": "config:tests/fixtures/security_bars.json",
+      "target": "file:src/easy_tdx/commands/security_bars.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for multiple GetSecurityBarsCmd / GetIndexBarsCmd tests in test_commands_offline.py (parse, range, shrink-paging, pre_close float precision)."
+    },
+    {
+      "source": "config:tests/fixtures/security_count.json",
+      "target": "file:src/easy_tdx/commands/security_count.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for test_commands_offline.py::test_security_count_parse, exercising GetSecurityCountCmd and pinning the 2-byte wire format."
+    },
+    {
+      "source": "config:tests/fixtures/security_list.json",
+      "target": "file:src/easy_tdx/commands/security_list.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for two GetSecurityListCmd tests (test_security_list_parse and test_security_list_pre_close_uses_tdx_float_for_a_share) in test_commands_offline.py."
+    },
+    {
+      "source": "config:tests/fixtures/security_quotes.json",
+      "target": "file:src/easy_tdx/commands/security_quotes.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetSecurityQuotesCmd parse test in test_commands_offline.py."
+    },
+    {
+      "source": "config:tests/fixtures/transaction.json",
+      "target": "file:src/easy_tdx/commands/transaction.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetTransactionDataCmd intraday parser test in test_commands_offline.py."
+    },
+    {
+      "source": "config:tests/fixtures/xdxr_info.json",
+      "target": "file:src/easy_tdx/commands/xdxr_info.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for the GetXdxrInfoCmd parse test in test_commands_offline.py; also exercises `_normalize_per_10_shares` for the category=5 record."
+    },
+    {
+      "source": "config:tests/fixtures/ex_history_transaction.json",
+      "target": "file:src/easy_tdx/ex/commands/get_transaction.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.9,
+      "description": "Ground-truth input for test_hk_transaction.py::test_parse_ex_history_transaction_hk, exercising the HK market branch of GetExHistoryTransactionDataCmd."
+    },
+    {
+      "source": "config:tests/fixtures/company_info_category.json",
+      "target": "file:tests/unit/test_decode_errors.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "Also reused by test_decode_errors.py as a truncation-corpus for testing that truncated category payloads raise TdxDecodeError."
+    },
+    {
+      "source": "config:tests/fixtures/xdxr_info.json",
+      "target": "file:tests/unit/test_decode_errors.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "Also reused by test_decode_errors.py for xdxr truncation / decode-error coverage."
+    }
+  ],
+  "languageNotes": [
+    "JSON files (`language=json`, `fileCategory=config`) act as expected-output ground-truth, not live config. Each file is the head record(s) + `num_records` parsed from the matching `.hex` raw TDX server response payload sitting next to it in `tests/fixtures/`.",
+    "Many fixtures carry an `_unknown_<n>` style field (notably `minute_time.json` with `_unknown_1` and `security_quotes.json` with `unknown_2` / `unknown_3`). These are the project's explicit TDX protocol reverse-engineering sentinels: the protocol decoder forwards them untouched, and the tests assert that they survive round-trip. Renaming or omitting these keys would silently break the unknown-field round-trip contract.",
+    "`ex_history_transaction.json` is the only fixture whose basename does NOT match a command in `src/easy_tdx/commands/`; instead it grounds an HK-market ex protocol command under `src/easy_tdx/ex/commands/get_transaction.py` (the `0x2406` GetExHistoryTransactionDataCmd). Its leading `_comment` key (ignored by `load_json`) documents the price integer unit (0.001 HKD), the closing-auction timestamps (15:59, 16:08), and links to GitHub issue #14."
+  ],
+  "languageLesson": "easy-tdx uses a deliberate hex/JSON fixture pair convention for offline parser tests: every TDX command's parser is validated against a frozen pair of `tests/fixtures/<name>.hex` (the raw server payload, captured once by `scripts/probe_unknowns.py` or live debugging) and `tests/fixtures/<name>.json` (a manually-confirmed ground truth of the first record plus `num_records`). The `.hex` file is consumed by `load_hex(name)` and fed directly into the command's `parse_response()`; the `.json` file is consumed by `load_json(name)` and used to assert record counts, field values, and (critically) that wire-format unknowns (`unknown_1`, `unknown_2`, …) survive decoding. This split keeps corpus evolution easy: when the TDX server bumps a payload format, only one new hex capture + matching JSON dict are needed, and every ground-truth assertion stays local to the fixture. Three language habits flow from this convention: (1) basenames are snake_case command names so a fixture pair is identifiable at a glance; (2) JSON ground truths are deliberately small — just `num_records` plus a `first` (and sometimes `last`) record — to keep diffs reviewable when payloads change; (3) sentinel fields use a strict `_unknown_<n>` / `unknown_<n>` naming convention so the protocol-decoder's open-question ledger is grep-able across all fixtures. Together this gives the project a deterministic, hermetic offline test surface that runs without any TCP connection to a TDX server.",
+  "summary": {
+    "nodesCreated": 13,
+    "edgesCreated": 27,
+    "complexity": {
+      "min": "trivial",
+      "max": "simple",
+      "avg": "trivial"
+    },
+    "notes": "Batch 6 contains 13 JSON fixture files in tests/fixtures/, all fileCategory=config (test ground-truth data). Each fixture is a small expected-output document paired 1:1 with a .hex raw payload of the same basename in the same directory, used by offline unit tests in tests/unit/test_commands_offline.py, tests/unit/test_hk_transaction.py, and tests/unit/test_decode_errors.py to validate the corresponding parser command in src/easy_tdx/commands/ (batch 14) or src/easy_tdx/ex/commands/ (batch 15). Edge topology per fixture: (a) one `related` edge to its .hex pair (intra-batch), and (b) one or two `tested_by` edges targeting the command class whose parser it grounds (cross-batch to batch 14 / 15) and, for two fixtures (company_info_category, xdxr_info), the decode-error test file in batch 22. Cross-batch edges use canonical file: IDs verified against exportsByPath. The user's task brief described this batch as '6 files (4 json + 1 markdown + 1 html)' but the authoritative batches.json plus the previously-dispatched batch-6 prompt both confirm 13 JSON fixtures only — this analysis follows the authoritative source-of-truth and emits 13 nodes accordingly. All complexities are trivial/simple: each fixture is a single ground-truth snapshot (1-22 lines) with one command-class consumer."
+  }
+}

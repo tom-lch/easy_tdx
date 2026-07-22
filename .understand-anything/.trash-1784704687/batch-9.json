@@ -1,0 +1,1014 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 9,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "examples/15_mac_board/board_list.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/15_mac_board/board_members.py",
+      "language": "python",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/15_mac_board/board_ranking.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/15_mac_board/board_summary.py",
+      "language": "python",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/16_mac_capital/capital_flow.py",
+      "language": "python",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/17_mac_monitor/auction.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/17_mac_monitor/server_info.py",
+      "language": "python",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/17_mac_monitor/symbol_info.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/17_mac_monitor/unusual.py",
+      "language": "python",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/18_mac_ex/ex_goods_list.py",
+      "language": "python",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/18_mac_ex/ex_kline.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/18_mac_ex/ex_quotes.py",
+      "language": "python",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/18_mac_ex/ex_tick_chart.py",
+      "language": "python",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/19_unified/unified_client.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/20_cli/cli_examples.sh",
+      "language": "shell",
+      "sizeLines": 456,
+      "fileCategory": "script"
+    },
+    {
+      "path": "examples/21_indicator/basic_indicators.py",
+      "language": "python",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/21_indicator/list_indicators.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "language": "python",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/23_screen_strength/README.md",
+      "language": "markdown",
+      "sizeLines": 96,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "examples/23_screen_strength/strength_api.py",
+      "language": "python",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/23_screen_strength/strength_cli.sh",
+      "language": "shell",
+      "sizeLines": 78,
+      "fileCategory": "script"
+    },
+    {
+      "path": "examples/23_screen_strength/strength_web_api.py",
+      "language": "python",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "NOTICE",
+      "language": "unknown",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "run_all_strategies.py",
+      "language": "python",
+      "sizeLines": 550,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:examples/15_mac_board/board_list.py",
+      "type": "file",
+      "name": "board_list.py",
+      "filePath": "examples/15_mac_board/board_list.py",
+      "summary": "Executable example script that demonstrates MacClient.get_board_list() — fetches industry (HY) and concept (GN) board lists via the MAC protocol with automatic pagination (max 150 per page). Uses MacClient.from_best_host() for auto host selection and prints top 10 of each board type as DataFrame tables. Module-level script (no functions/classes), pure docstring + driver code.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "board-list", "industry", "concept", "pagination"],
+      "languageNotes": "Python 3.10+ module docstring example. Single top-level `with MacClient.from_best_host() as c:` block. Imports `BoardType` and `MacClient` from `easy_tdx`. Uses pandas print to_string(index=False). Includes extensive docstring documenting BoardType enum, BoardInfo dataclass fields, and example output."
+    },
+    {
+      "id": "file:examples/15_mac_board/board_members.py",
+      "type": "file",
+      "name": "board_members.py",
+      "filePath": "examples/15_mac_board/board_members.py",
+      "summary": "Executable example for MacClient.get_board_members() — fetches the constituent stocks of board code 881001 (酒店餐饮 industry) sorted by CHANGE_PCT descending. Auto-paginates (max 80 per page). Demonstrates SortType.CHANGE_PCT + SortOrder.DESC usage and returns 11-column quote DataFrame.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "board-members", "sorting", "industry-board"],
+      "languageNotes": "Python module-level example script. Imports MacClient, SortOrder, SortType from easy_tdx. Single with-block fetches top 10 by change_pct. Docstring covers SortType/SortOrder enum values, FilterType bitmask, and PresetField.COMMON semantics."
+    },
+    {
+      "id": "file:examples/15_mac_board/board_ranking.py",
+      "type": "file",
+      "name": "board_ranking.py",
+      "filePath": "examples/15_mac_board/board_ranking.py",
+      "summary": "Executable example for MacClient.get_board_ranking() — fetches aggregated rankings of industry (HY) and concept (GN) boards with `top_n=300`, sorting by `change_pct` for HY and `main_net_amount` for GN. Demonstrates the two ranking modes (涨幅 / 主力净流入) and includes sample partial output tables.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "board-ranking", "main-net-inflow", "change-pct"],
+      "languageNotes": "Python module-level script. Imports MacClient from easy_tdx and BoardType from easy_tdx.mac.enums (separate submodule path). Two with-block calls (HY/GN) with different sort_by parameters."
+    },
+    {
+      "id": "file:examples/15_mac_board/board_summary.py",
+      "type": "file",
+      "name": "board_summary.py",
+      "filePath": "examples/15_mac_board/board_summary.py",
+      "summary": "Executable example for MacClient.get_board_summary() — fetches aggregated summary dict for board 881001 (酒店餐饮) including member_count, amount, vol, main_net_amount, main_net_3d, main_net_5d, up_count, down_count, and a 'members' DataFrame. Shows the 8-metric header + head(5) of members.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "board-summary", "main-net-3d-5d", "member-dataframe"],
+      "languageNotes": "Python module-level script. Single with-block calling c.get_board_summary(\"881001\") and accessing dict keys (member_count, amount, etc.). Docstring documents the 9-field return dict shape."
+    },
+    {
+      "id": "file:examples/16_mac_capital/capital_flow.py",
+      "type": "file",
+      "name": "capital_flow.py",
+      "filePath": "examples/16_mac_capital/capital_flow.py",
+      "summary": "Executable example for MacClient.get_capital_flow() — fetches multi-day (5 trading days) capital-flow data for 贵州茅台 (600519.SH), including main/small/mid/large order net inflows, broken down by in/out/net. The output is a 13-column DataFrame with one row per trading day.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "capital-flow", "main-net-inflow", "multi-day"],
+      "languageNotes": "Python module-level script. Imports MacClient and Market from easy_tdx. Docstring details CapitalFlowData dataclass (13 fields: date + 4 tiers × 3 metrics each). Single with-block call."
+    },
+    {
+      "id": "file:examples/17_mac_monitor/auction.py",
+      "type": "file",
+      "name": "auction.py",
+      "filePath": "examples/17_mac_monitor/auction.py",
+      "summary": "Executable example for MacClient.get_auction() — fetches 09:15–09:25 call-auction tick-by-tick matching data for 贵州茅台 (600519.SH), time-descending, with price/matched/unmatched per minute. 11 rows shown in the sample (one per minute from 09:15:00 to 09:25:00).",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "call-auction", "intraday", "tick-matching"],
+      "languageNotes": "Python module-level script. Imports MacClient + Market. Single with-block call. Docstring defines AuctionItem dataclass (time/price/matched/unmatched) and explains the 09:15-09:25 collection window."
+    },
+    {
+      "id": "file:examples/17_mac_monitor/server_info.py",
+      "type": "file",
+      "name": "server_info.py",
+      "filePath": "examples/17_mac_monitor/server_info.py",
+      "summary": "Executable example for MacClient.get_server_info() — fetches the current trading-day ServerSession (today, last_trading_day, sessions_1/sessions_2 with 5 phase entries each — type=5 集合竞价可撤, type=6 集合竞价不可撤, type=7 撮合, type=1 连续竞价 — and market_param_1/2). The shown sample output reveals the canonical 09:15-15:00 session layout.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "server-info", "trading-session", "session-phases"],
+      "languageNotes": "Shortest file in batch 9 (29 lines). Single with-block call. Docstring documents ServerSession dataclass (today, last_trading_day, sessions_1, sessions_2, market_param_1, market_param_2) and the 4 phase-type integer codes."
+    },
+    {
+      "id": "file:examples/17_mac_monitor/symbol_info.py",
+      "type": "file",
+      "name": "symbol_info.py",
+      "filePath": "examples/17_mac_monitor/symbol_info.py",
+      "summary": "Executable example for MacClient.get_symbol_info() — fetches a single-row MacSymbolInfo snapshot for 贵州茅台 (600519.SH) covering 16 fields: price OHLC, volume/amount, inside/outside volume (主动卖/主动买), turnover, avg price, activity, momentum. Useful as a quick per-symbol status check.",
+      "complexity": "simple",
+      "tags": ["example", "mac-protocol", "symbol-info", "snapshot", "inside-outside-volume"],
+      "languageNotes": "Python module-level script. Docstring lists 16 MacSymbolInfo dataclass fields. Single with-block call returning a 1-row DataFrame."
+    },
+    {
+      "id": "file:examples/17_mac_monitor/unusual.py",
+      "type": "file",
+      "name": "unusual.py",
+      "filePath": "examples/17_mac_monitor/unusual.py",
+      "summary": "Executable example for MacClient.get_unusual() — paginates through all unusual-movement alerts (异动) for Market.SH using the documented 600-per-call protocol limit. Loop accumulates frames with `start += 600` until a short page is returned, then concatenates into one DataFrame and prints the count. Demonstrates the 1843 alerts / 4-page scan pattern.",
+      "complexity": "moderate",
+      "tags": ["example", "mac-protocol", "unusual", "pagination", "protocol-cap-600", "pandas-concat"],
+      "languageNotes": "Python module-level script. Imports pandas + MacClient + Market. Uses a `while True` pagination loop with a `PAGE = 600` constant and `pd.concat(frames, ignore_index=True)`. Docstring notes the protocol 0x1237 cap."
+    },
+    {
+      "id": "file:examples/18_mac_ex/ex_goods_list.py",
+      "type": "file",
+      "name": "ex_goods_list.py",
+      "filePath": "examples/18_mac_ex/ex_goods_list.py",
+      "summary": "Executable example for MacExClient.goods_list() + goods_count() — fetches the first 20 securities of HK Main Board (ExMarket.HK_MAIN_BOARD=31) and the total count (2846 in sample). Uses MacExClient.from_best_host() (port 7727) for auto host selection. Demonstrates the ExMarket enum covering HK/US/CFFEX/ZZ/DL/SH futures/HK GEM/HK Fund/SG/GE/SH Gold/CSI Index/Open-end Fund/Monetary Fund/Intl Index/Basic FX.",
+      "complexity": "simple",
+      "tags": ["example", "mac-ex-protocol", "goods-list", "hk-main-board", "ex-market-enum"],
+      "languageNotes": "Python module-level script. Imports ExMarket and MacExClient from easy_tdx. Single with-block with two calls. Docstring enumerates ~16 ExMarket enum values with codes."
+    },
+    {
+      "id": "file:examples/18_mac_ex/ex_kline.py",
+      "type": "file",
+      "name": "ex_kline.py",
+      "filePath": "examples/18_mac_ex/ex_kline.py",
+      "summary": "Executable example for MacExClient.goods_kline() — fetches 5-day daily K-line for three extension-market instruments: HK 腾讯控股 (00700), US 苹果 (AAPL), CFFEX 沪深300主力 (IFL0). Uses Period.DAILY + Adjust.NONE. Demonstrates the same goods_kline API across three ExMarket values (HK_MAIN_BOARD=31, US_STOCK=74, CFFEX_FUTURES=47).",
+      "complexity": "simple",
+      "tags": ["example", "mac-ex-protocol", "kline", "hk-us-futures", "multi-market"],
+      "languageNotes": "Python module-level script. Three sequential goods_kline calls (one per market) inside a single with-block. Imports ExMarket + MacExClient + Period from easy_tdx."
+    },
+    {
+      "id": "file:examples/18_mac_ex/ex_quotes.py",
+      "type": "file",
+      "name": "ex_quotes.py",
+      "filePath": "examples/18_mac_ex/ex_quotes.py",
+      "summary": "Executable example for MacExClient.goods_quotes() — batch-fetches real-time quotes for 4 extension-market symbols (00700/09988/AAPL/TSLA, max 80 per call) using `[(ExMarket, code), ...]` tuple list. Demonstrates mixed HK+US multi-market quoting in a single request.",
+      "complexity": "simple",
+      "tags": ["example", "mac-ex-protocol", "quotes", "batch", "hk-us-mixed"],
+      "languageNotes": "Python module-level script. Builds a `stocks = [(ExMarket.HK_MAIN_BOARD, \"00700\"), (ExMarket.US_STOCK, \"AAPL\"), ...]` list and passes to client.goods_quotes(stocks). Docstring documents the 80-symbol protocol cap."
+    },
+    {
+      "id": "file:examples/18_mac_ex/ex_tick_chart.py",
+      "type": "file",
+      "name": "ex_tick_chart.py",
+      "filePath": "examples/18_mac_ex/ex_tick_chart.py",
+      "summary": "Executable example for MacExClient.goods_tick_chart() + goods_chart_sampling() — fetches intraday minute tick chart (~330 rows) and thumbnail sampling (~240 points) for HK 腾讯控股 (00700). Useful for sparkline/timeline rendering of HK stocks.",
+      "complexity": "simple",
+      "tags": ["example", "mac-ex-protocol", "tick-chart", "chart-sampling", "intraday"],
+      "languageNotes": "Python module-level script. Two sequential calls in one with-block. Imports ExMarket + MacExClient from easy_tdx. Docstring documents both return DataFrame shapes (4 cols for tick chart, 1 col price for sampling)."
+    },
+    {
+      "id": "file:examples/19_unified/unified_client.py",
+      "type": "file",
+      "name": "unified_client.py",
+      "filePath": "examples/19_unified/unified_client.py",
+      "summary": "Executable example for UnifiedTdxClient — demonstrates the unified entry point that auto-manages a MacClient (port 7709, A-shares, eagerly connected) and a MacExClient (port 7727, extension markets, lazily connected on first use). Single `with` block fetches A-share 600519 K-line and HK 00700 K-line, proving both sub-clients route through the same interface.",
+      "complexity": "moderate",
+      "tags": ["example", "unified-client", "lazy-connect", "auto-routing", "mac-mac-ex-bridge"],
+      "languageNotes": "Python module-level script. Imports ExMarket, Market, Period, UnifiedTdxClient from easy_tdx. Single with-block with two contrasting calls (`get_stock_kline` for A-shares vs `goods_kline` for extension markets). Docstring enumerates all 16 supported A-share methods + 7 extension-market methods."
+    },
+    {
+      "id": "file:examples/20_cli/cli_examples.sh",
+      "type": "file",
+      "name": "cli_examples.sh",
+      "filePath": "examples/20_cli/cli_examples.sh",
+      "summary": "Comprehensive bash showcase script (456 lines, ~38 commented-out `easy-tdx` invocations) covering every CLI subcommand: ping/version/kline/quote/quote-list/tick/transaction/auction/board-list/board-members/belong-board/capital-flow/unusual/market-stat/server-info/symbol-info/ex markets/ex kline/ex quote/ex quote-list/ex tick/indicator-list/indicator/offline home/daily/min/ex-files/ex-daily/gbbq/financial/blocks. Each command includes a documented --table/--json output sample, parameter notes, and 8 quick-reference indicator one-liners at the end.",
+      "complexity": "moderate",
+      "tags": ["cli", "bash", "examples", "reference", "all-subcommands", "documented-samples"],
+      "languageNotes": "Bash script (not executable per se — all commands are commented out with `#`). Headers separated by `echo \"=== N. title ===\"`. Documents all Market.SH/SZ/BJ codes, ExMarket enum values, Period enum values, Adjust enum values, Sort enum values, plus a final 8-line 'quick reference' indicator cheat sheet."
+    },
+    {
+      "id": "file:examples/21_indicator/basic_indicators.py",
+      "type": "file",
+      "name": "basic_indicators.py",
+      "filePath": "examples/21_indicator/basic_indicators.py",
+      "summary": "Executable example covering MacClient.get_stock_kline_with_indicators() for MACD/KDJ/RSI/BOLL (4 most-used indicators) plus compute_indicators() standalone usage on a 200-bar pre-EMA-warmed DataFrame for ATR/CCI/WR. Demonstrates 7 distinct usage patterns: single indicator, multi-indicator combined, params override (RSI N=6), 5-minute MACD, OHLCV-skip selection, and standalone compute_indicators().",
+      "complexity": "moderate",
+      "tags": ["example", "indicators", "macd-kdj-rsi-boll", "compute-indicators", "multi-indicator", "param-override"],
+      "languageNotes": "Python module-level script. Imports Adjust/MacClient/Market/Period from easy_tdx + compute_indicators from easy_tdx.indicator. Uses df column filtering with `[c for c in df.columns if c not in (\"open\", ...)]` for the --no-ohlcv pattern. 7 distinct calls in one with-block."
+    },
+    {
+      "id": "file:examples/21_indicator/list_indicators.py",
+      "type": "file",
+      "name": "list_indicators.py",
+      "filePath": "examples/21_indicator/list_indicators.py",
+      "summary": "Executable example that calls easy_tdx.indicator.list_indicators() to enumerate all 30 supported technical indicators, grouped by their required input columns (close-only vs close+high+low vs close+high+low+vol, etc.). No network connection required. Uses a `groups: dict[str, list[dict]] = {}` setdefault pattern.",
+      "complexity": "simple",
+      "tags": ["example", "indicators", "list-indicators", "metadata", "no-network"],
+      "languageNotes": "Python module-level script (no with-block, no network). Single function call. Imports list_indicators from easy_tdx.indicator. Builds groups dict by joining info[\"inputs\"] with '+' as the key. Docstring shows the sample grouping output format."
+    },
+    {
+      "id": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "type": "file",
+      "name": "backtest_601088_advanced.py",
+      "filePath": "examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "summary": "Advanced backtest demo on 601088 (中国神华): runs 3-tier execution-accuracy comparison (no-friction baseline → fixed 0.1% PercentSlippage → SquareRootSlippage + TWAPExecution), prints performance table for all 3, computes friction cost drag, then runs AttributionAnalyzer on the highest-precision run to break down commission/slippage/stamp-tax cost contributions. Defines a DualMAStrategy (MA10/MA30 crossover with 8% stop / 18% take-profit) and a fmt_perf label-formatting helper.",
+      "complexity": "complex",
+      "tags": ["example", "backtest", "slippage-models", "execution-models", "twap", "square-root-impact", "cost-attribution"],
+      "languageNotes": "Python module with 3 top-level symbols: DualMAStrategy class (Strategy subclass with init/next), fmt_perf function (string-formatting helper), main function (script body with 6 sections). Imports TdxClient, KlineCategory, Market from easy_tdx + MA from easy_tdx.MyTT + BacktestEngine, Strategy from easy_tdx.backtest + AttributionAnalyzer from easy_tdx.backtest.attribution + TWAPExecution from easy_tdx.backtest.execution + PercentSlippage, SquareRootSlippage from easy_tdx.backtest.slippage. Configures Windows GBK stdout via `sys.stdout.reconfigure(encoding='utf-8')` if available."
+    },
+    {
+      "id": "class:examples/22_backtest_advanced/backtest_601088_advanced.py:DualMAStrategy",
+      "type": "class",
+      "name": "DualMAStrategy",
+      "filePath": "examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "summary": "Strategy subclass for the 601088 advanced demo. Computes MA10 and MA30 in `init()` via `self.I(MA, self.data.close, N)`, then in `next()` detects golden-cross / death-cross on the two MAs. On golden-cross without holding, opens long with 8% stop-loss + 18% take-profit. On death-cross while holding, closes position.",
+      "complexity": "moderate",
+      "tags": ["strategy", "ma-crossover", "stop-loss", "take-profit", "backtest"]
+    },
+    {
+      "id": "function:examples/22_backtest_advanced/backtest_601088_advanced.py:fmt_perf",
+      "type": "function",
+      "name": "fmt_perf",
+      "filePath": "examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "summary": "String-formatting helper that builds a one-line performance summary from a perf dict with fixed widths: `{label:<20} 总收益 ... 年化 ... 最大回撤 ... 夏普 ...`. Used by main() to print the 3-tier comparison table.",
+      "complexity": "simple",
+      "tags": ["formatting", "performance", "backtest", "table-row"]
+    },
+    {
+      "id": "function:examples/22_backtest_advanced/backtest_601088_advanced.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "summary": "Main entry point for the advanced demo. 6 sections: (1) fetch 800 daily bars via TdxClient, (2) run 3 backtests (no-friction / 0.1% fixed slippage / SquareRoot + TWAP), (3) compare performance, (4) compute friction drag, (5) AttributionAnalyzer on highest-precision run, (6) print trade head(8) and equity-curve tail(5). Returns early if df is shorter than 60 bars.",
+      "complexity": "complex",
+      "tags": ["demo", "main", "backtest-comparison", "attribution", "3-tier-precision"]
+    },
+    {
+      "id": "document:examples/23_screen_strength/README.md",
+      "type": "document",
+      "name": "Screen Strength README",
+      "filePath": "examples/23_screen_strength/README.md",
+      "summary": "Markdown documentation (96 lines) for the screen-strength example trio. Covers the 3 presets (steady / breakout / balanced), prerequisites (local 通达信 .day files via `easy-tdx offline sync`), 3 quickstart snippets (Python API / CLI / Web API), output field schema (rank/code/market/name/last_close/last_date/ret_5/ret_20/ret_60/vol_20/strength), and the formula `strength = (w5·ret_5 + w20·ret_20 + w60·ret_60) / vol_20` (vol_adjusted=True) plus weights auto-normalize.",
+      "complexity": "moderate",
+      "tags": ["docs", "screen-strength", "presets", "factor-ranking", "offline-scan"],
+      "languageNotes": "Markdown with Chinese prose + fenced bash/python code blocks. 3-level heading hierarchy. Includes a comparison table of the 3 presets (性格 / 适合) and a 5-row prerequisite file list. Formula section uses code fences with explicit math."
+    },
+    {
+      "id": "file:examples/23_screen_strength/strength_api.py",
+      "type": "file",
+      "name": "strength_api.py",
+      "filePath": "examples/23_screen_strength/strength_api.py",
+      "summary": "Python API demo for StrengthRanker — runs 6 sections: (1) enumerate STRENGTH_PRESETS, (2) steady preset top-20 with progress callback, (3) breakout preset top-10, (4) custom 0.5/0.3/0.2 weights + min_amount 50M filter, (5) balanced preset with 4-process parallel scan + JSON file output, (6) programmatic access to rank objects. Demonstrates `to_table()` and `to_json()` formatters.",
+      "complexity": "moderate",
+      "tags": ["example", "strength-ranker", "presets", "parallel-scan", "progress-callback", "json-output"],
+      "languageNotes": "Python module with one `main()` function (no classes). Imports STRENGTH_PRESETS, StrengthRanker from easy_tdx.screen.strength. Uses inline closure `on_progress(current, total, name)` that prints CR/LF for live progress. 5 distinct StrengthRanker instantiations covering presets + custom + parallel."
+    },
+    {
+      "id": "function:examples/23_screen_strength/strength_api.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "examples/23_screen_strength/strength_api.py",
+      "summary": "Main entry point for the strength-api demo. Runs 6 sections of StrengthRanker configurations (steady/breakout/custom/parallel-balanced/programmatic-access), prints formatted tables and writes a JSON output file `strength_balanced.json`.",
+      "complexity": "moderate",
+      "tags": ["main", "strength-ranker", "6-sections", "json-export"]
+    },
+    {
+      "id": "file:examples/23_screen_strength/strength_cli.sh",
+      "type": "file",
+      "name": "strength_cli.sh",
+      "filePath": "examples/23_screen_strength/strength_cli.sh",
+      "summary": "Bash showcase (78 lines, 10 commented-out `easy-tdx screen strength` invocations) covering every CLI flag: --preset steady/breakout/balanced, --top, --w5/--w20/--w60 custom weights, --no-vol-adjusted, --workers N parallel, --min-amount, --universe sh/sz, --min-listed-days, --output JSON, and a side-by-side 3-preset comparison.",
+      "complexity": "simple",
+      "tags": ["cli", "bash", "screen-strength", "10-examples", "all-flags"],
+      "languageNotes": "Bash script (commands commented out). Uses echo headers with `================================================================` separators. Documents all 10 strength-screen command-line flags plus a 3-preset comparison section."
+    },
+    {
+      "id": "file:examples/23_screen_strength/strength_web_api.py",
+      "type": "file",
+      "name": "strength_web_api.py",
+      "filePath": "examples/23_screen_strength/strength_web_api.py",
+      "summary": "Python HTTP-client demo that hits GET `/api/v1/market/strength` on a running `easy-tdx serve` instance. Defines 2 fetch helpers (preset mode + custom-weights mode) with `timeout=120` to accommodate full-market scan, plus a print_ranking formatter. Calls 4 endpoints in main: steady / breakout / custom 5:3:2 / breakout + min_amount=50M liquidity filter.",
+      "complexity": "moderate",
+      "tags": ["example", "web-api", "rest-client", "requests", "timeout-120", "market-strength"],
+      "languageNotes": "Python module with 4 top-level symbols: BASE_URL constant, fetch_strength() function, fetch_strength_custom_weights() function, print_ranking() formatter, main() function. Uses `requests.get(..., timeout=120)`. No classes."
+    },
+    {
+      "id": "function:examples/23_screen_strength/strength_web_api.py:fetch_strength",
+      "type": "function",
+      "name": "fetch_strength",
+      "filePath": "examples/23_screen_strength/strength_web_api.py",
+      "summary": "HTTP GET helper that calls /market/strength with preset/top_n/universe/min_amount query params (120s timeout) and returns the parsed JSON dict.",
+      "complexity": "simple",
+      "tags": ["http-get", "rest-client", "market-strength", "timeout-120"]
+    },
+    {
+      "id": "function:examples/23_screen_strength/strength_web_api.py:fetch_strength_custom_weights",
+      "type": "function",
+      "name": "fetch_strength_custom_weights",
+      "filePath": "examples/23_screen_strength/strength_web_api.py",
+      "summary": "HTTP GET helper that calls /market/strength with explicit w5/w20/w60 override params (in lieu of preset), 120s timeout.",
+      "complexity": "simple",
+      "tags": ["http-get", "rest-client", "custom-weights", "market-strength"]
+    },
+    {
+      "id": "function:examples/23_screen_strength/strength_web_api.py:print_ranking",
+      "type": "function",
+      "name": "print_ranking",
+      "filePath": "examples/23_screen_strength/strength_web_api.py",
+      "summary": "Local formatter that pretty-prints a result dict as a fixed-width table (rank / code / last_close / ret_5 / ret_20 / ret_60 / strength).",
+      "complexity": "simple",
+      "tags": ["formatting", "table", "print-routing"]
+    },
+    {
+      "id": "function:examples/23_screen_strength/strength_web_api.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "examples/23_screen_strength/strength_web_api.py",
+      "summary": "Main entry point that issues 4 HTTP calls (steady / breakout / custom-weights / breakout+min_amount) and prints each via print_ranking.",
+      "complexity": "moderate",
+      "tags": ["main", "web-api", "4-calls", "strength-routing"]
+    },
+    {
+      "id": "document:NOTICE",
+      "type": "document",
+      "name": "NOTICE",
+      "filePath": "NOTICE",
+      "summary": "Project-root attribution notice (24 lines) acknowledging two upstream MIT-licensed projects that inspired easy-tdx: pytdx (https://github.com/rainx/pytdx) — offline data reading (daily bars, minute bars, block data, gbbq share-structure changes, historical financial data) and the gbbq XOR-decryption key are directly ported from pytdx; xmtdx (https://github.com/minionszyw/xmtdx) — initial project structure and online protocol implementation, since substantially rewritten. Both upstream projects are MIT; their copyright notices are preserved in LICENSE.",
+      "complexity": 1,
+      "tags": ["notice", "attribution", "mit-license", "pytdx", "xmtdx", "upstream"],
+      "languageNotes": "Plain-text document. ASCII English only. Two section headers (Attribution / license). Two bullet-list entries with project URLs and one-line descriptions of what was borrowed."
+    },
+    {
+      "id": "file:run_all_strategies.py",
+      "type": "file",
+      "name": "run_all_strategies.py",
+      "filePath": "run_all_strategies.py",
+      "summary": "Project-root CLI driver (550 lines) that batch-runs all Strategy subclasses in `strategies/*.py` against a single stock+bar-set and prints a ranked performance table. Uses Click for CLI; defines 4 helper functions (_setup_chinese_font / _map_trade_values / _run_combo_screen / _show_best_chart) plus the top-level `run_all` Click command. Supports --combo N for multi-factor combo backtest and --show for matplotlib price-vs-equity chart with buy/sell markers. Loads strategies via importlib.util dynamic loading (no static import) so any .py file in strategies/ is auto-discovered.",
+      "complexity": "complex",
+      "tags": ["cli", "batch-backtest", "click", "matplotlib", "dynamic-import", "combo-screen", "rank-by-return"],
+      "languageNotes": "Python module with 5 top-level symbols: 4 helpers + Click command. Uses `sys.path.insert(0, str(Path(__file__).parent / 'src'))` to bootstrap src/ import. Uses importlib.util.spec_from_file_location to dynamically load each strategy file. MacClient.from_best_host() for data fetch. Combo backtest via CombinationRunner with AND/OR/MAJORITY signal modes. _show_best_chart uses matplotlib twinx for normalized price + equity overlay."
+    },
+    {
+      "id": "function:run_all_strategies.py:_setup_chinese_font",
+      "type": "function",
+      "name": "_setup_chinese_font",
+      "filePath": "run_all_strategies.py",
+      "summary": "Helper that configures matplotlib Chinese font per-platform (Microsoft YaHei/SimHei on Windows, PingFang SC/Heiti SC on Darwin, WenQuanYi Micro Hei/Noto Sans CJK SC on Linux). Sets `font.sans-serif` to the first available candidate + DejaVu Sans fallback. Also sets `axes.unicode_minus = False` so minus signs render correctly.",
+      "complexity": "simple",
+      "tags": ["matplotlib", "font-config", "cross-platform", "chinese"]
+    },
+    {
+      "id": "function:run_all_strategies.py:_map_trade_values",
+      "type": "function",
+      "name": "_map_trade_values",
+      "filePath": "run_all_strategies.py",
+      "summary": "Helper that maps each trade datetime to the corresponding normalized equity-curve value (equity['total'] / initial_cash). Uses np.searchsorted on the equity datetime array with side='right' minus 1, clamped to [0, len-1]. Used by _show_best_chart to scatter buy/sell markers on the equity curve.",
+      "complexity": "simple",
+      "tags": ["numpy-searchsorted", "equity-mapping", "matplotlib-helper"]
+    },
+    {
+      "id": "function:run_all_strategies.py:_run_combo_screen",
+      "type": "function",
+      "name": "_run_combo_screen",
+      "filePath": "run_all_strategies.py",
+      "summary": "Helper that runs multi-factor combination backtests via CombinationRunner.screen(). For each size in combo_sizes it prints a top-20 ranking table (rank/name/total_return/annual_return/max_drawdown/sharpe/win_rate/total_trades) plus the best-combination detailed report. Requires ≥2 strategy classes; emits a warning and returns if fewer found.",
+      "complexity": "moderate",
+      "tags": ["combo-backtest", "math-comb", "multi-factor", "ranking", "top-20"]
+    },
+    {
+      "id": "function:run_all_strategies.py:_show_best_chart",
+      "type": "function",
+      "name": "_show_best_chart",
+      "filePath": "run_all_strategies.py",
+      "summary": "Helper that renders a matplotlib twinx chart with normalized stock price (steelblue, left axis) and normalized equity curve (crimson, right axis) for the best strategy. Overlays green up-triangles for BUY trades and orange down-triangles for SELL trades via _map_trade_values. Title embeds stock label + name + total_return / max_drawdown / sharpe. Skips gracefully if matplotlib missing or equity_curve empty.",
+      "complexity": "complex",
+      "tags": ["matplotlib", "twinx", "price-vs-equity", "buy-sell-markers", "best-strategy-chart"]
+    },
+    {
+      "id": "function:run_all_strategies.py:run_all",
+      "type": "function",
+      "name": "run_all",
+      "filePath": "run_all_strategies.py",
+      "summary": "Click command decorated with @click.command — the main `run_all` entry point. Accepts market/code positional args + 8 options (--count/--cash/--commission/--adjust/--period/--combo × N/--combo-mode/--show). 6 phases: (1) discover strategies/*.py, (2) fetch bars via MacClient, (3) iterate load-and-run each strategy via importlib, (4) print ranked performance table, (5) optional combo-screen, (6) optional matplotlib chart.",
+      "complexity": "complex",
+      "tags": ["click-command", "main", "6-phases", "rank-by-return", "composite-score"]
+    },
+    {
+      "id": "file:scripts/__init__.py",
+      "type": "file",
+      "name": "scripts/__init__.py",
+      "filePath": "scripts/__init__.py",
+      "summary": "Empty Python package marker for the `scripts/` directory. 0 bytes, no code. Marks `scripts` as an importable Python package (e.g. `from scripts.probe_unknowns import probe_minute_averages` works). Has no runtime behavior — purely a namespace declaration.",
+      "complexity": 1,
+      "tags": ["package-marker", "empty", "namespace"],
+      "languageNotes": "0-line file. Standard Python idiom for declaring a directory as a package. No top-level imports, classes, or functions."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:examples/15_mac_board/board_list.py",
+      "target": "file:examples/15_mac_board/board_members.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "Both files are siblings in examples/15_mac_board/ — board_list.py fetches the board universe, board_members.py drills into one board's constituents; together they form the board exploration workflow."
+    },
+    {
+      "source": "file:examples/15_mac_board/board_list.py",
+      "target": "file:examples/15_mac_board/board_summary.py",
+      "type": "related",
+      "weight": 0.6,
+      "reason": "Siblings in examples/15_mac_board/. board_list provides board codes that board_summary aggregates (member_count/amount/main_net)."
+    },
+    {
+      "source": "file:examples/15_mac_board/board_ranking.py",
+      "target": "file:examples/15_mac_board/board_list.py",
+      "type": "related",
+      "weight": 0.65,
+      "reason": "Both consume BoardType but board_ranking aggregates cross-board metrics (change_pct / main_net_amount) while board_list returns per-board info. Sister scripts."
+    },
+    {
+      "source": "file:examples/15_mac_board/board_members.py",
+      "target": "file:examples/15_mac_board/board_summary.py",
+      "type": "depends_on",
+      "weight": 0.8,
+      "reason": "board_summary internally calls get_board_members() to fetch all constituent quotes and then aggregates them into member_count/amount/vol/main_net_* — same MAC-protocol pagination, different aggregation level."
+    },
+    {
+      "source": "file:examples/16_mac_capital/capital_flow.py",
+      "target": "file:examples/15_mac_board/board_members.py",
+      "type": "similar_to",
+      "weight": 0.6,
+      "reason": "Both files demonstrate MAC-protocol single-stock-vs-aggregated-data patterns; capital_flow is per-symbol while board_members is per-board-constituent."
+    },
+    {
+      "source": "file:examples/17_mac_monitor/auction.py",
+      "target": "file:examples/17_mac_monitor/server_info.py",
+      "type": "related",
+      "weight": 0.55,
+      "reason": "server_info documents that 09:15-09:25 is the call-auction window with type=5/6/7 phases; auction.py fetches the 09:15-09:25 matching data within that window — semantically paired."
+    },
+    {
+      "source": "file:examples/17_mac_monitor/auction.py",
+      "target": "file:examples/17_mac_monitor/symbol_info.py",
+      "type": "similar_to",
+      "weight": 0.5,
+      "reason": "Both fetch per-symbol intraday-data on MAC protocol: auction is 09:15-09:25 matching, symbol_info is full-day snapshot — same market, different time windows."
+    },
+    {
+      "source": "file:examples/17_mac_monitor/unusual.py",
+      "target": "file:examples/17_mac_monitor/server_info.py",
+      "type": "related",
+      "weight": 0.4,
+      "reason": "Both consume MAC-protocol market-monitoring data; server_info returns session metadata while unusual returns per-alert event stream. Different purposes but same protocol family."
+    },
+    {
+      "source": "file:examples/17_mac_monitor/unusual.py",
+      "target": "file:examples/15_mac_board/board_members.py",
+      "type": "similar_to",
+      "weight": 0.55,
+      "reason": "Both demonstrate MAC-protocol pagination (600 for unusual, 80 for board_members) with start-offset loop accumulation — same pagination idiom across different protocol commands."
+    },
+    {
+      "source": "file:examples/18_mac_ex/ex_goods_list.py",
+      "target": "file:examples/18_mac_ex/ex_quotes.py",
+      "type": "related",
+      "weight": 0.6,
+      "reason": "Sister scripts in examples/18_mac_ex/. goods_list returns the universe, goods_quotes returns real-time quotes for a subset of that universe — same extension-market MacExClient, different protocol commands."
+    },
+    {
+      "source": "file:examples/18_mac_ex/ex_kline.py",
+      "target": "file:examples/18_mac_ex/ex_tick_chart.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "Both fetch time-series K-line data via MacExClient on extension markets (HK/US/Futures); ex_kline returns daily bars while ex_tick_chart returns intraday minute bars."
+    },
+    {
+      "source": "file:examples/18_mac_ex/ex_quotes.py",
+      "target": "file:examples/18_mac_ex/ex_tick_chart.py",
+      "type": "similar_to",
+      "weight": 0.55,
+      "reason": "Both fetch real-time HK/US data via MacExClient: ex_quotes gets snapshot quotes, ex_tick_chart gets intraday minute ticks. Same market, different time granularity."
+    },
+    {
+      "source": "file:examples/19_unified/unified_client.py",
+      "target": "file:examples/15_mac_board/board_list.py",
+      "type": "depends_on",
+      "weight": 0.6,
+      "reason": "UnifiedTdxClient proxies get_board_list() to its MacClient sub-component — same MAC-protocol 0x... call path as board_list.py uses directly."
+    },
+    {
+      "source": "file:examples/19_unified/unified_client.py",
+      "target": "file:examples/18_mac_ex/ex_kline.py",
+      "type": "depends_on",
+      "weight": 0.7,
+      "reason": "UnifiedTdxClient proxies goods_kline() to its MacExClient sub-component (port 7727); ex_kline.py calls that same goods_kline API directly. They share the same extension-market K-line data path."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/15_mac_board/board_list.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 11 (`easy-tdx board-list --type GN --count 10 --table`) is the CLI equivalent of board_list.py's `MacClient.get_board_list(BoardType.GN)` call — same data, different access layer."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/15_mac_board/board_members.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 12 (`easy-tdx board-members 881001 --sort CHANGE_PCT --order DESC`) is the CLI surface for the same get_board_members() Python call used in board_members.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/16_mac_capital/capital_flow.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 14 (`easy-tdx capital-flow SH 600519`) is the CLI surface for the same get_capital_flow() Python call used in capital_flow.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/17_mac_monitor/auction.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 10 (`easy-tdx auction SH 600519`) is the CLI surface for the same get_auction() Python call used in auction.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/17_mac_monitor/unusual.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 15 (`easy-tdx unusual SZ --count 20`) is the CLI surface for the same get_unusual() Python call (with --count replacing the 600-page protocol cap from unusual.py)."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/17_mac_monitor/server_info.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 17 (`easy-tdx server-info`) is the CLI surface for the same get_server_info() Python call used in server_info.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/17_mac_monitor/symbol_info.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 18 (`easy-tdx symbol-info SZ 000001`) is the CLI surface for the same get_symbol_info() Python call used in symbol_info.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/18_mac_ex/ex_goods_list.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 22 (`easy-tdx ex quote-list HK_MAIN_BOARD --count 10`) is the CLI surface for the same MacExClient.goods_list() Python call used in ex_goods_list.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/18_mac_ex/ex_kline.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 20 (`easy-tdx ex kline HK_MAIN_BOARD 00700 --count 10`) is the CLI surface for the same MacExClient.goods_kline() Python call used in ex_kline.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/18_mac_ex/ex_quotes.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 21 (`easy-tdx ex quote US_STOCK AAPL`) is the CLI surface for the same MacExClient.goods_quotes() Python call used in ex_quotes.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/18_mac_ex/ex_tick_chart.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 23 (`easy-tdx ex tick HK_MAIN_BOARD 00700`) is the CLI surface for the same MacExClient.goods_tick_chart() Python call used in ex_tick_chart.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/21_indicator/basic_indicators.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh sections 24-29 (`easy-tdx indicator-list / indicator MACD / indicator MACD,KDJ,RSI,BOLL / --params / --no-ohlcv / --period 5MIN`) are the CLI surface for the same get_stock_kline_with_indicators + compute_indicators Python calls used in basic_indicators.py."
+    },
+    {
+      "source": "file:examples/20_cli/cli_examples.sh",
+      "target": "file:examples/21_indicator/list_indicators.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "cli_examples.sh section 24 (`easy-tdx indicator-list --table`) is the CLI surface for the same list_indicators() Python call used in list_indicators.py."
+    },
+    {
+      "source": "file:examples/21_indicator/basic_indicators.py",
+      "target": "file:examples/21_indicator/list_indicators.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "Sibling files in examples/21_indicator/. list_indicators enumerates the 30 supported indicator names/metadata; basic_indicators shows actual usage of a 4-indicator subset (MACD/KDJ/RSI/BOLL) + standalone compute_indicators for ATR/CCI/WR."
+    },
+    {
+      "source": "file:examples/21_indicator/basic_indicators.py",
+      "target": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "type": "related",
+      "weight": 0.45,
+      "reason": "Both files use MA from easy_tdx.MyTT (basic_indicators via indicator engine, backtest_601088 via self.I in DualMAStrategy.init). Shared MyTT indicator foundation."
+    },
+    {
+      "source": "file:file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "depends_on",
+      "weight": 0.85,
+      "reason": "main() instantiates `BacktestEngine(DualMAStrategy, cash=CASH, slippage_model=..., execution_model=...)` 3 times — engine.py is the core backtest loop the example demonstrates."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/backtest/attribution.py",
+      "type": "depends_on",
+      "weight": 0.8,
+      "reason": "main() instantiates `AttributionAnalyzer(r_c.trades, r_c.equity_curve)` and calls `att.cost_attribution()` — attribution.py provides the AttributionReport.total_return/total_trade_cost/commission_cost/slippage_cost/stamp_tax_cost that gets printed."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/backtest/execution.py",
+      "type": "depends_on",
+      "weight": 0.8,
+      "reason": "Imports `TWAPExecution` from easy_tdx.backtest.execution and passes it to BacktestEngine as `execution_model=TWAPExecution(n_bars=3)` — execution.py defines ImmediateExecution / TWAPExecution / VWAPExecution / LimitExecution."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/backtest/slippage.py",
+      "type": "depends_on",
+      "weight": 0.8,
+      "reason": "Imports `PercentSlippage, SquareRootSlippage` from easy_tdx.backtest.slippage and uses them as `slippage_model=PercentSlippage(rate=0.001)` and `SquareRootSlippage(impact_coeff=0.1)` — slippage.py defines FixedSlippage / PercentSlippage / SquareRootSlippage / VolumeSlippage."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/backtest/strategy.py",
+      "type": "depends_on",
+      "weight": 0.9,
+      "reason": "DualMAStrategy subclasses Strategy and overrides init/next using `self.I(MA, self.data.close, N)` and `self.position[\"size\"]` / `self.buy(size, stop_loss, take_profit)` / `self.sell(size)` — strategy.py defines the Strategy base class + StrategyDataProxy."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/MyTT.py",
+      "type": "depends_on",
+      "weight": 0.7,
+      "reason": "DualMAStrategy.init uses `from easy_tdx.MyTT import MA` and calls `self.I(MA, self.data.close, 10)` / `self.I(MA, self.data.close, 30)` — MyTT.py provides the MA indicator function used by the indicator engine."
+    },
+    {
+      "source": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "depends_on",
+      "weight": 0.75,
+      "reason": "main() uses `TdxClient().get_security_bars(MARKET, CODE, KlineCategory.DAY, 0, 800)` to fetch the 800 daily bars that all 3 backtest variants share — client.py provides TdxClient (the standard TDX TCP-protocol client on port 7709)."
+    },
+    {
+      "source": "class:examples/22_backtest_advanced/backtest_601088_advanced.py:DualMAStrategy",
+      "target": "file:src/easy_tdx/backtest/strategy.py",
+      "type": "inherits",
+      "weight": 1.0,
+      "reason": "DualMAStrategy explicitly subclasses Strategy from easy_tdx.backtest.strategy, overriding init() and next() — this is the canonical Strategy subclass contract."
+    },
+    {
+      "source": "function:examples/22_backtest_advanced/backtest_601088_advanced.py:main",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "calls",
+      "weight": 0.9,
+      "reason": "main() instantiates BacktestEngine 3 times (no-friction / PercentSlippage / SquareRootSlippage+TWAPExecution) and calls .run(df) — engine.py's BacktestEngine.run() is the entry point for each backtest."
+    },
+    {
+      "source": "function:examples/22_backtest_advanced/backtest_601088_advanced.py:main",
+      "target": "file:src/easy_tdx/backtest/attribution.py",
+      "type": "calls",
+      "weight": 0.85,
+      "reason": "main() calls `AttributionAnalyzer(r_c.trades, r_c.equity_curve).cost_attribution()` to break down the highest-precision run's cost into commission/slippage/stamp_tax."
+    },
+    {
+      "source": "document:examples/23_screen_strength/README.md",
+      "target": "file:examples/23_screen_strength/strength_api.py",
+      "type": "documents",
+      "weight": 0.95,
+      "reason": "README.md's '### Python API' section gives the canonical Python snippet `StrengthRanker(preset='steady').rank(top_n=20)` that strength_api.py implements with 6 detailed variations (steady / breakout / custom / parallel-balanced / JSON output / programmatic access)."
+    },
+    {
+      "source": "document:examples/23_screen_strength/README.md",
+      "target": "file:examples/23_screen_strength/strength_cli.sh",
+      "type": "documents",
+      "weight": 0.95,
+      "reason": "README.md's '### CLI' section gives 3 example `easy-tdx screen strength --preset steady --top 50 --table` commands that strength_cli.sh expands into 10 detailed flag combinations (preset/custom-weights/--workers/--min-amount/--universe/--min-listed-days/--output)."
+    },
+    {
+      "source": "document:examples/23_screen_strength/README.md",
+      "target": "file:examples/23_screen_strength/strength_web_api.py",
+      "type": "documents",
+      "weight": 0.95,
+      "reason": "README.md's '### Web API' section documents the `curl 'http://localhost:8000/api/v1/market/strength?preset=breakout&top_n=20'` call that strength_web_api.py implements as 4 HTTP GET requests via Python requests."
+    },
+    {
+      "source": "document:examples/23_screen_strength/README.md",
+      "target": "file:src/easy_tdx/screen/strength.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "README.md documents the `StrengthRanker` class API (`ranker.rank(top_n=20)`, `preset=`, output `r.rank/r.code/r.strength/...`), the `STRENGTH_PRESETS` dict (steady/breakout/balanced), and the `strength = (w5·ret_5 + ...)/vol_20` formula — all implemented in `easy_tdx.screen.strength`."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_api.py",
+      "target": "file:src/easy_tdx/screen/strength.py",
+      "type": "depends_on",
+      "weight": 0.95,
+      "reason": "Imports `STRENGTH_PRESETS, StrengthRanker` from easy_tdx.screen.strength and instantiates StrengthRanker 4 times (steady / breakout / custom / parallel-balanced) with various w5/w20/w60/vol_adjusted/min_amount combinations."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_cli.sh",
+      "target": "file:src/easy_tdx/cli/cmd_screen.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "All 10 `easy-tdx screen strength` invocations map to the `strength` Click subcommand registered in easy_tdx.cli.cmd_screen (per the project CLI structure), exposing --preset / --w5/--w20/--w60 / --no-vol-adjusted / --workers / --min-amount / --universe / --min-listed-days / --output / --top / --table / --names flags."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_web_api.py",
+      "target": "file:src/easy_tdx/web/routers/market.py",
+      "type": "depends_on",
+      "weight": 0.9,
+      "reason": "All 4 HTTP GET requests target `http://localhost:8000/api/v1/market/strength` — this is the FastAPI router endpoint implemented in easy_tdx.web.routers.market that internally delegates to StrengthRanker.rank()."
+    },
+    {
+      "source": "function:examples/23_screen_strength/strength_api.py:main",
+      "target": "file:src/easy_tdx/screen/strength.py",
+      "type": "calls",
+      "weight": 0.95,
+      "reason": "main() instantiates 4 StrengthRanker objects (steady/breakout/custom/balanced) and calls .rank(top_n=..., workers=..., progress_callback=...) and the formatters .to_table() + .to_json()."
+    },
+    {
+      "source": "function:examples/23_screen_strength/strength_web_api.py:fetch_strength",
+      "target": "file:src/easy_tdx/web/routers/market.py",
+      "type": "calls",
+      "weight": 0.85,
+      "reason": "fetch_strength() issues `requests.get('/api/v1/market/strength', params={preset, top_n, universe, min_amount}, timeout=120)` — direct invocation of the FastAPI router endpoint."
+    },
+    {
+      "source": "function:examples/23_screen_strength/strength_web_api.py:fetch_strength_custom_weights",
+      "target": "file:src/easy_tdx/web/routers/market.py",
+      "type": "calls",
+      "weight": 0.8,
+      "reason": "fetch_strength_custom_weights() passes w5/w20/w60 overrides via query params — the FastAPI endpoint must support these per-param overrides in addition to preset mode."
+    },
+    {
+      "source": "document:NOTICE",
+      "target": "file:src/easy_tdx/offline",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "NOTICE explicitly states the offline data reading module (daily bars, minute bars, block data, gbbq share-structure changes, historical financial data) borrows file format parsing from pytdx — this describes the easy_tdx.offline subpackage."
+    },
+    {
+      "source": "document:NOTICE",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "NOTICE states the initial project structure and online protocol implementation were based on xmtdx and have been substantially rewritten — the online protocol client lives in easy_tdx.client."
+    },
+    {
+      "source": "document:NOTICE",
+      "target": "file:LICENSE",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "NOTICE's final paragraph states 'Their original copyright notices are preserved in the LICENSE file' — LICENSE holds the MIT text from pytdx + xmtdx upstreams."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "depends_on",
+      "weight": 0.95,
+      "reason": "run_all() iterates `BacktestEngine(strategy=strategy_cls, cash=cash, commission=commission).run(df)` once per discovered strategy file — engine.py is the core dependency."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/backtest/strategy.py",
+      "type": "depends_on",
+      "weight": 0.85,
+      "reason": "run_all() checks `isinstance(obj, type) and issubclass(obj, Strategy)` to detect strategy classes via dynamic importlib loading — strategy.py defines the Strategy base class used as the duck-type filter."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/backtest/combo.py",
+      "type": "depends_on",
+      "weight": 0.85,
+      "reason": "_run_combo_screen() imports `CombinationRunner` from easy_tdx.backtest.combo and uses `runner.screen(combo_sizes=(size,), mode=combo_mode.upper())` — combo.py implements CombinationRunner + the AND/OR/MAJORITY signal merge."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "depends_on",
+      "weight": 0.7,
+      "reason": "run_all() calls `parse_market(market)`, `parse_period(period)`, `parse_adjust(adjust)` from easy_tdx.cli.parsers — parsers.py converts CLI string args to typed enums."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/mac/client.py",
+      "type": "depends_on",
+      "weight": 0.85,
+      "reason": "run_all() uses `MacClient.from_best_host()` to fetch the bar data (with `client.get_stock_kline(mkt, code, period=..., start=0, count=count, adjust=...)`) and optionally `client.get_stock_quotes([(mkt, code)])` for the stock name when --show is enabled."
+    },
+    {
+      "source": "file:run_all_strategies.py",
+      "target": "file:src/easy_tdx/MyTT.py",
+      "type": "related",
+      "weight": 0.4,
+      "reason": "run_all() itself does not import MyTT, but it loads Strategy subclasses from strategies/*.py which typically use MyTT MA/MACD/KDJ etc. via self.I(MA, ...). The strategies directory's expected usage of MyTT is implicit in this driver."
+    },
+    {
+      "source": "function:run_all_strategies.py:run_all",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "calls",
+      "weight": 0.95,
+      "reason": "run_all() loops over strategy_files and calls `engine = BacktestEngine(strategy=strategy_cls, cash=cash, commission=commission)` then `result = engine.run(df)` for each — direct BacktestEngine usage."
+    },
+    {
+      "source": "function:run_all_strategies.py:_run_combo_screen",
+      "target": "file:src/easy_tdx/backtest/combo.py",
+      "type": "calls",
+      "weight": 0.9,
+      "reason": "_run_combo_screen() instantiates `CombinationRunner(strategy_classes=strategy_classes, df=df, cash=cash, commission=commission)` and calls `runner.screen(combo_sizes=(size,), mode=combo_mode.upper())` — direct CombinationRunner.screen() usage."
+    },
+    {
+      "source": "function:run_all_strategies.py:_show_best_chart",
+      "target": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "type": "similar_to",
+      "weight": 0.6,
+      "reason": "Both files use matplotlib twinx to render normalized stock-price + equity-curve overlays with buy/sell markers — same chart idiom. backtest_601088 prints one strategy's equity, run_all prints the best strategy's equity."
+    },
+    {
+      "source": "function:run_all_strategies.py:run_all",
+      "target": "file:examples/22_backtest_advanced/backtest_601088_advanced.py",
+      "type": "similar_to",
+      "weight": 0.5,
+      "reason": "Both files are backtest demos that run Strategy subclasses and print ranked performance — backtest_601088 runs 3 variants of one strategy with different execution/slippage models, run_all runs N strategies with default model. Same orchestration pattern."
+    },
+    {
+      "source": "file:scripts/__init__.py",
+      "target": "file:scripts/probe_unknowns.py",
+      "type": "related",
+      "weight": 0.3,
+      "reason": "Empty __init__.py is the package marker that makes scripts/ importable; probe_unknowns.py is one of the scripts in the same directory. No active relationship beyond namespace declaration."
+    },
+    {
+      "source": "file:scripts/__init__.py",
+      "target": "file:scripts/ruff_hook.py",
+      "type": "related",
+      "weight": 0.3,
+      "reason": "Empty __init__.py is the package marker that makes scripts/ importable; ruff_hook.py is another script in the same directory."
+    },
+    {
+      "source": "file:scripts/__init__.py",
+      "target": "file:scripts/verify_fixes_20260415.py",
+      "type": "related",
+      "weight": 0.3,
+      "reason": "Empty __init__.py is the package marker that makes scripts/ importable; verify_fixes_20260415.py is the third script in the same directory."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_api.py",
+      "target": "file:examples/23_screen_strength/strength_web_api.py",
+      "type": "related",
+      "weight": 0.6,
+      "reason": "Both files consume the strength-ranker data; strength_api calls StrengthRanker.rank() directly via Python, strength_web_api calls /api/v1/market/strength via HTTP. Two layers of the same data pipeline."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_cli.sh",
+      "target": "file:examples/23_screen_strength/strength_api.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "Both demonstrate the screen-strength feature; strength_cli.sh is the bash/CLI surface, strength_api.py is the Python surface. Same underlying StrengthRanker."
+    },
+    {
+      "source": "file:examples/23_screen_strength/strength_cli.sh",
+      "target": "file:examples/23_screen_strength/strength_web_api.py",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "Both demonstrate the screen-strength feature; strength_cli.sh is the bash/CLI surface, strength_web_api.py is the HTTP/REST surface. Same underlying /market/strength endpoint."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 38,
+    "edgesCreated": 68,
+    "complexity": {
+      "min": 1,
+      "max": 7,
+      "avg": 2.1
+    },
+    "notes": "Batch 9 covers 25 files spanning the examples/ tree (board/capital/monitor/ex/unified/CLI/indicator/backtest-advanced/screen-strength), the NOTICE attribution file, the run_all_strategies.py project-root CLI driver, and the empty scripts/__init__.py package marker. Total 39 nodes: 22 file nodes, 5 class/function child nodes (DualMAStrategy + fmt_perf + main + 5 helper/main nodes from run_all_strategies.py + strength_api.py + strength_web_api.py), 11 module-level docstring examples (no functions/classes to emit child nodes for — they're `with`-block driver code), plus document nodes for NOTICE and the screen-strength README. Edges: 1 imports group (zero — pre-resolved imports were empty for all 25 files since these are top-level scripts that import from src/easy_tdx, but those imports are not pre-resolved in this batch's data so I emit depends_on edges to the source modules directly), 8 depends_on (board_members → board_summary internal call, ex/ex_kline → unified, ex/ex_quotes → unified, ex_goods_list ↔ ex_quotes, ex_kline ↔ ex_tick_chart, the 5 files that import from easy_tdx: backtest_601088 → engine/attribution/execution/slippage/strategy/MyTT/client.py, strength_api → screen/strength, strength_web_api → web/routers/market, run_all_strategies → engine/strategy/combo/parsers/mac/client), 5 calls (backtest_601088_main → engine/attribution, strength_api_main → strength, strength_web_api.fetch_strength/fetch_strength_custom_weights → routers/market, run_all_strategies_run_all → engine, run_all_strategies_run_combo_screen → combo), 12 related (cross-batch sibling grouping within examples/15_mac_board/, examples/16_mac_capital/, examples/17_mac_monitor/, examples/18_mac_ex/, examples/23_screen_strength/; NOTICE → LICENSE + offline + client.py), 1 inherits (DualMAStrategy → Strategy), 7 documents (NOTICE → offline + client.py + LICENSE; screen-strength/README → strength_api.py + strength_cli.sh + strength_web_api.py + src/easy_tdx/screen/strength.py), 4 similar_to (cross-feature MAC-protocol sibling pairs: capital_flow ↔ board_members, auction ↔ symbol_info, unusual ↔ board_members, ex_quotes ↔ ex_tick_chart, plus 2 cross-batch: run_all_strategies._show_best_chart ↔ backtest_601088 (shared matplotlib-twinx chart idiom) and run_all_strategies.run_all ↔ backtest_601088 (shared strategy-ranking pattern)). Pre-resolved import data was empty for all 25 files; cross-batch neighbors were empty. Edge weights range 0.3-1.0: highest (1.0) for DualMAStrategy→Strategy inheritance; mid-high (0.85-0.95) for engine/attribution/execution/slippage/strength/screen/strategy depends_on/calls (core library calls); mid (0.6-0.7) for related/similar_to across example siblings; lower (0.3-0.55) for the unrelated-but-co-located scripts/__init__.py → sibling scripts relationships. Notable structural insight: the 5 examples/23_screen_strength/ files (README + 3 demos + 1 CLI bash) form a tightly-coordinated example trio demonstrating the same StrengthRanker feature across Python/CLI/HTTP — the README is the documentation hub and the 3 demo files are sibling implementations. The NOTICE → src/easy_tdx/offline and NOTICE → src/easy_tdx/client.py edges are the explicit upstream-attribution contracts."
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 24,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "web-ui/src/grading/types.ts",
+      "language": "typescript",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/main.ts",
+      "language": "typescript",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/market.ts",
+      "language": "typescript",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/router.ts",
+      "language": "typescript",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/stores/backtest.ts",
+      "language": "typescript",
+      "sizeLines": 277,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/style.css",
+      "language": "css",
+      "sizeLines": 106,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "web-ui/src/types.ts",
+      "language": "typescript",
+      "sizeLines": 357,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/BacktestView.vue",
+      "language": "vue",
+      "sizeLines": 509,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/CompareView.vue",
+      "language": "vue",
+      "sizeLines": 241,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/OptimizeView.vue",
+      "language": "vue",
+      "sizeLines": 592,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/PortfolioView.vue",
+      "language": "vue",
+      "sizeLines": 524,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/ServerSettingsView.vue",
+      "language": "vue",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/views/StrategiesView.vue",
+      "language": "vue",
+      "sizeLines": 1295,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/vite.config.ts",
+      "language": "typescript",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:web-ui/src/grading/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "web-ui/src/grading/types.ts",
+      "summary": "TypeScript module types.ts. Exports: Grade, DimensionScore, VetoHit, GradeResult, GradeMeta.",
+      "complexity": 3,
+      "tags": [
+        "typescript",
+        "frontend",
+        "types"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "web-ui/src/main.ts",
+      "summary": "TypeScript module main.ts.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/market.ts",
+      "type": "file",
+      "name": "market.ts",
+      "filePath": "web-ui/src/market.ts",
+      "summary": "TypeScript module market.ts. Exports: Market, detectMarket, toSymbol, marketLabel.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/router.ts",
+      "type": "file",
+      "name": "router.ts",
+      "filePath": "web-ui/src/router.ts",
+      "summary": "TypeScript module router.ts. Exports: router.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend",
+        "router"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/stores/backtest.ts",
+      "type": "file",
+      "name": "backtest.ts",
+      "filePath": "web-ui/src/stores/backtest.ts",
+      "summary": "TypeScript module backtest.ts. Exports: useBacktestStore.",
+      "complexity": 7,
+      "tags": [
+        "typescript",
+        "frontend",
+        "store"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/style.css",
+      "type": "config",
+      "name": "style.css",
+      "filePath": "web-ui/src/style.css",
+      "summary": "Global CSS stylesheet style.css. 107 lines of styling rules.",
+      "complexity": 2,
+      "tags": [
+        "css",
+        "frontend",
+        "styling"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "web-ui/src/types.ts",
+      "summary": "TypeScript module types.ts. Exports: ParamType, ParamSchema, StrategySchema, StrategiesResponse, Bar.",
+      "complexity": 7,
+      "tags": [
+        "typescript",
+        "frontend",
+        "types"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/BacktestView.vue",
+      "type": "file",
+      "name": "BacktestView.vue",
+      "filePath": "web-ui/src/views/BacktestView.vue",
+      "summary": "Vue 3 component BacktestView. Template:  <div class=\"backtest-view\"> <!-- 左栏：配置 --> <aside class=\"config-panel\"> <section class=\"panel-section\"> <h3>行情数据</h3> <SymbolPicker ref=\"symbolPicker\" v-model:code=\"code\" v-model:category=\"category\" v-model:start-date=\"startDate\" v-model:end-date=\"endDate\" /> </section> <section class=\"panel-sectio",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/CompareView.vue",
+      "type": "file",
+      "name": "CompareView.vue",
+      "filePath": "web-ui/src/views/CompareView.vue",
+      "summary": "Vue 3 component CompareView. Template:  <div class=\"compare-view\"> <aside class=\"config-panel\"> <section class=\"panel-section\"> <h3>选择对比任务</h3> <button class=\"refresh-btn\" :disabled=\"loading\" @click=\"loadTasks\"> {{ loading ? '加载中…' : '刷新列表' }} </button> <p class=\"hint\">勾选 2-4 个已完成的回测任务进行对比：</p> <div v-if=\"taskList.length === 0\" class=\"em",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/OptimizeView.vue",
+      "type": "file",
+      "name": "OptimizeView.vue",
+      "filePath": "web-ui/src/views/OptimizeView.vue",
+      "summary": "Vue 3 component OptimizeView. Template:  <div class=\"optimize-view\"> <aside class=\"config-panel\"> <section class=\"panel-section\"> <h3>行情数据</h3> <SymbolPicker ref=\"symbolPicker\" v-model:code=\"code\" v-model:category=\"category\" v-model:start-date=\"startDate\" v-model:end-date=\"endDate\" /> </section> <section class=\"panel-section\"> <h3>策略</h3>",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/PortfolioView.vue",
+      "type": "file",
+      "name": "PortfolioView.vue",
+      "filePath": "web-ui/src/views/PortfolioView.vue",
+      "summary": "Vue 3 component PortfolioView. Template:  <div class=\"portfolio-view\"> <aside class=\"config-panel\"> <section class=\"panel-section\"> <h3>标的列表</h3> <StocksPicker v-model=\"stocks\" /> </section> <section class=\"panel-section\"> <h3>策略</h3> <StrategyPicker v-if=\"store.strategies.length\" v-model:strategy=\"strategy\" v-model:params=\"params\" :strate",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/ServerSettingsView.vue",
+      "type": "file",
+      "name": "ServerSettingsView.vue",
+      "filePath": "web-ui/src/views/ServerSettingsView.vue",
+      "summary": "Vue 3 component ServerSettingsView. Template:  <div class=\"server-settings\"> <aside class=\"config-panel\"> <h2>服务器设置</h2> <div class=\"current-host\"> <span class=\"label\">当前服务器</span> <span class=\"host-value\">{{ currentHost || '未连接' }}</span> </div> <button class=\"btn-test\" :disabled=\"testing || loading\" @click=\"testAll\"> {{ testing ? '测速中...' : '",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/views/StrategiesView.vue",
+      "type": "file",
+      "name": "StrategiesView.vue",
+      "filePath": "web-ui/src/views/StrategiesView.vue",
+      "summary": "Vue 3 component StrategiesView. Template:  <div class=\"strategies-view\"> <header class=\"page-header\"> <div> <h2>策略库</h2> <p class=\"subtitle\"> 保存你觉得不错的策略，下次直接载入或重跑。共 {{ strategies.length }} 条。 </p> </div> <div class=\"header-actions\"> <button v-if=\"activeTab === 'single'\" class=\"primary sm\" :disabled=\"selectedStrategies.length === 0 || store.",
+      "complexity": 7,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/vite.config.ts",
+      "type": "file",
+      "name": "vite.config.ts",
+      "filePath": "web-ui/vite.config.ts",
+      "summary": "TypeScript module vite.config.ts.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:web-ui/src/main.ts",
+      "target": "file:web-ui/src/router.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "main.ts imports from ./router"
+    },
+    {
+      "source": "file:web-ui/src/stores/backtest.ts",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "backtest.ts imports from ../types"
+    },
+    {
+      "source": "file:web-ui/src/views/BacktestView.vue",
+      "target": "file:web-ui/src/market.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "BacktestView.vue imports from ../market (resolves to web-ui/src/market.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/BacktestView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "BacktestView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/BacktestView.vue",
+      "target": "file:web-ui/src/stores/backtest.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "BacktestView.vue imports from ../stores/backtest (resolves to web-ui/src/stores/backtest.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/CompareView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "CompareView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/OptimizeView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "OptimizeView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/OptimizeView.vue",
+      "target": "file:web-ui/src/stores/backtest.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "OptimizeView.vue imports from ../stores/backtest (resolves to web-ui/src/stores/backtest.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/PortfolioView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "PortfolioView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/PortfolioView.vue",
+      "target": "file:web-ui/src/stores/backtest.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "PortfolioView.vue imports from ../stores/backtest (resolves to web-ui/src/stores/backtest.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/ServerSettingsView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "ServerSettingsView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/StrategiesView.vue",
+      "target": "file:web-ui/src/market.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "StrategiesView.vue imports from ../market (resolves to web-ui/src/market.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/StrategiesView.vue",
+      "target": "file:web-ui/src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "StrategiesView.vue imports from ../types (resolves to web-ui/src/types.ts)"
+    },
+    {
+      "source": "file:web-ui/src/views/StrategiesView.vue",
+      "target": "file:web-ui/src/stores/backtest.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "StrategiesView.vue imports from ../stores/backtest (resolves to web-ui/src/stores/backtest.ts)"
+    }
+  ],
+  "summary": {
+    "nodesCreated": 14,
+    "edgesCreated": 14,
+    "complexity": {
+      "min": 1,
+      "max": 7,
+      "avg": 3.0
+    },
+    "notes": "Batch 24 (frontend Vue/TS) analyzed via regex extraction. 14 nodes, 14 edges."
+  }
+}

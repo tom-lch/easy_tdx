@@ -1,0 +1,1198 @@
+{
+  "scriptCompleted": true,
+  "stats": {
+    "filesScanned": 489,
+    "filesWithImports": 158,
+    "totalEdges": 541
+  },
+  "importMap": {
+    ".claude/settings.local.json": [],
+    ".github/workflows/ci.yml": [],
+    ".github/workflows/publish.yml": [],
+    ".github/workflows/release.yml": [],
+    ".readthedocs.yaml": [],
+    ".understand-anything/.understandignore": [],
+    "CHANGELOG.md": [],
+    "docs/回测系统完全上手手册.html": [],
+    "docs/api_reference.md": [],
+    "docs/backtest_usage.md": [],
+    "docs/conf.py": [],
+    "docs/field_mapping.md": [],
+    "docs/index.md": [],
+    "docs/indicator-bias-signal.md": [],
+    "docs/indicator-zhuoyao.md": [],
+    "docs/packaging.md": [],
+    "docs/protocol-reverse-engineering.md": [],
+    "docs/protocol-unknown-fields.md": [],
+    "docs/quantitative-guide.md": [],
+    "docs/readme.md": [],
+    "docs/requirements.txt": [],
+    "docs/superpowers/plans/2026-06-09-backtest-engine.md": [],
+    "docs/superpowers/plans/2026-06-12-v1.11.0-factor-engine.md": [],
+    "docs/superpowers/plans/2026-06-12-v1.12.0-factor-analysis.md": [],
+    "docs/superpowers/plans/2026-06-12-v1.13.0-portfolio.md": [],
+    "docs/superpowers/plans/2026-06-12-v1.14.0-slippage-execution.md": [],
+    "docs/superpowers/plans/2026-06-12-v1.15.0-attribution.md": [],
+    "docs/superpowers/specs/2026-06-09-backtest-engine-design.md": [],
+    "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md": [],
+    "docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md": [],
+    "easy_tdx.spec": [],
+    "examples/01_connection/async_connect.py": [],
+    "examples/01_connection/connect_best_host.py": [],
+    "examples/01_connection/ping_servers.py": [],
+    "examples/02_market_info/market_stat.py": [],
+    "examples/02_market_info/security_count.py": [],
+    "examples/02_market_info/security_list_all.py": [],
+    "examples/02_market_info/security_list.py": [],
+    "examples/02_market_info/security_quotes.py": [],
+    "examples/03_kline/index_bars.py": [],
+    "examples/03_kline/security_bars.py": [],
+    "examples/04_minute/history_minute_data.py": [],
+    "examples/04_minute/minute_time_data.py": [],
+    "examples/05_transaction/history_transaction.py": [],
+    "examples/05_transaction/transaction_data.py": [],
+    "examples/06_finance/company_cli.sh": [],
+    "examples/06_finance/company_info.py": [],
+    "examples/06_finance/company_web_api.py": [],
+    "examples/06_finance/finance_info.py": [],
+    "examples/06_finance/price_limits.py": [],
+    "examples/06_finance/README.md": [],
+    "examples/06_finance/xdxr_info.py": [],
+    "examples/07_block/block_info.py": [],
+    "examples/08_fund_flow/fund_flow.py": [],
+    "examples/08_fund_flow/history_fund_flow.py": [],
+    "examples/09_file_download/downloads/block_fg.dat": [],
+    "examples/09_file_download/downloads/block_gn.dat": [],
+    "examples/09_file_download/downloads/block_zs.dat": [],
+    "examples/09_file_download/downloads/gpcw20260331/gpcw20260331.dat": [],
+    "examples/09_file_download/downloads/tdxhy.cfg": [],
+    "examples/09_file_download/report_file.py": [],
+    "examples/10_offline/block_data.py": [],
+    "examples/10_offline/daily_bars.py": [],
+    "examples/10_offline/detect_home.py": [],
+    "examples/10_offline/ex_daily_bars.py": [],
+    "examples/10_offline/gbbq.py": [],
+    "examples/10_offline/history_financial.py": [],
+    "examples/10_offline/min_bars.py": [],
+    "examples/11_mac_quotes/quotes_list.py": [],
+    "examples/11_mac_quotes/stock_quotes.py": [],
+    "examples/12_mac_kline/kline_offset.py": [],
+    "examples/12_mac_kline/stock_kline.py": [],
+    "examples/13_mac_tick/chart_sampling.py": [],
+    "examples/13_mac_tick/multi_day_tick.py": [],
+    "examples/13_mac_tick/tick_chart.py": [],
+    "examples/14_mac_transaction/transaction.py": [],
+    "examples/15_mac_board/belong_board.py": [],
+    "examples/15_mac_board/board_list.py": [],
+    "examples/15_mac_board/board_members.py": [],
+    "examples/15_mac_board/board_ranking.py": [],
+    "examples/15_mac_board/board_summary.py": [],
+    "examples/16_mac_capital/capital_flow.py": [],
+    "examples/17_mac_monitor/auction.py": [],
+    "examples/17_mac_monitor/server_info.py": [],
+    "examples/17_mac_monitor/symbol_info.py": [],
+    "examples/17_mac_monitor/unusual.py": [],
+    "examples/18_mac_ex/ex_goods_list.py": [],
+    "examples/18_mac_ex/ex_kline.py": [],
+    "examples/18_mac_ex/ex_quotes.py": [],
+    "examples/18_mac_ex/ex_tick_chart.py": [],
+    "examples/19_unified/unified_client.py": [],
+    "examples/20_cli/cli_examples.sh": [],
+    "examples/21_indicator/basic_indicators.py": [],
+    "examples/21_indicator/list_indicators.py": [],
+    "examples/22_backtest_advanced/backtest_601088_advanced.py": [],
+    "examples/23_screen_strength/README.md": [],
+    "examples/23_screen_strength/strength_api.py": [],
+    "examples/23_screen_strength/strength_cli.sh": [],
+    "examples/23_screen_strength/strength_web_api.py": [],
+    "NOTICE": [],
+    "pyproject.toml": [],
+    "README.md": [],
+    "requirements-dev.txt": [],
+    "run_all_strategies.py": [],
+    "scripts/__init__.py": [],
+    "scripts/probe_unknowns.py": [],
+    "scripts/ruff_hook.py": [],
+    "scripts/verify_fixes_20260415.py": [],
+    "src/easy_tdx/__init__.py": [
+      "src/easy_tdx/client.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/ex/client.py",
+      "src/easy_tdx/ex/mac_client.py",
+      "src/easy_tdx/ex/models.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/mac/client.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/models/__init__.py",
+      "src/easy_tdx/transport/sync.py",
+      "src/easy_tdx/unified.py"
+    ],
+    "src/easy_tdx/__main__.py": [],
+    "src/easy_tdx/_binary.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/_df.py": [],
+    "src/easy_tdx/_reconnect.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/backtest/__init__.py": [
+      "src/easy_tdx/backtest/combo.py",
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/attribution.py": [],
+    "src/easy_tdx/backtest/cli.py": [],
+    "src/easy_tdx/backtest/combo.py": [
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/dsl.py": [
+      "src/easy_tdx/backtest/strategy.py"
+    ],
+    "src/easy_tdx/backtest/engine.py": [
+      "src/easy_tdx/backtest/orders.py",
+      "src/easy_tdx/backtest/performance.py",
+      "src/easy_tdx/backtest/portfolio.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/execution.py": [
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/multi_strategy_engine.py": [
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/optimizer.py": [
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/orders.py": [
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/performance.py": [],
+    "src/easy_tdx/backtest/portfolio_engine.py": [
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/portfolio.py": [
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/slippage.py": [],
+    "src/easy_tdx/backtest/strategies/__init__.py": [
+      "src/easy_tdx/backtest/strategies/registry.py"
+    ],
+    "src/easy_tdx/backtest/strategies/builtin.py": [
+      "src/easy_tdx/backtest/strategies/registry.py",
+      "src/easy_tdx/MyTT.py"
+    ],
+    "src/easy_tdx/backtest/strategies/presets.py": [],
+    "src/easy_tdx/backtest/strategies/registry.py": [
+      "src/easy_tdx/backtest/strategy.py"
+    ],
+    "src/easy_tdx/backtest/strategy.py": [
+      "src/easy_tdx/backtest/types.py"
+    ],
+    "src/easy_tdx/backtest/types.py": [],
+    "src/easy_tdx/chanlun/__init__.py": [
+      "src/easy_tdx/chanlun/analyser.py",
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/analyser.py": [
+      "src/easy_tdx/chanlun/beichi.py",
+      "src/easy_tdx/chanlun/bi.py",
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/fractal.py",
+      "src/easy_tdx/chanlun/kline_merge.py",
+      "src/easy_tdx/chanlun/macd.py",
+      "src/easy_tdx/chanlun/mmd.py",
+      "src/easy_tdx/chanlun/types.py",
+      "src/easy_tdx/chanlun/xd.py",
+      "src/easy_tdx/chanlun/zs.py"
+    ],
+    "src/easy_tdx/chanlun/beichi.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/bi.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/config.py": [],
+    "src/easy_tdx/chanlun/fractal.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/kline_merge.py": [
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/macd.py": [],
+    "src/easy_tdx/chanlun/mmd.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/multi_level.py": [
+      "src/easy_tdx/chanlun/analyser.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/types.py": [],
+    "src/easy_tdx/chanlun/xd.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/zs.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/chanlun/zsd.py": [
+      "src/easy_tdx/chanlun/config.py",
+      "src/easy_tdx/chanlun/types.py"
+    ],
+    "src/easy_tdx/cli/__init__.py": [
+      "src/easy_tdx/backtest/cli.py",
+      "src/easy_tdx/cli/cmd_admin.py",
+      "src/easy_tdx/cli/cmd_announcement.py",
+      "src/easy_tdx/cli/cmd_auction.py",
+      "src/easy_tdx/cli/cmd_board.py",
+      "src/easy_tdx/cli/cmd_capital.py",
+      "src/easy_tdx/cli/cmd_chanlun.py",
+      "src/easy_tdx/cli/cmd_company.py",
+      "src/easy_tdx/cli/cmd_ex.py",
+      "src/easy_tdx/cli/cmd_factor.py",
+      "src/easy_tdx/cli/cmd_finance.py",
+      "src/easy_tdx/cli/cmd_indicator.py",
+      "src/easy_tdx/cli/cmd_info.py",
+      "src/easy_tdx/cli/cmd_kline.py",
+      "src/easy_tdx/cli/cmd_monitor.py",
+      "src/easy_tdx/cli/cmd_offline.py",
+      "src/easy_tdx/cli/cmd_pfactor.py",
+      "src/easy_tdx/cli/cmd_quote.py",
+      "src/easy_tdx/cli/cmd_run_all.py",
+      "src/easy_tdx/cli/cmd_tick.py",
+      "src/easy_tdx/cli/cmd_transaction.py",
+      "src/easy_tdx/cli/cmd_web.py",
+      "src/easy_tdx/screen/cli.py"
+    ],
+    "src/easy_tdx/cli/cmd_admin.py": [],
+    "src/easy_tdx/cli/cmd_announcement.py": [],
+    "src/easy_tdx/cli/cmd_auction.py": [],
+    "src/easy_tdx/cli/cmd_board.py": [],
+    "src/easy_tdx/cli/cmd_capital.py": [],
+    "src/easy_tdx/cli/cmd_chanlun.py": [],
+    "src/easy_tdx/cli/cmd_company.py": [
+      "src/easy_tdx/cli/parsers.py",
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/cli/cmd_ex.py": [],
+    "src/easy_tdx/cli/cmd_factor.py": [],
+    "src/easy_tdx/cli/cmd_finance.py": [],
+    "src/easy_tdx/cli/cmd_indicator.py": [],
+    "src/easy_tdx/cli/cmd_info.py": [],
+    "src/easy_tdx/cli/cmd_kline.py": [],
+    "src/easy_tdx/cli/cmd_monitor.py": [],
+    "src/easy_tdx/cli/cmd_offline.py": [],
+    "src/easy_tdx/cli/cmd_pfactor.py": [],
+    "src/easy_tdx/cli/cmd_quote.py": [],
+    "src/easy_tdx/cli/cmd_run_all.py": [],
+    "src/easy_tdx/cli/cmd_tick.py": [],
+    "src/easy_tdx/cli/cmd_transaction.py": [],
+    "src/easy_tdx/cli/cmd_web.py": [],
+    "src/easy_tdx/cli/conn.py": [
+      "src/easy_tdx/client.py",
+      "src/easy_tdx/ex/mac_client.py",
+      "src/easy_tdx/mac/client.py"
+    ],
+    "src/easy_tdx/cli/output.py": [],
+    "src/easy_tdx/cli/parsers.py": [
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/client.py": [
+      "src/easy_tdx/_df.py",
+      "src/easy_tdx/_reconnect.py",
+      "src/easy_tdx/codec/block.py",
+      "src/easy_tdx/codec/financial.py",
+      "src/easy_tdx/codec/industry.py",
+      "src/easy_tdx/codec/price_rules.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/commands/block_info.py",
+      "src/easy_tdx/commands/company_info.py",
+      "src/easy_tdx/commands/finance_info.py",
+      "src/easy_tdx/commands/fund_flow.py",
+      "src/easy_tdx/commands/minute_time.py",
+      "src/easy_tdx/commands/report_file.py",
+      "src/easy_tdx/commands/security_bars.py",
+      "src/easy_tdx/commands/security_count.py",
+      "src/easy_tdx/commands/security_list.py",
+      "src/easy_tdx/commands/security_quotes.py",
+      "src/easy_tdx/commands/transaction.py",
+      "src/easy_tdx/commands/xdxr_info.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py",
+      "src/easy_tdx/models/quote.py",
+      "src/easy_tdx/models/security.py",
+      "src/easy_tdx/models/stats.py",
+      "src/easy_tdx/models/timeseries.py",
+      "src/easy_tdx/transport/async_.py",
+      "src/easy_tdx/transport/sync.py"
+    ],
+    "src/easy_tdx/cninfo/__init__.py": [
+      "src/easy_tdx/cninfo/client.py",
+      "src/easy_tdx/cninfo/models.py"
+    ],
+    "src/easy_tdx/cninfo/client.py": [
+      "src/easy_tdx/cninfo/models.py"
+    ],
+    "src/easy_tdx/cninfo/models.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/codec/__init__.py": [
+      "src/easy_tdx/codec/datetime_.py",
+      "src/easy_tdx/codec/frame.py",
+      "src/easy_tdx/codec/price.py",
+      "src/easy_tdx/codec/volume.py"
+    ],
+    "src/easy_tdx/codec/bitmap.py": [],
+    "src/easy_tdx/codec/block.py": [],
+    "src/easy_tdx/codec/datetime_.py": [
+      "src/easy_tdx/_binary.py"
+    ],
+    "src/easy_tdx/codec/financial.py": [],
+    "src/easy_tdx/codec/frame.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/codec/industry.py": [],
+    "src/easy_tdx/codec/mac_frame.py": [],
+    "src/easy_tdx/codec/price_rules.py": [
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/codec/price.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/codec/volume.py": [
+      "src/easy_tdx/_binary.py"
+    ],
+    "src/easy_tdx/commands/__init__.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/commands/setup.py"
+    ],
+    "src/easy_tdx/commands/base.py": [],
+    "src/easy_tdx/commands/block_info.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/commands/company_info.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/commands/finance_info.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/commands/fund_flow.py": [
+      "src/easy_tdx/codec/volume.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/stats.py"
+    ],
+    "src/easy_tdx/commands/minute_time.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/price.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/timeseries.py"
+    ],
+    "src/easy_tdx/commands/report_file.py": [
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/commands/security_bars.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/datetime_.py",
+      "src/easy_tdx/codec/price.py",
+      "src/easy_tdx/codec/volume.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/commands/security_count.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/commands/security_list.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/volume.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/security.py"
+    ],
+    "src/easy_tdx/commands/security_quotes.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/price.py",
+      "src/easy_tdx/codec/volume.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/quote.py"
+    ],
+    "src/easy_tdx/commands/setup.py": [],
+    "src/easy_tdx/commands/transaction.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/datetime_.py",
+      "src/easy_tdx/codec/price.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/timeseries.py"
+    ],
+    "src/easy_tdx/commands/xdxr_info.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/datetime_.py",
+      "src/easy_tdx/codec/volume.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/config.py": [],
+    "src/easy_tdx/ex/__init__.py": [
+      "src/easy_tdx/ex/client.py",
+      "src/easy_tdx/ex/mac_client.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/_hk_transaction.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/commands/get_transaction.py",
+      "src/easy_tdx/ex/models.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/ex/client.py": [
+      "src/easy_tdx/_df.py",
+      "src/easy_tdx/_reconnect.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "src/easy_tdx/ex/commands/get_instrument_info.py",
+      "src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "src/easy_tdx/ex/commands/get_markets.py",
+      "src/easy_tdx/ex/commands/get_minute_time.py",
+      "src/easy_tdx/ex/commands/get_transaction.py",
+      "src/easy_tdx/ex/models.py",
+      "src/easy_tdx/ex/transport/async_.py",
+      "src/easy_tdx/ex/transport/sync.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/ex/commands/__init__.py": [],
+    "src/easy_tdx/ex/commands/get_history_bars_range.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_instrument_bars.py": [
+      "src/easy_tdx/codec/datetime_.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_instrument_count.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/ex/commands/get_instrument_info.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_instrument_quote_list.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/ex/commands/get_instrument_quote.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_markets.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_minute_time.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/get_transaction.py": [
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/ex/models.py"
+    ],
+    "src/easy_tdx/ex/commands/login.py": [
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/ex/commands/setup.py": [],
+    "src/easy_tdx/ex/mac_client.py": [
+      "src/easy_tdx/_df.py",
+      "src/easy_tdx/_reconnect.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/ex/_hk_transaction.py",
+      "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "src/easy_tdx/ex/commands/get_instrument_info.py",
+      "src/easy_tdx/ex/commands/login.py",
+      "src/easy_tdx/ex/transport/async_.py",
+      "src/easy_tdx/ex/transport/sync.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/mac/commands/chart_sampling.py",
+      "src/easy_tdx/mac/commands/symbol_bar.py",
+      "src/easy_tdx/mac/commands/symbol_quotes.py",
+      "src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "src/easy_tdx/mac/commands/symbol_transaction.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/ex/models.py": [
+      "src/easy_tdx/config.py"
+    ],
+    "src/easy_tdx/ex/transport/__init__.py": [],
+    "src/easy_tdx/ex/transport/async_.py": [
+      "src/easy_tdx/codec/frame.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/ex/transport/sync.py": [
+      "src/easy_tdx/codec/frame.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/exceptions.py": [],
+    "src/easy_tdx/factor/__init__.py": [
+      "src/easy_tdx/factor/analysis.py",
+      "src/easy_tdx/factor/base.py",
+      "src/easy_tdx/factor/builtin/__init__.py",
+      "src/easy_tdx/factor/engine.py",
+      "src/easy_tdx/factor/transform.py"
+    ],
+    "src/easy_tdx/factor/analysis.py": [],
+    "src/easy_tdx/factor/base.py": [],
+    "src/easy_tdx/factor/builtin/__init__.py": [
+      "src/easy_tdx/factor/base.py",
+      "src/easy_tdx/factor/builtin/__init__.py",
+      "src/easy_tdx/factor/builtin/chanlun.py",
+      "src/easy_tdx/factor/builtin/momentum.py",
+      "src/easy_tdx/factor/builtin/quality.py",
+      "src/easy_tdx/factor/builtin/technical.py",
+      "src/easy_tdx/factor/builtin/value.py",
+      "src/easy_tdx/factor/builtin/volatility.py",
+      "src/easy_tdx/factor/builtin/volume.py"
+    ],
+    "src/easy_tdx/factor/builtin/chanlun.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/builtin/momentum.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/builtin/quality.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/builtin/technical.py": [
+      "src/easy_tdx/__init__.py",
+      "src/easy_tdx/factor/base.py",
+      "src/easy_tdx/MyTT.py"
+    ],
+    "src/easy_tdx/factor/builtin/value.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/builtin/volatility.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/builtin/volume.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/engine.py": [
+      "src/easy_tdx/factor/base.py"
+    ],
+    "src/easy_tdx/factor/transform.py": [],
+    "src/easy_tdx/indicator.py": [
+      "src/easy_tdx/MyTT.py"
+    ],
+    "src/easy_tdx/mac/__init__.py": [],
+    "src/easy_tdx/mac/adjust.py": [],
+    "src/easy_tdx/mac/client.py": [
+      "src/easy_tdx/_df.py",
+      "src/easy_tdx/_reconnect.py",
+      "src/easy_tdx/codec/bitmap.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/mac/commands/__init__.py",
+      "src/easy_tdx/mac/commands/chart_sampling.py",
+      "src/easy_tdx/mac/commands/file_query.py",
+      "src/easy_tdx/mac/commands/goods_list.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/mac/models.py",
+      "src/easy_tdx/transport/async_.py",
+      "src/easy_tdx/transport/sync.py"
+    ],
+    "src/easy_tdx/mac/commands/__init__.py": [
+      "src/easy_tdx/mac/commands/board_list.py",
+      "src/easy_tdx/mac/commands/board_members_quotes.py",
+      "src/easy_tdx/mac/commands/kline_offset.py",
+      "src/easy_tdx/mac/commands/server_info.py",
+      "src/easy_tdx/mac/commands/symbol_auction.py",
+      "src/easy_tdx/mac/commands/symbol_bar.py",
+      "src/easy_tdx/mac/commands/symbol_belong_board.py",
+      "src/easy_tdx/mac/commands/symbol_capital_flow.py",
+      "src/easy_tdx/mac/commands/symbol_info.py",
+      "src/easy_tdx/mac/commands/symbol_quotes.py",
+      "src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "src/easy_tdx/mac/commands/symbol_transaction.py",
+      "src/easy_tdx/mac/commands/tick_charts.py",
+      "src/easy_tdx/mac/commands/unusual.py"
+    ],
+    "src/easy_tdx/mac/commands/board_list.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/board_members_quotes.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/bitmap.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/chart_sampling.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/mac/commands/file_query.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/mac/commands/goods_list.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py"
+    ],
+    "src/easy_tdx/mac/commands/kline_offset.py": [
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/server_info.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_auction.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_bar.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/enums.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_belong_board.py": [
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_capital_flow.py": [
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_info.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_quotes.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/bitmap.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_tick_chart.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/symbol_transaction.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/tick_charts.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/commands/unusual.py": [
+      "src/easy_tdx/_binary.py",
+      "src/easy_tdx/codec/mac_frame.py",
+      "src/easy_tdx/commands/base.py",
+      "src/easy_tdx/mac/models.py"
+    ],
+    "src/easy_tdx/mac/enums.py": [],
+    "src/easy_tdx/mac/models.py": [],
+    "src/easy_tdx/models/__init__.py": [
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py",
+      "src/easy_tdx/models/quote.py",
+      "src/easy_tdx/models/security.py",
+      "src/easy_tdx/models/stats.py",
+      "src/easy_tdx/models/timeseries.py"
+    ],
+    "src/easy_tdx/models/bar.py": [],
+    "src/easy_tdx/models/enums.py": [],
+    "src/easy_tdx/models/finance.py": [
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/models/quote.py": [
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/models/security.py": [
+      "src/easy_tdx/models/enums.py"
+    ],
+    "src/easy_tdx/models/stats.py": [],
+    "src/easy_tdx/models/timeseries.py": [],
+    "src/easy_tdx/MyTT.py": [],
+    "src/easy_tdx/MyTT.pyi": [],
+    "src/easy_tdx/offline/__init__.py": [
+      "src/easy_tdx/offline/block.py",
+      "src/easy_tdx/offline/daily_bar.py",
+      "src/easy_tdx/offline/ex_daily_bar.py",
+      "src/easy_tdx/offline/finders.py",
+      "src/easy_tdx/offline/gbbq.py",
+      "src/easy_tdx/offline/history_financial.py",
+      "src/easy_tdx/offline/min_bar.py",
+      "src/easy_tdx/offline/paths.py",
+      "src/easy_tdx/offline/write_daily.py",
+      "src/easy_tdx/offline/write_ex_daily.py",
+      "src/easy_tdx/offline/write_min_bar.py"
+    ],
+    "src/easy_tdx/offline/block.py": [
+      "src/easy_tdx/codec/block.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/offline/daily_bar.py": [
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/offline/paths.py"
+    ],
+    "src/easy_tdx/offline/ex_daily_bar.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/offline/finders.py": [
+      "src/easy_tdx/offline/paths.py"
+    ],
+    "src/easy_tdx/offline/gbbq.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/offline/history_financial.py": [
+      "src/easy_tdx/codec/financial.py",
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/enums.py",
+      "src/easy_tdx/models/finance.py"
+    ],
+    "src/easy_tdx/offline/min_bar.py": [
+      "src/easy_tdx/exceptions.py",
+      "src/easy_tdx/models/bar.py"
+    ],
+    "src/easy_tdx/offline/paths.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/offline/write_daily.py": [
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/offline/daily_bar.py"
+    ],
+    "src/easy_tdx/offline/write_ex_daily.py": [
+      "src/easy_tdx/offline/ex_daily_bar.py"
+    ],
+    "src/easy_tdx/offline/write_min_bar.py": [
+      "src/easy_tdx/models/bar.py",
+      "src/easy_tdx/offline/min_bar.py"
+    ],
+    "src/easy_tdx/portfolio/__init__.py": [
+      "src/easy_tdx/portfolio/optimizer.py",
+      "src/easy_tdx/portfolio/rebalance.py",
+      "src/easy_tdx/portfolio/risk.py",
+      "src/easy_tdx/portfolio/types.py"
+    ],
+    "src/easy_tdx/portfolio/optimizer.py": [],
+    "src/easy_tdx/portfolio/rebalance.py": [
+      "src/easy_tdx/factor/engine.py",
+      "src/easy_tdx/portfolio/optimizer.py",
+      "src/easy_tdx/portfolio/types.py"
+    ],
+    "src/easy_tdx/portfolio/risk.py": [],
+    "src/easy_tdx/portfolio/types.py": [],
+    "src/easy_tdx/py.typed": [],
+    "src/easy_tdx/realtime/__init__.py": [],
+    "src/easy_tdx/realtime/engine.py": [],
+    "src/easy_tdx/screen/__init__.py": [
+      "src/easy_tdx/screen/scanner.py",
+      "src/easy_tdx/screen/strength.py"
+    ],
+    "src/easy_tdx/screen/cli.py": [],
+    "src/easy_tdx/screen/ranker.py": [
+      "src/easy_tdx/backtest/engine.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/offline/daily_bar.py",
+      "src/easy_tdx/offline/paths.py",
+      "src/easy_tdx/screen/scanner.py"
+    ],
+    "src/easy_tdx/screen/scanner.py": [
+      "src/easy_tdx/backtest/combo.py",
+      "src/easy_tdx/backtest/strategy.py",
+      "src/easy_tdx/offline/daily_bar.py",
+      "src/easy_tdx/offline/paths.py"
+    ],
+    "src/easy_tdx/screen/strength.py": [
+      "src/easy_tdx/offline/daily_bar.py",
+      "src/easy_tdx/offline/paths.py"
+    ],
+    "src/easy_tdx/sina/__init__.py": [
+      "src/easy_tdx/sina/client.py",
+      "src/easy_tdx/sina/models.py"
+    ],
+    "src/easy_tdx/sina/client.py": [
+      "src/easy_tdx/sina/models.py"
+    ],
+    "src/easy_tdx/sina/models.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/transport/__init__.py": [
+      "src/easy_tdx/transport/async_.py",
+      "src/easy_tdx/transport/sync.py"
+    ],
+    "src/easy_tdx/transport/async_.py": [
+      "src/easy_tdx/codec/frame.py",
+      "src/easy_tdx/commands/setup.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/transport/sync.py": [
+      "src/easy_tdx/codec/frame.py",
+      "src/easy_tdx/commands/setup.py",
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/tray.py": [],
+    "src/easy_tdx/unified.py": [
+      "src/easy_tdx/ex/mac_client.py",
+      "src/easy_tdx/mac/client.py",
+      "src/easy_tdx/mac/enums.py"
+    ],
+    "src/easy_tdx/web/__init__.py": [],
+    "src/easy_tdx/web/app.py": [
+      "src/easy_tdx/web/errors.py"
+    ],
+    "src/easy_tdx/web/backtest_schemas.py": [],
+    "src/easy_tdx/web/convert.py": [
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/deps.py": [
+      "src/easy_tdx/client.py"
+    ],
+    "src/easy_tdx/web/errors.py": [
+      "src/easy_tdx/exceptions.py"
+    ],
+    "src/easy_tdx/web/routers/__init__.py": [],
+    "src/easy_tdx/web/routers/announcement.py": [
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/backtest.py": [
+      "src/easy_tdx/web/backtest_schemas.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/task_runner.py"
+    ],
+    "src/easy_tdx/web/routers/bars.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/block.py": [
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/board_mac.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/chanlun.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/ex_market.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/finance.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/indicator.py": [
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/mac_data.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/mac_quotes.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/market.py": [
+      "src/easy_tdx/web/convert.py",
+      "src/easy_tdx/web/deps.py",
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/realtime.py": [],
+    "src/easy_tdx/web/routers/server.py": [
+      "src/easy_tdx/config.py",
+      "src/easy_tdx/transport/sync.py"
+    ],
+    "src/easy_tdx/web/routers/sina.py": [
+      "src/easy_tdx/web/schemas.py"
+    ],
+    "src/easy_tdx/web/routers/strategies.py": [
+      "src/easy_tdx/web/backtest_schemas.py",
+      "src/easy_tdx/web/strategy_store.py"
+    ],
+    "src/easy_tdx/web/schemas.py": [],
+    "src/easy_tdx/web/strategy_store.py": [],
+    "src/easy_tdx/web/task_runner.py": [],
+    "strategies/bias_reversal.py": [],
+    "strategies/bollinger_breakout.py": [],
+    "strategies/cci_breakout.py": [],
+    "strategies/dmi_trend.py": [],
+    "strategies/expma_cross.py": [],
+    "strategies/kdj_golden.py": [],
+    "strategies/ma_cross.py": [],
+    "strategies/macd_cross.py": [],
+    "strategies/mfi_volume.py": [],
+    "strategies/mtm_momentum.py": [],
+    "strategies/obv_trend.py": [],
+    "strategies/README.md": [],
+    "strategies/rsi_reversal.py": [],
+    "strategies/trix_cross.py": [],
+    "strategies/turtle_breakout.py": [],
+    "strategies/volume_price.py": [],
+    "strategies/zhuoyao_momentum.py": [],
+    "tests/__init__.py": [],
+    "tests/fixtures/company_info_category.hex": [],
+    "tests/fixtures/company_info_category.json": [],
+    "tests/fixtures/company_info_content.hex": [],
+    "tests/fixtures/company_info_content.json": [],
+    "tests/fixtures/ex_history_transaction.hex": [],
+    "tests/fixtures/ex_history_transaction.json": [],
+    "tests/fixtures/finance_info.hex": [],
+    "tests/fixtures/finance_info.json": [],
+    "tests/fixtures/history_minute_time.hex": [],
+    "tests/fixtures/history_minute_time.json": [],
+    "tests/fixtures/history_transaction.hex": [],
+    "tests/fixtures/history_transaction.json": [],
+    "tests/fixtures/minute_time.hex": [],
+    "tests/fixtures/minute_time.json": [],
+    "tests/fixtures/security_bars.hex": [],
+    "tests/fixtures/security_bars.json": [],
+    "tests/fixtures/security_count.hex": [],
+    "tests/fixtures/security_count.json": [],
+    "tests/fixtures/security_list.hex": [],
+    "tests/fixtures/security_list.json": [],
+    "tests/fixtures/security_quotes.hex": [],
+    "tests/fixtures/security_quotes.json": [],
+    "tests/fixtures/transaction.hex": [],
+    "tests/fixtures/transaction.json": [],
+    "tests/fixtures/xdxr_info.hex": [],
+    "tests/fixtures/xdxr_info.json": [],
+    "tests/integration/__init__.py": [],
+    "tests/integration/test_live_client.py": [],
+    "tests/unit/__init__.py": [],
+    "tests/unit/test_a_share_extensions.py": [],
+    "tests/unit/test_async_transport.py": [],
+    "tests/unit/test_backtest_attribution.py": [],
+    "tests/unit/test_backtest_cli.py": [],
+    "tests/unit/test_backtest_combo.py": [],
+    "tests/unit/test_backtest_engine.py": [],
+    "tests/unit/test_backtest_execution.py": [],
+    "tests/unit/test_backtest_orders.py": [],
+    "tests/unit/test_backtest_performance.py": [],
+    "tests/unit/test_backtest_portfolio.py": [],
+    "tests/unit/test_backtest_slippage.py": [],
+    "tests/unit/test_backtest_strategy.py": [],
+    "tests/unit/test_backtest_types.py": [],
+    "tests/unit/test_block_info.py": [],
+    "tests/unit/test_board_change_ranking.py": [],
+    "tests/unit/test_chanlun_phase2.py": [],
+    "tests/unit/test_chanlun_phase3.py": [],
+    "tests/unit/test_chanlun.py": [],
+    "tests/unit/test_client_reconnect.py": [],
+    "tests/unit/test_cninfo.py": [],
+    "tests/unit/test_codec_bitmap.py": [],
+    "tests/unit/test_codec_datetime.py": [],
+    "tests/unit/test_codec_frame.py": [],
+    "tests/unit/test_codec_price.py": [],
+    "tests/unit/test_codec_volume.py": [],
+    "tests/unit/test_commands_offline.py": [],
+    "tests/unit/test_config.py": [],
+    "tests/unit/test_decode_errors.py": [],
+    "tests/unit/test_ex_reconnect.py": [],
+    "tests/unit/test_factor_analysis.py": [],
+    "tests/unit/test_factor_base.py": [],
+    "tests/unit/test_factor_builtin.py": [],
+    "tests/unit/test_factor_engine.py": [],
+    "tests/unit/test_factor_transform.py": [],
+    "tests/unit/test_failover.py": [],
+    "tests/unit/test_financial_data.py": [],
+    "tests/unit/test_heartbeat.py": [],
+    "tests/unit/test_hk_transaction.py": [],
+    "tests/unit/test_indicator.py": [],
+    "tests/unit/test_kline_bar_time.py": [],
+    "tests/unit/test_mac_qfq_adjust.py": [],
+    "tests/unit/test_mac_qfq_integration.py": [],
+    "tests/unit/test_mac_tick_charts.py": [],
+    "tests/unit/test_multi_strategy.py": [],
+    "tests/unit/test_mytt.py": [],
+    "tests/unit/test_optimizer.py": [],
+    "tests/unit/test_portfolio_engine.py": [],
+    "tests/unit/test_portfolio_optimizer.py": [],
+    "tests/unit/test_portfolio_rebalance.py": [],
+    "tests/unit/test_portfolio_risk.py": [],
+    "tests/unit/test_protocol_fixes.py": [],
+    "tests/unit/test_public_api.py": [],
+    "tests/unit/test_realtime.py": [],
+    "tests/unit/test_scanner.py": [],
+    "tests/unit/test_screen.py": [],
+    "tests/unit/test_sina.py": [],
+    "tests/unit/test_strategy_store.py": [],
+    "tests/unit/test_sync_transport.py": [],
+    "tests/unit/test_web_api.py": [],
+    "tests/unit/test_web_backtest.py": [],
+    "tests/unit/test_write_daily.py": [],
+    "tests/unit/test_write_ex_daily.py": [],
+    "tests/unit/test_write_min_bar.py": [],
+    "web-ui/index.html": [],
+    "web-ui/package.json": [],
+    "web-ui/README.md": [],
+    "web-ui/scripts/run-grading-tests.mjs": [],
+    "web-ui/src/api.ts": [
+      "web-ui/src/types.ts"
+    ],
+    "web-ui/src/App.vue": [],
+    "web-ui/src/components/CompareChart.vue": [],
+    "web-ui/src/components/CompareTable.vue": [],
+    "web-ui/src/components/EquityChart.vue": [],
+    "web-ui/src/components/GradeBadge.vue": [],
+    "web-ui/src/components/GradeDetails.vue": [],
+    "web-ui/src/components/KlineChart.vue": [],
+    "web-ui/src/components/MetricTable.vue": [],
+    "web-ui/src/components/OptimizeHeatmap.vue": [],
+    "web-ui/src/components/OptimizeResultTable.vue": [],
+    "web-ui/src/components/ParamGridPicker.vue": [],
+    "web-ui/src/components/PortfolioCompareChart.vue": [],
+    "web-ui/src/components/PortfolioSummaryTable.vue": [],
+    "web-ui/src/components/QuoteCarousel.vue": [],
+    "web-ui/src/components/StocksPicker.vue": [],
+    "web-ui/src/components/StrategyPicker.vue": [],
+    "web-ui/src/components/SymbolPicker.vue": [],
+    "web-ui/src/components/TradeTable.vue": [],
+    "web-ui/src/data/investment-quotes.ts": [],
+    "web-ui/src/echarts-setup.ts": [],
+    "web-ui/src/format.ts": [],
+    "web-ui/src/grading/__tests__/grade.test.ts": [
+      "web-ui/src/grading/combinedMetrics.ts",
+      "web-ui/src/grading/engine.ts",
+      "web-ui/src/grading/index.ts",
+      "web-ui/src/grading/thresholds.ts",
+      "web-ui/src/types.ts"
+    ],
+    "web-ui/src/grading/combinedMetrics.ts": [
+      "web-ui/src/types.ts"
+    ],
+    "web-ui/src/grading/engine.ts": [
+      "web-ui/src/grading/thresholds.ts",
+      "web-ui/src/grading/types.ts"
+    ],
+    "web-ui/src/grading/index.ts": [
+      "web-ui/src/grading/combinedMetrics.ts",
+      "web-ui/src/grading/engine.ts",
+      "web-ui/src/grading/types.ts",
+      "web-ui/src/types.ts"
+    ],
+    "web-ui/src/grading/thresholds.ts": [],
+    "web-ui/src/grading/types.ts": [],
+    "web-ui/src/main.ts": [
+      "web-ui/src/App.vue",
+      "web-ui/src/router.ts",
+      "web-ui/src/style.css"
+    ],
+    "web-ui/src/market.ts": [],
+    "web-ui/src/router.ts": [
+      "web-ui/src/views/BacktestView.vue",
+      "web-ui/src/views/CompareView.vue",
+      "web-ui/src/views/OptimizeView.vue",
+      "web-ui/src/views/PortfolioView.vue",
+      "web-ui/src/views/ServerSettingsView.vue",
+      "web-ui/src/views/StrategiesView.vue"
+    ],
+    "web-ui/src/stores/backtest.ts": [
+      "web-ui/src/api.ts",
+      "web-ui/src/types.ts"
+    ],
+    "web-ui/src/style.css": [],
+    "web-ui/src/types.ts": [],
+    "web-ui/src/views/BacktestView.vue": [],
+    "web-ui/src/views/CompareView.vue": [],
+    "web-ui/src/views/OptimizeView.vue": [],
+    "web-ui/src/views/PortfolioView.vue": [],
+    "web-ui/src/views/ServerSettingsView.vue": [],
+    "web-ui/src/views/StrategiesView.vue": [],
+    "web-ui/tsconfig.app.json": [],
+    "web-ui/tsconfig.json": [],
+    "web-ui/tsconfig.node.json": [],
+    "web-ui/vite.config.ts": [],
+    "welcome-discussion.md": []
+  }
+}

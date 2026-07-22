@@ -1,0 +1,780 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 7,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": ".claude/settings.local.json",
+      "language": "json",
+      "sizeLines": 87,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/conf.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "easy_tdx.spec",
+      "language": "spec",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/01_connection/async_connect.py",
+      "language": "python",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/01_connection/connect_best_host.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/01_connection/ping_servers.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/02_market_info/market_stat.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/02_market_info/security_count.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/02_market_info/security_list_all.py",
+      "language": "python",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/02_market_info/security_list.py",
+      "language": "python",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/02_market_info/security_quotes.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/03_kline/index_bars.py",
+      "language": "python",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/03_kline/security_bars.py",
+      "language": "python",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/04_minute/history_minute_data.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/04_minute/minute_time_data.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/05_transaction/history_transaction.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/05_transaction/transaction_data.py",
+      "language": "python",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/06_finance/company_cli.sh",
+      "language": "shell",
+      "sizeLines": 69,
+      "fileCategory": "script"
+    },
+    {
+      "path": "examples/06_finance/company_info.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/06_finance/company_web_api.py",
+      "language": "python",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/06_finance/finance_info.py",
+      "language": "python",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/06_finance/price_limits.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/06_finance/README.md",
+      "language": "markdown",
+      "sizeLines": 135,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "examples/06_finance/xdxr_info.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "config:.claude/settings.local.json",
+      "type": "config",
+      "name": "Claude Settings (Local Permissions)",
+      "filePath": ".claude/settings.local.json",
+      "summary": "Local Claude Code permissions manifest (87 lines) that grants allow-list access to many Bash, MCP, and Skill patterns the maintainer uses while developing easy-tdx. Entries cluster around: repo-local git operations (add/commit/push/stash/tag/diff/rm/ls-remote), Python tooling (python/python3/uv/pip install/pip uninstall/pip show/pip list/pip index/mypy, ruff check/format), all 20+ easy-tdx CLI subcommands (`easy-tdx ping/version/quote/kline/tick/transaction/auction/quote-list/board-list/board-members/belong-board/capital-flow/unusual/market-stat/server-info/symbol-info/ex`), GitHub CLI (gh run/auth/repo/api), PyPI publishing helpers (twine upload, curl pypi.org), and MCP tools (zread, web-reader, context7, web-search-prime, compound-engineering, episodic-memory, playwright, zai-mcp). Notable one-off allow-rules snapshot Windows paths from the maintainer's earlier `xmtdx` prototype and embed a heredoc Bash rule that auto-runs ruff check --fix + ruff format on any *.py file the Edit tool touches. Contains no project logic — only a permissions allow-list, so never checked into PyPI or shipped to end users.",
+      "complexity": 2,
+      "tags": ["claude-code", "permissions", "allow-list", "developer-tooling", "local-only", "git-mirror"],
+      "languageNotes": "JSON with a single `permissions.allow` array of strings. Most entries follow the pattern `Bash(<command-prefix> *)` or `Bash(<exact-prefix> *)`. Several entries embed escaping artifacts from a Windows path string (e.g. `D:\\\\python\\\\xmtdx\\\\...`) — these are developer-machine-specific allow-rules and harmless outside that machine. MCP tools are referenced by the `mcp__<server>__<tool>` naming convention Claude Code uses internally."
+    },
+    {
+      "id": "config:.understand-anything/.understandignore",
+      "type": "config",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": ".understandignore file (54 lines) for the in-repo /understand pipeline; mirrors the .gitignore-style exclude syntax (globs, comments, !-negation, trailing-/ directory markers). Every line is currently commented out — the file documents the suggested exclusion set rather than enforcing it. Built-in defaults listed in the header (`node_modules/`, `.git/`, `dist/`, `build/`, `obj/`, `*.lock`, `*.min.js`) are always excluded unless negated. The body groups suggestions by category: from .gitignore (`*.py[cod]`, `.eggs/`, `.mypy_cache/`, `.ruff_cache/`, `.pytest_cache/`, `.omc/`, `.claude/`, `.playwright-mcp/`, `docs/_build/`, `FK/`, `.coverage`, `signals.json`, `src/easy_tdx/exchange_margin.py`, `CLAUDE.md`, `audit-report-*.html`); detected directories (`docs/`, `examples/`, `scripts/`, `tests/`); and language-specific test-file patterns (JS/TS `*.test.*`, C# `**/*Tests.cs`, Java `**/*Test.java`, Go `**/*_test.go`). Because everything is commented, the file currently acts as a template showing future maintainers what the analyzer should skip on demand.",
+      "complexity": 1,
+      "tags": ["understandignore", "ignore-globs", "commented-template", "gitignore-syntax", "analyzer-config"],
+      "languageNotes": "Plain text file following .gitignore syntax (one pattern per line, `#` for comments, leading `!` for negation). Uses section-header comments to group suggestions (e.g. `# --- From .gitignore (uncomment to exclude) ---`). All 40+ content lines are commented out, so the runtime behavior is exactly the built-in defaults."
+    },
+    {
+      "id": "file:docs/conf.py",
+      "type": "file",
+      "name": "Sphinx Config (conf.py)",
+      "filePath": "docs/conf.py",
+      "summary": "Sphinx documentation configuration for the easy-tdx docs site (41 lines). Sets project='easy-tdx', copyright='2025, Justin Gu', author='Justin Gu', and pulls the release string from `importlib.metadata.version('easy-tdx')` via the `_get_version` helper so the docs always match the installed package version — single source of truth, no manually-bumped version constant. Enables the `myst_parser` extension with `colon_fence` and `deflist` for Markdown-style directive/definition-list rendering, suppresses `myst.xref_missing` cross-reference warnings so relative `.md`/LICENSE links don't break the build, and sets `html_theme = 'sphinx_rtd_theme'` with `navigation_depth=3`. `source_suffix` accepts both `.rst` and `.md` so authors can write either format.",
+      "complexity": 2,
+      "tags": ["sphinx", "documentation", "myst-parser", "rtd-theme", "single-source-of-truth"],
+      "languageNotes": "Python module — Sphinx loads it as `conf.py`. Imports `importlib.metadata` lazily inside `_get_version()` rather than at module top so the package metadata doesn't have to be importable at conf-load time (matters for editable installs). Uses MyST extensions (`colon_fence` for fenced code blocks, `deflist` for definition lists) and supports both reStructuredText and Markdown source suffixes."
+    },
+    {
+      "id": "function:docs/conf.py:_get_version",
+      "type": "function",
+      "name": "_get_version",
+      "filePath": "docs/conf.py",
+      "summary": "Helper that returns the installed easy-tdx version string via `importlib.metadata.version('easy-tdx')`. Called once at conf-load time and assigned to Sphinx's `release` global so doc pages reflect the actual shipped version instead of a hand-maintained literal.",
+      "complexity": 1,
+      "tags": ["importlib.metadata", "single-source-of-truth", "sphinx-release"],
+      "languageNotes": "Three-line function; does an inline import (`from importlib.metadata import version`) inside the body so the lookup happens only when needed."
+    },
+    {
+      "id": "config:easy_tdx.spec",
+      "type": "pipeline",
+      "name": "PyInstaller Windows EXE Spec",
+      "filePath": "easy_tdx.spec",
+      "summary": "PyInstaller spec file (114 lines) that bundles easy-tdx into a single Windows GUI EXE (`dist/easy-tdx.exe`). Anchors on `src/easy_tdx/__main__.py`, uses `--onefile` + `console=False` (no console window — Windows GUI subsystem) + `upx=True` for size compression, and pulls in hidden imports for `uvicorn` (uses importlib to load protocol implementations dynamically, so PyInstaller's static analysis misses them), `easy_tdx` (routers/backtest.strategies are lazily imported so full-module collection is needed), and `pystray` (system-tray icons use win32 API + Pillow image-format plugins both loaded via importlib). Data files collected: `tzdata` (IANA timezone DB) and all of `PIL` (Pillow's image format plugins). Critically, the spec globs `web-ui/dist/**/*` and registers every individual file as a `(src_path, 'web_dist/...')` tuple — a v1.19.1 bug where `datas=[('web-ui/dist', 'web_dist')]` silently failed (treated the directory as a missing file) is documented inline to prevent regression; the correct fix is to enumerate the files. Excludes `matplotlib`, `tkinter`, `PyQt5/6`, `PySide2/6`, `pytest`, `IPython`, `jupyter`, `notebook` from the bundle.",
+      "complexity": 6,
+      "tags": ["pyinstaller", "onefile", "gui-subsystem", "hiddenimports", "uvicorn", "pystray", "pillow", "tzdata", "frontend-bundling", "spec-exclude", "v1.19.1-bug"],
+      "languageNotes": "Python DSL PyInstaller reads (`Analysis`/`PYZ`/`EXE` constructors). Uses `collect_submodules` from `PyInstaller.utils.hooks` and a manual `Path('web-ui/dist').rglob('*')` glob loop to translate a directory into per-file tuples (the v1.19.1 trap). The `if _dist_root.is_dir()` guard falls back to a printed `WARNING` instead of failing the build so CI can still produce an EXE when frontend assets haven't been built yet (UI is then blank at runtime)."
+    },
+    {
+      "id": "file:examples/01_connection/async_connect.py",
+      "type": "file",
+      "name": "async_connect.py",
+      "filePath": "examples/01_connection/async_connect.py",
+      "summary": "Example script (67 lines) demonstrating the async TdxClient API. Docstring lists the 1:1 method parity with sync TdxClient (`get_security_count`, `get_security_list`, `get_security_bars`, `get_security_quotes`, …) and explains AsyncTdxClient-specific quirks: each instance owns one TCP connection, concurrent calls serialize via an internal `asyncio.Lock`, `async with` closes both the connection and the heartbeat task, and the heartbeat interval is 60 s (vs 15 s for sync). `main()` opens two clients — one pinned to `180.153.18.170` (manual host) and one via `AsyncTdxClient.from_best_host()` — runs them in sequence, and reports the SH security count plus 5 daily K-lines for 600000 浦发银行. The trailing `# 运行结果` block shows a sample OHLCV output (2026-05-18 → 2026-05-22) so users can sanity-check their first run.",
+      "complexity": 2,
+      "tags": ["example", "async", "best-host", "asyncio-lock", "heartbeat", "kline"],
+      "languageNotes": "Module-level `async def main()` driven by `asyncio.run(main())`. Uses async-context-manager `async with` and `await` on each `get_*` call. Imports `from easy_tdx import AsyncTdxClient, KlineCategory, Market` at top-level — the only example in the batch that exercises the async client."
+    },
+    {
+      "id": "function:examples/01_connection/async_connect.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "examples/01_connection/async_connect.py",
+      "summary": "Async entrypoint that opens two sequential AsyncTdxClient sessions (one manually pinned to `180.153.18.170`, one via `from_best_host()`), calls `get_security_count(Market.SH)` and `get_security_bars(Market.SH, '600000', KlineCategory.DAY, 0, 5)`, and prints the SH count plus the 5-bar OHLCV string.",
+      "complexity": 2,
+      "tags": ["async-main", "best-host", "kline-demo"],
+      "languageNotes": "`async def`; structured as two `async with` blocks run in sequence within the single event loop created by `asyncio.run(main())`."
+    },
+    {
+      "id": "file:examples/01_connection/connect_best_host.py",
+      "type": "file",
+      "name": "connect_best_host.py",
+      "filePath": "examples/01_connection/connect_best_host.py",
+      "summary": "Example (38 lines) that demonstrates the three connection modes of the sync `TdxClient`. The docstring walks through each one: (1) `TdxClient()` reads `best_host` from `~/.easy_tdx/config.json` and is the recommended daily-use entry point after running `from_best_host()` at least once; (2) `TdxClient.from_best_host()` concurrently pings all candidate servers, picks the lowest-latency one, and persists the choice to `config.json`; (3) `TdxClient(host)` connects directly to a manually-specified IP. All three modes support `with` context-manager syntax that closes the connection and heartbeat thread on exit. The script exercises modes 1 and 2 in two sequential `with` blocks, printing `(host, port)` and the SH security count for each.",
+      "complexity": 1,
+      "tags": ["example", "connection-modes", "best-host", "config-json", "context-manager"],
+      "languageNotes": "Three sequential `with TdxClient... as c:` blocks executed at module import time (no `if __name__ == '__main__'` guard). Accesses private attribute `c._host` / `c._port` for diagnostic printing only."
+    },
+    {
+      "id": "file:examples/01_connection/ping_servers.py",
+      "type": "file",
+      "name": "ping_servers.py",
+      "filePath": "examples/01_connection/ping_servers.py",
+      "summary": "Example (51 lines) showing how to measure latency to every 通达信 server without ever establishing a TdxClient. `TdxClient.ping_all()` is a static method — no connection object needed — that concurrently TCP-pings the candidate list (default `KNOWN_HOSTS`, ~50+ IPs) and returns a `list[tuple[str, float]]` sorted by ascending latency. The script wraps the result in a pandas DataFrame, multiplies the seconds column by 1000 to get milliseconds, and prints the table. Trailing 20-row `# 运行结果` block lists the 20 lowest-latency servers at the time the example was captured, anchored on `115.238.56.198` at 12.35 ms.",
+      "complexity": 2,
+      "tags": ["example", "ping", "static-method", "known-hosts", "latency-sort"],
+      "languageNotes": "Single top-level statement chain (no functions). Uses `pandas.DataFrame(results, columns=[\"服务器\", \"延迟(s)\"])` for display, then `df[\"延迟(ms)\"] = df[\"延迟(s)\"] * 1000`. Imports only `pandas` and the static method on `TdxClient`."
+    },
+    {
+      "id": "file:examples/02_market_info/market_stat.py",
+      "type": "file",
+      "name": "market_stat.py",
+      "filePath": "examples/02_market_info/market_stat.py",
+      "summary": "Example (38 lines) demonstrating `TdxClient.get_market_stat()`, which reads three 通达信 builtin indices (880005 全市场行情统计, 880001 总市值指数, 880006 涨跌停统计) and returns a one-row DataFrame with up/down/neutral counts, suspended count (residual = total − up − down − neutral, not a protocol-defined field), total_amount, total_volume, total_market_cap (price × 1e10), and limit_up/limit_down counts. Prints the transposed DataFrame to fit a wide table on one screen. Trailing `# 运行结果` shows a sample (5420 stocks total, 68 涨停 / 12 跌停).",
+      "complexity": 2,
+      "tags": ["example", "market-stat", "builtin-indices", "880005", "880001", "880006", "suspended-residual"],
+      "languageNotes": "Single `with TdxClient.from_best_host() as c:` block. Uses `info.T.to_string(index=False)` to print a single-row wide DataFrame vertically."
+    },
+    {
+      "id": "file:examples/02_market_info/security_count.py",
+      "type": "file",
+      "name": "security_count.py",
+      "filePath": "examples/02_market_info/security_count.py",
+      "summary": "Minimal example (30 lines) demonstrating `TdxClient.get_security_count(market)`. Connects via `from_best_host()`, calls the method for `Market.SH` and `Market.SZ`, prints both counts. Docstring defines the `Market` enum (`SZ=0`, `SH=1`, `BJ=2`) and warns that `Market.BJ` (北京证券交易所) results may be unstable on some servers — discouraged for production use. Returned count includes stocks, funds, bonds, and indices (i.e. all security types).",
+      "complexity": 1,
+      "tags": ["example", "security-count", "market-enum", "sh", "sz", "bj-warning"],
+      "languageNotes": "Module-level straight-line script: one `with` block, two `c.get_security_count(...)` calls, two `print()` calls. Sample output shows 沪市=2847, 深市=3612."
+    },
+    {
+      "id": "file:examples/02_market_info/security_list_all.py",
+      "type": "file",
+      "name": "security_list_all.py",
+      "filePath": "examples/02_market_info/security_list_all.py",
+      "summary": "Largest market-info example (148 lines). Demonstrates `TdxClient.get_security_list_all()` which fetches all 沪深 A 股 (SH + SZ, BJ excluded) with 通达信行业 + 申万行业 columns populated from the server-managed `tdxhy.cfg` (~1MB config file). The docstring walks through the four cost drivers: download tdxhy.cfg, query both markets for security counts, paginate (1000/page), filter to A-share prefixes (沪 60/68, 深 00/30), then map industries. Caching layer: `pages='all'` (default) caches results to `~/.easy_tdx/cache/security_list_all.json` for 24h; pass `pages=N` to skip caching. The script enables `logging.INFO` to surface per-page progress, bumps `timeout=30.0` so full-page requests don't time out, calls `get_security_list_all()` once, then prints a self-documenting schema table (8 fields, English/Chinese/type/description) followed by the first 20 rows of A-share. Trailing `# 运行结果` confirms 5318 沪深 A 股 across 7 pages.",
+      "complexity": 4,
+      "tags": ["example", "security-list-all", "industry-mapping", "tdxhy-cfg", "pagination", "1-day-cache", "518rows", "logging"],
+      "languageNotes": "Single `with` block. Uses `pandas.DataFrame.to_string(index=False)` for both the schema-printout and the head-20 printout. Imports `logging` and `pandas` alongside `TdxClient`."
+    },
+    {
+      "id": "file:examples/02_market_info/security_list.py",
+      "type": "file",
+      "name": "security_list.py",
+      "filePath": "examples/02_market_info/security_list.py",
+      "summary": "Example (124 lines) demonstrating `TdxClient.get_security_list(market, start)` — the paginated single-market variant. Each call returns one page of ~1000 records (one market, all security types); the `start` arg controls the page offset. Industry columns (`industry_tdx`, `industry_sw`) are returned as empty strings here — the docstring points users to `get_security_list_all()` for industries. Script mirrors the schema pattern used in `security_list_all.py`: prints an 8-field legend (market/code/name/volunit/decimal_point/pre_close/industry_tdx/industry_sw) followed by `head(20)` of the SH page 0 result. Trailing sample shows 浦发银行, 白云机场, 东风汽车 etc.",
+      "complexity": 3,
+      "tags": ["example", "security-list", "pagination", "start-offset", "1000-rows", "industry-empty"],
+      "languageNotes": "Mirror of security_list_all.py structure but with `c.get_security_list(Market.SH, start=0)` instead of `get_security_list_all()`. Single call, single `head(20)` printout."
+    },
+    {
+      "id": "file:examples/02_market_info/security_quotes.py",
+      "type": "file",
+      "name": "security_quotes.py",
+      "filePath": "examples/02_market_info/security_quotes.py",
+      "summary": "Example (66 lines) demonstrating `TdxClient.get_security_quotes(stocks)` — batched real-time five-level quotes for up to 80 stocks per request. Docstring documents the `SecurityQuote` schema: 基础信息 (market, code, server_time), prices (price, pre_close, open, high, low), 量额 (vol, cur_vol, amount, s_vol, b_vol), 五档 (bid1–bid5/bid_vol1–5 + ask1–ask5/ask_vol1–5), and price metrics (rise_speed, limit_up, limit_down — limit fields are `None` and need `get_price_limits()` to populate). The script fetches four A-share blue chips (600000 浦发银行, 600519 贵州茅台, 000001 平安银行, 000858 五粮液), derives `change_pct` in-line, and prints a curated projection (code/price/change_pct/open/high/low/pre_close/vol/amount).",
+      "complexity": 2,
+      "tags": ["example", "security-quotes", "five-level", "80-stocks", "change-pct", "limit-placeholder"],
+      "languageNotes": "Builds `stocks = [(Market.SH, \"600000\"), ...]` list, passes it in one call. Adds a derived column `df[\"change_pct\"] = (df[\"price\"] - df[\"pre_close\"]) / df[\"pre_close\"] * 100` before the print. Limit-up/down fields are not populated by this call."
+    },
+    {
+      "id": "file:examples/03_kline/index_bars.py",
+      "type": "file",
+      "name": "index_bars.py",
+      "filePath": "examples/03_kline/index_bars.py",
+      "summary": "Example (60 lines) demonstrating `TdxClient.get_index_bars(market, code, category, start, count)` for OHLCV bars on the major Chinese indices (上证 999999/000001, 深证成指 399001, 创业板指 399006, 上证50 000016, 沪深300 000300, 中证500 000905, 中证1000 000852). The docstring notes: vol/amount on indices represent the entire covered-market aggregate (not just the index's tickers); prices are in 'points', not CNY. Script pulls 10 daily bars for 上证指数 (999999, SH) and prints the DataFrame. Sample output spans 2026-05-11 → 2026-05-22 with prices around 3370 点.",
+      "complexity": 2,
+      "tags": ["example", "index-bars", "ohlcv", "999999", "399001", "kline-category"],
+      "languageNotes": "Single call: `c.get_index_bars(Market.SH, \"999999\", KlineCategory.DAY, 0, 10)`. Imports `KlineCategory` alongside `Market` and `TdxClient`."
+    },
+    {
+      "id": "file:examples/03_kline/security_bars.py",
+      "type": "file",
+      "name": "security_bars.py",
+      "filePath": "examples/03_kline/security_bars.py",
+      "summary": "Most detailed K-line example in the batch (85 lines) for `TdxClient.get_security_bars(market, code, category, start, count)`. Docstring enumerates all 11 `KlineCategory` values (MIN_1/5/15/30/60, DAY, WEEK, MONTH, YEAR, SEASON, YEAR_ALT — note the gap on value 8), explains the daily-vs-minute DataFrame shape swap (`date` for daily-plus, `datetime` for minute bars), and documents the `bar_time='start'|'end'` parameter: `start` (default) keeps 通达信's convention where a 5-min bar at 11:25 marks the start (the protocol returns the bar-start moment); `end` shifts to the right edge (11:30) to align with Tushare / 同花顺 / 聚宽. Script pulls daily K-line for 江特电机(002176) plus two parallel 5-min calls (start vs end) and prints both for visual comparison.",
+      "complexity": 3,
+      "tags": ["example", "kline", "bar-time", "start-vs-end", "tushare-alignment", "002176", "kline-category-enum"],
+      "languageNotes": "Three sequential calls in one `with` block: one daily `get_security_bars(SZ, \"002176\", DAY, 0, 10)` and two 5-min calls differing only in the `bar_time=` kwarg. Imports `KlineCategory`, `Market`, `TdxClient`."
+    },
+    {
+      "id": "file:examples/04_minute/history_minute_data.py",
+      "type": "file",
+      "name": "history_minute_data.py",
+      "filePath": "examples/04_minute/history_minute_data.py",
+      "summary": "Example (47 lines) for `TdxClient.get_history_minute_time_data(market, code, date)` — fetches intraday 1-minute bars for a single historical date. Docstring: `date` is an int in YYYYMMDD format (e.g. 20250110); the returned DataFrame has 240 rows for a full A-share 4-hour trading day (09:30–11:29 + 13:00–14:59), columns are `datetime` ('HH:MM:SS'), `price` (CNY, float), `vol` (shares, int). Non-trading days return an empty DataFrame. Script fetches 浦发银行 (600000) for 2025-01-10 and prints `head(20)`. Sample output shows prices in the 10.24–10.26 CNY range with thousands of shares per bar.",
+      "complexity": 2,
+      "tags": ["example", "history-minute", "intraday-1min", "yyyymmdd", "240-bars", "trading-day-only"],
+      "languageNotes": "Single call: `c.get_history_minute_time_data(Market.SH, \"600000\", 20250110)`. Module-level execution, no function definitions."
+    },
+    {
+      "id": "file:examples/04_minute/minute_time_data.py",
+      "type": "file",
+      "name": "minute_time_data.py",
+      "filePath": "examples/04_minute/minute_time_data.py",
+      "summary": "Example (46 lines) for `TdxClient.get_minute_time_data(market, code)` — today's intraday 1-minute bars (≈240 rows). Identical DataFrame schema to `get_history_minute_time_data` (datetime/price/vol), but the docstring notes: pre-open bars have price=0 and vol=0; non-trading-hours calls return an empty DataFrame. Script fetches 浦发银行 (600000) on whatever the current day is and prints head(20). Sample output captured at 2025-01-10 shows same first-20 bars as the history variant — confirms API shape parity.",
+      "complexity": 1,
+      "tags": ["example", "minute-time", "today", "240-bars", "intraday"],
+      "languageNotes": "Twin of history_minute_data.py structurally — only the method name and date arg differ."
+    },
+    {
+      "id": "file:examples/05_transaction/history_transaction.py",
+      "type": "file",
+      "name": "history_transaction.py",
+      "filePath": "examples/05_transaction/history_transaction.py",
+      "summary": "Example (50 lines) for `TdxClient.get_history_transaction_data(market, code, date, start, count)` — historical intraday tick-by-tick distribution for a specific YYYYMMDD date. Schema (datetime 'HH:MM:SS', price CNY, vol shares, num merged-tick count, buyorsell 0=买 / 1=卖 / 2=中性撮合 / 8=集合竞价). The script maps `buyorsell` to a Chinese directional label and prints the first 20 ticks of 浦发银行(600000) on 2025-01-10 14:56. Sample output shows a mix of directional trades and 集合竞价 closing prints at 14:59.",
+      "complexity": 2,
+      "tags": ["example", "history-transaction", "tick-data", "buyorsell-mapping", "yyyymmdd", "8-closing-call"],
+      "languageNotes": "Uses `df[\"buyorsell\"].map({0: \"买\", 1: \"卖\", 2: \"中性\", 8: \"集合竞价\"})` to add a 方向 column before printing a 4-column projection (`datetime`/`price`/`vol`/`方向`). Note protocol precision is only 1 minute, not sub-second."
+    },
+    {
+      "id": "file:examples/05_transaction/transaction_data.py",
+      "type": "file",
+      "name": "transaction_data.py",
+      "filePath": "examples/05_transaction/transaction_data.py",
+      "summary": "Example (49 lines) for `TdxClient.get_transaction_data(market, code, start, count)` — today's intraday ticks (paged via `start` offset, default count 800). Schema identical to history_transaction (datetime/price/vol/num/buyorsell). Same `方向` column mapping pattern. Sample output is identical to `history_transaction.py` (both pulled during the 2025-01-10 14:56 → 14:59 window) — confirms the today's-tick API and the historical API produce identical record shapes for the live session.",
+      "complexity": 1,
+      "tags": ["example", "transaction", "current-day", "tick-data", "buyorsell", "paged-800"],
+      "languageNotes": "Mirror of history_transaction.py with `c.get_transaction_data(...)` instead of `get_history_transaction_data(...)`. No `date` argument."
+    },
+    {
+      "id": "config:examples/06_finance/company_cli.sh",
+      "type": "config",
+      "name": "company_cli.sh",
+      "filePath": "examples/06_finance/company_cli.sh",
+      "summary": "Bash recipe sheet (69 lines) for the three `easy-tdx` finance-info commands: `finance-info`, `company-info` (no-arg form = F10 category list, with-arg form = F10 section body), and the JSON / CSV output-format switches. Sets up `CODE=600519` (贵州茅台) and `MARKET=SH`, then walks through: (1) finance-info with `--table` (default tabular output); (2) bare company-info to list categories; (3) four named-section reads (公司概况, 股本结构 default 1024 bytes, 分红扩股 with `--length 4096` for long bodies, 龙虎榜单); (4) format switches (`--output json` for finance-info, `--output csv` for category listing); (5) advanced direct-file read using `${CODE}.txt` + `--offset 0 --length 2048`; (6) error-handling demo with a non-existent section to show 'available sections' prompting. All command lines are commented out — the file is a cookbook to copy snippets from, not an executable.",
+      "complexity": 2,
+      "tags": ["finance-info", "company-info", "f10", "cli-recipe", "bash", "table-output", "json-output", "csv-output"],
+      "languageNotes": "Bash script with `echo` separators and `# easy-tdx ...` lines that are commented. Designed to be read and adapted, not run directly. Uses `================================================================` and `--- N.M title ---` section dividers."
+    },
+    {
+      "id": "file:examples/06_finance/company_info.py",
+      "type": "file",
+      "name": "company_info.py",
+      "filePath": "examples/06_finance/company_info.py",
+      "summary": "Example (103 lines) walking through the two-step F10 company-info flow: (1) `TdxClient.get_company_info_category(market, code)` returns a category DataFrame (columns: name, filename, start, length), and (2) `TdxClient.get_company_info_content(market, code, filename, start, length)` reads the GBK-encoded body for a chosen category. Docstring enumerates the 16 standard F10 categories (最新提示, 公司概况, 财务分析, 股本结构, 股东研究, 资本运作, 业内点评, 行业分析, 公司大事, 研究报告, 经营分析, 主力追踪, 分红扩股, 高层治理, 龙虎榜单, 关联个股). Defines `show_category_content(client, categories, category_name, max_chars=500)` helper that filters the category DataFrame by name, fetches the section, truncates to `max_chars` with a '共 X 字' suffix, and prints it. Loop iterates all `SHOW_CATEGORIES` so the user sees every section's first 500 chars.",
+      "complexity": 4,
+      "tags": ["example", "company-info", "f10", "category-list", "content-read", "offset-length", "gbk"],
+      "languageNotes": "Defines a top-level `def show_category_content(...)` plus a module-level `with TdxClient.from_best_host() as c:` block. Uses `categories[categories[\"name\"] == category_name].iloc[0]` to locate the entry. Constants `CODE=600519`, `NAME='贵州茅台'`, `MARKET=Market.SH`."
+    },
+    {
+      "id": "function:examples/06_finance/company_info.py:show_category_content",
+      "type": "function",
+      "name": "show_category_content",
+      "filePath": "examples/06_finance/company_info.py",
+      "summary": "Helper that looks up a category by name in the F10 category DataFrame and prints its content (truncated to `max_chars`). Early-returns with a '未找到分类' message when the name is absent. Strips the body and appends a '共 N 字' footer when truncated so the user sees total length.",
+      "complexity": 3,
+      "tags": ["helper", "category-lookup", "text-truncation"],
+      "languageNotes": "Signature: `show_category_content(client, categories, category_name, max_chars=500)`. Uses `row.iloc[0]` to extract the single matching row, then `client.get_company_info_content(MARKET, CODE, r['filename'], int(r['start']), int(r['length']))` to fetch the body."
+    },
+    {
+      "id": "file:examples/06_finance/company_web_api.py",
+      "type": "file",
+      "name": "company_web_api.py",
+      "filePath": "examples/06_finance/company_web_api.py",
+      "summary": "Web-API consumer example (134 lines) that calls easy-tdx's REST endpoints (`GET /api/v1/finance`, `GET /api/v1/company/category`, `GET /api/v1/company/content`) using `requests`. Mirrors the F10 contract from `company_info.py` but split into two endpoints (list-then-fetch) so programs can manage `filename`/`offset`/`length` explicitly. Defines four helpers — `fetch_finance()`, `fetch_company_category()`, `fetch_company_content(filename, offset, length)`, `find_section(categories, section_name)` — and the `__main__` guard drives through three scenarios: (1) finance for 贵州茅台, (2) category listing, (3) read 「公司概况」 (first 1024 bytes) and 「股本结构」 (full length).",
+      "complexity": 4,
+      "tags": ["example", "web-api", "rest", "requests", "f10", "finance", "/api/v1"],
+      "languageNotes": "Modern `from __future__ import annotations` + type hints; `dict[str, ...]` return types. Module-level constants `BASE_URL = 'http://localhost:8000/api/v1'`, `MARKET = 'SH'`, `CODE = '600519'`. Uses `resp.raise_for_status()` for error propagation and `timeout=15` on every call."
+    },
+    {
+      "id": "function:examples/06_finance/company_web_api.py:fetch_finance",
+      "type": "function",
+      "name": "fetch_finance",
+      "filePath": "examples/06_finance/company_web_api.py",
+      "summary": "GET /finance helper that returns the JSON-decoded body (`{\"data\": [{...financial fields...}]}`) for the most recent single-period 37-field financial snapshot.",
+      "complexity": 1,
+      "tags": ["web-api", "rest", "finance", "/finance"],
+      "languageNotes": "Single `requests.get(...)` + `raise_for_status()` + `return resp.json()`. Annotations: `-> dict`."
+    },
+    {
+      "id": "function:examples/06_finance/company_web_api.py:fetch_company_category",
+      "type": "function",
+      "name": "fetch_company_category",
+      "filePath": "examples/06_finance/company_web_api.py",
+      "summary": "GET /company/category helper returning `{\"data\": [{\"name\":..., \"filename\":..., \"start\":..., \"length\":...}, ...]}` — the F10 category index needed before reading any section body.",
+      "complexity": 1,
+      "tags": ["web-api", "rest", "company-category", "/company/category"],
+      "languageNotes": "Identical pattern to fetch_finance but targets the category endpoint."
+    },
+    {
+      "id": "function:examples/06_finance/company_web_api.py:fetch_company_content",
+      "type": "function",
+      "name": "fetch_company_content",
+      "filePath": "examples/06_finance/company_web_api.py",
+      "summary": "GET /company/content helper reading one F10 section's GBK text body. Required args: `filename` (from the category index), `offset` (default 0), `length` (default 1024). Returns the `content` substring of the JSON response.",
+      "complexity": 2,
+      "tags": ["web-api", "rest", "company-content", "/company/content", "filename-offset-length"],
+      "languageNotes": "Builds the params dict explicitly so missing offset/length default to 0/1024. Returns `resp.json()[\"content\"]` — only the body substring."
+    },
+    {
+      "id": "function:examples/06_finance/company_web_api.py:find_section",
+      "type": "function",
+      "name": "find_section",
+      "filePath": "examples/06_finance/company_web_api.py",
+      "summary": "Helper that linear-scans a category-index JSON for a section whose `name` equals `section_name`. Returns the matching row dict (`{name, filename, start, length}`) or `None` when not found.",
+      "complexity": 1,
+      "tags": ["helper", "category-lookup", "linear-search"],
+      "languageNotes": "Returns `dict | None` (modern union syntax with `from __future__ import annotations`). Iterates `categories.get(\"data\", [])` so a missing key returns `None` cleanly."
+    },
+    {
+      "id": "file:examples/06_finance/finance_info.py",
+      "type": "file",
+      "name": "finance_info.py",
+      "filePath": "examples/06_finance/finance_info.py",
+      "summary": "Example (97 lines) for `TdxClient.get_finance_info(market, code)` — returns a single-row DataFrame with ~30 financial fields (股本类 万股, 资产负债类 元, 利润类 元, 每股指标) in pinyin-abbreviated column names. Docstring groups the schema by category (capital structure: liutong_guben, zong_guben, guojia_gu, faren_gu, b_gu, h_gu, faqiren_faren_gu, zhigong_gu; basics: province, industry, updated_date, ipo_date, gudong_renshu; balance sheet: zong_zichan, liudong_zichan, guding_zichan, wuxing_zichan, liudong_fuzhai, changqi_fuzhai, ziben_gongjijin, jing_zichan; P&L: zhuying_shouru, zhuying_lirun, yingshou_zhangkuan, yingye_lirun, touzi_shouyu, jingying_xianjinliu, zong_xianjinliu, cunhuo, lirun_zonghe, shuihou_lirun, jing_lirun, weifen_lirun; per-share: meigujing_zichan). Script fetches 贵州茅台 and prints the DataFrame transposed (`info.T`) so the wide single-row layout renders vertically.",
+      "complexity": 3,
+      "tags": ["example", "finance-info", "pinyin-fields", "single-row", "transposed-print"],
+      "languageNotes": "Single call: `c.get_finance_info(Market.SH, \"600519\")`. Uses `info.T.to_string(header=False)` to print one column per line."
+    },
+    {
+      "id": "file:examples/06_finance/price_limits.py",
+      "type": "file",
+      "name": "price_limits.py",
+      "filePath": "examples/06_finance/price_limits.py",
+      "summary": "Example (38 lines) for `TdxClient.get_price_limits(market, code, name, pre_close)` — computes the (limit_up, limit_down) pair based on the stock's board. Docstring tabulates the rules: 普通 A 股 ±10%, ST/*ST ±5%, 科创板 (688) ±20%, 创业板 (300/301) ±20%, 北交所 (43/83/87/92) ±30%. Edge cases: 上市首日 / 科创板 & 创业板前 5 个交易日 unlimited (returns `(None, None)`); indices/板块 codes unlimited; results rounded to 2 decimals. Script fetches the live quote for 600519 to get pre_close, calls `get_price_limits`, prints the three values.",
+      "complexity": 2,
+      "tags": ["example", "price-limits", "board-rules", "st", "kechuang", "chuangye", "bjs"],
+      "languageNotes": "Two-call sequence: `c.get_security_quotes([(Market.SH, CODE)])` to read pre_close, then `c.get_price_limits(Market.SH, CODE, NAME, q[\"pre_close\"])`. Sample output for 贵州茅台: pre_close=1498.00 → limit_up=1647.80, limit_down=1348.20."
+    },
+    {
+      "id": "file:examples/06_finance/xdxr_info.py",
+      "type": "file",
+      "name": "xdxr_info.py",
+      "filePath": "examples/06_finance/xdxr_info.py",
+      "summary": "Example (58 lines) for `TdxClient.get_xdxr_info(market, code)` — full ex-rights / ex-dividend history. Returns an `XdxrRecord` DataFrame (typically dozens of rows for an A-share). Schema: date (YYYY-MM-DD), market, code, category (1–14), name, plus per-event fields fenhong, peigujia, songzhuangu, peigu, suogu, xingquanjia, fenshu, panqian_liutong, panhou_liutong, qian_zongguben, hou_zongguben. Docstring maps the 14 event types (1=除权除息, 2=送配股上市, 3=非流通股上市, 4=未知股本变动, 5=股本变化, 6=增发新股, 7=股份回购, 8=增发新股上市, 9=转配股上市, 10=可转债上市, 11=扩缩股, 12=非流通股缩股, 13=送认购权证, 14=送认沽权证), the 前复权 formula, and notes that `easy-tdx` auto-converts the protocol's '每10股' values into '每股' units (e.g. 19.26 is per-share dividend, not 192.6). Script fetches 贵州茅台 and prints the last 10 events (`tail(10)`); sample shows 10 consecutive 除权除息 (category=1) entries from 2021-06 to 2025-09.",
+      "complexity": 3,
+      "tags": ["example", "xdxr", "ex-rights", "ex-dividend", "category-enum", "per-share-unit", "复权公式"],
+      "languageNotes": "Single call returning a wide DataFrame; prints `tail(10).to_string(index=False)` with comment '仅显示 fenhong/peigujia/songzhuangu/peigu 四个核心除权字段' — the other columns are populated but hidden in the demo to keep the output compact."
+    },
+    {
+      "id": "doc:examples/06_finance/README.md",
+      "type": "document",
+      "name": "Finance & F10 README",
+      "filePath": "examples/06_finance/README.md",
+      "summary": "README (135 lines) for the 06_finance examples directory. Documents the 通达信-origin (TdxClient) finance / company-info commands as distinct from the 新浪三表 `f10` HTTP fetcher elsewhere in the project. Tabulates the three commands and their Web API counterparts: `finance-info` / `GET /api/v1/finance` (single-period 37-field snapshot), `company-info` (no-arg) / `GET /api/v1/company/category` (F10 category index), `company-info \"板块名\"` / `GET /api/v1/company/content` (F10 section body). Explains the two-mode `company-info` (no name = list categories; name = read section, auto-loops over the category's `length` so even huge sections finish in one call). Lists the 16 standard F10 categories with one-line Chinese descriptions, then cross-references the example files: `finance_info.py`, `company_info.py`, `company_cli.sh`, `company_web_api.py`. Ends with three quick-start blocks (CLI / Python / Web API) and a finance-info / company-info column-by-column field reference.",
+      "complexity": 4,
+      "tags": ["readme", "finance", "f10", "company-info", "cli-vs-api", "field-reference"],
+      "languageNotes": "Markdown with GFM tables (declared via `| col | col |` syntax), three fenced code blocks (bash / python / bash), and a multi-section TOC structure (`## company-info 命令的两种用法`, `## F10 板块完整列表`, `## 示例文件`, `## 快速开始`, `## 字段说明`). Uses inline backticks for command names and field identifiers."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:docs/conf.py",
+      "type": "contains",
+      "target": "function:docs/conf.py:_get_version",
+      "weight": 1.0,
+      "reason": "docs/conf.py defines `_get_version()` at module level and the next line calls it to populate Sphinx's `release` variable."
+    },
+    {
+      "source": "file:examples/01_connection/async_connect.py",
+      "type": "contains",
+      "target": "function:examples/01_connection/async_connect.py:main",
+      "weight": 1.0,
+      "reason": "async_connect.py defines module-level `async def main()` and immediately runs it via `asyncio.run(main())`."
+    },
+    {
+      "source": "file:examples/06_finance/company_info.py",
+      "type": "contains",
+      "target": "function:examples/06_finance/company_info.py:show_category_content",
+      "weight": 1.0,
+      "reason": "company_info.py defines the helper `show_category_content(client, categories, category_name, max_chars=500)` at module level and invokes it inside the `for name in SHOW_CATEGORIES` loop."
+    },
+    {
+      "source": "file:examples/06_finance/company_web_api.py",
+      "type": "contains",
+      "target": "function:examples/06_finance/company_web_api.py:fetch_finance",
+      "weight": 1.0,
+      "reason": "company_web_api.py defines `fetch_finance()` and the `__main__` block calls it as the first GET demo."
+    },
+    {
+      "source": "file:examples/06_finance/company_web_api.py",
+      "type": "contains",
+      "target": "function:examples/06_finance/company_web_api.py:fetch_company_category",
+      "weight": 1.0,
+      "reason": "company_web_api.py defines `fetch_company_category()` and the `__main__` block uses it to drive step 2 of the demo."
+    },
+    {
+      "source": "file:examples/06_finance/company_web_api.py",
+      "type": "contains",
+      "target": "function:examples/06_finance/company_web_api.py:fetch_company_content",
+      "weight": 1.0,
+      "reason": "company_web_api.py defines `fetch_company_content(filename, offset, length)` and the `__main__` block uses it twice — once with default-length 1024 (公司概况) and once with the full length (股本结构)."
+    },
+    {
+      "source": "file:examples/06_finance/company_web_api.py",
+      "type": "contains",
+      "target": "function:examples/06_finance/company_web_api.py:find_section",
+      "weight": 1.0,
+      "reason": "company_web_api.py defines `find_section(categories, section_name)` and the `__main__` block uses it to convert category rows into the (filename/offset/length) triple needed by `fetch_company_content`."
+    },
+    {
+      "source": "file:examples/01_connection/async_connect.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `AsyncTdxClient`, `KlineCategory`, `Market` from the package root — the only example that exercises the async client."
+    },
+    {
+      "source": "file:examples/01_connection/connect_best_host.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` from `easy_tdx` to demonstrate the three connection modes."
+    },
+    {
+      "source": "file:examples/01_connection/ping_servers.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxClient` only to invoke the static `ping_all()` method (no client instance is constructed)."
+    },
+    {
+      "source": "file:examples/02_market_info/market_stat.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxClient` to call `get_market_stat()` and print the one-row aggregate."
+    },
+    {
+      "source": "file:examples/02_market_info/security_count.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` to query both SH and SZ security counts."
+    },
+    {
+      "source": "file:examples/02_market_info/security_list_all.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxClient` for `get_security_list_all()` (industry-mapped A-share list with 24h cache)."
+    },
+    {
+      "source": "file:examples/02_market_info/security_list.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_security_list(Market.SH, start=0)` — paginated single-market variant."
+    },
+    {
+      "source": "file:examples/02_market_info/security_quotes.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` to call `get_security_quotes([...4 stocks...])` and derive `change_pct`."
+    },
+    {
+      "source": "file:examples/03_kline/index_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `KlineCategory`, `Market`, `TdxClient` to call `get_index_bars(SH, '999999', DAY, 0, 10)`."
+    },
+    {
+      "source": "file:examples/03_kline/security_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `KlineCategory`, `Market`, `TdxClient` to demonstrate `get_security_bars` for both daily and 5-minute K-line on 002176 江特电机."
+    },
+    {
+      "source": "file:examples/04_minute/history_minute_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_history_minute_time_data(Market.SH, '600000', 20250110)`."
+    },
+    {
+      "source": "file:examples/04_minute/minute_time_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for today's `get_minute_time_data(Market.SH, '600000')`."
+    },
+    {
+      "source": "file:examples/05_transaction/history_transaction.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_history_transaction_data(Market.SH, '600000', 20250110, 0, 20)`."
+    },
+    {
+      "source": "file:examples/05_transaction/transaction_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_transaction_data(Market.SH, '600000', 0, 20)`."
+    },
+    {
+      "source": "file:examples/06_finance/company_info.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` to drive the two-step F10 (category → content) flow for 600519 贵州茅台."
+    },
+    {
+      "source": "file:examples/06_finance/finance_info.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_finance_info(Market.SH, '600519')` (single-row 37-field financial snapshot)."
+    },
+    {
+      "source": "file:examples/06_finance/price_limits.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_security_quotes` + `get_price_limits` (board-rule-based ±limit computation)."
+    },
+    {
+      "source": "file:examples/06_finance/xdxr_info.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` for `get_xdxr_info(Market.SH, '600519')` (full ex-rights/ex-dividend history)."
+    },
+    {
+      "source": "config:easy_tdx.spec",
+      "type": "configures",
+      "target": "file:src/easy_tdx/__main__.py",
+      "weight": 0.9,
+      "reason": "The PyInstaller Analysis entry-point is `src/easy_tdx/__main__.py`; pathex=['src'] ensures the package is importable during the static analysis pass."
+    },
+    {
+      "source": "config:easy_tdx.spec",
+      "type": "configures",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.8,
+      "reason": "`hiddenimports += collect_submodules('easy_tdx')` forces PyInstaller to bundle every submodule under src/easy_tdx/, including routers / backtest.strategies that are imported lazily."
+    },
+    {
+      "source": "config:easy_tdx.spec",
+      "type": "configures",
+      "target": "file:web-ui/dist",
+      "weight": 0.7,
+      "reason": "The spec globs `web-ui/dist/**/*` (recursively) and registers every file as a `(src, 'web_dist/...')` tuple so the bundled EXE serves the Vue frontend from `sys._MEIPASS/web_dist`."
+    },
+    {
+      "source": "config:easy_tdx.spec",
+      "type": "depends_on",
+      "target": "file:pyproject.toml",
+      "weight": 0.6,
+      "reason": "The spec's `hiddenimports += collect_submodules('pystray')`, `collect_data_files('tzdata')`, and `collect_data_files('PIL')` rely on those packages being installed via `pip install -e .[web,packaging]` (declared in pyproject.toml) before `pyinstaller easy_tdx.spec` runs."
+    },
+    {
+      "source": "pipeline:release-exe",
+      "type": "calls",
+      "target": "config:easy_tdx.spec",
+      "weight": 0.9,
+      "reason": "The Release-EXE workflow runs `pyinstaller easy_tdx.spec --noconfirm` after `pip install -e .[web,packaging]` and the frontend build, so this spec is the canonical builder entry-point for the Windows EXE."
+    },
+    {
+      "source": "config:.claude/settings.local.json",
+      "type": "configures",
+      "target": "file:examples/06_finance/company_cli.sh",
+      "weight": 0.5,
+      "reason": "The allow-list explicitly grants `Bash(easy-tdx finance-info *)` / `Bash(easy-tdx company-info *)` so the maintainer can paste the very commands documented in company_cli.sh without re-prompting."
+    },
+    {
+      "source": "doc:examples/06_finance/README.md",
+      "type": "documents",
+      "target": "file:examples/06_finance/finance_info.py",
+      "weight": 0.7,
+      "reason": "The README's '示例文件' table maps `finance_info.py` to 'Python API · 最新财务快照（37 字段）' — it cross-references the file and summarizes the output."
+    },
+    {
+      "source": "doc:examples/06_finance/README.md",
+      "type": "documents",
+      "target": "file:examples/06_finance/company_info.py",
+      "weight": 0.7,
+      "reason": "README's table maps `company_info.py` to 'Python API · F10 板块目录 + 遍历各板块正文'; also referenced in the 'Python API 快速开始' snippet."
+    },
+    {
+      "source": "doc:examples/06_finance/README.md",
+      "type": "documents",
+      "target": "config:examples/06_finance/company_cli.sh",
+      "weight": 0.7,
+      "reason": "README's table maps `company_cli.sh` to 'CLI · finance-info / company-info 全用法'; the field-reference section also documents the CLI's table / JSON / CSV output switches."
+    },
+    {
+      "source": "doc:examples/06_finance/README.md",
+      "type": "documents",
+      "target": "file:examples/06_finance/company_web_api.py",
+      "weight": 0.7,
+      "reason": "README's table maps `company_web_api.py` to 'Web API · /finance /company/category /company/content'; the Web API 快速开始 block lists the same three curl commands."
+    },
+    {
+      "source": "file:docs/conf.py",
+      "type": "depends_on",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.4,
+      "reason": "`_get_version()` calls `importlib.metadata.version('easy-tdx')` which reads from the installed package's METADATA — needs the package to be importable (editable install) at sphinx-build time."
+    },
+    {
+      "source": "config:.understand-anything/.understandignore",
+      "type": "configures",
+      "target": "file:.understand-anything",
+      "weight": 0.4,
+      "reason": "Lives inside `.understand-anything/` and documents (via commented-out patterns) which paths the understand-anywhere analyzer should skip — by convention the tool reads this file at scan time."
+    },
+    {
+      "source": "file:examples/01_connection/ping_servers.py",
+      "type": "similar_to",
+      "target": "file:examples/01_connection/connect_best_host.py",
+      "weight": 0.6,
+      "reason": "Both 01_connection examples feed the same `best_host` selection flow — `ping_servers.py` shows the raw ping-and-rank, `connect_best_host.py` shows the same logic wrapped in `from_best_host()`."
+    },
+    {
+      "source": "file:examples/04_minute/history_minute_data.py",
+      "type": "similar_to",
+      "target": "file:examples/04_minute/minute_time_data.py",
+      "weight": 0.8,
+      "reason": "Twin scripts with identical DataFrame shape — `history_minute_data.py` takes a YYYYMMDD date arg; `minute_time_data.py` is the current-day no-arg variant."
+    },
+    {
+      "source": "file:examples/05_transaction/history_transaction.py",
+      "type": "similar_to",
+      "target": "file:examples/05_transaction/transaction_data.py",
+      "weight": 0.8,
+      "reason": "Twin scripts with identical schema — `history_transaction.py` takes a YYYYMMDD date arg; `transaction_data.py` is the current-day variant."
+    },
+    {
+      "source": "file:examples/02_market_info/security_list_all.py",
+      "type": "related",
+      "target": "file:examples/02_market_info/security_list.py",
+      "weight": 0.7,
+      "reason": "`security_list_all.py` is the cross-market, industry-mapped superset of `security_list.py` — the docstring of `security_list.py` explicitly tells users to switch to `get_security_list_all()` when industry columns are needed."
+    },
+    {
+      "source": "file:examples/03_kline/security_bars.py",
+      "type": "related",
+      "target": "file:examples/03_kline/index_bars.py",
+      "weight": 0.5,
+      "reason": "`index_bars.py` is the index-specific variant of `security_bars.py` — both share the KlineCategory schema, but indices get a dedicated 通达信 command and report aggregate vol/amount."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 32,
+    "edgesCreated": 42,
+    "notes": "Batch 7 covers 25 files spanning the project's developer-tooling layer (1 .claude settings allow-list, 1 .understandignore template, 1 Sphinx conf.py, 1 PyInstaller spec) and 21 example / documentation artifacts under examples/01_connection through examples/06_finance. The example files collectively form the user-facing cookbook for the TdxClient protocol: 3 connection-mode demos, 5 market-info demos, 2 K-line demos, 2 minute-bar demos, 2 tick demos, 1 CLI shell recipe, 1 README, and 5 finance / F10 demos (1 README + 2 .py + 1 .sh + 1 web-API script). The Python PyInstaller spec (`easy_tdx.spec`, 114 lines) is the most non-trivial piece — it documents the v1.19.1 bug where `datas=[(dir, dir)]` silently dropped the frontend, and ships the correct per-file glob expansion (`web-ui/dist/**/*` → individual `(src, 'web_dist/...')` tuples). `docs/conf.py` exposes a 1-function graph (`_get_version` via `importlib.metadata`) that keeps Sphinx's `release` in lockstep with the installed package. The finance/F10 examples pivot between three calling surfaces: Python (`company_info.py`, `finance_info.py`, `xdxr_info.py`, `price_limits.py`), CLI (`company_cli.sh` documents `easy-tdx finance-info` / `company-info`), and Web API (`company_web_api.py` covers `GET /finance`, `GET /company/category`, `GET /company/content`). All 17 TdxClient-using examples import from the package root (`from easy_tdx import Market, TdxClient` and variants) — pre-resolved imports confirmed none import deeper modules. Conventions worth teaching: (a) AsyncTdxClient is exercised only by `async_connect.py`; (b) `from_best_host()` + `as TdxClient.from_best_host()` + `as TdxClient()` patterns are repeated across 16 of 17 client-using examples — they are the canonical entry points; (c) `bar_time='start'|'end'` in `security_bars.py` is the only place the docs explain the 通达信 vs Tushare timestamp convention; (d) `xdxr_info.py` and `examples/06_finance/README.md` are the only places the 14 `category` codes for the ex-rights events are enumerated; (e) `company_cli.sh` is the only shell script in the batch and uses commented `# easy-tdx ...` lines so it can be copy-pasted without execution risk."
+  }
+}

@@ -1,0 +1,898 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 8,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "examples/07_block/block_info.py",
+      "language": "python",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/08_fund_flow/fund_flow.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/08_fund_flow/history_fund_flow.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/09_file_download/downloads/block_fg.dat",
+      "language": "dat",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/09_file_download/downloads/block_gn.dat",
+      "language": "dat",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/09_file_download/downloads/block_zs.dat",
+      "language": "dat",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/09_file_download/downloads/gpcw20260331/gpcw20260331.dat",
+      "language": "dat",
+      "sizeLines": 35219,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/09_file_download/downloads/tdxhy.cfg",
+      "language": "config",
+      "sizeLines": 5613,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/09_file_download/report_file.py",
+      "language": "python",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/block_data.py",
+      "language": "python",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/daily_bars.py",
+      "language": "python",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/detect_home.py",
+      "language": "python",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/ex_daily_bars.py",
+      "language": "python",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/gbbq.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/history_financial.py",
+      "language": "python",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/10_offline/min_bars.py",
+      "language": "python",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/11_mac_quotes/quotes_list.py",
+      "language": "python",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/11_mac_quotes/stock_quotes.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/12_mac_kline/kline_offset.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/12_mac_kline/stock_kline.py",
+      "language": "python",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/13_mac_tick/chart_sampling.py",
+      "language": "python",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/13_mac_tick/multi_day_tick.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/13_mac_tick/tick_chart.py",
+      "language": "python",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/14_mac_transaction/transaction.py",
+      "language": "python",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "examples/15_mac_board/belong_board.py",
+      "language": "python",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:examples/07_block/block_info.py",
+      "type": "file",
+      "name": "block_info.py",
+      "filePath": "examples/07_block/block_info.py",
+      "summary": "Example (52 lines) demonstrating `TdxClient.get_block_info(filename)`, which downloads+parses one of the three 通达信 system-block files (`block_zs.dat` 行业, `block_gn.dat` 概念, `block_fg.dat` 风格) and returns a `TdxBlock` DataFrame with columns name/category/count/codes. Docstring defines the three block files by size and classification (zs ~80 行业, gn ~500+ 概念, fg ~50 风格) and notes that codes are 6-digit strings without market prefix. Script calls `get_block_info('block_gn.dat')` via `TdxClient.from_best_host()` and prints the first 20 concept-board rows (含H股, 含B股, 基金重仓, 跨境支付, 区块链, 智能穿戴, etc.).",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "block-info",
+        "block_gn.dat",
+        "category-enum",
+        "concept-board"
+      ],
+      "languageNotes": "Single `with TdxClient.from_best_host() as c:` block; uses `c.get_block_info(...)` followed by `df[[\"name\", \"category\", \"count\"]].head(20).to_string(index=False)`. Imports `TdxClient` from the package root."
+    },
+    {
+      "id": "file:examples/08_fund_flow/fund_flow.py",
+      "type": "file",
+      "name": "fund_flow.py",
+      "filePath": "examples/08_fund_flow/fund_flow.py",
+      "summary": "Example (58 lines) demonstrating `TdxClient.get_fund_flow(market, code)` which returns a single-row DataFrame (`FundFlow` model) with the four-level order-flow breakdown (超大单/大单/中单/小单 in/out, all in CNY). Docstring defines the four order-amount thresholds (超大 >100万 / 大 20-100万 / 中 4-20万 / 小 ≤4万) plus the two derived metrics (主力净流入 = (super+large in) - (super+large out), 全单净流入 = total in - total out). Script pulls the live fund-flow for 600519 (贵州茅台), converts in/out columns from CNY to 亿元 (divide by 1e8), and prints the in/out/净流入 grid.",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "fund-flow",
+        "four-level",
+        "market-order-flow",
+        "cny-to-billions"
+      ],
+      "languageNotes": "Single `with` block. Builds a derived DataFrame from `flow[col].iloc[0] / 1e8` for visualization then adds the `净流入(亿) = 流入 - 流出` column. Imports `Market`, `TdxClient` from the package root."
+    },
+    {
+      "id": "file:examples/08_fund_flow/history_fund_flow.py",
+      "type": "file",
+      "name": "history_fund_flow.py",
+      "filePath": "examples/08_fund_flow/history_fund_flow.py",
+      "summary": "Example (50 lines) demonstrating `TdxClient.get_history_fund_flow(market, code, start, count)` for multi-day order-flow history (HistoricalFundFlow DataFrame). Docstring notes the implementation detail: the implementation first tries Category 22 (direct historical-fund-flow category); on empty servers response it transparently falls back to recomputing from daily K-line + tick data (slower path). Schema is `date` + the same 8 order-flow columns as `fund_flow.py`. Script fetches 10 days for 600519 and prints the full table.",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "history-fund-flow",
+        "category-22",
+        "fallback-recompute",
+        "tick-rebuild"
+      ],
+      "languageNotes": "Single `with` block calling `c.get_history_fund_flow(Market.SH, '600519', 0, 10)`. Imports `Market`, `TdxClient` from the package root."
+    },
+    {
+      "id": "resource:examples/09_file_download/downloads/block_fg.dat",
+      "type": "file",
+      "name": "block_fg.dat",
+      "filePath": "examples/09_file_download/downloads/block_fg.dat",
+      "summary": "Pre-downloaded block_fg.dat snapshot (~453 KB on disk) of the 通达信 系统风格板块 (style boards, ~50 boards classified by 市值/估值/地域). Binary 通达信 custom format starting with the ASCII marker `Registry ver:1.0 (1999-9-28)` followed by 0-padding, then per-block records (board-name UTF-8 + member codes). Written to disk by `report_file.py`'s loop over `AVAILABLE_FILES`; the file proves the 7709 KNOWN_HOSTS pipeline can deliver the style-board file successfully without zipping or signing.",
+      "complexity": 1,
+      "tags": [
+        "binary-block-file",
+        "block_fg",
+        "style-board",
+        "cached-download",
+        "tdx-binary-format"
+      ]
+    },
+    {
+      "id": "resource:examples/09_file_download/downloads/block_gn.dat",
+      "type": "file",
+      "name": "block_gn.dat",
+      "filePath": "examples/09_file_download/downloads/block_gn.dat",
+      "summary": "Pre-downloaded block_gn.dat snapshot (~757 KB on disk) of the 通达信 系统概念板块 (concept boards, 500+ boards classified by current-market themes). Largest of the three block files; same binary header (`Registry ver:1.0 (1999-9-28)`) and per-block record layout as block_fg.dat/block_zs.dat. Cached output of `report_file.py`; provides concrete local evidence that the 概念 boards (582 in the live demo) are reachable through the standard KNOWN_HOSTS download endpoint.",
+      "complexity": 1,
+      "tags": [
+        "binary-block-file",
+        "block_gn",
+        "concept-board",
+        "cached-download",
+        "tdx-binary-format"
+      ]
+    },
+    {
+      "id": "resource:examples/09_file_download/downloads/block_zs.dat",
+      "type": "file",
+      "name": "block_zs.dat",
+      "filePath": "examples/09_file_download/downloads/block_zs.dat",
+      "summary": "Pre-downloaded block_zs.dat snapshot (~330 KB on disk) of the 通达信 系统行业板块 (industry boards, ~82 boards following the 申万 industry classification: 房地产, 电力行业, 计算机设备, 电子元件, 通信服务, ...). Same binary header and record layout as the other two block files. Cached output of `report_file.py`; the docstring + sample output show 82 boards (vs ~80 mentioned in the docstring of block_info.py — minor version-of-server drift is expected).",
+      "complexity": 1,
+      "tags": [
+        "binary-block-file",
+        "block_zs",
+        "industry-board",
+        "申万",
+        "cached-download"
+      ]
+    },
+    {
+      "id": "table:examples/09_file_download/downloads/gpcw20260331/gpcw20260331.dat",
+      "type": "file",
+      "name": "gpcw20260331.dat",
+      "filePath": "examples/09_file_download/downloads/gpcw20260331/gpcw20260331.dat",
+      "summary": "Unzipped historical financial-record snapshot (~12.4 MB, 35219 lines reported by wc) covering report period 20260331 (Q1 2026). Binary 通达信 gpcw format: per-stock fixed-width records with 6-digit ASCII code strings (000001, 000002, 000004, 000006, ...) prefixed by a small header packet. The companion zip `gpcw20260331.zip` (~5 MB on disk) sits next to it in the parent directory. Parsed by `read_history_financial()` into 5342 `FinancialRecord` rows; each record has market/code/report_date plus ~280 float fields covering 每股指标 / 资产负债表 / 利润表 / 现金流量表. Pairs with the `examples/10_offline/history_financial.py` example.",
+      "complexity": 4,
+      "tags": [
+        "financial-records",
+        "gpcw-format",
+        "binary-record",
+        "5342-stocks",
+        "report-period",
+        "1q2026"
+      ],
+      "languageNotes": "Binary file (data). 4-byte little-endian header + per-record variable payload. Stores 6-digit stock codes as ASCII strings terminated by \\x00; report_date is encoded in the header (0100 eb25 35 01 → 0x0135_25eb with mask)."
+    },
+    {
+      "id": "config:examples/09_file_download/downloads/tdxhy.cfg",
+      "type": "config",
+      "name": "tdxhy.cfg",
+      "filePath": "examples/09_file_download/downloads/tdxhy.cfg",
+      "summary": "Pre-downloaded industry-mapping snapshot (143,523 bytes / 5613 lines reported by wc — note: `wc -l` counts 0-terminator-free sections and \\r-style breaks). ASCII text file mapping stock code → 通达信 industry code (e.g. `0|000001|T1001|||X500102`, `0|000002|T110201|||X530101`). Header columns: 0=market (0=SZ, 1=SH), then code, then T-prefix 通达信 industry code, then 申万 industry code and region (X-prefix). Downloaded from the 7709 KNOWN_HOSTS endpoint via `get_report_file('tdxhy.cfg')` and consumed by `get_security_list_all()` to fill `industry_tdx` / `industry_sw` columns on the cross-market A-share list.",
+      "complexity": 3,
+      "tags": [
+        "industry-mapping",
+        "tdxhy",
+        "tdx-industry-code",
+        "sw-industry-code",
+        "config",
+        "ascii-pipe-delimited"
+      ]
+    },
+    {
+      "id": "file:examples/09_file_download/report_file.py",
+      "type": "file",
+      "name": "report_file.py",
+      "filePath": "examples/09_file_download/report_file.py",
+      "summary": "Comprehensive example (178 lines) covering all four file-download surfaces of TdxClient: get_report_file (KNOWN_HOSTS / 行情服务器 / 7709: tdxhy.cfg + block_*.dat), get_financial_file_list / get_financial_file / get_financial_records (CALC_HOSTS / 计算服务器 / 7727: historical financial zip + parsed FinancialRecord DataFrame). Docstring tabulates which files live on which server (KNOWN_HOSTS provides tdxhy.cfg + block_*.dat; CALC_HOSTS provides tdxfin/gpcw*.zip; the legacy KNOWN_HOSTS files `base_info.zip`, `gpcw.txt` now return empty packets and are documented as broken). Script (1) probes the broken legacy files to confirm empty response, (2) downloads AVAILABLE_FILES (tdxhy.cfg + 3 block files) and saves them to `OUTPUT_DIR`, (3) parses `block_zs.dat` for inspection, (4) opens a second TdxClient session against `CALC_HOSTS[0]` to fetch file list, pick the first non-trivial file, download the zip, save it, and parse records.",
+      "complexity": 5,
+      "tags": [
+        "example",
+        "file-download",
+        "KNOWN_HOSTS",
+        "CALC_HOSTS",
+        "gpcw",
+        "financial-records",
+        "broken-legacy-files"
+      ],
+      "languageNotes": "Two sequential `with TdxClient(...) as c:` sessions: first against `from_best_host()` (行情服务器, 7709) for block files, then against `CALC_HOSTS[0]` (计算服务器, 7727) for financial files. Uses `OUTPUT_DIR = Path(__file__).parent / 'downloads'` so all bytes land next to the script. Imports `CALC_HOSTS`, `TdxClient` from the package root."
+    },
+    {
+      "id": "file:examples/10_offline/block_data.py",
+      "type": "file",
+      "name": "block_data.py",
+      "filePath": "examples/10_offline/block_data.py",
+      "summary": "Example (139 lines) demonstrating the offline block-data API trio: `detect_tdx_home()`, `read_block_dat(path)`, `read_customer_blocks(dir)`. Docstring covers both system blocks (TdxBlock dataclass with name/category/count/codes, stored at `vipdoc/block_zs.dat|block_gn.dat|block_fg.dat`) and user blocks (CustomerBlock with blockname/block_type/codes, stored at `T0002/blocknew/blocknew.cfg + TDXBlockN.blk`). Script implements lookup priority: try local file first, fall back to online via `TdxClient.from_best_host()` only for boards that aren't on disk; the local-vs-online fallback is the architectural pattern that distinguishes 10_offline/ from the always-online TdxClient examples. Defines a small `_print_blocks` helper that prints the first 5 codes per board + an ellipsis.",
+      "complexity": 4,
+      "tags": [
+        "example",
+        "offline",
+        "block-data",
+        "system-block",
+        "user-block",
+        "tdx-home",
+        "fallback-online"
+      ],
+      "languageNotes": "Defines `def _print_blocks(blocks: list[TdxBlock], title: str)` at module level. Uses `Path(home) / 'vipdoc'` and `Path(home) / 'T0002' / 'blocknew'` as the standard on-disk locations. Imports `TdxBlock` from `easy_tdx.models.finance`; `detect_tdx_home`, `read_block_dat`, `read_customer_blocks` from `easy_tdx.offline`."
+    },
+    {
+      "id": "function:examples/10_offline/block_data.py:_print_blocks",
+      "type": "function",
+      "name": "_print_blocks",
+      "filePath": "examples/10_offline/block_data.py",
+      "summary": "Module-level helper that prints up to 5 boards from a `list[TdxBlock]` (name + 成分股数 + first 5 codes + ellipsis for longer lists). Used twice in the script: once for each system-block read, and once for the user-block listing.",
+      "complexity": 2,
+      "tags": [
+        "helper",
+        "print-blocks",
+        "code-preview"
+      ],
+      "languageNotes": "Signature: `_print_blocks(blocks: list[TdxBlock], title: str) -> None`. Iterates `blocks[:5]` and composes the `', '.join(codes[:5])` line."
+    },
+    {
+      "id": "file:examples/10_offline/daily_bars.py",
+      "type": "file",
+      "name": "daily_bars.py",
+      "filePath": "examples/10_offline/daily_bars.py",
+      "summary": "Example (83 lines) demonstrating offline `.day` daily-bar reading. Docstring documents both lookup modes (1: `Market` + `code` via `find_daily_bar_file`, 2: explicit path), the file layout (`vipdoc/{sh,sz}/lday/{exchange}{code}.day` e.g. `vipdoc/sh/lday/sh600000.day`), the SecurityBar dataclass (open/close/high/low/vol/amount + year/month/day + hour=0/minute=0 for daily bars), and the four magic price-coefficient multipliers (A stock price×0.01 + vol×0.01; SH/SZ indices price×0.01 + vol×1.0; funds price×0.001 + vol×1.0 or ×0.01; bonds price×0.001 + vol×1.0). Script reads 浦发银行 600000 daily bars via `find_daily_bar_file(Market.SH, '600000')` then prints the last 10 trading days as a date/open/high/low/close/vol grid.",
+      "complexity": 3,
+      "tags": [
+        "example",
+        "offline",
+        "daily-bars",
+        "lday",
+        "security-bar",
+        "price-coefficient"
+      ],
+      "languageNotes": "Imports from `easy_tdx` (Market) and `easy_tdx.offline` (detect_tdx_home, find_daily_bar_file, read_daily_bars). Pattern: `home = detect_tdx_home()` → early `raise SystemExit(1)` if None → `bars = read_daily_bars(filepath)` → print last 10."
+    },
+    {
+      "id": "file:examples/10_offline/detect_home.py",
+      "type": "file",
+      "name": "detect_home.py",
+      "filePath": "examples/10_offline/detect_home.py",
+      "summary": "Example (157 lines) demonstrating the offline path-detection suite: `detect_tdx_home()`, `resolve_vipdoc()`, and the four `find_*_bar_file` locators (daily / 5-min / 1-min / 5-min lc). Docstring tabulates the entire `vipdoc/` directory layout: per-market `sh/`, `sz/`, `ds/` (扩展) subdirectories + per-bar-type subdirectories (`lday/`, `fzline/`), the binary record layouts (`.day` for daily, `.5` for legacy 5-min OHLC×100, `.lc1`/`.lc5` for new-minute OHLC-float), and the `T0002/` paths (hq_cache/gbbq, blocknew/, fin/). Also documents the detection priority (TDX_HOME env > Windows-guess `C:\\new_jyplug`, Linux/macOS guess `~/new_jyplug`). Script runs through four scenarios — auto-detect, manual `resolve_vipdoc` walk, code-based file resolution for 4 instrument/bar combinations, and env-var setup instructions for all three platforms.",
+      "complexity": 5,
+      "tags": [
+        "example",
+        "offline",
+        "detect-tdx-home",
+        "vipdoc-layout",
+        "file-locators",
+        "tdx-home-env"
+      ],
+      "languageNotes": "Imports `Market` from `easy_tdx` and five offline functions (`detect_tdx_home`, `find_5min_bar_file`, `find_daily_bar_file`, `find_lc1_bar_file`, `resolve_vipdoc`) from `easy_tdx.offline`. Uses `vipdoc.rglob('*')` for directory counts and a list of `(label, lambda)` tuples for locator demos. Sample output shows `home=C:\\new_jyplug` and per-file `存在/不存在` status."
+    },
+    {
+      "id": "file:examples/10_offline/ex_daily_bars.py",
+      "type": "file",
+      "name": "ex_daily_bars.py",
+      "filePath": "examples/10_offline/ex_daily_bars.py",
+      "summary": "Example (89 lines) demonstrating extended-market daily bars (期货/港股/外盘指数/宏观经济) read from `vipdoc/ds/lday/{market_code}#{code}.day` (e.g. `29#A1801.day` for futures, `12#A_IXIC.day` for NASDAQ). Docstring documents the ExDailyBar dataclass (open/high/low/close as IEEE-754 float — no price coefficient; amount/vol integers; settlement for futures; hk_stock_amount for HK-specific reinterpretation) and the 32-byte-per-record layout (date 4B + OHLC 4×4B float + amount 4B + vol 4B + settlement 4B float). Script lists the first 10 `.day` files in the ds directory, picks the first one, and prints its last 5 bars with the closing-date / OHLC / 结算价 grid.",
+      "complexity": 3,
+      "tags": [
+        "example",
+        "offline",
+        "extended-market",
+        "ds-lday",
+        "futures",
+        "hk-stock",
+        "macroeconomic"
+      ],
+      "languageNotes": "Imports only from `easy_tdx.offline` (no `Market` enum needed). Sample shows 211 files including `12#A_IXIC.day` (NASDAQ), `38#1_GDP.day` (GDP), `38#2_CPI.day` (CPI), etc."
+    },
+    {
+      "id": "file:examples/10_offline/gbbq.py",
+      "type": "file",
+      "name": "gbbq.py",
+      "filePath": "examples/10_offline/gbbq.py",
+      "summary": "Example (128 lines) demonstrating offline `gbbq` (股本变迁) file reading — historical share-capital changes (分红/送股/配股/扩缩股) using XOR + custom-Feistel decryption. Docstring explains the encoding: header `count` is 4B uint32 LE in clear, each record is 29B split into 3 rounds × 8B + 5B tail, decryption uses the built-in `_BIN_KEYS` Feistel lookup table (not standard Blowfish, but a TDX-specific variant). Dataclass `GbbqRecord`: market, code, datetime, category (1=除权除息 … 14=送认沽权证), and four body fields whose interpretation depends on `category` (除权除息 uses them as 每股分红/配股价/送转股/配股比例; 股本变动类 2..10 uses them in 万股 units). Script looks for `T0002/hq_cache/gbbq` or `T0002/gbbq`, groups records by code with `Counter`, prints the first 20 records.",
+      "complexity": 5,
+      "tags": [
+        "example",
+        "offline",
+        "gbbq",
+        "share-capital-changes",
+        "xor-encryption",
+        "feistel",
+        "hushen-history"
+      ],
+      "languageNotes": "Imports `Counter` from `collections`; reads file via `Path(home) / 'T0002' / 'hq_cache' / 'gbbq'` with fallback to `Path(home) / 'T0002' / 'gbbq'`. Imports `read_gbbq` from `easy_tdx.offline`. Sample output: 58432 records covering 5342 沪深 A 股."
+    },
+    {
+      "id": "file:examples/10_offline/history_financial.py",
+      "type": "file",
+      "name": "history_financial.py",
+      "filePath": "examples/10_offline/history_financial.py",
+      "summary": "Example (135 lines) demonstrating offline historical financial reading — supports both `.dat` direct and `.zip` (auto-extract-then-read) formats. Docstring lists four file sources (TdxClient.get_financial_file_list / get_financial_file / get_financial_records from CALC_HOSTS, or local files from `vipdoc/fin/`, `T0002/fin/`, `~/Downloads`, or current dir) and tabulates the 4 field groups in `FinancialRecord.fields` (0-10 每股指标, 11-30 资产负债, 31-50 利润表, 51-70 现金流量表, total ~280 floats). Script searches four candidate dirs for `gpcw*.dat|gpcw*.zip`, reads the first found file, prints the first 10 records' code/market/report_date/field-count and the first 20 fields of the first record.",
+      "complexity": 4,
+      "tags": [
+        "example",
+        "offline",
+        "history-financial",
+        "gpcw-dat",
+        "gpcw-zip",
+        "financial-records",
+        "field-groups"
+      ],
+      "languageNotes": "Imports only from `easy_tdx.offline` (detect_tdx_home, read_history_financial). Sample output: 3 files found at `C:\\new_jyplug\\vipdoc\\fin\\gpcw*.dat`, all 5342 records per file, 280 fields per record."
+    },
+    {
+      "id": "file:examples/10_offline/min_bars.py",
+      "type": "file",
+      "name": "min_bars.py",
+      "filePath": "examples/10_offline/min_bars.py",
+      "summary": "Example (150 lines) demonstrating all three offline minute-bar formats: legacy `.5` (5-min, OHLC integer÷100), new `.lc1` (1-min float), new `.lc5` (5-min float). Docstring covers the 2-byte compressed date encoding (`year = num // 2048 + 2004`), the time-as-minutes-since-midnight encoding, and the 32-40 byte per-record layouts. Script reads 浦发银行 5min + 1min via `find_5min_bar_file` / `find_lc1_bar_file` and one SZ 5min lc5 via `find_lc5_bar_file` (`002176`), prints the last 5 bars from each.",
+      "complexity": 4,
+      "tags": [
+        "example",
+        "offline",
+        "minute-bars",
+        "fzline",
+        "lc1",
+        "lc5",
+        "legacy-5min"
+      ],
+      "languageNotes": "Imports `Market` from `easy_tdx` plus six offline functions (`detect_tdx_home`, `find_5min_bar_file`, `find_lc1_bar_file`, `find_lc5_bar_file`, `read_5min_bars`, `read_lc_min_bars`). Sample bar counts: 32400 (.5) / 162000 (.lc1 1min) / 28800 (.lc5 5min)."
+    },
+    {
+      "id": "file:examples/11_mac_quotes/quotes_list.py",
+      "type": "file",
+      "name": "quotes_list.py",
+      "filePath": "examples/11_mac_quotes/quotes_list.py",
+      "summary": "Example (81 lines) demonstrating `MacClient.get_stock_quotes_list(category, count, sort_type, sort_order)` for sorted category-wide quotes via the MAC-protocol (7709). Docstring tabulates the two enums: Category (SH=0, SZ=2, A=6 全部A股, B=7, KCB=8 科创板, BJ=12 北证A, CYB=14 创业板, HGT/SGT 沪股通/深股通) and SortType (CHANGE_PCT=0x0E, VOLUME=0x09, AMOUNT=0x0A, TURNOVER_RATE=0x24, VOL_RATIO=0x23, SPEED_PCT=0x2E) plus SortOrder (NONE/DESC/ASC). Schema: market/code/name/price/last_close/open/high/low/change/change_pct/volume/amount. Script runs two queries — A股 top-10 by 涨幅% DESC, then 科创板 top-10 by 涨幅% DESC.",
+      "complexity": 3,
+      "tags": [
+        "example",
+        "mac-client",
+        "quotes-list",
+        "category",
+        "sort-by-change-pct",
+        "kcb"
+      ],
+      "languageNotes": "Imports `Category`, `MacClient`, `SortOrder`, `SortType` from the package root. Two `with` blocks (sequential MacClient sessions). Note: code/price fields use SAMPLE_MARKER values (60x/00x/30x) in the printed sample."
+    },
+    {
+      "id": "file:examples/11_mac_quotes/stock_quotes.py",
+      "type": "file",
+      "name": "stock_quotes.py",
+      "filePath": "examples/11_mac_quotes/stock_quotes.py",
+      "summary": "Example (39 lines) demonstrating `MacClient.get_stock_quotes(stocks, fields=None)` for batched real-time quotes for up to 80 stocks at a time. Schema (market/code/name/price/last_close/open/high/low/change/change_pct/volume/amount) mirrors get_stock_quotes_list. Script queries 贵州茅台 600519 (SH) + 五粮液 000858 (SZ) in one call.",
+      "complexity": 1,
+      "tags": [
+        "example",
+        "mac-client",
+        "stock-quotes",
+        "80-stocks-cap",
+        "preset-field-common"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. Single `with` block; one `c.get_stock_quotes([(Market.SH, '600519'), (Market.SZ, '000858')])` call."
+    },
+    {
+      "id": "file:examples/12_mac_kline/kline_offset.py",
+      "type": "file",
+      "name": "kline_offset.py",
+      "filePath": "examples/12_mac_kline/kline_offset.py",
+      "summary": "Minimal example (23 lines) demonstrating `MacClient.get_kline_offset(offset=0, count=128000)` — returns a small two-row DataFrame with `total` (server-side K-line count available) and `returned` (this request's actual page size). Used to verify server-side data availability before requesting large kline pages. Sample output: `total=128000 returned=2`.",
+      "complexity": 1,
+      "tags": [
+        "example",
+        "mac-client",
+        "kline-offset",
+        "128k-cap",
+        "server-total"
+      ],
+      "languageNotes": "Imports only `MacClient` from the package root. Single `with` block; one call to `c.get_kline_offset()`."
+    },
+    {
+      "id": "file:examples/12_mac_kline/stock_kline.py",
+      "type": "file",
+      "name": "stock_kline.py",
+      "filePath": "examples/12_mac_kline/stock_kline.py",
+      "summary": "Example (96 lines) demonstrating `MacClient.get_stock_kline(market, code, period, count, adjust=Adjust.NONE)` with auto-pagination (≤700 per page). Docstring tabulates both enums: Period (MIN_1=7 / MIN_5=0 / MIN_15=1 / MIN_30=2 / MIN_60=3 / DAILY=4 / WEEKLY=5 / MONTHLY=6 / MINS=8 / DAYS=9) and Adjust (NONE=0 / QFQ=1 前复权 / HFQ=2 后复权). Schema: datetime/open/high/low/close/vol/amount. Script pulls 贵州茅台 with NONE/QFQ/HFQ (none+qfq identical because no events in the 5-day window; HFQ shows ~3x price ratio) plus 周线 and 5分钟 samples.",
+      "complexity": 3,
+      "tags": [
+        "example",
+        "mac-client",
+        "kline",
+        "period",
+        "adjust",
+        "qfq",
+        "hfq",
+        "auto-pagination"
+      ],
+      "languageNotes": "Imports `Adjust`, `MacClient`, `Market`, `Period` from the package root. Sequential calls inside a single `with` block; the example demonstrates NONE==QFQ==HFQ identity for the no-event window and that HFQ shows the cumulative-dividend-adjusted historical price (~4525 vs 1509 raw)."
+    },
+    {
+      "id": "file:examples/13_mac_tick/chart_sampling.py",
+      "type": "file",
+      "name": "chart_sampling.py",
+      "filePath": "examples/13_mac_tick/chart_sampling.py",
+      "summary": "Example (49 lines) demonstrating `MacClient.get_chart_sampling(market, code)` which returns ~240 evenly-spaced price samples spanning the full day — designed for thumbnail intraday charts on mobile/UI list views. Schema is single-column `price` DataFrame. Script fetches 贵州茅台 intraday sampling and prints the head(10)/tail(5) — exactly 240 points from open (1510) to close (1521).",
+      "complexity": 1,
+      "tags": [
+        "example",
+        "mac-client",
+        "chart-sampling",
+        "240-points",
+        "thumbnail-intraday"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. Single `with` block."
+    },
+    {
+      "id": "file:examples/13_mac_tick/multi_day_tick.py",
+      "type": "file",
+      "name": "multi_day_tick.py",
+      "filePath": "examples/13_mac_tick/multi_day_tick.py",
+      "summary": "Example (46 lines) demonstrating `MacClient.get_tick_charts(market, code, date=None, days=5)` — multi-day intraday 分时图 (max 5 days). The returned `MacMultiTickChart` carries a list of `MacMultiTickDay` (date, pre_close, ticks: list[MacTick]) which the helper flattens to a tidy DataFrame with columns date/time/price/avg/vol/momentum/pre_close. Script pulls 600519 intraday for the last 3 days.",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "mac-client",
+        "multi-day-tick",
+        "mac-multi-tick-chart",
+        "5-day-cap"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. The flattening happens server-side and returns a long-format DataFrame."
+    },
+    {
+      "id": "file:examples/13_mac_tick/tick_chart.py",
+      "type": "file",
+      "name": "tick_chart.py",
+      "filePath": "examples/13_mac_tick/tick_chart.py",
+      "summary": "Example (59 lines) demonstrating `MacClient.get_tick_chart(market, code, date=None)` for single-day 分时图 intraday data. The returned `MacTickChart` includes aggregate fields (pre_close/open/high/low/close/vol/amount/turnover/avg) plus the `charts: list[MacTick]` of per-minute records (time/price/avg/vol/momentum). Script fetches 600519 today's intraday and prints the flattened ticks.",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "mac-client",
+        "tick-chart",
+        "single-day",
+        "mac-tick-dataclass"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. Flattens `c.get_tick_chart(...)` (a MacTickChart dataclass) to the time/price/avg/vol/momentum DataFrame via `df.to_string(index=False)`."
+    },
+    {
+      "id": "file:examples/14_mac_transaction/transaction.py",
+      "type": "file",
+      "name": "transaction.py",
+      "filePath": "examples/14_mac_transaction/transaction.py",
+      "summary": "Example (80 lines) demonstrating `MacClient.get_transactions(market, code, count=2000, start=0, date=None)` for tick-by-tick print-by-print 成交明细 with auto-pagination (≤1000/page). Schema includes the `bs_flag` column: 0=主动买, 1=主动卖, 2=中性(撮合无方向), 5=盘后(收盘集合竞价). Script fetches the latest 20 ticks of 000001 today and 10 ticks on 2025-01-15.",
+      "complexity": 2,
+      "tags": [
+        "example",
+        "mac-client",
+        "transactions",
+        "bs-flag",
+        "auto-pagination",
+        "historical-day"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. Two sequential queries in one `with` block — default-date (today) and explicit `date=20250115`."
+    },
+    {
+      "id": "file:examples/15_mac_board/belong_board.py",
+      "type": "file",
+      "name": "belong_board.py",
+      "filePath": "examples/15_mac_board/belong_board.py",
+      "summary": "Example (42 lines) demonstrating `MacClient.get_belong_board(market, code)` — returns all boards (行业/概念/风格/地区) that a single stock belongs to. Schema (`BelongBoardInfo` dataclass): board_type (0=行业, 1=行业二级, 3=概念, 4=风格, 5=地区), market, board_code (e.g. '881101'), board_name, close+pre_close (board index close/prev-close). Script pulls 600519's board membership and prints the 8 boards (白酒板块, 食品饮料, 奢侈品, 品牌龙头, 消费升级, MSCI概念, 沪股通标的, 茅台概念).",
+      "complexity": 1,
+      "tags": [
+        "example",
+        "mac-client",
+        "belong-board",
+        "board-type-enum",
+        "membership-lookup"
+      ],
+      "languageNotes": "Imports `MacClient`, `Market` from the package root. Single `with` block; `df.to_string(index=False)` projection."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:examples/07_block/block_info.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxClient` from the package root to call `get_block_info('block_gn.dat')`."
+    },
+    {
+      "source": "file:examples/07_block/block_info.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/client.py",
+      "weight": 0.7,
+      "reason": "`get_block_info` is a method on the `TdxClient` class defined in src/easy_tdx/client.py."
+    },
+    {
+      "source": "file:examples/08_fund_flow/fund_flow.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` from the package root."
+    },
+    {
+      "source": "file:examples/08_fund_flow/history_fund_flow.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market`, `TdxClient` from the package root."
+    },
+    {
+      "source": "file:examples/08_fund_flow/history_fund_flow.py",
+      "type": "similar_to",
+      "target": "file:examples/08_fund_flow/fund_flow.py",
+      "weight": 0.8,
+      "reason": "Mirror of fund_flow.py: same 8-column schema; history version paginates by `start`/`count` and documents the Category-22 ↔ tick-recompute fallback path."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `CALC_HOSTS`, `TdxClient` from the package root."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "writes_to",
+      "target": "resource:examples/09_file_download/downloads/block_fg.dat",
+      "weight": 0.9,
+      "reason": "The AVAILABLE_FILES loop writes `block_fg.dat` to OUTPUT_DIR via `out_path.write_bytes(data)`, producing the cached snapshot in this directory."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "writes_to",
+      "target": "resource:examples/09_file_download/downloads/block_gn.dat",
+      "weight": 0.9,
+      "reason": "The AVAILABLE_FILES loop writes `block_gn.dat` to OUTPUT_DIR."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "writes_to",
+      "target": "resource:examples/09_file_download/downloads/block_zs.dat",
+      "weight": 0.9,
+      "reason": "The AVAILABLE_FILES loop writes `block_zs.dat` to OUTPUT_DIR."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "writes_to",
+      "target": "config:examples/09_file_download/downloads/tdxhy.cfg",
+      "weight": 0.9,
+      "reason": "The AVAILABLE_FILES loop writes `tdxhy.cfg` to OUTPUT_DIR — the very file that populates `industry_tdx` / `industry_sw` columns in `get_security_list_all()`."
+    },
+    {
+      "source": "file:examples/10_offline/block_data.py",
+      "type": "contains",
+      "target": "function:examples/10_offline/block_data.py:_print_blocks",
+      "weight": 1.0,
+      "reason": "block_data.py defines `_print_blocks` at module level and calls it twice (system blocks + user blocks)."
+    },
+    {
+      "source": "file:examples/10_offline/block_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxClient` from the package root for the network fallback path."
+    },
+    {
+      "source": "file:examples/10_offline/block_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/models/finance.py",
+      "weight": 0.7,
+      "reason": "Imports `TdxBlock` from `easy_tdx.models.finance` for the typed board records."
+    },
+    {
+      "source": "file:examples/10_offline/block_data.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `read_block_dat`, `read_customer_blocks` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/daily_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market` from the package root."
+    },
+    {
+      "source": "file:examples/10_offline/daily_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `find_daily_bar_file`, `read_daily_bars` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/detect_home.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market` from the package root (needed only by the locator demo)."
+    },
+    {
+      "source": "file:examples/10_offline/detect_home.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `find_5min_bar_file`, `find_daily_bar_file`, `find_lc1_bar_file`, `resolve_vipdoc` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/ex_daily_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `read_ex_daily_bars` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/gbbq.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `read_gbbq` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/history_financial.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `read_history_financial` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/10_offline/history_financial.py",
+      "type": "reads_from",
+      "target": "table:examples/09_file_download/downloads/gpcw20260331/gpcw20260331.dat",
+      "weight": 0.8,
+      "reason": "Identical format and purpose — `read_history_financial()` parses both the shipped gpcw20260331.dat and any locally-stored gpcw*.dat; the gpcw.dat on disk IS one of the candidate files this example searches for."
+    },
+    {
+      "source": "file:examples/10_offline/min_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Market` from the package root."
+    },
+    {
+      "source": "file:examples/10_offline/min_bars.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `detect_tdx_home`, `find_5min_bar_file`, `find_lc1_bar_file`, `find_lc5_bar_file`, `read_5min_bars`, `read_lc_min_bars` from `easy_tdx.offline`."
+    },
+    {
+      "source": "file:examples/11_mac_quotes/quotes_list.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Category`, `MacClient`, `SortOrder`, `SortType` from the package root."
+    },
+    {
+      "source": "file:examples/11_mac_quotes/stock_quotes.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/11_mac_quotes/stock_quotes.py",
+      "type": "similar_to",
+      "target": "file:examples/11_mac_quotes/quotes_list.py",
+      "weight": 0.7,
+      "reason": "Both 11_mac_quotes examples use the same MacClient 7709 protocol + identical 12-column DataFrame schema; stock_quotes.py is the per-code batched variant, quotes_list.py is the category-sorted variant."
+    },
+    {
+      "source": "file:examples/12_mac_kline/kline_offset.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient` from the package root."
+    },
+    {
+      "source": "file:examples/12_mac_kline/stock_kline.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `Adjust`, `MacClient`, `Market`, `Period` from the package root."
+    },
+    {
+      "source": "file:examples/13_mac_tick/chart_sampling.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/13_mac_tick/multi_day_tick.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/13_mac_tick/multi_day_tick.py",
+      "type": "similar_to",
+      "target": "file:examples/13_mac_tick/tick_chart.py",
+      "weight": 0.8,
+      "reason": "Twin examples: tick_chart.py is the single-day intraday; multi_day_tick.py is the multi-day variant with the same MacTick columns."
+    },
+    {
+      "source": "file:examples/13_mac_tick/tick_chart.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/14_mac_transaction/transaction.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/15_mac_board/belong_board.py",
+      "type": "imports",
+      "target": "file:src/easy_tdx/__init__.py",
+      "weight": 0.7,
+      "reason": "Imports `MacClient`, `Market` from the package root."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "configures",
+      "target": "file:examples/07_block/block_info.py",
+      "weight": 0.7,
+      "reason": "Demonstrates the same `get_block_info` API at the file-download level (saves block_gn.dat to disk) that block_info.py consumes at the runtime-call level."
+    },
+    {
+      "source": "file:examples/07_block/block_info.py",
+      "type": "related",
+      "target": "file:examples/10_offline/block_data.py",
+      "weight": 0.7,
+      "reason": "block_info.py is the online-network fetch variant; block_data.py is the offline-dat-file variant of the same `TdxBlock` / `CustomerBlock` data — preferred when TDX_HOME is set."
+    },
+    {
+      "source": "file:examples/09_file_download/report_file.py",
+      "type": "related",
+      "target": "file:examples/10_offline/history_financial.py",
+      "weight": 0.85,
+      "reason": "The two scripts cover the same historical-financial data: report_file.py pulls fresh via `TdxClient.get_financial_records()` from CALC_HOSTS and saves the .zip; history_financial.py is the offline reader for whatever gpcw*.dat or gpcw*.zip it finds on disk."
+    },
+    {
+      "source": "file:examples/10_offline/detect_home.py",
+      "type": "documents",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "weight": 0.7,
+      "reason": "Demonstrates every public function re-exported by easy_tdx.offline (`detect_tdx_home`, `resolve_vipdoc`, `find_daily_bar_file`, `find_5min_bar_file`, `find_lc1_bar_file`) — the script is the user's tour of the offline API surface."
+    },
+    {
+      "source": "file:examples/10_offline/daily_bars.py",
+      "type": "similar_to",
+      "target": "file:examples/10_offline/min_bars.py",
+      "weight": 0.7,
+      "reason": "Both demonstrate `easy_tdx.offline` reading off-disk binary-bar files for a security; daily_bars.py is daily OHLCV while min_bars.py covers the three minute-bar formats (.5 / .lc1 / .lc5)."
+    },
+    {
+      "source": "file:examples/10_offline/ex_daily_bars.py",
+      "type": "similar_to",
+      "target": "file:examples/10_offline/daily_bars.py",
+      "weight": 0.6,
+      "reason": "Both are offline daily-bar readers; daily_bars.py targets `vipdoc/{sh,sz}/lday/*.day` (A-share, integer prices), ex_daily_bars.py targets `vipdoc/ds/lday/*.day` (extended market, IEEE-754 floats)."
+    },
+    {
+      "source": "file:examples/12_mac_kline/kline_offset.py",
+      "type": "related",
+      "target": "file:examples/12_mac_kline/stock_kline.py",
+      "weight": 0.7,
+      "reason": "kline_offset.py exposes the server-side K-line total available; stock_kline.py is the data-fetching cousin on the same MacClient 7709 protocol."
+    },
+    {
+      "source": "file:examples/11_mac_quotes/quotes_list.py",
+      "type": "related",
+      "target": "file:examples/11_mac_quotes/stock_quotes.py",
+      "weight": 0.7,
+      "reason": "quotes_list.py is the category-sorted variant (A股 top-N by 涨幅%); stock_quotes.py is the per-code batched variant — both share the same 7709 MacClient protocol and 12-column DataFrame schema."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 26,
+    "edgesCreated": 43,
+    "notes": "Batch 8 contains 25 files spanning the remaining examples/0X_* subdirectories (07_block through 15_mac_board) plus the cached downloads that 09_file_download/report_file.py produces at runtime. The 17 Python files form a coherent continuation of the batch-7 example cookbook — block_info, fund-flow (today + history), file-download with KNOWN_HOSTS/CALC_HOSTS split, the entire offline subpackage (block_data, daily_bars, ex_daily_bars, gbbq (XOR-encrypted share-capital changes), history_financial, min_bars, detect_home + 6 file-locators), mac-quotes (stock_quotes + sorted quotes_list), mac-kline (period × adjust), mac-tick (240-point sampling + single-day + multi-day), mac-transaction (with bs_flag direction), and mac-board belong_board. The 5 static resources in 09_file_download/downloads/ are the on-disk outputs of report_file.py's AVAILABLE_FILES loop + the unzipped gpcw20260331.dat snapshot. The dominant naming pattern is `from easy_tdx import …` at the package root (15 of 17 Python files); the offline + block_data + history_financial examples additionally drill into `easy_tdx.offline` (path detection, .day/.lc1/.lc5/.5/.dat readers) and one drills into `easy_tdx.models.finance` (TdxBlock). Every offline example is gated on `detect_tdx_home()` returning a path and prints `SystemExit(1)` when TDX is not installed locally. Notable cross-batch links: report_file.py is the runtime factory for the four cached downloads on disk; history_financial.py reads the same gpcw format as the shipped .dat; block_info.py (online) and block_data.py (offline) cover the same `TdxBlock` DataFrame but with different I/O paths. No examples in this batch define `main()` or top-level async functions — all are module-level straight-line scripts (block_data.py is the only example that defines a module-level helper, `_print_blocks`). No class hierarchies or deep internal imports beyond the documented `easy_tdx.offline` re-export module."
+  }
+}

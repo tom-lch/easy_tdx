@@ -1,0 +1,3406 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 16,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "language": "python",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/mac/commands/symbol_transaction.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/mac/commands/tick_charts.py",
+      "language": "python",
+      "sizeLines": 149,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/mac/commands/unusual.py",
+      "language": "python",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/mac/enums.py",
+      "language": "python",
+      "sizeLines": 220,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/mac/models.py",
+      "language": "python",
+      "sizeLines": 216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/__init__.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/bar.py",
+      "language": "python",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/enums.py",
+      "language": "python",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/finance.py",
+      "language": "python",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/quote.py",
+      "language": "python",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/security.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/stats.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/models/timeseries.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/MyTT.py",
+      "language": "python",
+      "sizeLines": 562,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/MyTT.pyi",
+      "language": "python",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/__init__.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/block.py",
+      "language": "python",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/daily_bar.py",
+      "language": "python",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/ex_daily_bar.py",
+      "language": "python",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/finders.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/gbbq.py",
+      "language": "python",
+      "sizeLines": 366,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/history_financial.py",
+      "language": "python",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/min_bar.py",
+      "language": "python",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/offline/paths.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "type": "file",
+      "name": "symbol_tick_chart.py",
+      "filePath": "src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "summary": "MAC 单日分时图命令（0x122D）。  获取单只股票某日的分时数据。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/commands/symbol_tick_chart.py:SymbolTickChartCmd",
+      "type": "class",
+      "name": "SymbolTickChartCmd",
+      "filePath": "src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "summary": "获取单日分时图。  Args:     market:    市场代码。     code:      6 位股票代码。     query_date: 查询日期（None 或 date(0,0,0) 表示今天）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/mac/commands/symbol_transaction.py",
+      "type": "file",
+      "name": "symbol_transaction.py",
+      "filePath": "src/easy_tdx/mac/commands/symbol_transaction.py",
+      "summary": "MAC 逐笔成交命令（0x122F）。  获取单只股票的逐笔成交数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/commands/symbol_transaction.py:SymbolTransactionCmd",
+      "type": "class",
+      "name": "SymbolTransactionCmd",
+      "filePath": "src/easy_tdx/mac/commands/symbol_transaction.py",
+      "summary": "获取逐笔成交数据。  Args:     market:     市场代码。     code:       6 位股票代码。     query_date: 查询日期（None 表示今天）。     start:      起始偏移。     count:      返回条数。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/mac/commands/tick_charts.py",
+      "type": "file",
+      "name": "tick_charts.py",
+      "filePath": "src/easy_tdx/mac/commands/tick_charts.py",
+      "summary": "MAC 多日分时图命令（0x123E）。  获取单只股票多日的分时数据。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/commands/tick_charts.py:TickChartsCmd",
+      "type": "class",
+      "name": "TickChartsCmd",
+      "filePath": "src/easy_tdx/mac/commands/tick_charts.py",
+      "summary": "获取多日分时图。  Args:     market:     市场代码。     code:       6 位股票代码。     start_date: 起始日期（None 表示从最新交易日开始）。     days:       天数（最多 5）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/mac/commands/unusual.py",
+      "type": "file",
+      "name": "unusual.py",
+      "filePath": "src/easy_tdx/mac/commands/unusual.py",
+      "summary": "异动数据查询（0x1237）。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/commands/unusual.py:UnusualCmd",
+      "type": "class",
+      "name": "UnusualCmd",
+      "filePath": "src/easy_tdx/mac/commands/unusual.py",
+      "summary": "查询异动数据。  Parameters ---------- market : int     市场代码。 start : int     起始偏移量。 count : int     请求数量（最大 600）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/mac/commands/unusual.py:_describe_unusual",
+      "type": "function",
+      "name": "_describe_unusual",
+      "filePath": "src/easy_tdx/mac/commands/unusual.py",
+      "summary": "根据异动类型解析描述和数值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/mac/enums.py",
+      "type": "file",
+      "name": "enums.py",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "MAC 协议枚举常量。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:Period",
+      "type": "class",
+      "name": "Period",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "K线周期。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:Adjust",
+      "type": "class",
+      "name": "Adjust",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "复权类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:BoardType",
+      "type": "class",
+      "name": "BoardType",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "板块类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:ExBoardType",
+      "type": "class",
+      "name": "ExBoardType",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "扩展市场板块类型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:Category",
+      "type": "class",
+      "name": "Category",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "市场分类。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:SortType",
+      "type": "class",
+      "name": "SortType",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "排序字段。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:SortOrder",
+      "type": "class",
+      "name": "SortOrder",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "排序方向。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:FilterType",
+      "type": "class",
+      "name": "FilterType",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "过滤标志（位掩码，可组合）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/enums.py:ExMarket",
+      "type": "class",
+      "name": "ExMarket",
+      "filePath": "src/easy_tdx/mac/enums.py",
+      "summary": "扩展市场代码。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/mac/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "MAC 协议数据模型。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacQuoteField",
+      "type": "class",
+      "name": "MacQuoteField",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "MAC 协议自定义字段报价中的一条记录。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacSymbolInfo",
+      "type": "class",
+      "name": "MacSymbolInfo",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "个股简要特征。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacBar",
+      "type": "class",
+      "name": "MacBar",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "MAC 协议 K 线数据。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacTick",
+      "type": "class",
+      "name": "MacTick",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "分时数据点。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacTickChart",
+      "type": "class",
+      "name": "MacTickChart",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "单日分时图。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacMultiTickDay",
+      "type": "class",
+      "name": "MacMultiTickDay",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "多日分时图中的一天。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacMultiTickChart",
+      "type": "class",
+      "name": "MacMultiTickChart",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "多日分时图。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:MacTransaction",
+      "type": "class",
+      "name": "MacTransaction",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "逐笔成交。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:BoardInfo",
+      "type": "class",
+      "name": "BoardInfo",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "板块信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:AuctionItem",
+      "type": "class",
+      "name": "AuctionItem",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "集合竞价数据。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:UnusualItem",
+      "type": "class",
+      "name": "UnusualItem",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "异动数据。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:CapitalFlowData",
+      "type": "class",
+      "name": "CapitalFlowData",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "资金流向数据。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:BelongBoardInfo",
+      "type": "class",
+      "name": "BelongBoardInfo",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "个股所属板块信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:ServerSession",
+      "type": "class",
+      "name": "ServerSession",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "服务器交易时段信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/mac/models.py:KlineOffsetInfo",
+      "type": "class",
+      "name": "KlineOffsetInfo",
+      "filePath": "src/easy_tdx/mac/models.py",
+      "summary": "K线偏移信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/models/__init__.py",
+      "summary": "Python module at src/easy_tdx/models/__init__.py.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/bar.py",
+      "type": "file",
+      "name": "bar.py",
+      "filePath": "src/easy_tdx/models/bar.py",
+      "summary": "K 线数据模型",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/bar.py:SecurityBar",
+      "type": "class",
+      "name": "SecurityBar",
+      "filePath": "src/easy_tdx/models/bar.py",
+      "summary": "单根 K 线（适用于 1m/5m/15m/30m/60m/日/周/月/季/年）",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/enums.py",
+      "type": "file",
+      "name": "enums.py",
+      "filePath": "src/easy_tdx/models/enums.py",
+      "summary": "市场代码与 K 线周期枚举",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/enums.py:Market",
+      "type": "class",
+      "name": "Market",
+      "filePath": "src/easy_tdx/models/enums.py",
+      "summary": "Class Market defined in src/easy_tdx/models/enums.py.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/enums.py:KlineCategory",
+      "type": "class",
+      "name": "KlineCategory",
+      "filePath": "src/easy_tdx/models/enums.py",
+      "summary": "Class KlineCategory defined in src/easy_tdx/models/enums.py.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/finance.py",
+      "type": "file",
+      "name": "finance.py",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "财务与公司信息模型",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:XdxrRecord",
+      "type": "class",
+      "name": "XdxrRecord",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "除权除息记录（一只股票可有多条）  pytdx Bug #1 已修复：循环内不再从 body[:7] 读 market/code， 而是从当前 pos 正确读取。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:FinanceInfo",
+      "type": "class",
+      "name": "FinanceInfo",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "最新财务数据（单只股票）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:CompanyInfoCategory",
+      "type": "class",
+      "name": "CompanyInfoCategory",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "公司信息文件目录条目",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:FinancialFileInfo",
+      "type": "class",
+      "name": "FinancialFileInfo",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "财报 zip 文件索引条目（来自 tdxfin/gpcw.txt）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:FinancialRecord",
+      "type": "class",
+      "name": "FinancialRecord",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "单只股票的一期历史专业财报记录。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/finance.py:TdxBlock",
+      "type": "class",
+      "name": "TdxBlock",
+      "filePath": "src/easy_tdx/models/finance.py",
+      "summary": "通达信板块信息（行业、概念、风格等）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/quote.py",
+      "type": "file",
+      "name": "quote.py",
+      "filePath": "src/easy_tdx/models/quote.py",
+      "summary": "实时行情五档报价模型",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/quote.py:SecurityQuote",
+      "type": "class",
+      "name": "SecurityQuote",
+      "filePath": "src/easy_tdx/models/quote.py",
+      "summary": "单只股票实时五档行情。  带 unknown_ 前缀的字段保留原始协议值，其含义已在逆向分析中确认：   unknown_2: 指数→集合竞价成交金额/100；个股→舍入残差≈0   unknown_3: 个股→集合竞价成交金额/100；指数→负值/无意义   unknown_5-8: 保留字段，恒为 0 _raw 为该股票记录的原始字节切片。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/security.py",
+      "type": "file",
+      "name": "security.py",
+      "filePath": "src/easy_tdx/models/security.py",
+      "summary": "证券基本信息模型",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/security.py:SecurityInfo",
+      "type": "class",
+      "name": "SecurityInfo",
+      "filePath": "src/easy_tdx/models/security.py",
+      "summary": "证券列表条目（来自 get_security_list）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/stats.py",
+      "type": "file",
+      "name": "stats.py",
+      "filePath": "src/easy_tdx/models/stats.py",
+      "summary": "验证市场概况模型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/stats.py:MarketStat",
+      "type": "class",
+      "name": "MarketStat",
+      "filePath": "src/easy_tdx/models/stats.py",
+      "summary": "全市场涨跌统计概况。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/stats.py:FundFlow",
+      "type": "class",
+      "name": "FundFlow",
+      "filePath": "src/easy_tdx/models/stats.py",
+      "summary": "个股资金流向统计（基于 Tick 数据加权计算）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/stats.py:HistoricalFundFlow",
+      "type": "class",
+      "name": "HistoricalFundFlow",
+      "filePath": "src/easy_tdx/models/stats.py",
+      "summary": "历史日线资金流向条目。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/models/timeseries.py",
+      "type": "file",
+      "name": "timeseries.py",
+      "filePath": "src/easy_tdx/models/timeseries.py",
+      "summary": "分时与逐笔成交模型",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/timeseries.py:MinuteBar",
+      "type": "class",
+      "name": "MinuteBar",
+      "filePath": "src/easy_tdx/models/timeseries.py",
+      "summary": "今日/历史分时（每分钟一条，共 240 条）  unknown_1: 协议中第二个变长整数，含义未明（疑似均价的编码形式）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/models/timeseries.py:TransactionRecord",
+      "type": "class",
+      "name": "TransactionRecord",
+      "filePath": "src/easy_tdx/models/timeseries.py",
+      "summary": "逐笔成交记录  unknown_last: pytdx 中被 _ 丢弃的最后一个变长整数，保留以供分析。 时间精度仅到分钟（协议限制），unknown_last 可能含秒或序号信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/MyTT.py",
+      "type": "file",
+      "name": "MyTT.py",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Python module at src/easy_tdx/MyTT.py.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:RD",
+      "type": "function",
+      "name": "RD",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function RD() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:RET",
+      "type": "function",
+      "name": "RET",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function RET() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:ABS",
+      "type": "function",
+      "name": "ABS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function ABS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LN",
+      "type": "function",
+      "name": "LN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:POW",
+      "type": "function",
+      "name": "POW",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function POW() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SQRT",
+      "type": "function",
+      "name": "SQRT",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SQRT() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SIN",
+      "type": "function",
+      "name": "SIN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SIN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:COS",
+      "type": "function",
+      "name": "COS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function COS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:TAN",
+      "type": "function",
+      "name": "TAN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function TAN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MAX",
+      "type": "function",
+      "name": "MAX",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MAX() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MIN",
+      "type": "function",
+      "name": "MIN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MIN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:IF",
+      "type": "function",
+      "name": "IF",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function IF() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:REF",
+      "type": "function",
+      "name": "REF",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function REF() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:DIFF",
+      "type": "function",
+      "name": "DIFF",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function DIFF() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:STD",
+      "type": "function",
+      "name": "STD",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function STD() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SUM",
+      "type": "function",
+      "name": "SUM",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SUM() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:CONST",
+      "type": "function",
+      "name": "CONST",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function CONST() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:HHV",
+      "type": "function",
+      "name": "HHV",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function HHV() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LLV",
+      "type": "function",
+      "name": "LLV",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LLV() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:HHVBARS",
+      "type": "function",
+      "name": "HHVBARS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function HHVBARS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LLVBARS",
+      "type": "function",
+      "name": "LLVBARS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LLVBARS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MA",
+      "type": "function",
+      "name": "MA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:EMA",
+      "type": "function",
+      "name": "EMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function EMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SMA",
+      "type": "function",
+      "name": "SMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:WMA",
+      "type": "function",
+      "name": "WMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function WMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:DMA",
+      "type": "function",
+      "name": "DMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function DMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:AVEDEV",
+      "type": "function",
+      "name": "AVEDEV",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function AVEDEV() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SLOPE",
+      "type": "function",
+      "name": "SLOPE",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SLOPE() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:FORCAST",
+      "type": "function",
+      "name": "FORCAST",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function FORCAST() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LAST",
+      "type": "function",
+      "name": "LAST",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LAST() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:COUNT",
+      "type": "function",
+      "name": "COUNT",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function COUNT() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:EVERY",
+      "type": "function",
+      "name": "EVERY",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function EVERY() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:EXIST",
+      "type": "function",
+      "name": "EXIST",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function EXIST() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:FILTER",
+      "type": "function",
+      "name": "FILTER",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function FILTER() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BARSLAST",
+      "type": "function",
+      "name": "BARSLAST",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BARSLAST() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BARSLASTCOUNT",
+      "type": "function",
+      "name": "BARSLASTCOUNT",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BARSLASTCOUNT() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BARSSINCEN",
+      "type": "function",
+      "name": "BARSSINCEN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BARSSINCEN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:CROSS",
+      "type": "function",
+      "name": "CROSS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function CROSS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LONGCROSS",
+      "type": "function",
+      "name": "LONGCROSS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LONGCROSS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:VALUEWHEN",
+      "type": "function",
+      "name": "VALUEWHEN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function VALUEWHEN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BETWEEN",
+      "type": "function",
+      "name": "BETWEEN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BETWEEN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:TOPRANGE",
+      "type": "function",
+      "name": "TOPRANGE",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function TOPRANGE() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:LOWRANGE",
+      "type": "function",
+      "name": "LOWRANGE",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function LOWRANGE() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MACD",
+      "type": "function",
+      "name": "MACD",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MACD() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:KDJ",
+      "type": "function",
+      "name": "KDJ",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function KDJ() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:RSI",
+      "type": "function",
+      "name": "RSI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function RSI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:WR",
+      "type": "function",
+      "name": "WR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function WR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BIAS",
+      "type": "function",
+      "name": "BIAS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BIAS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BOLL",
+      "type": "function",
+      "name": "BOLL",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BOLL() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:PSY",
+      "type": "function",
+      "name": "PSY",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function PSY() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:CCI",
+      "type": "function",
+      "name": "CCI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function CCI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:ATR",
+      "type": "function",
+      "name": "ATR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function ATR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BBI",
+      "type": "function",
+      "name": "BBI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BBI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:DMI",
+      "type": "function",
+      "name": "DMI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function DMI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:TAQ",
+      "type": "function",
+      "name": "TAQ",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function TAQ() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:KTN",
+      "type": "function",
+      "name": "KTN",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function KTN() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:TRIX",
+      "type": "function",
+      "name": "TRIX",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function TRIX() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:VR",
+      "type": "function",
+      "name": "VR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function VR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:CR",
+      "type": "function",
+      "name": "CR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function CR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:EMV",
+      "type": "function",
+      "name": "EMV",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function EMV() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:DPO",
+      "type": "function",
+      "name": "DPO",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function DPO() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BRAR",
+      "type": "function",
+      "name": "BRAR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BRAR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:DFMA",
+      "type": "function",
+      "name": "DFMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function DFMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MTM",
+      "type": "function",
+      "name": "MTM",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MTM() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MASS",
+      "type": "function",
+      "name": "MASS",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MASS() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:ROC",
+      "type": "function",
+      "name": "ROC",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function ROC() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:EXPMA",
+      "type": "function",
+      "name": "EXPMA",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function EXPMA() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:OBV",
+      "type": "function",
+      "name": "OBV",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function OBV() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:MFI",
+      "type": "function",
+      "name": "MFI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function MFI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:ASI",
+      "type": "function",
+      "name": "ASI",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function ASI() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:XSII",
+      "type": "function",
+      "name": "XSII",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function XSII() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:ZHUOYAO",
+      "type": "function",
+      "name": "ZHUOYAO",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function ZHUOYAO() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:BIAS_SIGNAL",
+      "type": "function",
+      "name": "BIAS_SIGNAL",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function BIAS_SIGNAL() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:FK",
+      "type": "function",
+      "name": "FK",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function FK() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:OUTPERFORM_20D",
+      "type": "function",
+      "name": "OUTPERFORM_20D",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function OUTPERFORM_20D() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:SAR",
+      "type": "function",
+      "name": "SAR",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function SAR() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:VWAP",
+      "type": "function",
+      "name": "VWAP",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function VWAP() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/MyTT.py:AROON",
+      "type": "function",
+      "name": "AROON",
+      "filePath": "src/easy_tdx/MyTT.py",
+      "summary": "Function AROON() defined in src/easy_tdx/MyTT.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/offline/__init__.py",
+      "summary": "离线数据读写模块 —— 从本地通达信安装目录读取/写入数据文件。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/block.py",
+      "type": "file",
+      "name": "block.py",
+      "filePath": "src/easy_tdx/offline/block.py",
+      "summary": "板块数据读取（.dat 文件和自定义板块目录）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/offline/block.py:CustomerBlock",
+      "type": "class",
+      "name": "CustomerBlock",
+      "filePath": "src/easy_tdx/offline/block.py",
+      "summary": "自定义板块。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/block.py:read_block_dat",
+      "type": "function",
+      "name": "read_block_dat",
+      "filePath": "src/easy_tdx/offline/block.py",
+      "summary": "从本地 .dat 板块文件读取板块数据。  直接复用 codec/block.py 的 parse_block_dat()。  Args:     filepath: .dat 文件路径（如 block_zs.dat）。  Returns:     TdxBlock 列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/block.py:read_customer_blocks",
+      "type": "function",
+      "name": "read_customer_blocks",
+      "filePath": "src/easy_tdx/offline/block.py",
+      "summary": "从通达信自定义板块目录读取板块数据。  目录结构：   blocknew.cfg  — 板块索引（120 字节/条：50B 名称 + 70B 文件名）   *.blk         — 板块内容（每行一个代码，首位为市场标识）  Args:     block_dir: 自定义板块目录路径。  Returns:     CustomerBlock 列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/daily_bar.py",
+      "type": "file",
+      "name": "daily_bar.py",
+      "filePath": "src/easy_tdx/offline/daily_bar.py",
+      "summary": "日线 K 线数据读取（.day 文件）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/daily_bar.py:_detect_security_type",
+      "type": "function",
+      "name": "_detect_security_type",
+      "filePath": "src/easy_tdx/offline/daily_bar.py",
+      "summary": "从文件名推断证券类型。  文件名格式: {exchange}{code}.day，如 sh600000.day、sz000001.day  依据上交所/深交所《证券代码段分配指南》判定。无法识别的代码段 返回 \"UNKNOWN\"（而非默认深市 A 股），避免把基金/ETF/债券误判为股票。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/daily_bar.py:read_daily_bars",
+      "type": "function",
+      "name": "read_daily_bars",
+      "filePath": "src/easy_tdx/offline/daily_bar.py",
+      "summary": "从本地 .day 文件读取日线 K 线数据。  Args:     filepath: .day 文件路径。  Returns:     SecurityBar 列表（按时间升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/daily_bar.py:find_daily_bar_file",
+      "type": "function",
+      "name": "find_daily_bar_file",
+      "filePath": "src/easy_tdx/offline/daily_bar.py",
+      "summary": "根据市场和代码定位日线文件路径。  Args:     market: 市场代码（Market.SZ=0, Market.SH=1）。     code: 6 位股票代码。     vipdoc: vipdoc 目录路径，None 则自动检测。  Returns:     .day 文件的 Path。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/ex_daily_bar.py",
+      "type": "file",
+      "name": "ex_daily_bar.py",
+      "filePath": "src/easy_tdx/offline/ex_daily_bar.py",
+      "summary": "扩展市场日线数据读取（期货、港股等 .day 文件）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/offline/ex_daily_bar.py:ExDailyBar",
+      "type": "class",
+      "name": "ExDailyBar",
+      "filePath": "src/easy_tdx/offline/ex_daily_bar.py",
+      "summary": "扩展市场日线（期货/港股等，含结算价）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/ex_daily_bar.py:read_ex_daily_bars",
+      "type": "function",
+      "name": "read_ex_daily_bars",
+      "filePath": "src/easy_tdx/offline/ex_daily_bar.py",
+      "summary": "从本地扩展市场 .day 文件读取日线数据。  文件位于 vipdoc/ds/ 目录下，如 29#A1801.day。  Args:     filepath: .day 文件路径。  Returns:     ExDailyBar 列表（按时间升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/finders.py",
+      "type": "file",
+      "name": "finders.py",
+      "filePath": "src/easy_tdx/offline/finders.py",
+      "summary": "路径定位辅助函数。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/finders.py:find_5min_bar_file",
+      "type": "function",
+      "name": "find_5min_bar_file",
+      "filePath": "src/easy_tdx/offline/finders.py",
+      "summary": "根据市场和代码定位 .5 分钟线文件路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/finders.py:find_lc1_bar_file",
+      "type": "function",
+      "name": "find_lc1_bar_file",
+      "filePath": "src/easy_tdx/offline/finders.py",
+      "summary": "根据市场和代码定位 .lc1 分钟线文件路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/finders.py:find_lc5_bar_file",
+      "type": "function",
+      "name": "find_lc5_bar_file",
+      "filePath": "src/easy_tdx/offline/finders.py",
+      "summary": "根据市场和代码定位 .lc5 分钟线文件路径。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/gbbq.py",
+      "type": "file",
+      "name": "gbbq.py",
+      "filePath": "src/easy_tdx/offline/gbbq.py",
+      "summary": "股本变迁数据读取（XOR 加密的 gbbq 文件）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/offline/gbbq.py:GbbqRecord",
+      "type": "class",
+      "name": "GbbqRecord",
+      "filePath": "src/easy_tdx/offline/gbbq.py",
+      "summary": "股本变迁记录。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/gbbq.py:read_gbbq",
+      "type": "function",
+      "name": "read_gbbq",
+      "filePath": "src/easy_tdx/offline/gbbq.py",
+      "summary": "从本地 gbbq 文件读取股本变迁数据（XOR 加密）。  Args:     filepath: gbbq 文件路径。  Returns:     GbbqRecord 列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/history_financial.py",
+      "type": "file",
+      "name": "history_financial.py",
+      "filePath": "src/easy_tdx/offline/history_financial.py",
+      "summary": "历史财务数据读取（gpcw*.dat / gpcw*.zip 文件）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/history_financial.py:read_history_financial",
+      "type": "function",
+      "name": "read_history_financial",
+      "filePath": "src/easy_tdx/offline/history_financial.py",
+      "summary": "从本地 gpcw*.dat 或 gpcw*.zip 文件读取历史财务数据。  复用 codec/financial.py 的 parse_financial_dat() 解析二进制格式。  Args:     filepath: .dat 或 .zip 文件路径。  Returns:     FinancialRecord 列表。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/history_financial.py:_read_from_zip",
+      "type": "function",
+      "name": "_read_from_zip",
+      "filePath": "src/easy_tdx/offline/history_financial.py",
+      "summary": "从 zip 中提取 .dat 文件内容。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/min_bar.py",
+      "type": "file",
+      "name": "min_bar.py",
+      "filePath": "src/easy_tdx/offline/min_bar.py",
+      "summary": "分钟 K 线数据读取（.5 文件和 .lc1/.lc5 文件）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/min_bar.py:_decode_tdx_date",
+      "type": "function",
+      "name": "_decode_tdx_date",
+      "filePath": "src/easy_tdx/offline/min_bar.py",
+      "summary": "解码通达信压缩日期（2 字节）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/min_bar.py:_decode_tdx_time",
+      "type": "function",
+      "name": "_decode_tdx_time",
+      "filePath": "src/easy_tdx/offline/min_bar.py",
+      "summary": "解码通达信分钟时间（从 0:00 开始的分钟数）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/min_bar.py:read_5min_bars",
+      "type": "function",
+      "name": "read_5min_bars",
+      "filePath": "src/easy_tdx/offline/min_bar.py",
+      "summary": "从本地 .5 文件读取 5 分钟 K 线数据。  OHLC 为整数，需除以 100 得到实际价格。  Args:     filepath: .5 文件路径。  Returns:     SecurityBar 列表（按时间升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/min_bar.py:read_lc_min_bars",
+      "type": "function",
+      "name": "read_lc_min_bars",
+      "filePath": "src/easy_tdx/offline/min_bar.py",
+      "summary": "从本地 .lc1/.lc5 文件读取分钟 K 线数据。  OHLC 为 float 类型，无需额外转换。  Args:     filepath: .lc1 或 .lc5 文件路径。  Returns:     SecurityBar 列表（按时间升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/offline/paths.py",
+      "type": "file",
+      "name": "paths.py",
+      "filePath": "src/easy_tdx/offline/paths.py",
+      "summary": "通达信安装目录检测与路径解析。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/paths.py:detect_tdx_home",
+      "type": "function",
+      "name": "detect_tdx_home",
+      "filePath": "src/easy_tdx/offline/paths.py",
+      "summary": "按优先级检测通达信安装目录。  1. TDX_HOME 环境变量 2. 平台常见路径猜测",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/paths.py:resolve_vipdoc",
+      "type": "function",
+      "name": "resolve_vipdoc",
+      "filePath": "src/easy_tdx/offline/paths.py",
+      "summary": "解析 vipdoc 数据目录。  Args:     path: 显式指定的 vipdoc 路径。为 None 时自动检测。  Returns:     vipdoc 目录的 Path 对象。  Raises:     TdxOfflineError: 无法定位 vipdoc 目录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/offline/paths.py:_market_to_exchange",
+      "type": "function",
+      "name": "_market_to_exchange",
+      "filePath": "src/easy_tdx/offline/paths.py",
+      "summary": "Market 枚举值 → vipdoc 子目录名（sh/sz）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "target": "file:src/easy_tdx/mac/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/symbol_tick_chart.py",
+      "target": "class:src/easy_tdx/mac/commands/symbol_tick_chart.py:SymbolTickChartCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/commands/symbol_tick_chart.py defines class SymbolTickChartCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/symbol_transaction.py",
+      "target": "file:src/easy_tdx/mac/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/symbol_transaction.py",
+      "target": "class:src/easy_tdx/mac/commands/symbol_transaction.py:SymbolTransactionCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/commands/symbol_transaction.py defines class SymbolTransactionCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/tick_charts.py",
+      "target": "file:src/easy_tdx/mac/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/tick_charts.py",
+      "target": "class:src/easy_tdx/mac/commands/tick_charts.py:TickChartsCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/commands/tick_charts.py defines class TickChartsCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/unusual.py",
+      "target": "file:src/easy_tdx/mac/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/unusual.py",
+      "target": "class:src/easy_tdx/mac/commands/unusual.py:UnusualCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/commands/unusual.py defines class UnusualCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/commands/unusual.py",
+      "target": "function:src/easy_tdx/mac/commands/unusual.py:_describe_unusual",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/commands/unusual.py defines function _describe_unusual()."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:Period",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class Period."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:Adjust",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class Adjust."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:BoardType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class BoardType."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:ExBoardType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class ExBoardType."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:Category",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class Category."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:SortType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class SortType."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:SortOrder",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class SortOrder."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:FilterType",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class FilterType."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/enums.py",
+      "target": "class:src/easy_tdx/mac/enums.py:ExMarket",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/enums.py defines class ExMarket."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacQuoteField",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacQuoteField."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacSymbolInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacSymbolInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacBar."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacTick",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacTick."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacTickChart",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacTickChart."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacMultiTickDay",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacMultiTickDay."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacMultiTickChart",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacMultiTickChart."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:MacTransaction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class MacTransaction."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:BoardInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class BoardInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:AuctionItem",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class AuctionItem."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:UnusualItem",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class UnusualItem."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:CapitalFlowData",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class CapitalFlowData."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:BelongBoardInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class BelongBoardInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:ServerSession",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class ServerSession."
+    },
+    {
+      "source": "file:src/easy_tdx/mac/models.py",
+      "target": "class:src/easy_tdx/mac/models.py:KlineOffsetInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/mac/models.py defines class KlineOffsetInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/bar.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .bar"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/enums.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .enums"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/finance.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .finance"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/quote.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .quote"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/security.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .security"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/stats.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .stats"
+    },
+    {
+      "source": "file:src/easy_tdx/models/__init__.py",
+      "target": "file:src/easy_tdx/models/timeseries.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .timeseries"
+    },
+    {
+      "source": "file:src/easy_tdx/models/bar.py",
+      "target": "class:src/easy_tdx/models/bar.py:SecurityBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/bar.py defines class SecurityBar."
+    },
+    {
+      "source": "file:src/easy_tdx/models/enums.py",
+      "target": "class:src/easy_tdx/models/enums.py:Market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/enums.py defines class Market."
+    },
+    {
+      "source": "file:src/easy_tdx/models/enums.py",
+      "target": "class:src/easy_tdx/models/enums.py:KlineCategory",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/enums.py defines class KlineCategory."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "file:src/easy_tdx/models/enums.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .enums"
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:XdxrRecord",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class XdxrRecord."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:FinanceInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class FinanceInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:CompanyInfoCategory",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class CompanyInfoCategory."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:FinancialFileInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class FinancialFileInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:FinancialRecord",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class FinancialRecord."
+    },
+    {
+      "source": "file:src/easy_tdx/models/finance.py",
+      "target": "class:src/easy_tdx/models/finance.py:TdxBlock",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/finance.py defines class TdxBlock."
+    },
+    {
+      "source": "file:src/easy_tdx/models/quote.py",
+      "target": "file:src/easy_tdx/models/enums.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .enums"
+    },
+    {
+      "source": "file:src/easy_tdx/models/quote.py",
+      "target": "class:src/easy_tdx/models/quote.py:SecurityQuote",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/quote.py defines class SecurityQuote."
+    },
+    {
+      "source": "file:src/easy_tdx/models/security.py",
+      "target": "file:src/easy_tdx/models/enums.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .enums"
+    },
+    {
+      "source": "file:src/easy_tdx/models/security.py",
+      "target": "class:src/easy_tdx/models/security.py:SecurityInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/security.py defines class SecurityInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/models/stats.py",
+      "target": "class:src/easy_tdx/models/stats.py:MarketStat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/stats.py defines class MarketStat."
+    },
+    {
+      "source": "file:src/easy_tdx/models/stats.py",
+      "target": "class:src/easy_tdx/models/stats.py:FundFlow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/stats.py defines class FundFlow."
+    },
+    {
+      "source": "file:src/easy_tdx/models/stats.py",
+      "target": "class:src/easy_tdx/models/stats.py:HistoricalFundFlow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/stats.py defines class HistoricalFundFlow."
+    },
+    {
+      "source": "file:src/easy_tdx/models/timeseries.py",
+      "target": "class:src/easy_tdx/models/timeseries.py:MinuteBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/timeseries.py defines class MinuteBar."
+    },
+    {
+      "source": "file:src/easy_tdx/models/timeseries.py",
+      "target": "class:src/easy_tdx/models/timeseries.py:TransactionRecord",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/models/timeseries.py defines class TransactionRecord."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:RD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function RD()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:RET",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function RET()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:ABS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function ABS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:POW",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function POW()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SQRT",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SQRT()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SIN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SIN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:COS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function COS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:TAN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function TAN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MAX",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MAX()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MIN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MIN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:IF",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function IF()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:REF",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function REF()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:DIFF",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function DIFF()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:STD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function STD()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SUM",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SUM()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:CONST",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function CONST()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:HHV",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function HHV()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LLV",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LLV()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:HHVBARS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function HHVBARS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LLVBARS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LLVBARS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:EMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function EMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:WMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function WMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:DMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function DMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:AVEDEV",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function AVEDEV()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SLOPE",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SLOPE()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:FORCAST",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function FORCAST()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LAST",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LAST()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:COUNT",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function COUNT()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:EVERY",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function EVERY()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:EXIST",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function EXIST()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:FILTER",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function FILTER()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BARSLAST",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BARSLAST()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BARSLASTCOUNT",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BARSLASTCOUNT()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BARSSINCEN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BARSSINCEN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:CROSS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function CROSS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LONGCROSS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LONGCROSS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:VALUEWHEN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function VALUEWHEN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BETWEEN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BETWEEN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:TOPRANGE",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function TOPRANGE()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:LOWRANGE",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function LOWRANGE()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MACD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MACD()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:KDJ",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function KDJ()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:RSI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function RSI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:WR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function WR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BIAS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BIAS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BOLL",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BOLL()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:PSY",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function PSY()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:CCI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function CCI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:ATR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function ATR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BBI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BBI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:DMI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function DMI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:TAQ",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function TAQ()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:KTN",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function KTN()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:TRIX",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function TRIX()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:VR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function VR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:CR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function CR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:EMV",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function EMV()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:DPO",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function DPO()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BRAR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BRAR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:DFMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function DFMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MTM",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MTM()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MASS",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MASS()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:ROC",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function ROC()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:EXPMA",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function EXPMA()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:OBV",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function OBV()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:MFI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function MFI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:ASI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function ASI()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:XSII",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function XSII()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:ZHUOYAO",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function ZHUOYAO()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:BIAS_SIGNAL",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function BIAS_SIGNAL()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:FK",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function FK()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:OUTPERFORM_20D",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function OUTPERFORM_20D()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:SAR",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function SAR()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:VWAP",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function VWAP()."
+    },
+    {
+      "source": "file:src/easy_tdx/MyTT.py",
+      "target": "function:src/easy_tdx/MyTT.py:AROON",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/MyTT.py defines function AROON()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/block.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .block"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/daily_bar.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .daily_bar"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/ex_daily_bar.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .ex_daily_bar"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/finders.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .finders"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/gbbq.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .gbbq"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/history_financial.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .history_financial"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/min_bar.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .min_bar"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/__init__.py",
+      "target": "file:src/easy_tdx/offline/paths.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .paths"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/block.py",
+      "target": "class:src/easy_tdx/offline/block.py:CustomerBlock",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/block.py defines class CustomerBlock."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/block.py",
+      "target": "function:src/easy_tdx/offline/block.py:read_block_dat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/block.py defines function read_block_dat()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/block.py",
+      "target": "function:src/easy_tdx/offline/block.py:read_customer_blocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/block.py defines function read_customer_blocks()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/daily_bar.py",
+      "target": "file:src/easy_tdx/offline/paths.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .paths"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/daily_bar.py",
+      "target": "function:src/easy_tdx/offline/daily_bar.py:_detect_security_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/daily_bar.py defines function _detect_security_type()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/daily_bar.py",
+      "target": "function:src/easy_tdx/offline/daily_bar.py:read_daily_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/daily_bar.py defines function read_daily_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/daily_bar.py",
+      "target": "function:src/easy_tdx/offline/daily_bar.py:find_daily_bar_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/daily_bar.py defines function find_daily_bar_file()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/ex_daily_bar.py",
+      "target": "class:src/easy_tdx/offline/ex_daily_bar.py:ExDailyBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/ex_daily_bar.py defines class ExDailyBar."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/ex_daily_bar.py",
+      "target": "function:src/easy_tdx/offline/ex_daily_bar.py:read_ex_daily_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/ex_daily_bar.py defines function read_ex_daily_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/finders.py",
+      "target": "file:src/easy_tdx/offline/paths.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .paths"
+    },
+    {
+      "source": "file:src/easy_tdx/offline/finders.py",
+      "target": "function:src/easy_tdx/offline/finders.py:find_5min_bar_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/finders.py defines function find_5min_bar_file()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/finders.py",
+      "target": "function:src/easy_tdx/offline/finders.py:find_lc1_bar_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/finders.py defines function find_lc1_bar_file()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/finders.py",
+      "target": "function:src/easy_tdx/offline/finders.py:find_lc5_bar_file",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/finders.py defines function find_lc5_bar_file()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/gbbq.py",
+      "target": "class:src/easy_tdx/offline/gbbq.py:GbbqRecord",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/gbbq.py defines class GbbqRecord."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/gbbq.py",
+      "target": "function:src/easy_tdx/offline/gbbq.py:read_gbbq",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/gbbq.py defines function read_gbbq()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/history_financial.py",
+      "target": "function:src/easy_tdx/offline/history_financial.py:read_history_financial",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/history_financial.py defines function read_history_financial()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/history_financial.py",
+      "target": "function:src/easy_tdx/offline/history_financial.py:_read_from_zip",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/history_financial.py defines function _read_from_zip()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/min_bar.py",
+      "target": "function:src/easy_tdx/offline/min_bar.py:_decode_tdx_date",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/min_bar.py defines function _decode_tdx_date()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/min_bar.py",
+      "target": "function:src/easy_tdx/offline/min_bar.py:_decode_tdx_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/min_bar.py defines function _decode_tdx_time()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/min_bar.py",
+      "target": "function:src/easy_tdx/offline/min_bar.py:read_5min_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/min_bar.py defines function read_5min_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/min_bar.py",
+      "target": "function:src/easy_tdx/offline/min_bar.py:read_lc_min_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/min_bar.py defines function read_lc_min_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/paths.py",
+      "target": "function:src/easy_tdx/offline/paths.py:detect_tdx_home",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/paths.py defines function detect_tdx_home()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/paths.py",
+      "target": "function:src/easy_tdx/offline/paths.py:resolve_vipdoc",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/paths.py defines function resolve_vipdoc()."
+    },
+    {
+      "source": "file:src/easy_tdx/offline/paths.py",
+      "target": "function:src/easy_tdx/offline/paths.py:_market_to_exchange",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/offline/paths.py defines function _market_to_exchange()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 169,
+    "edgesCreated": 169,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 16 analyzed via AST. 169 nodes, 169 edges from 25 files."
+  }
+}

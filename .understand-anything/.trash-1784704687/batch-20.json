@@ -1,0 +1,4328 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 20,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "tests/fixtures/security_bars.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/fixtures/security_count.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/fixtures/security_list.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/fixtures/security_quotes.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/fixtures/transaction.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/fixtures/xdxr_info.hex",
+      "language": "hex",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/integration/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/integration/test_live_client.py",
+      "language": "python",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_a_share_extensions.py",
+      "language": "python",
+      "sizeLines": 336,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_async_transport.py",
+      "language": "python",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_attribution.py",
+      "language": "python",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_cli.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_combo.py",
+      "language": "python",
+      "sizeLines": 397,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_engine.py",
+      "language": "python",
+      "sizeLines": 728,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_execution.py",
+      "language": "python",
+      "sizeLines": 420,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_orders.py",
+      "language": "python",
+      "sizeLines": 423,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_performance.py",
+      "language": "python",
+      "sizeLines": 589,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_portfolio.py",
+      "language": "python",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_slippage.py",
+      "language": "python",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_strategy.py",
+      "language": "python",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_backtest_types.py",
+      "language": "python",
+      "sizeLines": 267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_block_info.py",
+      "language": "python",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_board_change_ranking.py",
+      "language": "python",
+      "sizeLines": 337,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/unit/test_chanlun_phase2.py",
+      "language": "python",
+      "sizeLines": 265,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:tests/integration/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "tests/integration/__init__.py",
+      "summary": "Python module at tests/integration/__init__.py.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:tests/integration/test_live_client.py",
+      "type": "file",
+      "name": "test_live_client.py",
+      "filePath": "tests/integration/test_live_client.py",
+      "summary": "真实通达信服务器 smoke test。  默认跳过；设置 XMTDX_LIVE=1 后执行。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/integration/test_live_client.py:test_sync_live_smoke",
+      "type": "function",
+      "name": "test_sync_live_smoke",
+      "filePath": "tests/integration/test_live_client.py",
+      "summary": "Function test_sync_live_smoke() defined in tests/integration/test_live_client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/integration/test_live_client.py:test_async_live_smoke",
+      "type": "function",
+      "name": "test_async_live_smoke",
+      "filePath": "tests/integration/test_live_client.py",
+      "summary": "Function test_async_live_smoke() defined in tests/integration/test_live_client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "tests/unit/__init__.py",
+      "summary": "Python module at tests/unit/__init__.py.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_a_share_extensions.py",
+      "type": "file",
+      "name": "test_a_share_extensions.py",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "针对本轮 A 股增强功能的单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_fund_flow_logic",
+      "type": "function",
+      "name": "test_get_fund_flow_logic",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "测试资金流分类计算逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_classify_fund_flow_exact_thresholds_use_lower_bucket",
+      "type": "function",
+      "name": "test_classify_fund_flow_exact_thresholds_use_lower_bucket",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "恰好命中阈值时，应落入较低一档。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_security_list_all_filtering",
+      "type": "function",
+      "name": "test_get_security_list_all_filtering",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "测试三市 A 股过滤与行业挂载逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_market_stat_mapping",
+      "type": "function",
+      "name": "test_get_market_stat_mapping",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "测试市场统计字段映射。  通达信统计指数的计数字段返回真实家数的 1/10，get_market_stat 内部需 ×10 还原。 这里构造的原始协议值是还原后家数的 1/10，断言还原后等于真实家数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_history_fund_flow_parsing",
+      "type": "function",
+      "name": "test_get_history_fund_flow_parsing",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "测试历史资金流序列解析逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_history_fund_flow_fallback",
+      "type": "function",
+      "name": "test_get_history_fund_flow_fallback",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "Category 22 空回包时，自动回退到历史逐笔重算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_price_limits_uses_listing_window",
+      "type": "function",
+      "name": "test_get_price_limits_uses_listing_window",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "client.get_price_limits 应结合日 K 条数判断上市初期限价窗口。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_get_minute_time_data_uses_history_endpoint",
+      "type": "function",
+      "name": "test_get_minute_time_data_uses_history_endpoint",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "今日分时走历史分时接口。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_a_share_extensions.py:test_async_get_minute_time_data_uses_history_endpoint",
+      "type": "function",
+      "name": "test_async_get_minute_time_data_uses_history_endpoint",
+      "filePath": "tests/unit/test_a_share_extensions.py",
+      "summary": "异步客户端走历史分时接口。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_async_transport.py",
+      "type": "file",
+      "name": "test_async_transport.py",
+      "filePath": "tests/unit/test_async_transport.py",
+      "summary": "异步 transport 回归测试。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_async_transport.py:_pack_frame",
+      "type": "function",
+      "name": "_pack_frame",
+      "filePath": "tests/unit/test_async_transport.py",
+      "summary": "Function _pack_frame() defined in tests/unit/test_async_transport.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_async_transport.py:test_async_client_serializes_concurrent_calls",
+      "type": "function",
+      "name": "test_async_client_serializes_concurrent_calls",
+      "filePath": "tests/unit/test_async_transport.py",
+      "summary": "Function test_async_client_serializes_concurrent_calls() defined in tests/unit/test_async_transport.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_async_transport.py:test_async_client_auto_reconnect",
+      "type": "function",
+      "name": "test_async_client_auto_reconnect",
+      "filePath": "tests/unit/test_async_transport.py",
+      "summary": "Function test_async_client_auto_reconnect() defined in tests/unit/test_async_transport.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_async_transport.py:test_async_client_request_timeout",
+      "type": "function",
+      "name": "test_async_client_request_timeout",
+      "filePath": "tests/unit/test_async_transport.py",
+      "summary": "Function test_async_client_request_timeout() defined in tests/unit/test_async_transport.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_attribution.py",
+      "type": "file",
+      "name": "test_backtest_attribution.py",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "归因分析单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_attribution.py:TestCostAttribution",
+      "type": "class",
+      "name": "TestCostAttribution",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Class TestCostAttribution defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_attribution.py:TestBrinsonAttribution",
+      "type": "class",
+      "name": "TestBrinsonAttribution",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Class TestBrinsonAttribution defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_attribution.py:TestFactorAttribution",
+      "type": "class",
+      "name": "TestFactorAttribution",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Class TestFactorAttribution defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_attribution.py:TestFullReport",
+      "type": "class",
+      "name": "TestFullReport",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Class TestFullReport defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_attribution.py:_make_trades",
+      "type": "function",
+      "name": "_make_trades",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Function _make_trades() defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_attribution.py:_make_equity",
+      "type": "function",
+      "name": "_make_equity",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Function _make_equity() defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_attribution.py:_make_benchmark",
+      "type": "function",
+      "name": "_make_benchmark",
+      "filePath": "tests/unit/test_backtest_attribution.py",
+      "summary": "Function _make_benchmark() defined in tests/unit/test_backtest_attribution.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_cli.py",
+      "type": "file",
+      "name": "test_backtest_cli.py",
+      "filePath": "tests/unit/test_backtest_cli.py",
+      "summary": "回测 CLI 命令测试。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_cli.py:TestBacktestCLI",
+      "type": "class",
+      "name": "TestBacktestCLI",
+      "filePath": "tests/unit/test_backtest_cli.py",
+      "summary": "测试回测 CLI 命令。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_combo.py",
+      "type": "file",
+      "name": "test_backtest_combo.py",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "测试多因子组合回测模块。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:BuyOnBar3Strategy",
+      "type": "class",
+      "name": "BuyOnBar3Strategy",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "在第 3 根 bar 买入，第 8 根 bar 卖出（确定性策略，方便断言）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:BuyOnBar5Strategy",
+      "type": "class",
+      "name": "BuyOnBar5Strategy",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "在第 5 根 bar 买入，第 10 根 bar 卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:BuyOnBar7Strategy",
+      "type": "class",
+      "name": "BuyOnBar7Strategy",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "在第 7 根 bar 买入，第 12 根 bar 卖出。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:NeverTradeStrategy",
+      "type": "class",
+      "name": "NeverTradeStrategy",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "从不交易的策略。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:TestExtractFactorSignals",
+      "type": "class",
+      "name": "TestExtractFactorSignals",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "测试因子信号提取。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:TestCombineMasks",
+      "type": "class",
+      "name": "TestCombineMasks",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "测试信号遮罩合并。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:TestCombinationRunner",
+      "type": "class",
+      "name": "TestCombinationRunner",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "测试组合回测运行器。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_combo.py:MAStrategy",
+      "type": "class",
+      "name": "MAStrategy",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "Class MAStrategy defined in tests/unit/test_backtest_combo.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_combo.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_combo.py",
+      "summary": "构造合成 OHLCV DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_engine.py",
+      "type": "file",
+      "name": "test_backtest_engine.py",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test BacktestEngine orchestration.",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:MACrossStrategy",
+      "type": "class",
+      "name": "MACrossStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Simple MA crossover strategy.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:FixedBuyStrategy",
+      "type": "class",
+      "name": "FixedBuyStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy with fixed buy/sell at specific bars.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:ChanlunStrategy",
+      "type": "class",
+      "name": "ChanlunStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that uses chanlun result.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:PrecomputedIndicatorStrategy",
+      "type": "class",
+      "name": "PrecomputedIndicatorStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that uses precomputed indicator columns.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:PositionAwareStrategy",
+      "type": "class",
+      "name": "PositionAwareStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that checks position before trading (the common pattern).",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:StopLossStrategy",
+      "type": "class",
+      "name": "StopLossStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that buys with stop-loss.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:TakeProfitStrategy",
+      "type": "class",
+      "name": "TakeProfitStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that buys with take-profit.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:StopLossAndTakeProfitStrategy",
+      "type": "class",
+      "name": "StopLossAndTakeProfitStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that buys with both stop-loss and take-profit.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:ChanlunAwareStrategy",
+      "type": "class",
+      "name": "ChanlunAwareStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Strategy that buys when chanlun analysis has at least one bi.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:TestEngineSlippageModel",
+      "type": "class",
+      "name": "TestEngineSlippageModel",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "BacktestEngine with SlippageModel integration.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:TestEngineExecutionModel",
+      "type": "class",
+      "name": "TestEngineExecutionModel",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "BacktestEngine with ExecutionModel integration.",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:SLThenManualSell",
+      "type": "class",
+      "name": "SLThenManualSell",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class SLThenManualSell defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:CheckerStrategy",
+      "type": "class",
+      "name": "CheckerStrategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class CheckerStrategy defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "class",
+      "name": "SimpleBuy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class SimpleBuy defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "class",
+      "name": "SimpleBuy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class SimpleBuy defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:BuyAndHold",
+      "type": "class",
+      "name": "BuyAndHold",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class BuyAndHold defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:BuyOnce",
+      "type": "class",
+      "name": "BuyOnce",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class BuyOnce defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "class",
+      "name": "SimpleBuy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class SimpleBuy defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "class",
+      "name": "SimpleBuy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Class SimpleBuy defined in tests/unit/test_backtest_engine.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Generate synthetic OHLCV data.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_basic_run",
+      "type": "function",
+      "name": "test_basic_run",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test basic engine run with MACrossStrategy.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_fixed_strategy",
+      "type": "function",
+      "name": "test_fixed_strategy",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test FixedBuyStrategy produces trades.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_result_columns",
+      "type": "function",
+      "name": "test_result_columns",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test BacktestResult has correct columns.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_to_dict",
+      "type": "function",
+      "name": "test_to_dict",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test BacktestResult is serializable.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_chanlun_injection",
+      "type": "function",
+      "name": "test_chanlun_injection",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test chanlun result injection.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_config_snapshot",
+      "type": "function",
+      "name": "test_config_snapshot",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test config contains correct cash and commission.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_precomputed_indicator_columns",
+      "type": "function",
+      "name": "test_precomputed_indicator_columns",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test strategy works with precomputed indicator columns.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_empty_df",
+      "type": "function",
+      "name": "test_empty_df",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test engine with empty DataFrame.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_strategy_instance_vs_class",
+      "type": "function",
+      "name": "test_strategy_instance_vs_class",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test engine accepts both strategy class and instance.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_commission_calculation",
+      "type": "function",
+      "name": "test_commission_calculation",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test commission is correctly applied.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_pnl_calculation",
+      "type": "function",
+      "name": "test_pnl_calculation",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test PnL is calculated for sell trades.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_position_aware_buy_sell_alternation",
+      "type": "function",
+      "name": "test_position_aware_buy_sell_alternation",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Regression: strategy that checks position must produce alternating BUY/SELL.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_position_aware_no_duplicate_buys",
+      "type": "function",
+      "name": "test_position_aware_no_duplicate_buys",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "After a BUY, position['size'] > 0 so strategy should not buy again.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:_make_flat_df",
+      "type": "function",
+      "name": "_make_flat_df",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Generate flat OHLCV data at constant price for SL/TP testing.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_stop_loss_triggers_sell",
+      "type": "function",
+      "name": "test_stop_loss_triggers_sell",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test stop-loss triggers auto SELL when price drops below stop.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_take_profit_triggers_sell",
+      "type": "function",
+      "name": "test_take_profit_triggers_sell",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test take-profit triggers auto SELL when price rises above target.  注意（审计 #4）：止盈信号延迟到下一根开盘成交（消除前视偏差）。 当下一根开盘价低于触发价时（跳空回落），SELL 取更不利的实际开盘价。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_stop_loss_gap_down_fills_at_worse_price",
+      "type": "function",
+      "name": "test_stop_loss_gap_down_fills_at_worse_price",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "SL 信号延迟到下一根开盘成交；若跳空下跌，取更不利的开盘价（审计 #4）。  构造当根触及止损、但下一根开盘远低于止损价的跳空场景， 断言实际成交价取更不利的开盘价，回测净值低于\"触发价成交\"基线。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_stop_loss_not_triggered_when_price_stays_above",
+      "type": "function",
+      "name": "test_stop_loss_not_triggered_when_price_stays_above",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test no SL sell when price never drops to stop level.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_stop_loss_takes_priority_over_strategy_sell",
+      "type": "function",
+      "name": "test_stop_loss_takes_priority_over_strategy_sell",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "SL-triggered sell prevents duplicate strategy sell.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_chanlun_auto_bridge",
+      "type": "function",
+      "name": "test_chanlun_auto_bridge",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test chanlun_level auto-computes and injects analysis into strategy.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_engine.py:test_chanlun_manual_result_overrides_auto",
+      "type": "function",
+      "name": "test_chanlun_manual_result_overrides_auto",
+      "filePath": "tests/unit/test_backtest_engine.py",
+      "summary": "Test explicit chanlun_result takes priority over chanlun_level.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_execution.py",
+      "type": "file",
+      "name": "test_backtest_execution.py",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "执行仿真引擎单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_execution.py:TestExecutionBase",
+      "type": "class",
+      "name": "TestExecutionBase",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "基类验证。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_execution.py:TestImmediateExecution",
+      "type": "class",
+      "name": "TestImmediateExecution",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "即时成交。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_execution.py:TestTWAPExecution",
+      "type": "class",
+      "name": "TestTWAPExecution",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "时间加权平均价格执行。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_execution.py:TestVWAPExecution",
+      "type": "class",
+      "name": "TestVWAPExecution",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "成交量加权平均价格执行。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_execution.py:TestLimitExecution",
+      "type": "class",
+      "name": "TestLimitExecution",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "限价单执行。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_execution.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_execution.py",
+      "summary": "构造测试用K线数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_orders.py",
+      "type": "file",
+      "name": "test_backtest_orders.py",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "订单撮合模拟器单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestExecutionModes",
+      "type": "class",
+      "name": "TestExecutionModes",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试不同执行模式的成交价。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestPositionModes",
+      "type": "class",
+      "name": "TestPositionModes",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试不同仓位模式。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestRejectPolicy",
+      "type": "class",
+      "name": "TestRejectPolicy",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试拒绝策略。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestFees",
+      "type": "class",
+      "name": "TestFees",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试费用计算。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestEdgeCases",
+      "type": "class",
+      "name": "TestEdgeCases",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试边界情况。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestSlippageModelIntegration",
+      "type": "class",
+      "name": "TestSlippageModelIntegration",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "测试 OrderSimulator 与 SlippageModel 集成。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_orders.py:TestNonContinuousIndex",
+      "type": "class",
+      "name": "TestNonContinuousIndex",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "df.index 非默认 RangeIndex 时，撮合应按位置（iloc）而非 label 取 bar。  回归 _find_bar_index 旧实现在非连续 index 下用 idxmax() 返回 label 当位置用， 导致 iloc 取错 bar / 越界。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_orders.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "构造测试用 K线数据。  价格递增：open=100..109, close=101..110, high=102..111, low=99..108 datetime: range(20240101, 20240101+n)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_orders.py:_buy_signal",
+      "type": "function",
+      "name": "_buy_signal",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "构造买入信号。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_orders.py:_sell_signal",
+      "type": "function",
+      "name": "_sell_signal",
+      "filePath": "tests/unit/test_backtest_orders.py",
+      "summary": "构造卖出信号。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_performance.py",
+      "type": "file",
+      "name": "test_backtest_performance.py",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "单元测试：绩效分析器。  测试 PerformanceAnalyzer 的各项指标计算。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:_make_equity_curve",
+      "type": "function",
+      "name": "_make_equity_curve",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "创建测试用资金曲线。  Args:     n: bar 数量     total_return: 总收益率（例如 0.1 表示 10%）  Returns:     包含 datetime, total, drawdown 的 DataFrame",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:_make_trades",
+      "type": "function",
+      "name": "_make_trades",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "创建测试用交易记录。  Returns:     包含 datetime, direction, pnl, cost_basis, rejected 的 DataFrame     4 条交易: BUY@20240101, SELL@20240106(pnl=500), BUY@20240110, SELL@20240115(pnl=-500)  注意：avg_win/avg_loss/max_win/max_loss 现为「单笔收益率」口径 （= pnl / cost_basis）。此处 cost_basis=10000，故收益率 = pnl/10000。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_total_return",
+      "type": "function",
+      "name": "test_total_return",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试总收益率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_max_drawdown_never_exceeds_100_pct",
+      "type": "function",
+      "name": "test_max_drawdown_never_exceeds_100_pct",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试最大回撤永远不超过 100%（从峰值的跌幅）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_max_drawdown_zero_when_monotonic",
+      "type": "function",
+      "name": "test_max_drawdown_zero_when_monotonic",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试单调递增时最大回撤接近 0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_sharpe_positive_for_profit",
+      "type": "function",
+      "name": "test_sharpe_positive_for_profit",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试正收益时夏普比率为正。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_win_rate",
+      "type": "function",
+      "name": "test_win_rate",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试胜率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_total_trades",
+      "type": "function",
+      "name": "test_total_trades",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试总交易次数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_empty_trades",
+      "type": "function",
+      "name": "test_empty_trades",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试空交易记录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_all_keys_present",
+      "type": "function",
+      "name": "test_all_keys_present",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试所有 19 个指标都存在。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_empty_equity_curve",
+      "type": "function",
+      "name": "test_empty_equity_curve",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试空资金曲线返回全零指标。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_single_point_equity_curve",
+      "type": "function",
+      "name": "test_single_point_equity_curve",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试只有一个点的资金曲线返回全零指标。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_profit_factor",
+      "type": "function",
+      "name": "test_profit_factor",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试盈亏比计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_win_and_loss",
+      "type": "function",
+      "name": "test_avg_win_and_loss",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试平均盈亏计算（单笔收益率口径 = pnl / cost_basis）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_max_win_and_loss",
+      "type": "function",
+      "name": "test_max_win_and_loss",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试最大盈亏计算（单笔收益率口径 = pnl / cost_basis）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_annual_return",
+      "type": "function",
+      "name": "test_annual_return",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试年化收益率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_volatility",
+      "type": "function",
+      "name": "test_volatility",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试年化波动率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_rejected_trades",
+      "type": "function",
+      "name": "test_rejected_trades",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试被拒绝交易计数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_win_trades_and_lose_trades_count",
+      "type": "function",
+      "name": "test_win_trades_and_lose_trades_count",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试盈亏交易计数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_fifo",
+      "type": "function",
+      "name": "test_avg_holding_days_fifo",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试平均持仓天数（FIFO 配对计算）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_weighted",
+      "type": "function",
+      "name": "test_avg_holding_days_weighted",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试加权平均持仓天数（不同持仓期）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_no_datetime",
+      "type": "function",
+      "name": "test_avg_holding_days_no_datetime",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试 trades 没有 datetime 列时返回 0.0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_only_buys",
+      "type": "function",
+      "name": "test_avg_holding_days_only_buys",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试只有买入没有卖出时返回 0.0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_max_dd_duration",
+      "type": "function",
+      "name": "test_max_dd_duration",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试最大回撤持续时间计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_sortino",
+      "type": "function",
+      "name": "test_sortino",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试索提诺比率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_calmar",
+      "type": "function",
+      "name": "test_calmar",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "测试卡玛比率计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:_metrics_from_total",
+      "type": "function",
+      "name": "_metrics_from_total",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "从一组 total 值构造最小资金曲线并计算指标。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_metrics_handles_zero_intermediate_equity",
+      "type": "function",
+      "name": "test_metrics_handles_zero_intermediate_equity",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "中间净值出现 0 时，日收益率除零不抛异常、返回有限值（审计复审 N2）。  total=[100, 0, 105, 0, 110]：第 1、3 根前值为 0，旧实现 diff/total[:-1] 会得到 inf，进而污染均值/方差计算或触发 RuntimeWarning。修复后这些位置 被 safe_prev 记为 NaN 并由 isfinite 过滤。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_metrics_handles_zero_first_equity",
+      "type": "function",
+      "name": "test_metrics_handles_zero_first_equity",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "首根净值为 0 时 total_return 兜底为 0.0 而非除零（审计复审 N2）。  total[0]==0 时 (total[-1]/total[0]) - 1 会除零；修复后直接记 0.0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_metrics_all_zero_equity_does_not_raise",
+      "type": "function",
+      "name": "test_metrics_all_zero_equity_does_not_raise",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "全 0 资金曲线不应产生 inf/nan，也不应抛异常（审计复审 N2 极端场景）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_crosses_month_boundary",
+      "type": "function",
+      "name": "test_avg_holding_days_crosses_month_boundary",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "跨月持仓天数必须用真实日历日计算，而非 YYYYMMDD 整数差。  回归守卫：旧实现 ``20240201 - 20240131 = 70``（整数差，错误）， 新实现解析为 date 后相减 = 1 天。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_profit_factor_no_losing_trades_is_large",
+      "type": "function",
+      "name": "test_profit_factor_no_losing_trades_is_large",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "全部盈利、无亏损交易时 profit_factor 应为 999.0 而非 0.0。  回归守卫：旧实现在 ``len(lose_pnl)==0`` 时直接返回 0.0， 与 100% 胜率并列显示时自相矛盾（胜率 100% 却盈亏比 0）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_performance.py:test_avg_win_zero_when_no_cost_basis_column",
+      "type": "function",
+      "name": "test_avg_win_zero_when_no_cost_basis_column",
+      "filePath": "tests/unit/test_backtest_performance.py",
+      "summary": "trades 无 cost_basis 列时 avg_win/avg_loss/max_win/max_loss 应回退为 0.0。  回归守卫：engine._trades_to_df 现会输出 cost_basis 列，但若上游构造的 trades DataFrame 缺该列（如旧式直接拼装），不应抛 KeyError，应记 0.0。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_portfolio.py",
+      "type": "file",
+      "name": "test_backtest_portfolio.py",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "回测引擎持仓追踪器单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "创建测试用 DataFrame。  Args:     n: bar 数量  Returns:     包含 close 和 datetime 列的 DataFrame",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_initial_state",
+      "type": "function",
+      "name": "test_initial_state",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试初始状态。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_buy_then_sell",
+      "type": "function",
+      "name": "test_buy_then_sell",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试买入再卖出。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_drawdown_calculation",
+      "type": "function",
+      "name": "test_drawdown_calculation",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试回撤计算（无交易时回撤全为 0）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_equity_curve_columns",
+      "type": "function",
+      "name": "test_equity_curve_columns",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试资金曲线列名。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_position_tracking",
+      "type": "function",
+      "name": "test_position_tracking",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试持仓追踪。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_avg_price_update",
+      "type": "function",
+      "name": "test_avg_price_update",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试均价更新。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_sell_clears_position",
+      "type": "function",
+      "name": "test_sell_clears_position",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试卖出清空持仓。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_position_market_value",
+      "type": "function",
+      "name": "test_position_market_value",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试持仓市值计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_unrealized_pnl",
+      "type": "function",
+      "name": "test_unrealized_pnl",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试未实现盈亏计算。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_rejected_trade_ignored",
+      "type": "function",
+      "name": "test_rejected_trade_ignored",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试被拒绝的交易不产生影响。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_commission_and_slippage",
+      "type": "function",
+      "name": "test_commission_and_slippage",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试手续费和滑点扣减。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_portfolio.py:test_empty_trades",
+      "type": "function",
+      "name": "test_empty_trades",
+      "filePath": "tests/unit/test_backtest_portfolio.py",
+      "summary": "测试空交易列表不崩溃。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_slippage.py",
+      "type": "file",
+      "name": "test_backtest_slippage.py",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "滑点模型单元测试。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:TestSlippageBase",
+      "type": "class",
+      "name": "TestSlippageBase",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "基类验证。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:TestFixedSlippage",
+      "type": "class",
+      "name": "TestFixedSlippage",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "固定每股滑点。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:TestPercentSlippage",
+      "type": "class",
+      "name": "TestPercentSlippage",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "按成交金额百分比滑点。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:TestSquareRootSlippage",
+      "type": "class",
+      "name": "TestSquareRootSlippage",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "方根市场冲击模型。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:TestVolumeSlippage",
+      "type": "class",
+      "name": "TestVolumeSlippage",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "成交量比例滑点。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_slippage.py:BadModel",
+      "type": "class",
+      "name": "BadModel",
+      "filePath": "tests/unit/test_backtest_slippage.py",
+      "summary": "Class BadModel defined in tests/unit/test_backtest_slippage.py.",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_strategy.py",
+      "type": "file",
+      "name": "test_backtest_strategy.py",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "测试策略基类和数据代理。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:TestSeriesAccessor",
+      "type": "class",
+      "name": "TestSeriesAccessor",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "测试 _SeriesAccessor 数据访问器。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:TestStrategyDataProxy",
+      "type": "class",
+      "name": "TestStrategyDataProxy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "测试 StrategyDataProxy 数据代理。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:TestCrossover",
+      "type": "class",
+      "name": "TestCrossover",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "测试 crossover 金叉检测函数。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:TestStrategyBase",
+      "type": "class",
+      "name": "TestStrategyBase",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "测试 Strategy 策略基类。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:SimpleStrategy",
+      "type": "class",
+      "name": "SimpleStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class SimpleStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:SignalStrategy",
+      "type": "class",
+      "name": "SignalStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class SignalStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:IndicatorStrategy",
+      "type": "class",
+      "name": "IndicatorStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class IndicatorStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:FullPositionStrategy",
+      "type": "class",
+      "name": "FullPositionStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class FullPositionStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:DataAccessStrategy",
+      "type": "class",
+      "name": "DataAccessStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class DataAccessStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:PositionStrategy",
+      "type": "class",
+      "name": "PositionStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class PositionStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:DateTimeStrategy",
+      "type": "class",
+      "name": "DateTimeStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class DateTimeStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:ClearSignalStrategy",
+      "type": "class",
+      "name": "ClearSignalStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class ClearSignalStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:BadStrategy",
+      "type": "class",
+      "name": "BadStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class BadStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_backtest_strategy.py:ChanlunStrategy",
+      "type": "class",
+      "name": "ChanlunStrategy",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "Class ChanlunStrategy defined in tests/unit/test_backtest_strategy.py.",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_strategy.py:_make_df",
+      "type": "function",
+      "name": "_make_df",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "构造随机 OHLCV DataFrame。  Args:     n: K线数量     seed: 随机种子  Returns:     DataFrame with columns: datetime, open, close, high, low, vol, amount",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_strategy.py:_make_df_with_extras",
+      "type": "function",
+      "name": "_make_df_with_extras",
+      "filePath": "tests/unit/test_backtest_strategy.py",
+      "summary": "构造带额外列的 DataFrame（MACD_DIF, BOLL_UPPER）。  Args:     n: K线数量  Returns:     DataFrame with standard OHLCV columns + MACD_DIF, BOLL_UPPER",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_backtest_types.py",
+      "type": "file",
+      "name": "test_backtest_types.py",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "回测引擎数据类型单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_signal_defaults",
+      "type": "function",
+      "name": "test_signal_defaults",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 Signal 的默认值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_signal_with_all_fields",
+      "type": "function",
+      "name": "test_signal_with_all_fields",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 Signal 完整字段。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_direction_literal",
+      "type": "function",
+      "name": "test_direction_literal",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 direction 字面量类型。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_trade_defaults",
+      "type": "function",
+      "name": "test_trade_defaults",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 Trade 的默认值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_trade_with_pnl",
+      "type": "function",
+      "name": "test_trade_with_pnl",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试带盈亏的成交记录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_trade_rejected",
+      "type": "function",
+      "name": "test_trade_rejected",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试被拒绝的成交。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_position_long",
+      "type": "function",
+      "name": "test_position_long",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试多头持仓。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_position_short",
+      "type": "function",
+      "name": "test_position_short",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试空头持仓。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_position_flat",
+      "type": "function",
+      "name": "test_position_flat",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试空仓。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_backtest_result_to_dict",
+      "type": "function",
+      "name": "test_backtest_result_to_dict",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 BacktestResult.to_dict() 序列化。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_backtest_result_to_json",
+      "type": "function",
+      "name": "test_backtest_result_to_json",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 BacktestResult.to_json() 序列化。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_backtest_result_empty_dataframes",
+      "type": "function",
+      "name": "test_backtest_result_empty_dataframes",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试空 DataFrame 不崩溃。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_backtest_types.py:test_backtest_result_summary",
+      "type": "function",
+      "name": "test_backtest_result_summary",
+      "filePath": "tests/unit/test_backtest_types.py",
+      "summary": "测试 summary() 打印输出。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_block_info.py",
+      "type": "file",
+      "name": "test_block_info.py",
+      "filePath": "tests/unit/test_block_info.py",
+      "summary": "板块信息单元测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_block_info.py:test_async_get_block_info_logic",
+      "type": "function",
+      "name": "test_async_get_block_info_logic",
+      "filePath": "tests/unit/test_block_info.py",
+      "summary": "测试 AsyncTdxClient.get_block_info 的异步拉取逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_block_info.py:test_parse_block_dat_empty",
+      "type": "function",
+      "name": "test_parse_block_dat_empty",
+      "filePath": "tests/unit/test_block_info.py",
+      "summary": "Function test_parse_block_dat_empty() defined in tests/unit/test_block_info.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_block_info.py:test_parse_block_dat_basic",
+      "type": "function",
+      "name": "test_parse_block_dat_basic",
+      "filePath": "tests/unit/test_block_info.py",
+      "summary": "Function test_parse_block_dat_basic() defined in tests/unit/test_block_info.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_block_info.py:test_get_block_info_logic",
+      "type": "function",
+      "name": "test_get_block_info_logic",
+      "filePath": "tests/unit/test_block_info.py",
+      "summary": "测试 TdxClient.get_block_info 的分片拉取逻辑。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_board_change_ranking.py",
+      "type": "file",
+      "name": "test_board_change_ranking.py",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "板块 N 日涨跌幅排行榜单元测试。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:_make_kline_df",
+      "type": "function",
+      "name": "_make_kline_df",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "构造模拟 K 线 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:_make_boards_df",
+      "type": "function",
+      "name": "_make_boards_df",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "构造模拟板块列表 DataFrame。  Args:     boards: [(code, name, market), ...]",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_empty_board_list",
+      "type": "function",
+      "name": "test_empty_board_list",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "空板块列表应返回带正确列名的空 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_basic_change_calculation",
+      "type": "function",
+      "name": "test_basic_change_calculation",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "验证涨跌幅计算逻辑正确。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_target_date_falls_on_weekend",
+      "type": "function",
+      "name": "test_target_date_falls_on_weekend",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "target_date 是周六时，应使用周五的收盘价。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_insufficient_history",
+      "type": "function",
+      "name": "test_insufficient_history",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "K 线只有 5 根但 days=20 时，应使用第一根 bar 作为 close_start。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_close_start_zero_skipped",
+      "type": "function",
+      "name": "test_close_start_zero_skipped",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "close_start 为 0 的板块应被跳过。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_days_less_than_one_raises",
+      "type": "function",
+      "name": "test_days_less_than_one_raises",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "days < 1 应抛出 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_empty_kline_skipped",
+      "type": "function",
+      "name": "test_empty_kline_skipped",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "K 线返回空 DataFrame 的板块应被跳过。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_full_ranking",
+      "type": "function",
+      "name": "test_full_ranking",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "完整排行测试：3 个板块，验证排序和 top_n。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_top_n_truncation",
+      "type": "function",
+      "name": "test_top_n_truncation",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "top_n=2 时只返回前 2 个板块。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_ascending_order",
+      "type": "function",
+      "name": "test_ascending_order",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "ascending=True 时跌幅最大的排前面。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_days_validation",
+      "type": "function",
+      "name": "test_days_validation",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "days=0 应抛出 ValueError。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_board_change_ranking.py:test_with_target_date",
+      "type": "function",
+      "name": "test_with_target_date",
+      "filePath": "tests/unit/test_board_change_ranking.py",
+      "summary": "指定 target_date 时，截止 bar 应在 target_date 或之前。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:tests/unit/test_chanlun_phase2.py",
+      "type": "file",
+      "name": "test_chanlun_phase2.py",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "缠论 Phase 2 单元测试：MACD、线段、买卖点、背驰。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase2.py:TestMacd",
+      "type": "class",
+      "name": "TestMacd",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "calc_macd 测试。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase2.py:TestFindXds",
+      "type": "class",
+      "name": "TestFindXds",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "find_xds 测试。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase2.py:TestFindMmds",
+      "type": "class",
+      "name": "TestFindMmds",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "find_mmds 测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:tests/unit/test_chanlun_phase2.py:TestBeichi",
+      "type": "class",
+      "name": "TestBeichi",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "check_beichi 测试。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun_phase2.py:_k",
+      "type": "function",
+      "name": "_k",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "Function _k() defined in tests/unit/test_chanlun_phase2.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:tests/unit/test_chanlun_phase2.py:_ck",
+      "type": "function",
+      "name": "_ck",
+      "filePath": "tests/unit/test_chanlun_phase2.py",
+      "summary": "Function _ck() defined in tests/unit/test_chanlun_phase2.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/integration/test_live_client.py",
+      "target": "function:tests/integration/test_live_client.py:test_sync_live_smoke",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/integration/test_live_client.py defines function test_sync_live_smoke()."
+    },
+    {
+      "source": "file:tests/integration/test_live_client.py",
+      "target": "function:tests/integration/test_live_client.py:test_async_live_smoke",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/integration/test_live_client.py defines function test_async_live_smoke()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_fund_flow_logic",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_fund_flow_logic()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_classify_fund_flow_exact_thresholds_use_lower_bucket",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_classify_fund_flow_exact_thresholds_use_lower_bucket()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_security_list_all_filtering",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_security_list_all_filtering()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_market_stat_mapping",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_market_stat_mapping()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_history_fund_flow_parsing",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_history_fund_flow_parsing()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_history_fund_flow_fallback",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_history_fund_flow_fallback()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_price_limits_uses_listing_window",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_price_limits_uses_listing_window()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_get_minute_time_data_uses_history_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_get_minute_time_data_uses_history_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_a_share_extensions.py",
+      "target": "function:tests/unit/test_a_share_extensions.py:test_async_get_minute_time_data_uses_history_endpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_a_share_extensions.py defines function test_async_get_minute_time_data_uses_history_endpoint()."
+    },
+    {
+      "source": "file:tests/unit/test_async_transport.py",
+      "target": "function:tests/unit/test_async_transport.py:_pack_frame",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_async_transport.py defines function _pack_frame()."
+    },
+    {
+      "source": "file:tests/unit/test_async_transport.py",
+      "target": "function:tests/unit/test_async_transport.py:test_async_client_serializes_concurrent_calls",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_async_transport.py defines function test_async_client_serializes_concurrent_calls()."
+    },
+    {
+      "source": "file:tests/unit/test_async_transport.py",
+      "target": "function:tests/unit/test_async_transport.py:test_async_client_auto_reconnect",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_async_transport.py defines function test_async_client_auto_reconnect()."
+    },
+    {
+      "source": "file:tests/unit/test_async_transport.py",
+      "target": "function:tests/unit/test_async_transport.py:test_async_client_request_timeout",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_async_transport.py defines function test_async_client_request_timeout()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "class:tests/unit/test_backtest_attribution.py:TestCostAttribution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines class TestCostAttribution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "class:tests/unit/test_backtest_attribution.py:TestBrinsonAttribution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines class TestBrinsonAttribution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "class:tests/unit/test_backtest_attribution.py:TestFactorAttribution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines class TestFactorAttribution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "class:tests/unit/test_backtest_attribution.py:TestFullReport",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines class TestFullReport."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "function:tests/unit/test_backtest_attribution.py:_make_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines function _make_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "function:tests/unit/test_backtest_attribution.py:_make_equity",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines function _make_equity()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_attribution.py",
+      "target": "function:tests/unit/test_backtest_attribution.py:_make_benchmark",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_attribution.py defines function _make_benchmark()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_cli.py",
+      "target": "class:tests/unit/test_backtest_cli.py:TestBacktestCLI",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_cli.py defines class TestBacktestCLI."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:BuyOnBar3Strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class BuyOnBar3Strategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_combo.py:BuyOnBar3Strategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BuyOnBar3Strategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:BuyOnBar5Strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class BuyOnBar5Strategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_combo.py:BuyOnBar5Strategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BuyOnBar5Strategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:BuyOnBar7Strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class BuyOnBar7Strategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_combo.py:BuyOnBar7Strategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BuyOnBar7Strategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:NeverTradeStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class NeverTradeStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_combo.py:NeverTradeStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "NeverTradeStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:TestExtractFactorSignals",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class TestExtractFactorSignals."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:TestCombineMasks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class TestCombineMasks."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:TestCombinationRunner",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class TestCombinationRunner."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "class:tests/unit/test_backtest_combo.py:MAStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines class MAStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_combo.py:MAStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "MAStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_combo.py",
+      "target": "function:tests/unit/test_backtest_combo.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_combo.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:MACrossStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class MACrossStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:MACrossStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "MACrossStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:FixedBuyStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class FixedBuyStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:FixedBuyStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "FixedBuyStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:ChanlunStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class ChanlunStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:ChanlunStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "ChanlunStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:PrecomputedIndicatorStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class PrecomputedIndicatorStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:PrecomputedIndicatorStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "PrecomputedIndicatorStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:PositionAwareStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class PositionAwareStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:PositionAwareStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "PositionAwareStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:StopLossStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class StopLossStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:StopLossStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "StopLossStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:TakeProfitStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class TakeProfitStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:TakeProfitStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "TakeProfitStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:StopLossAndTakeProfitStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class StopLossAndTakeProfitStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:StopLossAndTakeProfitStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "StopLossAndTakeProfitStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:ChanlunAwareStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class ChanlunAwareStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:ChanlunAwareStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "ChanlunAwareStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:TestEngineSlippageModel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class TestEngineSlippageModel."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:TestEngineExecutionModel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class TestEngineExecutionModel."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:SLThenManualSell",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class SLThenManualSell."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:SLThenManualSell",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SLThenManualSell inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:CheckerStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class CheckerStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:CheckerStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "CheckerStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class SimpleBuy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class SimpleBuy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:BuyAndHold",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class BuyAndHold."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:BuyAndHold",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BuyAndHold inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:BuyOnce",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class BuyOnce."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:BuyOnce",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BuyOnce inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class SimpleBuy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines class SimpleBuy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_engine.py:SimpleBuy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleBuy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_basic_run",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_basic_run()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_fixed_strategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_fixed_strategy()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_result_columns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_result_columns()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_to_dict",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_to_dict()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_chanlun_injection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_chanlun_injection()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_config_snapshot",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_config_snapshot()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_precomputed_indicator_columns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_precomputed_indicator_columns()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_empty_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_empty_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_strategy_instance_vs_class",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_strategy_instance_vs_class()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_commission_calculation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_commission_calculation()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_pnl_calculation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_pnl_calculation()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_position_aware_buy_sell_alternation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_position_aware_buy_sell_alternation()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_position_aware_no_duplicate_buys",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_position_aware_no_duplicate_buys()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:_make_flat_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function _make_flat_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_stop_loss_triggers_sell",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_stop_loss_triggers_sell()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_take_profit_triggers_sell",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_take_profit_triggers_sell()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_stop_loss_gap_down_fills_at_worse_price",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_stop_loss_gap_down_fills_at_worse_price()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_stop_loss_not_triggered_when_price_stays_above",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_stop_loss_not_triggered_when_price_stays_above()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_stop_loss_takes_priority_over_strategy_sell",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_stop_loss_takes_priority_over_strategy_sell()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_chanlun_auto_bridge",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_chanlun_auto_bridge()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_engine.py",
+      "target": "function:tests/unit/test_backtest_engine.py:test_chanlun_manual_result_overrides_auto",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_engine.py defines function test_chanlun_manual_result_overrides_auto()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "class:tests/unit/test_backtest_execution.py:TestExecutionBase",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines class TestExecutionBase."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "class:tests/unit/test_backtest_execution.py:TestImmediateExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines class TestImmediateExecution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "class:tests/unit/test_backtest_execution.py:TestTWAPExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines class TestTWAPExecution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "class:tests/unit/test_backtest_execution.py:TestVWAPExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines class TestVWAPExecution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "class:tests/unit/test_backtest_execution.py:TestLimitExecution",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines class TestLimitExecution."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_execution.py",
+      "target": "function:tests/unit/test_backtest_execution.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_execution.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestExecutionModes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestExecutionModes."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestPositionModes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestPositionModes."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestRejectPolicy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestRejectPolicy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestFees",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestFees."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestEdgeCases",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestEdgeCases."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestSlippageModelIntegration",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestSlippageModelIntegration."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "class:tests/unit/test_backtest_orders.py:TestNonContinuousIndex",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines class TestNonContinuousIndex."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "function:tests/unit/test_backtest_orders.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "function:tests/unit/test_backtest_orders.py:_buy_signal",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines function _buy_signal()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_orders.py",
+      "target": "function:tests/unit/test_backtest_orders.py:_sell_signal",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_orders.py defines function _sell_signal()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:_make_equity_curve",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function _make_equity_curve()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:_make_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function _make_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_total_return",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_total_return()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_max_drawdown_never_exceeds_100_pct",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_max_drawdown_never_exceeds_100_pct()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_max_drawdown_zero_when_monotonic",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_max_drawdown_zero_when_monotonic()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_sharpe_positive_for_profit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_sharpe_positive_for_profit()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_win_rate",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_win_rate()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_total_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_total_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_empty_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_empty_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_all_keys_present",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_all_keys_present()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_empty_equity_curve",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_empty_equity_curve()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_single_point_equity_curve",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_single_point_equity_curve()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_profit_factor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_profit_factor()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_win_and_loss",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_win_and_loss()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_max_win_and_loss",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_max_win_and_loss()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_annual_return",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_annual_return()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_volatility",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_volatility()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_rejected_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_rejected_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_win_trades_and_lose_trades_count",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_win_trades_and_lose_trades_count()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_fifo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_holding_days_fifo()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_weighted",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_holding_days_weighted()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_no_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_holding_days_no_datetime()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_only_buys",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_holding_days_only_buys()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_max_dd_duration",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_max_dd_duration()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_sortino",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_sortino()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_calmar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_calmar()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:_metrics_from_total",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function _metrics_from_total()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_metrics_handles_zero_intermediate_equity",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_metrics_handles_zero_intermediate_equity()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_metrics_handles_zero_first_equity",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_metrics_handles_zero_first_equity()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_metrics_all_zero_equity_does_not_raise",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_metrics_all_zero_equity_does_not_raise()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_holding_days_crosses_month_boundary",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_holding_days_crosses_month_boundary()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_profit_factor_no_losing_trades_is_large",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_profit_factor_no_losing_trades_is_large()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_performance.py",
+      "target": "function:tests/unit/test_backtest_performance.py:test_avg_win_zero_when_no_cost_basis_column",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_performance.py defines function test_avg_win_zero_when_no_cost_basis_column()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_initial_state",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_initial_state()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_buy_then_sell",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_buy_then_sell()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_drawdown_calculation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_drawdown_calculation()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_equity_curve_columns",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_equity_curve_columns()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_position_tracking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_position_tracking()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_avg_price_update",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_avg_price_update()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_sell_clears_position",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_sell_clears_position()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_position_market_value",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_position_market_value()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_unrealized_pnl",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_unrealized_pnl()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_rejected_trade_ignored",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_rejected_trade_ignored()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_commission_and_slippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_commission_and_slippage()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_portfolio.py",
+      "target": "function:tests/unit/test_backtest_portfolio.py:test_empty_trades",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_portfolio.py defines function test_empty_trades()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:TestSlippageBase",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class TestSlippageBase."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:TestFixedSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class TestFixedSlippage."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:TestPercentSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class TestPercentSlippage."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:TestSquareRootSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class TestSquareRootSlippage."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:TestVolumeSlippage",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class TestVolumeSlippage."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_slippage.py",
+      "target": "class:tests/unit/test_backtest_slippage.py:BadModel",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_slippage.py defines class BadModel."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:TestSeriesAccessor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class TestSeriesAccessor."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:TestStrategyDataProxy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class TestStrategyDataProxy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:TestCrossover",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class TestCrossover."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:TestStrategyBase",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class TestStrategyBase."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:SimpleStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class SimpleStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:SimpleStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SimpleStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:SignalStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class SignalStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:SignalStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "SignalStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:IndicatorStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class IndicatorStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:IndicatorStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "IndicatorStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:FullPositionStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class FullPositionStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:FullPositionStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "FullPositionStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:DataAccessStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class DataAccessStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:DataAccessStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "DataAccessStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:PositionStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class PositionStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:PositionStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "PositionStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:DateTimeStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class DateTimeStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:DateTimeStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "DateTimeStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:ClearSignalStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class ClearSignalStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:ClearSignalStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "ClearSignalStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:BadStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class BadStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:BadStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "BadStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "class:tests/unit/test_backtest_strategy.py:ChanlunStrategy",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines class ChanlunStrategy."
+    },
+    {
+      "source": "class:tests/unit/test_backtest_strategy.py:ChanlunStrategy",
+      "target": "class:src/easy_tdx/backtest/strategy.py:Strategy",
+      "type": "inherits",
+      "weight": 0.9,
+      "reason": "ChanlunStrategy inherits Strategy."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "function:tests/unit/test_backtest_strategy.py:_make_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines function _make_df()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_strategy.py",
+      "target": "function:tests/unit/test_backtest_strategy.py:_make_df_with_extras",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_strategy.py defines function _make_df_with_extras()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_signal_defaults",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_signal_defaults()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_signal_with_all_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_signal_with_all_fields()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_direction_literal",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_direction_literal()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_trade_defaults",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_trade_defaults()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_trade_with_pnl",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_trade_with_pnl()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_trade_rejected",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_trade_rejected()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_position_long",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_position_long()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_position_short",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_position_short()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_position_flat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_position_flat()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_backtest_result_to_dict",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_backtest_result_to_dict()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_backtest_result_to_json",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_backtest_result_to_json()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_backtest_result_empty_dataframes",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_backtest_result_empty_dataframes()."
+    },
+    {
+      "source": "file:tests/unit/test_backtest_types.py",
+      "target": "function:tests/unit/test_backtest_types.py:test_backtest_result_summary",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_backtest_types.py defines function test_backtest_result_summary()."
+    },
+    {
+      "source": "file:tests/unit/test_block_info.py",
+      "target": "function:tests/unit/test_block_info.py:test_async_get_block_info_logic",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_block_info.py defines function test_async_get_block_info_logic()."
+    },
+    {
+      "source": "file:tests/unit/test_block_info.py",
+      "target": "function:tests/unit/test_block_info.py:test_parse_block_dat_empty",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_block_info.py defines function test_parse_block_dat_empty()."
+    },
+    {
+      "source": "file:tests/unit/test_block_info.py",
+      "target": "function:tests/unit/test_block_info.py:test_parse_block_dat_basic",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_block_info.py defines function test_parse_block_dat_basic()."
+    },
+    {
+      "source": "file:tests/unit/test_block_info.py",
+      "target": "function:tests/unit/test_block_info.py:test_get_block_info_logic",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_block_info.py defines function test_get_block_info_logic()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:_make_kline_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function _make_kline_df()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:_make_boards_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function _make_boards_df()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_empty_board_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_empty_board_list()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_basic_change_calculation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_basic_change_calculation()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_target_date_falls_on_weekend",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_target_date_falls_on_weekend()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_insufficient_history",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_insufficient_history()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_close_start_zero_skipped",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_close_start_zero_skipped()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_days_less_than_one_raises",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_days_less_than_one_raises()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_empty_kline_skipped",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_empty_kline_skipped()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_full_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_full_ranking()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_top_n_truncation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_top_n_truncation()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_ascending_order",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_ascending_order()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_days_validation",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_days_validation()."
+    },
+    {
+      "source": "file:tests/unit/test_board_change_ranking.py",
+      "target": "function:tests/unit/test_board_change_ranking.py:test_with_target_date",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_board_change_ranking.py defines function test_with_target_date()."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "class:tests/unit/test_chanlun_phase2.py:TestMacd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines class TestMacd."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "class:tests/unit/test_chanlun_phase2.py:TestFindXds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines class TestFindXds."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "class:tests/unit/test_chanlun_phase2.py:TestFindMmds",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines class TestFindMmds."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "class:tests/unit/test_chanlun_phase2.py:TestBeichi",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines class TestBeichi."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "function:tests/unit/test_chanlun_phase2.py:_k",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines function _k()."
+    },
+    {
+      "source": "file:tests/unit/test_chanlun_phase2.py",
+      "target": "function:tests/unit/test_chanlun_phase2.py:_ck",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "tests/unit/test_chanlun_phase2.py defines function _ck()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 213,
+    "edgesCreated": 226,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 20 analyzed via AST. 213 nodes, 226 edges from 25 files."
+  }
+}

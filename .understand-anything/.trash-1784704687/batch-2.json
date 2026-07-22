@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 2,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": ".readthedocs.yaml",
+      "language": "yaml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "sizeLines": 1024,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 1823,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "pyproject.toml",
+      "language": "toml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "language": "txt",
+      "sizeLines": 27,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "welcome-discussion.md",
+      "language": "markdown",
+      "sizeLines": 46,
+      "fileCategory": "docs"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "document:readme-md",
+      "type": "document",
+      "name": "README",
+      "filePath": "README.md",
+      "summary": "Primary project README (1823 lines) describing easy-tdx as a free, no-API-key TCP-based TongDaXin market data client for A-shares, HK/US stocks, and futures. Covers the three installation modes (PyPI wheel, editable source, packaged EXE), the full CLI surface (kline, quote, tick, transaction, board, capital-flow, indicator, chanlun, backtest, screen, offline, serve), Python API entry points (TdxClient, MacClient, ExTdxClient, MacExClient, UnifiedTdxClient), the 18-strategy backtest engine, 19-factor portfolio manager, S/A/B/C/D grading system (v1.17.14), Vue3 web UI architecture (single-symbol/portfolio/optimize/compare/strategies/server-settings pages), the offline vipdoc read+sync subsystem, and full API tables for all four client families. Includes CLI command summary, enumeration reference, complete API list, module architecture diagram, development setup, credits, and disclaimer.",
+      "complexity": 8,
+      "tags": ["readme", "marketing", "installation", "cli-reference", "api-reference", "architecture-overview", "web-ui", "backtest", "grading-system", "vipdoc", "unified-client"],
+      "languageNotes": "Markdown document. Uses Chinese throughout for prose (the primary user language), with English code/CLI/API names. Includes fenced code blocks for shell, python, json, ini. Major sections (## headers): 安装, CLI 参考, Python API, 公告检索, 财报三表, 通达信原生 F10, 扩展市场, 离线数据, Web API, CLI 命令汇总, 枚举参考, 完整 API 列表, 架构, 开发, 致谢, 更新日志, 免责声明. Documents the v1.20.0 release line at the top with feature highlights."
+    },
+    {
+      "id": "document:changelog-md",
+      "type": "document",
+      "name": "Changelog",
+      "filePath": "CHANGELOG.md",
+      "summary": "Version history for easy-tdx (1024 lines, format: Keep a Changelog zh-CN) covering releases from 1.20.0 (2026-07-08, automatic failover/ping-switch on connection failure) backwards through 1.20 → 1.9.10. Each release block names a one-line headline change, then lists 新增 (Added), 修复 (Fixed), 变更 (Changed), 已知约束 (Known constraints) sections with explicit file paths and test counts. Recent highlights: v1.20.0 unified auto-failover for 8 clients in `_reconnect.py`, v1.19.7 server settings UI + hot-reconnect, v1.19.5 frontend dist packed into wheel via hatchling force-include, v1.18.x backtest visual web UI + strategy library, v1.17.14 S/A/B/C/D grading, v1.17.x 18 builtin strategies + multi-strategy combo, v1.17.2 QFQ negative-price client-side recompute, v1.16.2 quality hardening (3 rounds of code audit), v1.15.4 ETF/指数 3-decimal price parsing.",
+      "complexity": 7,
+      "tags": ["changelog", "version-history", "keep-a-changelog", "release-notes", "fixes", "features", "code-audit", "windows-matrix"],
+      "languageNotes": "Markdown document in Chinese following Keep a Changelog zh-CN format. Each release entry uses ## [version] — date heading, with the headline change as bold one-liner, followed by sub-sections (### 新增/### 修复/### 变更/### 已知约束/### 说明/### 文档/### 发布工程). Recent releases consistently cite file paths (src/easy_tdx/_reconnect.py, web-ui/src/views/ServerSettingsView.vue, etc.), regression test counts, and quality metrics (单测数量, ruff/mypy/vue-tsc passes)."
+    },
+    {
+      "id": "document:welcome-discussion-md",
+      "type": "document",
+      "name": "Welcome Discussion",
+      "filePath": "welcome-discussion.md",
+      "summary": "GitHub Discussions welcome message (46 lines) framed around the project's mission to 'break down financial data barriers so anyone can access the same market data as institutions'. Outlines five engagement channels (ask questions, share strategies, file bugs, propose features, showcase projects), gives a quickstart with `pip install easy-tdx` followed by three sample commands (kline, indicator, serve), lists community norms (mutual respect, version + command + error in bug reports, no investment advice), and links to README/Wiki.",
+      "complexity": 1,
+      "tags": ["community", "discussions", "welcome", "quickstart", "no-investment-advice"],
+      "languageNotes": "Short markdown document, Chinese prose with English code commands. Uses emoji headers (👋 💬 🚀 🤝). Single-page intro — no deep structure."
+    },
+    {
+      "id": "file:requirements-dev.txt",
+      "type": "file",
+      "name": "Dev requirements lock",
+      "filePath": "requirements-dev.txt",
+      "summary": "Pinned dev-toolchain lock file (27 lines) locking exact versions of pytest 9.0.3, pytest-asyncio>=0.23, pytest-cov 7.1.0, coverage 7.14.0, mypy 2.1.0, ruff 0.11.11, scipy 1.15.3 (3.10-compatible upper bound), numpy 2.2.3, fastapi 0.115.11, uvicorn 0.34.0. Header comment explains the version-compat rationale (scipy 1.16+ requires Python 3.11, but CI matrix includes 3.10) and notes that runtime dependencies are bounded separately in pyproject.toml.",
+      "complexity": 2,
+      "tags": ["dev-dependencies", "ci-lock", "version-pinning", "python-3.10-compat", "pytest", "mypy", "ruff", "scipy"],
+      "languageNotes": "Plain-text pip requirements format. Header is a multi-line comment (lines 1-8) explaining the locking policy; the rest is package==version entries grouped by comment headings (测试框架 / 静态检查 / 科学计算 / Web 可选依赖测试支持)."
+    },
+    {
+      "id": "file:pyproject.toml",
+      "type": "file",
+      "name": "pyproject.toml",
+      "filePath": "pyproject.toml",
+      "summary": "Build + project manifest (85 lines) for easy-tdx 1.20.0 using hatchling as build backend. Declares runtime deps (pandas>=2.0,<3, tzdata>=2024.1, click>=8.0,<9), CLI entry point `easy-tdx` → `easy_tdx.cli:cli`, and optional extras (dev: pytest+asyncio+cov+mypy+ruff+scipy+httpx; science: scipy; web: fastapi+uvicorn; packaging: pystray+Pillow). Hatch config force-includes `web-ui/dist` into `easy_tdx/web/dist` so wheel installs ship a working UI; mypy strict + ruff E/F/I/UP enforced; pytest auto-asyncio mode; coverage gate raised to 60 (audit #9).",
+      "complexity": 4,
+      "tags": ["build-system", "hatchling", "cli-entry-point", "optional-dependencies", "force-include", "mypy-strict", "ruff", "pytest", "coverage-gate"],
+      "languageNotes": "TOML with PEP 621 [project], [tool.hatch.build], [tool.hatch.build.targets.wheel], [tool.mypy] + [[tool.mypy.overrides]], [tool.ruff] + [tool.ruff.lint], [tool.pytest.ini_options], [tool.coverage.run] + [tool.coverage.report]. Force-include mapping is the key cross-cutting contract between frontend build (npm run build) and wheel install."
+    },
+    {
+      "id": "file:.readthedocs.yaml",
+      "type": "file",
+      "name": "Read the Docs config",
+      "filePath": ".readthedocs.yaml",
+      "summary": "Read the Docs v2 configuration (18 lines) pinning ubuntu-22.04 + Python 3.11 build environment, pointing Sphinx at `docs/conf.py` for configuration, requesting PDF + EPUB output formats, and installing docs/requirements.txt (sphinx, sphinx-autobuild, myst-parser, sphinx-rtd-theme) before the project itself.",
+      "complexity": 1,
+      "tags": ["readthedocs", "sphinx", "documentation-build", "pdf-epub", "myst-parser"],
+      "languageNotes": "YAML key:value file. The schema version 2 directives are: build (os, tools.python), sphinx.configuration, formats list, python.install.requirements. No project install step — Sphinx builds the docs/ tree from Markdown via MyST."
+    },
+    {
+      "id": "document:docs-requirements-txt",
+      "type": "file",
+      "name": "Docs requirements",
+      "filePath": "docs/requirements.txt",
+      "summary": "Pinned sphinx stack (4 lines) used by Read the Docs and local docs builds: sphinx>=7.0, sphinx-autobuild>=2024.0, myst-parser>=3.0 (Markdown source), sphinx-rtd-theme>=2.0.",
+      "complexity": 1,
+      "tags": ["sphinx", "myst-parser", "rtd-theme", "docs-build"],
+      "languageNotes": "Plain-text pip requirements format. Lower-bound only (no upper caps), consistent with docs tooling moving faster than runtime libs."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:.readthedocs.yaml",
+      "target": "file:docs/conf.py",
+      "type": "configures",
+      "weight": 0.95,
+      "reason": "`.readthedocs.yaml` declares `sphinx.configuration: docs/conf.py`, so the RTD build driver reads the project's Sphinx config (theme extensions, MyST setup) from there. This is the canonical production-docs entry point."
+    },
+    {
+      "source": "file:.readthedocs.yaml",
+      "target": "file:docs/requirements.txt",
+      "type": "configures",
+      "weight": 0.95,
+      "reason": "`python.install.requirements: docs/requirements.txt` makes RTD install sphinx + myst-parser + sphinx-rtd-theme before building the docs tree; the lock is the single source of truth for the docs build environment."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:pyproject.toml",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "README's installation section (`pip install easy-tdx`, `pip install -e .[dev]`, `pip install -e .[web]`) directly references the optional-dependency extras declared in pyproject.toml — the README is the user-facing docs mirror of the [project.optional-dependencies] table."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:requirements-dev.txt",
+      "type": "documents",
+      "weight": 0.6,
+      "reason": "README mentions the dev install path (`pip install -e .[dev]`) but does not enumerate the pinned versions — the actual locked toolchain (pytest 9.0.3, mypy 2.1.0, ruff 0.11.11, scipy 1.15.3) lives in requirements-dev.txt. README points developers at pyproject's [dev] extra; the lock file is the reproducible ground truth."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "document:changelog-md",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "README's `## 更新日志` footer section points at CHANGELOG.md; the CHANGELOG in turn lists every feature/README change per release (e.g. v1.19.1 README rewrite, v1.18.0 strategy-library additions). They are paired narrative + changelog docs."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/cli/__init__.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "README's `CLI 命令汇总` section enumerates every click command (ping, version, kline, quote, quote-list, tick, transaction, board-*, capital-flow, auction, unusual, market-stat, server-info, symbol-info, announcement, f10, finance-info, company-info, indicator, indicator-list, chanlun, offline, serve). All of these are wired through `easy_tdx.cli:cli` (the click group declared as the console-script entry point in pyproject.toml)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "README's `完整 API 列表` table for TdxClient/AsyncTdxClient (get_security_count, get_security_list, get_security_quotes, get_security_bars, get_index_bars, get_minute_time_data, get_history_minute_time_data, get_transaction_data, get_history_transaction_data, get_fund_flow, get_history_fund_flow, get_xdxr_info, get_finance_info, get_company_info_category, get_company_info_content, get_block_info, get_report_file, get_market_stat, get_price_limits) maps 1:1 to the methods on TdxClient/AsyncTdxClient in client.py."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/unified.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "README's `统一客户端` section describes `UnifiedTdxClient` with examples calling `client.get_stock_kline(Market.SH, \"600519\", Period.DAILY, count=5)` and `client.goods_kline(ExMarket.HK_MAIN_BOARD, \"00700\", Period.DAILY, count=5)` — the exact public surface of `easy_tdx.unified.UnifiedTdxClient`."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/mac/client.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `MacClient / AsyncMacClient` API table (get_stock_quotes, get_stock_quotes_list, get_stock_kline, get_stock_kline_with_indicators, get_tick_chart, get_tick_charts, get_chart_sampling, get_transactions, get_symbol_info, get_board_list, get_board_members, get_board_summary, get_board_ranking, get_board_change_ranking, get_belong_board, get_capital_flow, get_auction, get_unusual, get_server_info, get_kline_offset, get_goods_list) corresponds to the public methods on `easy_tdx.mac.client.MacClient/AsyncMacClient`."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/ex/mac_client.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `MacExClient / AsyncMacExClient` API table (goods_count, goods_list, goods_quotes, goods_quotes_list, goods_kline, goods_tick_chart, goods_chart_sampling, goods_transaction, plus goods_transaction_all for HK stock markets) maps directly to `easy_tdx.ex.mac_client.MacExClient/AsyncMacExClient`. The README is the canonical reference for the HK-stock-specific goods_transaction_all semantics (倒序 start=0, 1800/page, 9万条 safety cap)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/chanlun/__init__.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `缠论分析` section (CLI examples `easy-tdx chanlun SZ 000001 --table`, multi-level section, output examples with 笔数/中枢数/线段数/买卖点/背驰) and Python section (`from easy_tdx.chanlun import ChanlunAnalyser, ChanlunConfig`) document the public surface of the chanlun subpackage."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/backtest/__init__.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "README's `回测引擎` section introduces the `Strategy` base class and shows `from easy_tdx.backtest import Strategy` + `from easy_tdx import MyTT`. The advanced `量化因子与组合管理` section imports `FactorEngine`, `FactorAnalyzer`, `RebalanceEngine`, `FactorWeightedOptimizer`, plus slippage models (`SquareRootSlippage`) and execution models (`TWAPExecution`) — all public re-exports of the backtest subpackage."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/offline/__init__.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "README's `离线数据读取` + `离线数据写入同步` sections import from `easy_tdx.offline` (detect_tdx_home, read_daily_bars, find_daily_bar_file, encode_daily_bar, append_daily_bars, get_last_bar_date, encode_5min_bar, append_5min_bars, encode_lc_min_bar, append_lc_min_bars, sync_daily_bars_from_security_bars) — these are the documented public API of the offline subsystem."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/cninfo/__init__.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `公告检索（巨潮资讯网）` section describes `from easy_tdx.cninfo import CninfoClient` + `client.get_announcements(...)` + `client.download_pdf(...)`. Documents the 巨潮资讯网 independent data source (no TDX connection required)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/sina/__init__.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `财报三表（新浪财经）` section documents `from easy_tdx.sina import SinaClient` + `client.get_financial_report(code, report_type='lrb'/'fzb'/'llb')`. Documents the 新浪财经 independent data source for three financial statements."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/web/app.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "README's `Web API` section documents `easy-tdx serve` startup, `http://127.0.0.1:8000/docs` Swagger UI, `/redoc` ReDoc, port + reload flags, `_resolve_web_dist_dir()` three-tier detection, and the FastAPI mount path. All of these are behaviors implemented in `easy_tdx.web.app`."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/indicator.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `技术指标` section enumerates the 34 supported indicators (MACD, KDJ, RSI, BOLL, DMI, ATR, WR, CCI, BIAS, BIAS_SIGNAL, OBV, VR, EMV, MFI, BRAR, ASI, TRIX, DPO, MTM, ROC, EXPMA, BBI, PSY, DFMA, CR, KTN, XSII, MASS, TAQ, ZHUOYAO, SAR, VWAP, AROON, FK) — the canonical list implemented in `easy_tdx.indicator`."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/MyTT.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "README's backtest example imports `from easy_tdx import MyTT` and uses `MyTT.MA(close, 10)` — documents the 麦语言 indicator library as the user-facing API surface."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/config.py",
+      "type": "documents",
+      "weight": 0.6,
+      "reason": "README's architecture diagram lists `src/easy_tdx/config.py` as the module owning `服务器地址、端口、超时配置`. The server-settings UI section (v1.19.7) documents the user-visible behavior of `get_best_host`/`save_best_host`/`get_best_mac_host`/`save_best_mac_host` (host pollution guard)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/__main__.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.19.1 (referenced in README's release-highlight narrative) documents `python -m easy_tdx` as the PyInstaller entry point; the `__main__` module makes `serve` the default subcommand when no args are passed."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:web-ui/src/views/StrategiesView.vue",
+      "type": "documents",
+      "weight": 0.75,
+      "reason": "README's top blurb about 'strategy library (SQLite persistence)' + 'pick multiple strategies for capital-split combo backtest' documents the StrategiesView UI page (kind: 'multi' save, load rerun-to-today, 单标的/组合 tab)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:web-ui/src/views/ServerSettingsView.vue",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "README's introduction highlights the 'free + one-line install' value prop and CHANGELOG v1.19.7 (called out in README blurb) adds the server settings UI for picking TDX hosts. ServerSettingsView.vue is the page that lists 50+ hosts and lets users ping/switch."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:web-ui/src/grading/index.ts",
+      "type": "documents",
+      "weight": 0.75,
+      "reason": "README's top-of-page S/A/B/C/D grading blurb documents the public grading API (`gradeBacktest` / `gradePortfolio` / `gradeOptimizePoint` in `web-ui/src/grading/index.ts`) and the 6-dimension weighted + 一票否决 semantics (calmar 18% / max_drawdown 17% / win_rate 17% / profit_factor 18% / sharpe 15% / volatility 15%)."
+    },
+    {
+      "source": "document:readme-md",
+      "target": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "README's `自带策略示例` table lists 15 named strategies (双均线交叉/EMA12-EMA50/MACD金叉/布林带突破/RSI反转/KDJ金叉/海龟/乖离率反转/量价/捉妖大师/DMI/CCI/MFI/TRIX/MTM/OBV); CHANGELOG v1.17.0 expanded the builtin count to 18 (added 唐安奇, 肯特纳, ATR通道, WR, BIAS, EMV, DPO, BBI). All of these are classes in `easy_tdx.backtest.strategies.builtin`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/_reconnect.py",
+      "type": "documents",
+      "weight": 0.95,
+      "reason": "CHANGELOG v1.20.0 headline (自动 ping 切换) and detailed entries describe `_reconnect.py` as the single-point injection of `_execute` into 8 clients (TdxClient/MacClient/ExTdxClient/MacExClient, sync+async), the cross-host failover (`select_best_host_sync/async`), the empty-data failover (`find_working_host_sync/async`), and the unified `_reconnect`/`_areconnect` helper. The changelog entry is the authoritative spec for this module."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "documents",
+      "weight": 0.95,
+      "reason": "CHANGELOG v1.20.0 names `client.py` as the home of `_reconnect`/`_areconnect` unified-rebuild helpers and the v1.19.7 `AsyncTdxClient.reconnect_to(host)` hot-switch method; v1.19.4 credits `client.py` for `best_host` cache-pollution guard; v1.16.2 credits client.py for several audit fixes (audit #1 atomic-write, #2 retry delays, #5 fail-fast bar_time, #10 closure-binding, #18 aware datetime). The changelog is dense with client.py callouts."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/config.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.19.4 explicitly names `src/easy_tdx/config.py` as the module that added the `best_mac_host` field + `get_best_mac_host()` / `save_best_mac_host()` and the `get_best_host` cache pollution guard (3 regression tests in `tests/unit/test_config.py::TestBestHostPollutionGuard`). v1.16.2 audit #18 cites config.py for naive-datetime→aware migration."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/mac/client.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.19.4 (MAC host no longer pollutes standard best_host — explicit `src/easy_tdx/mac/client.py` citation); v1.16.2 audit #12 (honest docstring on `asyncio.gather` being serial on a single TCP connection); v1.17.2 QFQ negative-price fix in `MacClient.get_stock_kline`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/mac/adjust.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.2 names `mac/adjust.py` as a new pure-function module (`compute_forward_factor` / `apply_forward_adjust` / `has_bad_prices`) with no easy_tdx internal dependencies. Documents the QFQ local-recompute formula: `f = (P_cum - fenhong + peigujia×peigu) / (P_cum×(1+songzhuangu+peigu))`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/app.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.19.1 names `src/easy_tdx/web/app.py` for `_resolve_web_dist_dir()` three-tier detection (env var → _MEIPASS/web_dist → repo root web-ui/dist) and `app.mount('/', StaticFiles(..., html=True))`. v1.19.2 (MIME types via `mimetypes.add_type`), v1.19.3 (SPAStaticFiles subclass for Vue Router fallback on /optimize /portfolio etc.), v1.19.5 (4th-tier pkg-internal easy_tdx/web/dist fallback)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/routers/server.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.19.7 explicitly names `src/easy_tdx/web/routers/server.py` for the 3 server-settings endpoints (`GET /api/v1/server/hosts`, `POST /api/v1/server/test`, `POST /api/v1/server/switch`). Documents the host-validation rule (only IPs in the candidate list allowed)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/routers/backtest.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.17.4 names `web/routers/backtest.py` as the home of 6 backtest endpoints plus the v1.17.4 `POST /backtest/optimize-all/run/async` 7th endpoint (process-pool fan-out across 18 strategies with `_optimize_one_strategy` top-level function for pickling); v1.17.11 `POST /backtest/multi-strategy/run/async`; v1.18.1 `workers` field."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/backtest_schemas.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.18.0 expands `SavedStrategyCreate.kind` Literal from `['single', 'portfolio']` to `['single', 'portfolio', 'multi']`. v1.18.1 fixes a ruff E501 line-length violation on the same field. Documents the schema-evolution contract."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/strategy_store.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.11 explicitly names `src/easy_tdx/web/strategy_store.py` as the SQLite single-file CRUD store at `~/.easy_tdx/strategies.db`, threaded-safe (`check_same_thread=False` + serial write lock), honoring `EASY_TDX_CONFIG_DIR` env override (same convention as config.py)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/web/task_runner.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.0 introduces the background task runner (ThreadPoolExecutor + LRU task table, status-aware eviction, lifespan-shutdown hook); v1.17.0 audit fixes name `task_runner.py` for the LRU-races-running bug fix and get_runner double-checked locking. v1.17.8 increases a flaky CI timeout in `tests/unit/test_web_backtest.py::test_task_runner_does_not_evict_running`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.17.0 explicitly expands the builtin strategy count from 5 to 18, enumerating the 13 new ones by category: 趋势类 (EMA双线交叉, 三均线, DMI, TRIX), 通道/突破类 (唐安奇, 肯特纳, ATR通道), 震荡/反转类 (CCI, WR, BIAS, EMV, DPO), 均线类 (BBI). v1.18.1 audit code-style fix in registry.py."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/multi_strategy_engine.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.17.13 names `src/easy_tdx/backtest/multi_strategy_engine.py::_build_combined_equity` as the site of the `drawdown / initial` → `drawdown / peak` bug fix (with `peak_safe = peak.where(peak != 0, 1.0)` for divide-by-zero). Documents why the fix was needed (545% gain caused 5× drawdown inflation)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/performance.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.17.9 enumerates 4 fixes in `backtest/performance.py::compute`: (1) `avg_win/avg_loss/max_win/max_loss` switched from absolute P&L to per-trade return (`pnl / cost_basis`); (2) `_compute_avg_holding_days` parses real `datetime.date` instead of YYYYMMDD int subtraction (cross-month inflation); (3) `profit_factor=0.0` when no losses → `999.0`; (4) `np.isfinite` requires `to_numpy(dtype=np.float64)` on object-dtype columns."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/execution.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.16.2 audit #4 cites `backtest/execution.py` (and `backtest/orders.py`) for the stop-loss fix: stop orders now fill at next bar's open with gap protection (SELL takes `min(open, trigger_price)`). Documents the execution-model extension points (TWAP/VWAP/Limit)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/optimizer.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.0 introduces `ParamGridOptimizer` (itertools.product, 200-grid cap, skips param-range validation during optimization). v1.17.4 documents the `_optimize_one_strategy` extraction needed for process-pool pickling."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/strategies/presets.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.4 introduces `backtest/strategies/presets.py` as the standalone preset-grid file: 18 strategies × 1-2 key params × reasonable value lists, single source of truth consumed by both the optimize page auto-fill and the one-click-optimize-all endpoint. Single-strategy cartesian product ≤ 200."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/strategies/registry.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.17.0 introduces the strategy registry (Param schema + ParametrizedStrategy base + @register_strategy); v1.17.0 audit #13 adds NaN/Inf/giant-int rejection in `Param.validate`; v1.18.1 fixes a ruff E501 line-length violation."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/ex/mac_client.py",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.17.5 cites `src/easy_tdx/ex/mac_client.py` (sync + async `goods_transaction`) for the HK-stock protocol routing fix (issue #14): 港股 stock markets (HK_INDEX/HK_MAIN_BOARD/HK_GEM/HK_FUND/HK_STOCK_GGT/HK_DARK_POOL) now route to ex extension protocol (0x23FC 当日 / 0x2406 历史) instead of MAC 0x122F (which returned 39-byte empty body for HK). v1.17.6 adds `goods_transaction_all` automatic pagination."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/ex/_hk_transaction.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.5 introduces `src/easy_tdx/ex/_hk_transaction.py` for the HK-stock extension-protocol implementation (`_fetch_all_hk_transactions_sync/async`, `ExTransactionRecord → MacTransaction` mapping with price ÷ 1000 for HKD float). v1.17.6 expands it with the 1800/page full-day pagination (50-page safety cap = 90000 records)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/mac/commands/symbol_bar.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.17.2 cites `mac/commands/symbol_bar.py` for the QFQ negative-price fix (root cause: TDX MAC server returns raw negative prices for long-term heavy-adjustment stocks at deep history offsets, e.g. 601088 2013-11-18 QFQ close=-3.80)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/mac/commands/tick_charts.py",
+      "type": "documents",
+      "weight": 0.75,
+      "reason": "CHANGELOG v1.16.1 (issue #10) names `mac/commands/tick_charts.py` for the multi-day tick chart fix: `time(minutes // 60, minutes % 60)` → `time(minutes // 60 % 24, minutes % 60)` — `% 24` guard against abnormally large `minutes` values (user saw 62340)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/commands/security_quotes.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.15.4 (issue #8) names `commands/security_quotes.py` for the ETF/指数/基金/可转债/国债 3-decimal price parsing fix (was 2-decimal hardcoded `/100.0`, now `divisor = 10 ** 位数` based on `_price_decimal_digits(market, code)`)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/commands/security_bars.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.18.3 cites `src/easy_tdx/commands/security_bars.py` for K-line truncated-body tolerance: discards the tail-record if the byte-stream ends mid-record, returns the successfully-parsed prefix. v1.19.3 removes the `if bars:` guard so empty-body cases return `[]` instead of raising 500."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/cli/cmd_web.py",
+      "type": "documents",
+      "weight": 0.75,
+      "reason": "CHANGELOG v1.19.1 names `src/easy_tdx/cli/cmd_web.py` for the `--open-browser` / `--no-open-browser` flags (`threading.Timer(1.5, ...)` after uvicorn start, disabled under `--reload` to avoid focus theft in dev)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/tray.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.19.1 introduces `src/easy_tdx/tray.py` for the system-tray icon (pystray-based K-line icon, right-click 'open browser / quit'). Required for the no-black-window EXE packaging target."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:easy_tdx.spec",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.19.1 introduces `easy_tdx.spec` (PyInstaller `--onefile` + `console=False` + `collect_submodules` for uvicorn/easy_tdx + frontend dist bundled to `web_dist`). v1.19.2 improves the dist-collection logic with `pathlib.rglob` for explicit file enumeration and a missing-dist warning."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:.github/workflows/release.yml",
+      "type": "documents",
+      "weight": 0.9,
+      "reason": "CHANGELOG v1.19.1 introduces `.github/workflows/release.yml` (`v*` tag triggers, windows-latest PyInstaller build + softprops/action-gh-release upload). v1.19.6 cites `release.yml` for the step-order fix (build frontend BEFORE `pip install`, so `force-include` finds `web-ui/dist`)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:.github/workflows/publish.yml",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.19.5 explicitly cites `.github/workflows/publish.yml` for the pre-build `npm ci && npm run build` step (required for the hatchling force-include to find web-ui/dist). v1.16.2 audit #8 cites publish.yml for OIDC trusted publishing + sigstore attestations."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:.github/workflows/ci.yml",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.16.2 audit #7 cites `.github/workflows/ci.yml` for adding the windows-latest matrix to CI (the TDX user base is Windows-first). The matrix also runs `pytest tests/unit/ --cov src/easy_tdx --cov-fail-under=60` (gate raised from 50 to 60)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:tests/unit/test_backtest_performance.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.17.9 names 3 regression guards added to `tests/unit/test_backtest_performance.py`: `test_avg_holding_days_crosses_month_boundary` (must use real calendar days, not YYYYMMDD int diff), `test_profit_factor_no_losing_trades_is_large` (== 999.0), `test_avg_win_zero_when_no_cost_basis_column` (safe degradation)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:tests/unit/test_config.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.19.4 cites `tests/unit/test_config.py::TestBestHostPollutionGuard` (3 tests: MAC host auto-reset / valid host untouched / reset persistence) + `TestMacHostSeparation` (2 tests: save_best_mac_host doesn't touch best_host / get_best_mac_host returns independent field). Documents the regression test surface for the v1.19.4 host-pollution fix."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:tests/unit/test_hk_transaction.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.17.5 cites `tests/unit/test_hk_transaction.py` (new file, 22 tests) + `tests/fixtures/ex_history_transaction.hex` and `.json` (real recorded 00700 response from 2026-07-03) for the HK-stock protocol routing regression suite."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:tests/unit/test_mac_qfq_adjust.py",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.17.2 introduces `tests/unit/test_mac_qfq_adjust.py` (16 tests for `compute_forward_factor` / `apply_forward_adjust` / `has_bad_prices` covering pure cash dividends, songzhuangu, multi-event, invalid factor skipping, input immutability, latest-price anchoring) + `tests/unit/test_mac_qfq_integration.py` (4 tests with monkeypatched MacClient)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/components/QuoteCarousel.vue",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.17.15 introduces `web-ui/src/data/investment-quotes.ts` (100 quotes from Buffett/Munger/Graham/Lynch/Soros/Livermore/Taleb/Dalio, Chinese) and `web-ui/src/components/QuoteCarousel.vue` (Fisher-Yates shuffle, 3000ms interval, orange progress bar, fade/slide 350ms transition)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/views/OptimizeView.vue",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.17.10 cites `web-ui/src/views/OptimizeView.vue::buildBacktestQuery` for the URL query with `symbol/startDate/endDate/category`. v1.18.1 documents the workers selector. v1.18.3 documents the 8-process default + localStorage persistence (`optimize.workers`). v1.17.15 documents the orange run-all button styling."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/views/BacktestView.vue",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.17.10 cites `web-ui/src/views/BacktestView.vue` for the `onMounted` route.query backfill (symbol/startDate/endDate/category); v1.17.0 cites it for initial parameter rendering; v1.18.1 cites it for the market-prefix unification via `detectMarket`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/market.ts",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.17.4 introduces `web-ui/src/market.ts::detectMarket` for the 6-digit-code-based market inference (北交所 43/83/87/92/920/93 + 4xx/8xx, 沪市 6xx/9xx/5xx, else 深市). 17 boundary cases (贵州茅台/宁德时代/北交所各段/ETF) all pass."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/views/StrategiesView.vue",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.17.11 introduces `web-ui/src/views/StrategiesView.vue` (route /strategies, card grid, save/load/delete, multi-strategy combo backtest). v1.18.0 expands it with `kind: 'multi'` save, `↻ 重跑到今天`, single/portfolio tab split, holding 3-state highlighting, overfit warning. v1.18.1 adds combination grading via `gradePortfolio`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:web-ui/src/components/GradeBadge.vue",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.17.14 introduces the grading UI: `GradeBadge.vue` (round badge S-gold/A-green/B-blue/C-orange/D-red) + `GradeDetails.vue` (expandable dimension bars + disqualification reason + sample-size warning). v1.17.14 self-tests in `web-ui/src/grading/__tests__/grade.test.ts` (15 tests)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/offline/write_daily.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.16.2 audit #1 names `offline/write_daily.py` for the atomic-write fix (`fsync + flush` + post-write `_repair_tail` + read-side `get_last_bar_date` integrity check). Out-of-scope-of-audit enhancement: command-query separation enforced on get-functions."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/offline/paths.py",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.16.2 audit #16 cites `offline/paths.py` for path-traversal rejection (sanitize `/`, `\\`, `..` from user-supplied codes to keep them inside vipdoc; preserve `#` which is common in 通达信 filenames)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/screen/scanner.py",
+      "type": "documents",
+      "weight": 0.8,
+      "reason": "CHANGELOG v1.16.2 audit #15 (mtime-cache in parallel scanner path) and audit #6 (per-symbol exception logging + ≥50% failure-rate summary alert) both cite `screen/scanner.py`."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/factor/builtin",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.16.2 audit #3 cites the `factor/builtin/` directory for the VWAP factor weight-indexing fix (was using future data due to incorrect `np.resize` flat-index math). Documents the 19-factor built-in surface."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/_df.py",
+      "type": "documents",
+      "weight": 0.85,
+      "reason": "CHANGELOG v1.16.2 audit #5 cites `_df.py` (and 4 client files) for the `bar_time` fail-fast fix (invalid values now raise `ValueError` instead of silently using the default). v1.16.0 names `_df.py` for the `bar_time='start'/'end'` switch and the shared `_apply_bar_time_align_df` / `_apply_bar_time_align_bars` helpers reused across all 3 K-line paths."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:docs/packaging.md",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.19.1 cites `docs/packaging.md` as the new packaging-usage doc (elderly-user SmartScreen bypass + developer local-build steps + Phase 1/2/3 roadmap). Pairs with the EXE packaging release."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/unified.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.16.2 audit #14 cites `unified.py` for adding `DeprecationWarning` on duplicate methods between `UnifiedTdxClient` and its sub-clients (rather than hard-removing, for backward compat)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/types.py",
+      "type": "documents",
+      "weight": 0.65,
+      "reason": "CHANGELOG v1.17.9 cites `src/easy_tdx/backtest/types.py::Trade` for the new `cost_basis` field (used by `_compute_pnls` in `engine.py` to derive per-trade return percentages)."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.17.9 cites `engine.py::_compute_pnls` for filling the new `cost_basis` field on SELL trades (moving-weighted-average cost × sell quantity). v1.17.2 also names engine in the context of backtest crashes on negative QFQ prices."
+    },
+    {
+      "source": "document:changelog-md",
+      "target": "file:src/easy_tdx/backtest/orders.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "CHANGELOG v1.17.4 cites `backtest/orders.py` for removing `this_close`/`worst`/`best` trade-price modes (kept only `next_open`/`next_close` to avoid look-ahead bias). v1.16.2 audit #4 also cites orders.py for the stop-loss gap protection."
+    },
+    {
+      "source": "document:welcome-discussion-md",
+      "target": "document:readme-md",
+      "type": "related",
+      "weight": 0.7,
+      "reason": "welcome-discussion's quickstart (`pip install easy-tdx` + 3 sample commands) duplicates the README's `## 安装` + `## CLI 参考` intros. Explicit README link at the end ('完整文档看 README'). They share the user-onboarding narrative."
+    },
+    {
+      "source": "document:welcome-discussion-md",
+      "target": "file:src/easy_tdx/cli/__init__.py",
+      "type": "documents",
+      "weight": 0.7,
+      "reason": "welcome-discussion's 3 quickstart commands (`easy-tdx kline SZ 000001 --count 30 --table`, `easy-tdx indicator MACD -m SH -c 600519 --table`, `easy-tdx serve`) map directly to the click commands registered in easy_tdx.cli."
+    },
+    {
+      "source": "document:welcome-discussion-md",
+      "target": "file:src/easy_tdx/web/app.py",
+      "type": "documents",
+      "weight": 0.6,
+      "reason": "welcome-discussion mentions `easy-tdx serve` + browser opens `http://localhost:8000/docs` for the FastAPI Swagger UI — same flow documented in the README's `Web API` section and implemented by `easy_tdx.web.app`."
+    },
+    {
+      "source": "file:pyproject.toml",
+      "target": "file:src/easy_tdx/cli/__init__.py",
+      "type": "configures",
+      "weight": 0.95,
+      "reason": "`[project.scripts] easy-tdx = \"easy_tdx.cli:cli\"` declares the console-script entry point: the CLI binary `easy-tdx` invokes the `cli` symbol exported from `src/easy_tdx/cli/__init__.py`. This is the contract between package metadata and CLI bootstrap."
+    },
+    {
+      "source": "file:pyproject.toml",
+      "target": "file:web-ui/dist",
+      "type": "configures",
+      "weight": 0.95,
+      "reason": "`[tool.hatch.build] artifacts = [\"web-ui/dist/\"]` and `[tool.hatch.build.targets.wheel] force-include = { \"web-ui/dist\" = \"easy_tdx/web/dist\" }` define the cross-language contract: the Vite-built frontend gets embedded into the Python wheel so `pip install easy-tdx[web]` ships a working UI without requiring the user to clone the repo or run npm."
+    },
+    {
+      "source": "file:pyproject.toml",
+      "target": "file:src/easy_tdx/__init__.py",
+      "type": "configures",
+      "weight": 0.8,
+      "reason": "`name = \"easy-tdx\"` + `version = \"1.20.0\"` + `description = \"通达信 TCP 协议行情数据客户端...\"` populate the installed package's `__version__` / `__doc__` / pkg metadata, read by `easy_tdx.__init__._get_version` and by the CLI `version` subcommand."
+    },
+    {
+      "source": "file:pyproject.toml",
+      "target": "file:.readthedocs.yaml",
+      "type": "related",
+      "weight": 0.5,
+      "reason": "Loose coupling: pyproject.toml declares the package, Read the Docs builds docs/ which often references package-level APIs. No direct import; both are project-root artifacts read by external tooling (pip / RTD)."
+    },
+    {
+      "source": "file:pyproject.toml",
+      "target": "file:requirements-dev.txt",
+      "type": "related",
+      "weight": 0.85,
+      "reason": "`[project.optional-dependencies].dev` declares `pytest/mypy/ruff/scipy` with lower-bound-only pins; `requirements-dev.txt` then provides exact-version pins for the same toolchain. They are the upper/lower halves of the dev-dependency contract."
+    },
+    {
+      "source": "file:requirements-dev.txt",
+      "target": "file:pyproject.toml",
+      "type": "configures",
+      "weight": 0.7,
+      "reason": "Reverse direction: the locked toolchain (pytest 9.0.3, mypy 2.1.0, ruff 0.11.11, scipy 1.15.3) is the de-facto enforcement of the `[dev]` extra. CI's `pip install -r requirements-dev.txt` after `pip install -e .[dev]` ensures the wheel's lower bounds are supplemented with the exact locked versions."
+    },
+    {
+      "source": "file:.readthedocs.yaml",
+      "target": "document:docs-api-reference-md",
+      "type": "builds",
+      "weight": 0.8,
+      "reason": "`.readthedocs.yaml` builds docs/api_reference.md (and the rest of docs/*.md) via Sphinx + MyST. The docs/api_reference.md is in batch 3; RTD is the canonical build pipeline that produces both the online HTML and the PDF/EPUB outputs."
+    },
+    {
+      "source": "file:.readthedocs.yaml",
+      "target": "document:docs-backtest-usage-md",
+      "type": "builds",
+      "weight": 0.8,
+      "reason": "Same as docs/api_reference.md: `.readthedocs.yaml` is the build driver for the entire docs/ tree, including backtest_usage.md, field_mapping.md, indicator-bias-signal.md, indicator-zhuoyao.md (all in batch 3)."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 7,
+    "edgesCreated": 85,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.4
+    },
+    "notes": "Batch 2 covers the project-root documentation + build manifest files: README.md (1823 lines, the primary user-facing narrative covering install, CLI, Python API, web API, architecture, complete API tables), CHANGELOG.md (1024 lines, Keep-a-Changelog format covering 1.20.0 → 1.9.10 with explicit per-release file-path citations), welcome-discussion.md (GitHub Discussions welcome blurb, 46 lines), pyproject.toml (build manifest with force-include contract for web-ui/dist), requirements-dev.txt (dev-toolchain version lock), and .readthedocs.yaml (RTD build config). All markdown files are treated as document nodes; pyproject.toml, requirements-dev.txt, and .readthedocs.yaml are file nodes. Pre-resolved import data was empty (docs have no Python imports), and cross-batch neighbors were empty (batch 1 is infra, batch 3 is more docs). Edge breakdown: 6 configures (pyproject.toml → easy_tdx.cli entry point, pyproject.toml → web-ui/dist force-include, pyproject.toml → src/easy_tdx/__init__ version metadata, .readthedocs.yaml → docs/conf.py, .readthedocs.yaml → docs/requirements.txt, requirements-dev.txt → pyproject.toml), 73 documents (README → ~20 code modules cited by import statements and CLI tables; CHANGELOG → ~45 code modules cited in per-release file-path references including the hot-fix hot-spots like _reconnect.py v1.20.0, web/app.py v1.19.x, ex/mac_client.py v1.17.5, backtest/multi_strategy_engine.py v1.17.13, backtest/performance.py v1.17.9, etc.; welcome-discussion → cli + web/app for the quickstart commands), 4 related (README ↔ CHANGELOG, welcome-discussion → README, pyproject.toml ↔ .readthedocs.yaml, pyproject.toml ↔ requirements-dev.txt), 2 builds (.readthedocs.yaml → docs/api_reference.md + docs/backtest_usage.md, both in batch 3 — anticipated cross-batch builds relationships). Edge weights range 0.5–0.95: highest (0.95) for build/CLI entry-point contracts (pyproject.toml → cli, .readthedocs.yaml → docs/conf.py); mid (0.7-0.85) for documents edges where the README/CHANGELOG explicitly names the file path; lowest (0.5-0.6) for loose cross-artifact references. The documents edges from CHANGELOG to ~45 other-batch code modules are intentional: CHANGELOG's per-release file-path citations (e.g. `src/easy_tdx/_reconnect.py`, `web-ui/src/views/ServerSettingsView.vue`) will resolve to actual nodes when batches 4-25 are analyzed and merged. No 'tested_by' edges emitted (this batch has no test files). All textual content generated in English as per language directive."
+  }
+}

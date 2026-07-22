@@ -1,0 +1,33 @@
+{
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "batchFiles": [
+    {"path":"docs/api_reference.md","language":"markdown","sizeLines":630,"fileCategory":"docs"},
+    {"path":"docs/backtest_usage.md","language":"markdown","sizeLines":661,"fileCategory":"docs"},
+    {"path":"docs/conf.py","language":"python","sizeLines":41,"fileCategory":"script"},
+    {"path":"docs/field_mapping.md","language":"markdown","sizeLines":315,"fileCategory":"docs"},
+    {"path":"docs/indicator-bias-signal.md","language":"markdown","sizeLines":167,"fileCategory":"docs"},
+    {"path":"docs/indicator-zhuoyao.md","language":"markdown","sizeLines":84,"fileCategory":"docs"},
+    {"path":"docs/index.md","language":"markdown","sizeLines":16,"fileCategory":"docs"},
+    {"path":"docs/packaging.md","language":"markdown","sizeLines":123,"fileCategory":"docs"},
+    {"path":"docs/protocol-reverse-engineering.md","language":"markdown","sizeLines":144,"fileCategory":"docs"},
+    {"path":"docs/protocol-unknown-fields.md","language":"markdown","sizeLines":384,"fileCategory":"docs"},
+    {"path":"docs/quantitative-guide.md","language":"markdown","sizeLines":628,"fileCategory":"docs"},
+    {"path":"docs/readme.md","language":"markdown","sizeLines":5,"fileCategory":"docs"},
+    {"path":"docs/requirements.txt","language":"txt","sizeLines":4,"fileCategory":"config"}
+  ],
+  "batchImportData": {
+    "docs/api_reference.md": [],
+    "docs/backtest_usage.md": [],
+    "docs/conf.py": [],
+    "docs/field_mapping.md": [],
+    "docs/indicator-bias-signal.md": [],
+    "docs/indicator-zhuoyao.md": [],
+    "docs/index.md": [],
+    "docs/packaging.md": [],
+    "docs/protocol-reverse-engineering.md": [],
+    "docs/protocol-unknown-fields.md": [],
+    "docs/quantitative-guide.md": [],
+    "docs/readme.md": [],
+    "docs/requirements.txt": []
+  }
+}

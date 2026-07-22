@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 23,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "web-ui/src/components/CompareChart.vue",
+      "language": "vue",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/CompareTable.vue",
+      "language": "vue",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/EquityChart.vue",
+      "language": "vue",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/GradeBadge.vue",
+      "language": "vue",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/GradeDetails.vue",
+      "language": "vue",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/KlineChart.vue",
+      "language": "vue",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/MetricTable.vue",
+      "language": "vue",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/OptimizeHeatmap.vue",
+      "language": "vue",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/OptimizeResultTable.vue",
+      "language": "vue",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/ParamGridPicker.vue",
+      "language": "vue",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/PortfolioCompareChart.vue",
+      "language": "vue",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/PortfolioSummaryTable.vue",
+      "language": "vue",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/QuoteCarousel.vue",
+      "language": "vue",
+      "sizeLines": 206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/StocksPicker.vue",
+      "language": "vue",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/StrategyPicker.vue",
+      "language": "vue",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/SymbolPicker.vue",
+      "language": "vue",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/components/TradeTable.vue",
+      "language": "vue",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/data/investment-quotes.ts",
+      "language": "typescript",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/echarts-setup.ts",
+      "language": "typescript",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/format.ts",
+      "language": "typescript",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/grading/__tests__/grade.test.ts",
+      "language": "typescript",
+      "sizeLines": 319,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/grading/combinedMetrics.ts",
+      "language": "typescript",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/grading/engine.ts",
+      "language": "typescript",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/grading/index.ts",
+      "language": "typescript",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "web-ui/src/grading/thresholds.ts",
+      "language": "typescript",
+      "sizeLines": 170,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:web-ui/src/components/CompareChart.vue",
+      "type": "file",
+      "name": "CompareChart.vue",
+      "filePath": "web-ui/src/components/CompareChart.vue",
+      "summary": "Vue 3 component 归一化净值. Template:  <div ref=\"container\" class=\"compare-chart\"></div> ",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/CompareTable.vue",
+      "type": "file",
+      "name": "CompareTable.vue",
+      "filePath": "web-ui/src/components/CompareTable.vue",
+      "summary": "Vue 3 component CompareTable. Template:  <table class=\"compare-table\"> <thead> <tr> <th>指标</th> <th v-for=\"item in props.items\" :key=\"item.label\" class=\"col\">{{ item.label }}</th> </tr> </thead> <tbody> <tr v-for=\"row in ROWS\" :key=\"row.key\"> <td class=\"metric-label\">{{ row.label }}</td> <td v-for=\"item in props.items\" :key=\"item.label\" c",
+      "complexity": 2,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/EquityChart.vue",
+      "type": "file",
+      "name": "EquityChart.vue",
+      "filePath": "web-ui/src/components/EquityChart.vue",
+      "summary": "Vue 3 component 净值. Template:  <div ref=\"container\" class=\"equity-chart\"></div> ",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/GradeBadge.vue",
+      "type": "file",
+      "name": "GradeBadge.vue",
+      "filePath": "web-ui/src/components/GradeBadge.vue",
+      "summary": "Vue 3 component GradeBadge. Template:  <span class=\"badge-wrapper\"> <span :class=\"badgeClass\" :style=\"{ '--grade-color': meta.color }\" :title=\"tooltip\" role=\"img\" :aria-label=\"`评级 ${result.grade}：${meta.hint}`\" > <span class=\"grade-letter\">{{ result.grade }}</span> <span v-if=\"showScore\" class=\"grade-score\">{{ result.score.toFixed(0) }}",
+      "complexity": 4,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/GradeDetails.vue",
+      "type": "file",
+      "name": "GradeDetails.vue",
+      "filePath": "web-ui/src/components/GradeDetails.vue",
+      "summary": "Vue 3 component GradeDetails. Template:  <div class=\"grade-details\" :class=\"`scenario-${result.scenario}`\"> <div class=\"grade-header\"> <GradeBadge :result=\"result\" size=\"lg\" /> <div class=\"grade-hint\">{{ meta.hint }}</div> </div> <!-- 特殊标记 --> <div v-if=\"result.insufficientSample || result.isLosing\" class=\"flags\"> <span v-if=\"result.isLos",
+      "complexity": 6,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/KlineChart.vue",
+      "type": "file",
+      "name": "KlineChart.vue",
+      "filePath": "web-ui/src/components/KlineChart.vue",
+      "summary": "Vue 3 component K线. Template:  <div ref=\"container\" class=\"kline-chart\"></div> ",
+      "complexity": 5,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/MetricTable.vue",
+      "type": "file",
+      "name": "MetricTable.vue",
+      "filePath": "web-ui/src/components/MetricTable.vue",
+      "summary": "Vue 3 component MetricTable. Template:  <div class=\"metric-grid\"> <div v-for=\"[group, rows] in groups\" :key=\"group\" class=\"metric-group\"> <h4 class=\"group-title\">{{ group }}</h4> <div class=\"metric-rows\"> <div v-for=\"row in rows\" :key=\"row.key\" class=\"metric-row\"> <span class=\"metric-label\">{{ row.label }}</span> <span class=\"metric-valu",
+      "complexity": 4,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/OptimizeHeatmap.vue",
+      "type": "file",
+      "name": "OptimizeHeatmap.vue",
+      "filePath": "web-ui/src/components/OptimizeHeatmap.vue",
+      "summary": "Vue 3 component OptimizeHeatmap. Template:  <div ref=\"container\" class=\"heatmap-chart\"></div> ",
+      "complexity": 2,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/OptimizeResultTable.vue",
+      "type": "file",
+      "name": "OptimizeResultTable.vue",
+      "filePath": "web-ui/src/components/OptimizeResultTable.vue",
+      "summary": "Vue 3 component OptimizeResultTable. Template:  <table class=\"opt-table\"> <thead> <tr> <th>#</th> <th>参数</th> <th class=\"num\">总收益</th> <th class=\"num\">夏普</th> <th class=\"num\">最大回撤</th> <th class=\"num\">交易数</th> <th class=\"num\">胜率</th> <th></th> </tr> </thead> <tbody> <tr v-for=\"(r, i) in results\" :key=\"i\" :class=\"{ best: i === bestIndex }\"> <td c",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/ParamGridPicker.vue",
+      "type": "file",
+      "name": "ParamGridPicker.vue",
+      "filePath": "web-ui/src/components/ParamGridPicker.vue",
+      "summary": "Vue 3 component ParamGridPicker. Template:  <div class=\"grid-picker\"> <p class=\"hint\"> 勾选 1-2 个参数寻优，填入取值列表（逗号分隔）。 切换策略会自动填入预设参数，可直接编辑： </p> <div v-for=\"p in strategy?.params\" :key=\"p.name\" class=\"param-row\"> <label class=\"check\"> <input type=\"checkbox\" :checked=\"selected.has(p.name)\" :disabled=\"!selected.has(p.name) && selected.size >= 2\" @c",
+      "complexity": 4,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/PortfolioCompareChart.vue",
+      "type": "file",
+      "name": "PortfolioCompareChart.vue",
+      "filePath": "web-ui/src/components/PortfolioCompareChart.vue",
+      "summary": "Vue 3 component 归一化净值. Template:  <div ref=\"container\" class=\"compare-chart\"></div> ",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/PortfolioSummaryTable.vue",
+      "type": "file",
+      "name": "PortfolioSummaryTable.vue",
+      "filePath": "web-ui/src/components/PortfolioSummaryTable.vue",
+      "summary": "Vue 3 component PortfolioSummaryTable. Template:  <table class=\"summary-table\"> <thead> <tr> <th>标的</th> <th class=\"num\">资金占比</th> <th class=\"num\">总收益</th> <th class=\"num\">最大回撤</th> <th class=\"num\">夏普</th> <th class=\"num\">交易数</th> <th class=\"num\">胜率</th> </tr> </thead> <tbody> <tr v-for=\"(res, key) in results\" :key=\"key\"> <td class=\"sym\">{{ key }}",
+      "complexity": 2,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/QuoteCarousel.vue",
+      "type": "file",
+      "name": "QuoteCarousel.vue",
+      "filePath": "web-ui/src/components/QuoteCarousel.vue",
+      "summary": "Vue 3 component QuoteCarousel. Template:  <div class=\"quote-carousel\" :style=\"{ '--quote-interval': `${interval}ms` }\"> <div class=\"quote-card\"> <!-- 顶部进度条：3 秒线性循环，暗示\"还在跑\" --> <div class=\"quote-progress\"><span class=\"bar\" /></div> <div class=\"quote-mark\">\"</div> <Transition name=\"quote-fade\" mode=\"out-in\"> <blockquote :key=\"current.text\" c",
+      "complexity": 6,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/StocksPicker.vue",
+      "type": "file",
+      "name": "StocksPicker.vue",
+      "filePath": "web-ui/src/components/StocksPicker.vue",
+      "summary": "Vue 3 component StocksPicker. Template:  <div class=\"stocks-picker\"> <div class=\"row add-row\"> <input v-model=\"code\" maxlength=\"6\" placeholder=\"6位代码（市场自动识别）\" @keyup.enter=\"add\" /> <button @click=\"add\">添加</button> </div> <p v-if=\"detectedMarket\" class=\"market-hint\">将识别为：{{ detectedMarket }}</p> <div v-if=\"modelValue.length\" class=\"stock-li",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/StrategyPicker.vue",
+      "type": "file",
+      "name": "StrategyPicker.vue",
+      "filePath": "web-ui/src/components/StrategyPicker.vue",
+      "summary": "Vue 3 component StrategyPicker. Template:  <div class=\"strategy-picker\"> <div class=\"field\"> <label>策略</label> <select :value=\"strategy\" @change=\" emit( 'update:strategy', ($event.target as HTMLSelectElement).value, ) \" > <option v-for=\"s in strategies\" :key=\"s.name\" :value=\"s.name\"> {{ s.label }}（{{ s.name }}） </option> </select> </div> <p",
+      "complexity": 4,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/SymbolPicker.vue",
+      "type": "file",
+      "name": "SymbolPicker.vue",
+      "filePath": "web-ui/src/components/SymbolPicker.vue",
+      "summary": "Vue 3 component SymbolPicker. Template:  <div class=\"symbol-picker\"> <div class=\"field code-field\"> <label>代码</label> <input v-model=\"code\" maxlength=\"6\" placeholder=\"6位代码（市场自动识别）\" /> <span v-if=\"detectedMarket\" class=\"market-tag\">{{ detectedMarket }}</span> </div> <div class=\"field\"> <label>周期</label> <select v-model=\"category\"> <option ",
+      "complexity": 5,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/components/TradeTable.vue",
+      "type": "file",
+      "name": "TradeTable.vue",
+      "filePath": "web-ui/src/components/TradeTable.vue",
+      "summary": "Vue 3 component TradeTable. Template:  <div class=\"trade-table-wrap\"> <p v-if=\"trades.length === 0\" class=\"empty\">无成交记录</p> <table v-else class=\"trade-table\"> <thead> <tr> <th>日期</th> <th>方向</th> <th class=\"num\">数量</th> <th class=\"num\">价格</th> <th class=\"num\">手续费</th> <th class=\"num\">盈亏</th> </tr> </thead> <tbody> <tr v-for=\"(t, i) in t",
+      "complexity": 3,
+      "tags": [
+        "vue",
+        "frontend",
+        "component",
+        "ui"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/data/investment-quotes.ts",
+      "type": "file",
+      "name": "investment-quotes.ts",
+      "filePath": "web-ui/src/data/investment-quotes.ts",
+      "summary": "TypeScript module investment-quotes.ts. Exports: InvestmentQuote, INVESTMENT_QUOTES.",
+      "complexity": 5,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/echarts-setup.ts",
+      "type": "file",
+      "name": "echarts-setup.ts",
+      "filePath": "web-ui/src/echarts-setup.ts",
+      "summary": "TypeScript module echarts-setup.ts. Exports: UP_COLOR, DOWN_COLOR.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/format.ts",
+      "type": "file",
+      "name": "format.ts",
+      "filePath": "web-ui/src/format.ts",
+      "summary": "TypeScript module format.ts. Exports: fmt2, fmtPct.",
+      "complexity": 2,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/grading/__tests__/grade.test.ts",
+      "type": "file",
+      "name": "grade.test.ts",
+      "filePath": "web-ui/src/grading/__tests__/grade.test.ts",
+      "summary": "TypeScript module grade.test.ts.",
+      "complexity": 7,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/grading/combinedMetrics.ts",
+      "type": "file",
+      "name": "combinedMetrics.ts",
+      "filePath": "web-ui/src/grading/combinedMetrics.ts",
+      "summary": "TypeScript module combinedMetrics.ts. Exports: CombinedMetrics, computeCombinedMetrics.",
+      "complexity": 6,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/grading/engine.ts",
+      "type": "file",
+      "name": "engine.ts",
+      "filePath": "web-ui/src/grading/engine.ts",
+      "summary": "TypeScript module engine.ts. Exports: interpolate, scoreDimension, weightedTotal, scoreToGrade, gradeRank.",
+      "complexity": 3,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/grading/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "web-ui/src/grading/index.ts",
+      "summary": "TypeScript module index.ts. Exports: VetoContext, applyVetoes, downweightUnreliableDimensions, gradePerformance, gradePortfolio.",
+      "complexity": 7,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "file:web-ui/src/grading/thresholds.ts",
+      "type": "file",
+      "name": "thresholds.ts",
+      "filePath": "web-ui/src/grading/thresholds.ts",
+      "summary": "TypeScript module thresholds.ts. Exports: Anchor, DimensionConfig, THRESHOLDS, DimensionKey.",
+      "complexity": 5,
+      "tags": [
+        "typescript",
+        "frontend"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:web-ui/src/components/CompareChart.vue",
+      "target": "file:web-ui/src/echarts-setup.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "CompareChart.vue imports from ../echarts-setup (resolves to web-ui/src/echarts-setup.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/CompareChart.vue",
+      "target": "file:web-ui/src/format.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "CompareChart.vue imports from ../format (resolves to web-ui/src/format.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/EquityChart.vue",
+      "target": "file:web-ui/src/echarts-setup.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "EquityChart.vue imports from ../echarts-setup (resolves to web-ui/src/echarts-setup.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/EquityChart.vue",
+      "target": "file:web-ui/src/format.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "EquityChart.vue imports from ../format (resolves to web-ui/src/format.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/GradeBadge.vue",
+      "target": "file:web-ui/src/grading/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "GradeBadge.vue imports from ../grading (resolves to web-ui/src/grading/index.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/GradeDetails.vue",
+      "target": "file:web-ui/src/grading/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "GradeDetails.vue imports from ../grading (resolves to web-ui/src/grading/index.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/KlineChart.vue",
+      "target": "file:web-ui/src/echarts-setup.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "KlineChart.vue imports from ../echarts-setup (resolves to web-ui/src/echarts-setup.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/KlineChart.vue",
+      "target": "file:web-ui/src/format.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "KlineChart.vue imports from ../format (resolves to web-ui/src/format.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/OptimizeHeatmap.vue",
+      "target": "file:web-ui/src/echarts-setup.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "OptimizeHeatmap.vue imports from ../echarts-setup (resolves to web-ui/src/echarts-setup.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/PortfolioCompareChart.vue",
+      "target": "file:web-ui/src/echarts-setup.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "PortfolioCompareChart.vue imports from ../echarts-setup (resolves to web-ui/src/echarts-setup.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/PortfolioCompareChart.vue",
+      "target": "file:web-ui/src/format.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "PortfolioCompareChart.vue imports from ../format (resolves to web-ui/src/format.ts)"
+    },
+    {
+      "source": "file:web-ui/src/components/QuoteCarousel.vue",
+      "target": "file:web-ui/src/data/investment-quotes.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "QuoteCarousel.vue imports from ../data/investment-quotes (resolves to web-ui/src/data/investment-quotes.ts)"
+    },
+    {
+      "source": "file:web-ui/src/grading/engine.ts",
+      "target": "file:web-ui/src/grading/thresholds.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "engine.ts imports from ./thresholds"
+    },
+    {
+      "source": "file:web-ui/src/grading/index.ts",
+      "target": "file:web-ui/src/grading/engine.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "index.ts imports from ./engine"
+    },
+    {
+      "source": "file:web-ui/src/grading/index.ts",
+      "target": "file:web-ui/src/grading/combinedMetrics.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "index.ts imports from ./combinedMetrics"
+    }
+  ],
+  "summary": {
+    "nodesCreated": 25,
+    "edgesCreated": 15,
+    "complexity": {
+      "min": 1,
+      "max": 7,
+      "avg": 3.0
+    },
+    "notes": "Batch 23 (frontend Vue/TS) analyzed via regex extraction. 25 nodes, 15 edges."
+  }
+}

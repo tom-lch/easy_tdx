@@ -1,0 +1,2811 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 12,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "src/easy_tdx/cli/cmd_ex.py",
+      "language": "python",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_factor.py",
+      "language": "python",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_finance.py",
+      "language": "python",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_indicator.py",
+      "language": "python",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_info.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_kline.py",
+      "language": "python",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_monitor.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_offline.py",
+      "language": "python",
+      "sizeLines": 694,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_pfactor.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_quote.py",
+      "language": "python",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_run_all.py",
+      "language": "python",
+      "sizeLines": 562,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_tick.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_transaction.py",
+      "language": "python",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/cmd_web.py",
+      "language": "python",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/conn.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/output.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cli/parsers.py",
+      "language": "python",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/client.py",
+      "language": "python",
+      "sizeLines": 1462,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cninfo/__init__.py",
+      "language": "python",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cninfo/client.py",
+      "language": "python",
+      "sizeLines": 274,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/cninfo/models.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/codec/__init__.py",
+      "language": "python",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/codec/bitmap.py",
+      "language": "python",
+      "sizeLines": 489,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/codec/block.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/codec/datetime_.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:src/easy_tdx/cli/cmd_ex.py",
+      "type": "file",
+      "name": "cmd_ex.py",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "扩展市场命令（期货/港股/美股）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:ex",
+      "type": "function",
+      "name": "ex",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "扩展市场命令（期货/港股/美股）。  示例：    easy-tdx ex kline HK_MAIN_BOARD 00700 --count 30    easy-tdx ex quote US_STOCK AAPL    easy-tdx ex markets",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:kline",
+      "type": "function",
+      "name": "kline",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "获取扩展市场 K 线数据。  MARKET: 扩展市场代码（如 HK_MAIN_BOARD, US_STOCK, SH_FUTURES）  示例：    easy-tdx ex kline HK_MAIN_BOARD 00700    easy-tdx ex kline US_STOCK AAPL --count 30 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:quote",
+      "type": "function",
+      "name": "quote",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "获取扩展市场报价。  MARKET: 扩展市场代码  示例：    easy-tdx ex quote HK_MAIN_BOARD 00700    easy-tdx ex quote US_STOCK AAPL --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:quote_list",
+      "type": "function",
+      "name": "quote_list",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "获取扩展市场商品列表。  MARKET: 扩展市场代码（如 HK_MAIN_BOARD, US_STOCK, SH_FUTURES）  示例：    easy-tdx ex quote-list HK_MAIN_BOARD --table    easy-tdx ex quote-list SH_FUTURES --count 100",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "获取扩展市场分时数据。  示例：    easy-tdx ex tick HK_MAIN_BOARD 00700    easy-tdx ex tick US_STOCK AAPL --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_ex.py:markets",
+      "type": "function",
+      "name": "markets",
+      "filePath": "src/easy_tdx/cli/cmd_ex.py",
+      "summary": "列出可用的扩展市场代码。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_factor.py",
+      "type": "file",
+      "name": "cmd_factor.py",
+      "filePath": "src/easy_tdx/cli/cmd_factor.py",
+      "summary": "因子 CLI 命令。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_factor.py:factor",
+      "type": "function",
+      "name": "factor",
+      "filePath": "src/easy_tdx/cli/cmd_factor.py",
+      "summary": "因子研究工具。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_factor.py:factor_list",
+      "type": "function",
+      "name": "factor_list",
+      "filePath": "src/easy_tdx/cli/cmd_factor.py",
+      "summary": "列出所有已注册的因子。  示例：    easy-tdx factor list    easy-tdx factor list --category momentum --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_factor.py:factor_analyze",
+      "type": "function",
+      "name": "factor_analyze",
+      "filePath": "src/easy_tdx/cli/cmd_factor.py",
+      "summary": "分析指定因子的有效性。  示例：    easy-tdx factor analyze momentum_20d    easy-tdx factor analyze rsi_14 --period 10 --n-quantiles 10",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_finance.py",
+      "type": "file",
+      "name": "cmd_finance.py",
+      "filePath": "src/easy_tdx/cli/cmd_finance.py",
+      "summary": "财务数据命令。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_finance.py:f10",
+      "type": "function",
+      "name": "f10",
+      "filePath": "src/easy_tdx/cli/cmd_finance.py",
+      "summary": "获取财报三表（新浪数据源，独立于 TDX 行情服务器）。  \b 报表类型：   lrb  利润表（默认）   fzb  资产负债表   llb  现金流量表  \b 示例：    easy-tdx f10 600519                          # 茅台利润表，最近 8 期    easy-tdx f10 600519 --type fzb --num 4       # 资产负债表，最近 4 期    easy-tdx f10 000001 --type llb --table       # 平安现金流量表，表格输出",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_finance.py:fund_flow",
+      "type": "function",
+      "name": "fund_flow",
+      "filePath": "src/easy_tdx/cli/cmd_finance.py",
+      "summary": "获取历史资金流向（暂未实现）。  示例：    easy-tdx fund-flow SZ 000001",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "type": "file",
+      "name": "cmd_indicator.py",
+      "filePath": "src/easy_tdx/cli/cmd_indicator.py",
+      "summary": "技术指标命令。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_indicator.py:_parse_indicator_params",
+      "type": "function",
+      "name": "_parse_indicator_params",
+      "filePath": "src/easy_tdx/cli/cmd_indicator.py",
+      "summary": "解析指标参数字符串。  格式: ``SHORT=10,LONG=22`` 或 ``MACD.SHORT=10,KDJ.N=14`` 无前缀的参数应用到所有请求的指标。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_indicator.py:indicator",
+      "type": "function",
+      "name": "indicator",
+      "filePath": "src/easy_tdx/cli/cmd_indicator.py",
+      "summary": "计算技术指标。  示例：    easy-tdx indicator MACD -m SH -c 600519 --table    easy-tdx indicator MACD,KDJ,RSI -m SH -c 600519 --count 10 --table    easy-tdx indicator BOLL -m SZ -c 000001 --params N=10,P=1.5",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_indicator.py:indicator_list",
+      "type": "function",
+      "name": "indicator_list",
+      "filePath": "src/easy_tdx/cli/cmd_indicator.py",
+      "summary": "列出可用的技术指标。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_info.py",
+      "type": "file",
+      "name": "cmd_info.py",
+      "filePath": "src/easy_tdx/cli/cmd_info.py",
+      "summary": "信息查询命令：server-info, symbol-info。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_info.py:server_info",
+      "type": "function",
+      "name": "server_info",
+      "filePath": "src/easy_tdx/cli/cmd_info.py",
+      "summary": "获取服务器交易时段信息。  示例：    easy-tdx server-info    easy-tdx server-info --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_info.py:symbol_info",
+      "type": "function",
+      "name": "symbol_info",
+      "filePath": "src/easy_tdx/cli/cmd_info.py",
+      "summary": "获取个股简要特征快照。  示例：    easy-tdx symbol-info SZ 000001    easy-tdx symbol-info SH 600519 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_kline.py",
+      "type": "file",
+      "name": "cmd_kline.py",
+      "filePath": "src/easy_tdx/cli/cmd_kline.py",
+      "summary": "K 线命令。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_kline.py:kline",
+      "type": "function",
+      "name": "kline",
+      "filePath": "src/easy_tdx/cli/cmd_kline.py",
+      "summary": "获取 K 线数据。  示例：    easy-tdx kline SZ 000001    easy-tdx kline SH 600519 --adjust QFQ --count 30    easy-tdx kline SZ 000001 --period 5MIN --table  时间戳语义：通达信默认用 bar 开始时间（上午最后一根 5min 标 11:25、 下午第一根标 13:00）。加 ``--bar-time end`` 切换为右端点（标 11:30/13:05）， 与 Tushare/同花顺对齐。仅对分钟级周期生效。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "type": "file",
+      "name": "cmd_monitor.py",
+      "filePath": "src/easy_tdx/cli/cmd_monitor.py",
+      "summary": "市场监控命令：unusual, market-stat。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_monitor.py:unusual",
+      "type": "function",
+      "name": "unusual",
+      "filePath": "src/easy_tdx/cli/cmd_monitor.py",
+      "summary": "获取市场异动数据。  示例：    easy-tdx unusual SZ    easy-tdx unusual SH --count 100 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_monitor.py:market_stat",
+      "type": "function",
+      "name": "market_stat",
+      "filePath": "src/easy_tdx/cli/cmd_monitor.py",
+      "summary": "获取 A 股全市场涨跌统计概况。  示例：    easy-tdx market-stat    easy-tdx market-stat --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_offline.py",
+      "type": "file",
+      "name": "cmd_offline.py",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "离线本地数据读写命令 —— 读取本地通达信数据文件 & 从服务端同步写入。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:offline",
+      "type": "function",
+      "name": "offline",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "离线本地数据读写（读取本地通达信数据文件 & 从服务端同步写入）。  读取需要本地已安装通达信并下载过对应数据。 sync-daily 可从服务端获取最新日线并追加到本地 .day 文件。  示例：    easy-tdx offline home    easy-tdx offline daily SZ 000001 --table    easy-tdx offline min SH 600519 --type lc5 --table    easy-tdx offline ex-files --table    easy-tdx offline ex-daily 29#A1801 --t",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:home",
+      "type": "function",
+      "name": "home",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "检测并显示通达信安装目录。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:daily",
+      "type": "function",
+      "name": "daily",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取 A 股日线数据（.day 文件）。  MARKET: 市场代码（SZ/SH） CODE: 6 位股票代码  示例：    easy-tdx offline daily SZ 000001 --table    easy-tdx offline daily SH 600519 --count 30 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:min",
+      "type": "function",
+      "name": "min",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取分钟线数据（.5 / .lc1 / .lc5 文件）。  MARKET: 市场代码（SZ/SH） CODE: 6 位股票代码  示例：    easy-tdx offline min SZ 000001 --table    easy-tdx offline min SH 600519 --type lc1 --count 100 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:ex_files",
+      "type": "function",
+      "name": "ex_files",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "列出扩展市场可用的日线数据文件。  文件位于 vipdoc/ds/lday/ 目录下。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:ex_daily",
+      "type": "function",
+      "name": "ex_daily",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取扩展市场日线数据（期货/港股/外盘）。  FILENAME: 文件名（如 29#A1801）或完整路径  示例：    easy-tdx offline ex-daily 29#A1801 --table    easy-tdx offline ex-daily 12#A_IXIC --count 30 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:gbbq",
+      "type": "function",
+      "name": "gbbq",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取股本变迁数据（gbbq 文件）。  FILEPATH: gbbq 文件路径  示例：    easy-tdx offline gbbq C:\\new_jyplug\\T0002\\hq_cache\\gbbq --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:financial",
+      "type": "function",
+      "name": "financial",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取历史财务数据（gpcw*.dat / gpcw*.zip）。  FILEPATH: 财务数据文件路径  示例：    easy-tdx offline financial C:\\new_jyplug\\vipdoc\\sz\\gpcw.zip --count 5 --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:blocks",
+      "type": "function",
+      "name": "blocks",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "读取自定义板块数据。  BLOCK_DIR: 自定义板块目录路径（如 C:\\new_jyplug\\T0002\\blocknew）  示例：    easy-tdx offline blocks C:\\new_jyplug\\T0002\\blocknew --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:_df_to_bars",
+      "type": "function",
+      "name": "_df_to_bars",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "将日线 DataFrame 转换为 SecurityBar 列表（按日期升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:_is_index_code",
+      "type": "function",
+      "name": "_is_index_code",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "根据市场和代码前缀判断是否为指数。  指数需要调用 get_index_bars()（服务端响应每条记录多 4 字节）， 而非 get_security_bars()。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:_fetch_all_daily_bars",
+      "type": "function",
+      "name": "_fetch_all_daily_bars",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "从服务端分页获取全部日线数据。  Args:     client: 已连接的 TdxClient。     market: 市场代码（0=SZ, 1=SH）。     code: 6 位股票代码。     need_full: True 表示拉取全量历史（空文件场景），                False 表示只拉最近一页（增量更新）。     is_index: True 表示指数，使用 get_index_bars()。  Returns:     SecurityBar 列表（按日期升序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:_sync_one_daily",
+      "type": "function",
+      "name": "_sync_one_daily",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "同步单只股票日线，返回 (写入条数, 状态消息)。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:sync_daily",
+      "type": "function",
+      "name": "sync_daily",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "从服务端同步日线数据到本地 .day 文件。  自动检测本地文件末尾日期，从服务端分页获取缺失的数据并追加写入。 空文件自动全量下载，已有数据只做增量更新。 建议在通达信关闭时执行，避免文件被锁定。  MARKET: 市场代码（SZ/SH） CODE: 6 位股票代码  示例：    easy-tdx offline sync-daily SZ 000001    easy-tdx offline sync-daily SH 000001 --vipdoc C:\\new_jyplug\\vipdoc",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_offline.py:sync_all",
+      "type": "function",
+      "name": "sync_all",
+      "filePath": "src/easy_tdx/cli/cmd_offline.py",
+      "summary": "一键同步全部本地日线数据（沪深全市场）。  扫描 vipdoc 下所有 .day 文件，自动连接服务端获取最新数据并追加写入。 建议在通达信关闭时执行，避免文件被锁定。  示例：    easy-tdx offline sync-all    easy-tdx offline sync-all --vipdoc C:\\new_jyplug\\vipdoc",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_pfactor.py",
+      "type": "file",
+      "name": "cmd_pfactor.py",
+      "filePath": "src/easy_tdx/cli/cmd_pfactor.py",
+      "summary": "组合因子选股 CLI 命令。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_pfactor.py:pfactor",
+      "type": "function",
+      "name": "pfactor",
+      "filePath": "src/easy_tdx/cli/cmd_pfactor.py",
+      "summary": "组合因子选股工具。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_pfactor.py:pfactor_backtest",
+      "type": "function",
+      "name": "pfactor_backtest",
+      "filePath": "src/easy_tdx/cli/cmd_pfactor.py",
+      "summary": "运行组合因子回测。  示例：    easy-tdx pfactor backtest momentum_20d    easy-tdx pfactor backtest rsi_14 --n-stocks 10 --optimizer factor_weighted",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_quote.py",
+      "type": "file",
+      "name": "cmd_quote.py",
+      "filePath": "src/easy_tdx/cli/cmd_quote.py",
+      "summary": "报价命令：quote（单/批量）, quote-list（按分类排序）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_quote.py:quote",
+      "type": "function",
+      "name": "quote",
+      "filePath": "src/easy_tdx/cli/cmd_quote.py",
+      "summary": "获取实时报价（支持多只）。  STOCKS 格式: \"SZ 000001,SH 600519\"  示例：    easy-tdx quote \"SZ 000001\"    easy-tdx quote \"SZ 000001,SH 600519\" --table",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_quote.py:quote_list",
+      "type": "function",
+      "name": "quote_list",
+      "filePath": "src/easy_tdx/cli/cmd_quote.py",
+      "summary": "获取市场分类报价列表（按涨幅等排序）。  CATEGORY: SH/SZ/A/B/KCB/BJ/CYB/ETF/LOF/HGT/SGT 等  示例：    easy-tdx quote-list A --count 20 --table    easy-tdx quote-list KCB --sort TOTAL_AMOUNT --order ASC    easy-tdx quote-list CYB --count 50",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "type": "file",
+      "name": "cmd_run_all.py",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "run-all 命令 — 批量运行 strategies/ 目录下所有策略并比较结果。  用法::      easy-tdx run-all SZ 300308 --count 2000 --cash 1000000 --adjust QFQ  输出每个策略的绩效指标，并按总收益率排名。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_load_strategy_class",
+      "type": "function",
+      "name": "_load_strategy_class",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "从 Python 文件加载 Strategy 子类，失败返回 None。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_setup_chinese_font",
+      "type": "function",
+      "name": "_setup_chinese_font",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "配置 matplotlib 中文字体，按平台自动选择。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_map_trade_values",
+      "type": "function",
+      "name": "_map_trade_values",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "将交易的 datetime 映射到 equity_curve 对应的归一化值。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_print_ranking",
+      "type": "function",
+      "name": "_print_ranking",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "输出策略绩效排名、综合评分和最佳策略明细。  Returns:     True 表示有有效结果，False 表示全部失败。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_run_combo_screen",
+      "type": "function",
+      "name": "_run_combo_screen",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "运行多因子组合回测并输出排名。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:_show_best_chart",
+      "type": "function",
+      "name": "_show_best_chart",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "展示最佳策略资金曲线与股价归一化对比图。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_run_all.py:run_all",
+      "type": "function",
+      "name": "run_all",
+      "filePath": "src/easy_tdx/cli/cmd_run_all.py",
+      "summary": "批量运行 strategies/ 目录下所有策略并比较结果。  依次运行指定目录下所有策略文件，输出绩效排名和综合评分。  示例：    easy-tdx run-all SZ 300308 --count 2000 --cash 1000000 --adjust QFQ    easy-tdx run-all SZ 300308 --combo 2 --combo-mode MAJORITY    easy-tdx run-all SZ 300308 --show",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_tick.py",
+      "type": "file",
+      "name": "cmd_tick.py",
+      "filePath": "src/easy_tdx/cli/cmd_tick.py",
+      "summary": "分时图命令。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_tick.py:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/easy_tdx/cli/cmd_tick.py",
+      "summary": "获取分时图数据。  示例：    easy-tdx tick SZ 000001    easy-tdx tick SH 600519 --days 5 --table    easy-tdx tick SZ 000001 --date 20250115",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_transaction.py",
+      "type": "file",
+      "name": "cmd_transaction.py",
+      "filePath": "src/easy_tdx/cli/cmd_transaction.py",
+      "summary": "逐笔成交命令。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_transaction.py:transaction",
+      "type": "function",
+      "name": "transaction",
+      "filePath": "src/easy_tdx/cli/cmd_transaction.py",
+      "summary": "获取逐笔成交数据。  示例：    easy-tdx transaction SZ 000001    easy-tdx transaction SH 600519 --count 500 --table    easy-tdx transaction SZ 000001 --date 20250115",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/cmd_web.py",
+      "type": "file",
+      "name": "cmd_web.py",
+      "filePath": "src/easy_tdx/cli/cmd_web.py",
+      "summary": "easy-tdx serve — 启动 Web API 服务器。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/cmd_web.py:serve",
+      "type": "function",
+      "name": "serve",
+      "filePath": "src/easy_tdx/cli/cmd_web.py",
+      "summary": "启动 Web API 服务器（需要安装 easy-tdx[web]）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/conn.py",
+      "type": "file",
+      "name": "conn.py",
+      "filePath": "src/easy_tdx/cli/conn.py",
+      "summary": "CLI 连接工厂：延迟创建 MAC / TDX 客户端。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/conn.py:get_mac_client",
+      "type": "function",
+      "name": "get_mac_client",
+      "filePath": "src/easy_tdx/cli/conn.py",
+      "summary": "创建 MAC 客户端上下文（自动选最快服务器）。  使用方式::      with get_mac_client() as client:         df = client.get_stock_kline(...)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/conn.py:get_tdx_client",
+      "type": "function",
+      "name": "get_tdx_client",
+      "filePath": "src/easy_tdx/cli/conn.py",
+      "summary": "创建 TDX 客户端上下文（自动选最快服务器）。  用于通达信原生协议命令（F10 公司信息、最新财务快照等）， 与 Web 层 ``/finance`` ``/company/*`` 端点同源。  使用方式::      with get_tdx_client() as client:         df = client.get_finance_info(market, code)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/conn.py:get_mac_ex_client",
+      "type": "function",
+      "name": "get_mac_ex_client",
+      "filePath": "src/easy_tdx/cli/conn.py",
+      "summary": "创建扩展市场 MAC 客户端上下文（端口 7727）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/output.py",
+      "type": "file",
+      "name": "output.py",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "CLI 输出格式化：JSON（默认）、表格、CSV。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:format_output",
+      "type": "function",
+      "name": "format_output",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "将 DataFrame 格式化为指定输出格式。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:print_output",
+      "type": "function",
+      "name": "print_output",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "格式化并输出 DataFrame 到 stdout。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:print_error",
+      "type": "function",
+      "name": "print_error",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "输出错误消息到 stderr。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:_render_table",
+      "type": "function",
+      "name": "_render_table",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "将 DataFrame 渲染为人类可读的文本表格。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:_render_table_full",
+      "type": "function",
+      "name": "_render_table_full",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "渲染表格但**不截断**长文本列（适用于 url/title 等长字段）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/output.py:_render_table_impl",
+      "type": "function",
+      "name": "_render_table_impl",
+      "filePath": "src/easy_tdx/cli/output.py",
+      "summary": "表格渲染实现。``truncate=None`` 时不截断 object 列。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cli/parsers.py",
+      "type": "file",
+      "name": "parsers.py",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "CLI 参数解析工具。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_market",
+      "type": "function",
+      "name": "parse_market",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse market string to int value. Accepts 'SZ', 'SH', 'BJ', '0', '1', '2'.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_period",
+      "type": "function",
+      "name": "parse_period",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse period string.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_adjust",
+      "type": "function",
+      "name": "parse_adjust",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse adjust string.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_board_type",
+      "type": "function",
+      "name": "parse_board_type",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse board type string.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_ex_market",
+      "type": "function",
+      "name": "parse_ex_market",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse extended market string to int value.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_category",
+      "type": "function",
+      "name": "parse_category",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse category string to Category enum.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_sort_type",
+      "type": "function",
+      "name": "parse_sort_type",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse sort type string.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_sort_order",
+      "type": "function",
+      "name": "parse_sort_order",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse sort order string.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cli/parsers.py:parse_stocks",
+      "type": "function",
+      "name": "parse_stocks",
+      "filePath": "src/easy_tdx/cli/parsers.py",
+      "summary": "Parse stock list like 'SZ 000001,SH 600000' into [(0, '000001'), (1, '600000')].",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "高层行情 API：TdxClient（同步）和 AsyncTdxClient（asyncio）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/client.py:TdxClient",
+      "type": "class",
+      "name": "TdxClient",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "同步通达信行情客户端，支持 IP 优选与断线自动重连。  使用示例::      # 单台服务器     with TdxClient(\"180.153.18.170\") as c:         bars = c.get_security_bars(Market.SH, \"600000\", KlineCategory.DAY, 0, 100)      # 自动从候选列表中选延迟最低的服务器     with TdxClient.from_best_host() as c:         count = c.get_security_count(Market.SH)",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/client.py:AsyncTdxClient",
+      "type": "class",
+      "name": "AsyncTdxClient",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "异步通达信行情客户端（asyncio）。  使用示例::      async with AsyncTdxClient(\"180.153.18.170\") as c:         bars = await c.get_security_bars(Market.SH, \"600000\", KlineCategory.DAY, 0, 100)  注意：     单个 AsyncTdxClient 仅维护一条 TCP 连接；并发调用会在连接内串行执行。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_today_in_shanghai",
+      "type": "function",
+      "name": "_today_in_shanghai",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _today_in_shanghai() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_record_signature",
+      "type": "function",
+      "name": "_record_signature",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _record_signature() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_page_signature",
+      "type": "function",
+      "name": "_page_signature",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _page_signature() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_classify_fund_flow",
+      "type": "function",
+      "name": "_classify_fund_flow",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _classify_fund_flow() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_date_from_bar",
+      "type": "function",
+      "name": "_date_from_bar",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _date_from_bar() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_historical_fund_flow_from_records",
+      "type": "function",
+      "name": "_historical_fund_flow_from_records",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _historical_fund_flow_from_records() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_serialize_stocks",
+      "type": "function",
+      "name": "_serialize_stocks",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _serialize_stocks() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_deserialize_stocks",
+      "type": "function",
+      "name": "_deserialize_stocks",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _deserialize_stocks() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_load_cache",
+      "type": "function",
+      "name": "_load_cache",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _load_cache() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/client.py:_save_cache",
+      "type": "function",
+      "name": "_save_cache",
+      "filePath": "src/easy_tdx/client.py",
+      "summary": "Function _save_cache() defined in src/easy_tdx/client.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cninfo/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/cninfo/__init__.py",
+      "summary": "巨潮资讯网（cninfo）公告检索 —— 独立于 TDX 协议的 HTTP 数据源。  零额外依赖（标准库 urllib），无需连接 TDX 服务器即可使用。  用法::      from easy_tdx.cninfo import CninfoClient      df = CninfoClient().get_announcements(\"688017\", count=30)     # → DataFrame[title, type, date, url]",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cninfo/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "src/easy_tdx/cninfo/client.py",
+      "summary": "巨潮资讯网（cninfo）公告检索客户端。  独立于 TDX 协议的 HTTP 数据源（标准库 urllib，零额外依赖）。 公开方法返回 ``pd.DataFrame``，遵循项目 ``get_*`` 约定。  参考实现说明（来自 #19 修复）：  - 巨潮 ``orgId`` 并非统一的 ``gssx0{code}`` 格式（如 601318→9900002221、   601398→jjxt0000019、688017→9900041602），硬编码会导致大量股票   （尤其 601xxx 段）返回 ``totalAnnouncement=0``、查不到公告。 - 优先动态查官方映射表",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/cninfo/client.py:CninfoClient",
+      "type": "class",
+      "name": "CninfoClient",
+      "filePath": "src/easy_tdx/cninfo/client.py",
+      "summary": "巨潮公告检索客户端（无状态 HTTP，无需 connect/close）。  用法::      from easy_tdx.cninfo import CninfoClient      df = CninfoClient().get_announcements(\"688017\", count=30)     # → DataFrame[title, type, date, url]",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cninfo/client.py:_ts_to_date",
+      "type": "function",
+      "name": "_ts_to_date",
+      "filePath": "src/easy_tdx/cninfo/client.py",
+      "summary": "巨潮 ``announcementTime`` 返回 Unix 毫秒整数，转 ``YYYY-MM-DD``。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cninfo/client.py:_http_get_json",
+      "type": "function",
+      "name": "_http_get_json",
+      "filePath": "src/easy_tdx/cninfo/client.py",
+      "summary": "GET JSON（stdlib urllib，monkeypatch 点）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cninfo/client.py:_http_post_form",
+      "type": "function",
+      "name": "_http_post_form",
+      "filePath": "src/easy_tdx/cninfo/client.py",
+      "summary": "POST x-www-form-urlencoded，返回 JSON（stdlib urllib，monkeypatch 点）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/cninfo/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "src/easy_tdx/cninfo/models.py",
+      "summary": "巨潮资讯网（cninfo）数据模型。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/cninfo/models.py:Announcement",
+      "type": "class",
+      "name": "Announcement",
+      "filePath": "src/easy_tdx/cninfo/models.py",
+      "summary": "单条公告记录。  巨潮公告检索接口返回的标准化结构。  Attributes:     title: 公告标题。     type: 公告类型（优先 ``announcementTypeName``，缺失时回退 ``adjunctType``         如 \"PDF\"，再缺失给空字符串 — cninfo 对很多公告不填 typeName）。     date: 公告日期 ``YYYY-MM-DD``。     url: 公告详情页 URL（含 stockCode/announcementId/orgId/announcementTime 四参数）。     code: 6 位股票代码。 ",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/cninfo/models.py:CninfoError",
+      "type": "class",
+      "name": "CninfoError",
+      "filePath": "src/easy_tdx/cninfo/models.py",
+      "summary": "巨潮数据请求或解析失败。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cninfo/models.py:build_detail_url",
+      "type": "function",
+      "name": "build_detail_url",
+      "filePath": "src/easy_tdx/cninfo/models.py",
+      "summary": "构造公告详情页 URL（4 参数缺一不可，否则 404）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/cninfo/models.py:build_pdf_url",
+      "type": "function",
+      "name": "build_pdf_url",
+      "filePath": "src/easy_tdx/cninfo/models.py",
+      "summary": "``adjunctUrl``（如 finalpage/2026-06-05/xxx.PDF）拼成完整 PDF 直链。  无附件（adjunctUrl 为空）返回空字符串。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/codec/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/codec/__init__.py",
+      "summary": "Python module at src/easy_tdx/codec/__init__.py.",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/codec/bitmap.py",
+      "type": "file",
+      "name": "bitmap.py",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "MAC 协议字段位图编解码。  提供 FieldBit 定义、预定义字段集合（PresetField）、字段选择器（FieldSelection）， 以及 20 字节请求位图的构建与响应位图解析。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/codec/bitmap.py:FieldBit",
+      "type": "class",
+      "name": "FieldBit",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "字段位定义，自带格式和描述，单一数据源。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/codec/bitmap.py:PresetField",
+      "type": "class",
+      "name": "PresetField",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "预定义字段集合，支持 + / | 链式组合。  Usage:     PresetField.BASIC + PresetField.VOLUME          # 两个预设合并     PresetField.OHLC + FieldBit.AH_CODE             # 预设 + 单字段     FieldBit.OPEN + FieldBit.HIGH + FieldBit.LOW    # 纯字段组合",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/codec/bitmap.py:FieldSelection",
+      "type": "class",
+      "name": "FieldSelection",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "字段选择器，支持 PresetField + FieldBit 组合。  Usage:     PresetField.BASIC + FieldBit.AH_CODE     PresetField.BASIC | FieldBit.INDUSTRY     FieldBit.OPEN + FieldBit.HIGH + FieldBit.LOW",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/bitmap.py:_post_ah_code",
+      "type": "function",
+      "name": "_post_ah_code",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "A/H股代码补齐位数。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/bitmap.py:normalize_fields",
+      "type": "function",
+      "name": "normalize_fields",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "将任意字段选择形式归一化为 FieldSelection。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/bitmap.py:build_bitmap",
+      "type": "function",
+      "name": "build_bitmap",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "将字段选择转换为 20 字节请求位图。  Parameters ---------- fields : Fields     字段选择，可以是 PresetField、FieldBit、FieldSelection 或可迭代对象。 exclude_flags : int     控制区 4 字节（位 128-159）的值，默认 0。  Returns ------- bytearray     20 字节位图。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/bitmap.py:build_exclude_flags",
+      "type": "function",
+      "name": "build_exclude_flags",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "构建 4 字节控制区。  Parameters ---------- exclude_flags : int     控制区原始值，默认 0。  Returns ------- bytes     4 字节控制区。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/bitmap.py:get_active_fields",
+      "type": "function",
+      "name": "get_active_fields",
+      "filePath": "src/easy_tdx/codec/bitmap.py",
+      "summary": "从响应位图解析活跃字段。  Parameters ---------- bitmap_bytes : bytes     响应中的位图字节（通常 16 或 20 字节）。  Returns ------- list[tuple[FieldBit, str]]     活跃字段及其格式说明符，按位序升序。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/codec/block.py",
+      "type": "file",
+      "name": "block.py",
+      "filePath": "src/easy_tdx/codec/block.py",
+      "summary": "板块文件 (.dat) 解析逻辑。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/block.py:parse_block_dat",
+      "type": "function",
+      "name": "parse_block_dat",
+      "filePath": "src/easy_tdx/codec/block.py",
+      "summary": "解析通达信 .dat 板块文件内容。  格式：   Header: 384 字节（跳过）   Count:  2 字节 (uint16 LE)   Body:   每条记录 2813 字节 (9s + H + H + 2800s)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/codec/datetime_.py",
+      "type": "file",
+      "name": "datetime_.py",
+      "filePath": "src/easy_tdx/codec/datetime_.py",
+      "summary": "日期时间解码（通达信 TCP 两种格式）。  分钟级（category < 4 或 == 7/8）：4 字节 = 2 字节压缩日期 + 2 字节分钟数   zipday: year=(>>11)+2004, month=(% 2048)//100, day=(% 2048)%100   tminutes: hour=//60, minute=%60  日线及以上（其余 category）：4 字节 YYYYMMDD 整数",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/datetime_.py:get_datetime_minute",
+      "type": "function",
+      "name": "get_datetime_minute",
+      "filePath": "src/easy_tdx/codec/datetime_.py",
+      "summary": "解析分钟级时间戳（4 字节）。  Returns:     (year, month, day, hour, minute, new_pos)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/datetime_.py:get_datetime_day",
+      "type": "function",
+      "name": "get_datetime_day",
+      "filePath": "src/easy_tdx/codec/datetime_.py",
+      "summary": "解析日期（4 字节 YYYYMMDD）。  Returns:     (year, month, day, new_pos)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/datetime_.py:get_datetime",
+      "type": "function",
+      "name": "get_datetime",
+      "filePath": "src/easy_tdx/codec/datetime_.py",
+      "summary": "根据 KlineCategory 选择解析格式。  Returns:     (year, month, day, hour, minute, new_pos)     日线及以上时 hour=15, minute=0（收盘时间，与 pytdx 保持一致）",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/codec/datetime_.py:get_time",
+      "type": "function",
+      "name": "get_time",
+      "filePath": "src/easy_tdx/codec/datetime_.py",
+      "summary": "解析 2 字节时间（分钟数）。  Returns:     (hour, minute, new_pos)",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:ex",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function ex()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:kline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function kline()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:quote",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function quote()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:quote_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function quote_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:tick",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function tick()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_ex.py",
+      "target": "function:src/easy_tdx/cli/cmd_ex.py:markets",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_ex.py defines function markets()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_factor.py",
+      "target": "function:src/easy_tdx/cli/cmd_factor.py:factor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_factor.py defines function factor()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_factor.py",
+      "target": "function:src/easy_tdx/cli/cmd_factor.py:factor_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_factor.py defines function factor_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_factor.py",
+      "target": "function:src/easy_tdx/cli/cmd_factor.py:factor_analyze",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_factor.py defines function factor_analyze()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_finance.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_finance.py",
+      "target": "function:src/easy_tdx/cli/cmd_finance.py:f10",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_finance.py defines function f10()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_finance.py",
+      "target": "function:src/easy_tdx/cli/cmd_finance.py:fund_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_finance.py defines function fund_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "function:src/easy_tdx/cli/cmd_indicator.py:_parse_indicator_params",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_indicator.py defines function _parse_indicator_params()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "function:src/easy_tdx/cli/cmd_indicator.py:indicator",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_indicator.py defines function indicator()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_indicator.py",
+      "target": "function:src/easy_tdx/cli/cmd_indicator.py:indicator_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_indicator.py defines function indicator_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "function:src/easy_tdx/cli/cmd_info.py:server_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_info.py defines function server_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_info.py",
+      "target": "function:src/easy_tdx/cli/cmd_info.py:symbol_info",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_info.py defines function symbol_info()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_kline.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_kline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_kline.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_kline.py",
+      "target": "function:src/easy_tdx/cli/cmd_kline.py:kline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_kline.py defines function kline()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..client"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "function:src/easy_tdx/cli/cmd_monitor.py:unusual",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_monitor.py defines function unusual()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_monitor.py",
+      "target": "function:src/easy_tdx/cli/cmd_monitor.py:market_stat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_monitor.py defines function market_stat()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..client"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..client"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..client"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:offline",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function offline()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:home",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function home()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:daily",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function daily()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:min",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function min()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:ex_files",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function ex_files()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:ex_daily",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function ex_daily()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:gbbq",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function gbbq()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:financial",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function financial()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:blocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function blocks()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:_df_to_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function _df_to_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:_is_index_code",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function _is_index_code()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:_fetch_all_daily_bars",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function _fetch_all_daily_bars()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:_sync_one_daily",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function _sync_one_daily()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:sync_daily",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function sync_daily()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_offline.py",
+      "target": "function:src/easy_tdx/cli/cmd_offline.py:sync_all",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_offline.py defines function sync_all()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_pfactor.py",
+      "target": "function:src/easy_tdx/cli/cmd_pfactor.py:pfactor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_pfactor.py defines function pfactor()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_pfactor.py",
+      "target": "function:src/easy_tdx/cli/cmd_pfactor.py:pfactor_backtest",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_pfactor.py defines function pfactor_backtest()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "function:src/easy_tdx/cli/cmd_quote.py:quote",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_quote.py defines function quote()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_quote.py",
+      "target": "function:src/easy_tdx/cli/cmd_quote.py:quote_list",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_quote.py defines function quote_list()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_load_strategy_class",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _load_strategy_class()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_setup_chinese_font",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _setup_chinese_font()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_map_trade_values",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _map_trade_values()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_print_ranking",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _print_ranking()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_run_combo_screen",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _run_combo_screen()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:_show_best_chart",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function _show_best_chart()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_run_all.py",
+      "target": "function:src/easy_tdx/cli/cmd_run_all.py:run_all",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_run_all.py defines function run_all()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_tick.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_tick.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_tick.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_tick.py",
+      "target": "function:src/easy_tdx/cli/cmd_tick.py:tick",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_tick.py defines function tick()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_transaction.py",
+      "target": "file:src/easy_tdx/cli/conn.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .conn"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_transaction.py",
+      "target": "file:src/easy_tdx/cli/output.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .output"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_transaction.py",
+      "target": "file:src/easy_tdx/cli/parsers.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .parsers"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_transaction.py",
+      "target": "function:src/easy_tdx/cli/cmd_transaction.py:transaction",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_transaction.py defines function transaction()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/cmd_web.py",
+      "target": "function:src/easy_tdx/cli/cmd_web.py:serve",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/cmd_web.py defines function serve()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/conn.py",
+      "target": "file:src/easy_tdx/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..client"
+    },
+    {
+      "source": "file:src/easy_tdx/cli/conn.py",
+      "target": "function:src/easy_tdx/cli/conn.py:get_mac_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/conn.py defines function get_mac_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/conn.py",
+      "target": "function:src/easy_tdx/cli/conn.py:get_tdx_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/conn.py defines function get_tdx_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/conn.py",
+      "target": "function:src/easy_tdx/cli/conn.py:get_mac_ex_client",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/conn.py defines function get_mac_ex_client()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:format_output",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function format_output()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:print_output",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function print_output()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:print_error",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function print_error()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:_render_table",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function _render_table()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:_render_table_full",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function _render_table_full()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/output.py",
+      "target": "function:src/easy_tdx/cli/output.py:_render_table_impl",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/output.py defines function _render_table_impl()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_market()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_period",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_period()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_adjust",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_adjust()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_board_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_board_type()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_ex_market",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_ex_market()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_category",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_category()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_sort_type",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_sort_type()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_sort_order",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_sort_order()."
+    },
+    {
+      "source": "file:src/easy_tdx/cli/parsers.py",
+      "target": "function:src/easy_tdx/cli/parsers.py:parse_stocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cli/parsers.py defines function parse_stocks()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "class:src/easy_tdx/client.py:TdxClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines class TdxClient."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "class:src/easy_tdx/client.py:AsyncTdxClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines class AsyncTdxClient."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_today_in_shanghai",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _today_in_shanghai()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_record_signature",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _record_signature()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_page_signature",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _page_signature()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_classify_fund_flow",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _classify_fund_flow()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_date_from_bar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _date_from_bar()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_historical_fund_flow_from_records",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _historical_fund_flow_from_records()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_serialize_stocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _serialize_stocks()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_deserialize_stocks",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _deserialize_stocks()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_load_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _load_cache()."
+    },
+    {
+      "source": "file:src/easy_tdx/client.py",
+      "target": "function:src/easy_tdx/client.py:_save_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/client.py defines function _save_cache()."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/__init__.py",
+      "target": "file:src/easy_tdx/cninfo/client.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .client"
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/__init__.py",
+      "target": "file:src/easy_tdx/cninfo/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .models"
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/client.py",
+      "target": "file:src/easy_tdx/cninfo/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .models"
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/client.py",
+      "target": "class:src/easy_tdx/cninfo/client.py:CninfoClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/client.py defines class CninfoClient."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/client.py",
+      "target": "function:src/easy_tdx/cninfo/client.py:_ts_to_date",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/client.py defines function _ts_to_date()."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/client.py",
+      "target": "function:src/easy_tdx/cninfo/client.py:_http_get_json",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/client.py defines function _http_get_json()."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/client.py",
+      "target": "function:src/easy_tdx/cninfo/client.py:_http_post_form",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/client.py defines function _http_post_form()."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/models.py",
+      "target": "class:src/easy_tdx/cninfo/models.py:Announcement",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/models.py defines class Announcement."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/models.py",
+      "target": "class:src/easy_tdx/cninfo/models.py:CninfoError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/models.py defines class CninfoError."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/models.py",
+      "target": "function:src/easy_tdx/cninfo/models.py:build_detail_url",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/models.py defines function build_detail_url()."
+    },
+    {
+      "source": "file:src/easy_tdx/cninfo/models.py",
+      "target": "function:src/easy_tdx/cninfo/models.py:build_pdf_url",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/cninfo/models.py defines function build_pdf_url()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/__init__.py",
+      "target": "file:src/easy_tdx/codec/datetime_.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .datetime_"
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "class:src/easy_tdx/codec/bitmap.py:FieldBit",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines class FieldBit."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "class:src/easy_tdx/codec/bitmap.py:PresetField",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines class PresetField."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "class:src/easy_tdx/codec/bitmap.py:FieldSelection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines class FieldSelection."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "function:src/easy_tdx/codec/bitmap.py:_post_ah_code",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines function _post_ah_code()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "function:src/easy_tdx/codec/bitmap.py:normalize_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines function normalize_fields()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "function:src/easy_tdx/codec/bitmap.py:build_bitmap",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines function build_bitmap()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "function:src/easy_tdx/codec/bitmap.py:build_exclude_flags",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines function build_exclude_flags()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/bitmap.py",
+      "target": "function:src/easy_tdx/codec/bitmap.py:get_active_fields",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/bitmap.py defines function get_active_fields()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/block.py",
+      "target": "function:src/easy_tdx/codec/block.py:parse_block_dat",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/block.py defines function parse_block_dat()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/datetime_.py",
+      "target": "function:src/easy_tdx/codec/datetime_.py:get_datetime_minute",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/datetime_.py defines function get_datetime_minute()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/datetime_.py",
+      "target": "function:src/easy_tdx/codec/datetime_.py:get_datetime_day",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/datetime_.py defines function get_datetime_day()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/datetime_.py",
+      "target": "function:src/easy_tdx/codec/datetime_.py:get_datetime",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/datetime_.py defines function get_datetime()."
+    },
+    {
+      "source": "file:src/easy_tdx/codec/datetime_.py",
+      "target": "function:src/easy_tdx/codec/datetime_.py:get_time",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/codec/datetime_.py defines function get_time()."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 124,
+    "edgesCreated": 161,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 12 analyzed via AST. 124 nodes, 161 edges from 25 files."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "batchFiles": [
+    {"path": "docs/superpowers/specs/2026-06-09-backtest-engine-design.md", "language": "markdown", "sizeLines": 549, "fileCategory": "docs"},
+    {"path": "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md", "language": "markdown", "sizeLines": 355, "fileCategory": "docs"},
+    {"path": "docs/superpowers/specs/2026-06-21-grading-system-design.md", "language": "markdown", "sizeLines": 0, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "docs/superpowers/specs/2026-06-09-backtest-engine-design.md": [],
+    "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md": [],
+    "docs/superpowers/specs/2026-06-21-grading-system-design.md": []
+  }
+}

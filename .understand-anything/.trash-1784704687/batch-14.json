@@ -1,0 +1,1442 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 14,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "src/easy_tdx/ex/client.py",
+      "language": "python",
+      "sizeLines": 549,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_instrument_info.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "language": "python",
+      "sizeLines": 218,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_markets.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_minute_time.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/get_transaction.py",
+      "language": "python",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/login.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/commands/setup.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/mac_client.py",
+      "language": "python",
+      "sizeLines": 863,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/models.py",
+      "language": "python",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/transport/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/transport/async_.py",
+      "language": "python",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/ex/transport/sync.py",
+      "language": "python",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/exceptions.py",
+      "language": "python",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/__init__.py",
+      "language": "python",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/analysis.py",
+      "language": "python",
+      "sizeLines": 156,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/base.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/builtin/__init__.py",
+      "language": "python",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/builtin/chanlun.py",
+      "language": "python",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/easy_tdx/factor/builtin/momentum.py",
+      "language": "python",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "file:src/easy_tdx/ex/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "src/easy_tdx/ex/client.py",
+      "summary": "扩展行情高层 API：ExTdxClient（同步）和 AsyncExTdxClient（asyncio）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/client.py:ExTdxClient",
+      "type": "class",
+      "name": "ExTdxClient",
+      "filePath": "src/easy_tdx/ex/client.py",
+      "summary": "同步扩展行情客户端（期货、港股、外股等，端口 7727）。  使用示例::      with ExTdxClient(\"61.152.107.141\") as c:         markets = c.get_markets()         quote = c.get_instrument_quote(47, \"IFL0\")",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/client.py:AsyncExTdxClient",
+      "type": "class",
+      "name": "AsyncExTdxClient",
+      "filePath": "src/easy_tdx/ex/client.py",
+      "summary": "异步扩展行情客户端（asyncio，端口 7727）。  使用示例::      async with AsyncExTdxClient(\"61.152.107.141\") as c:         markets = await c.get_markets()",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/ex/commands/__init__.py",
+      "summary": "扩展行情命令模块。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "type": "file",
+      "name": "get_history_bars_range.py",
+      "filePath": "src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "summary": "获取扩展行情历史K线（按日期范围）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_history_bars_range.py:GetExHistoryInstrumentBarsRangeCmd",
+      "type": "class",
+      "name": "GetExHistoryInstrumentBarsRangeCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "summary": "按日期范围获取历史K线数据。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "type": "file",
+      "name": "get_instrument_bars.py",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "summary": "获取扩展行情K线数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_instrument_bars.py:GetExInstrumentBarsCmd",
+      "type": "class",
+      "name": "GetExInstrumentBarsCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "summary": "获取K线数据（扩展行情版本，支持期货/港股等）。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_instrument_count.py",
+      "type": "file",
+      "name": "get_instrument_count.py",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "summary": "获取扩展行情商品数量。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_instrument_count.py:GetExInstrumentCountCmd",
+      "type": "class",
+      "name": "GetExInstrumentCountCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_count.py",
+      "summary": "获取扩展行情市场中商品总数。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_instrument_info.py",
+      "type": "file",
+      "name": "get_instrument_info.py",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_info.py",
+      "summary": "获取扩展行情商品信息。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_instrument_info.py:GetExInstrumentInfoCmd",
+      "type": "class",
+      "name": "GetExInstrumentInfoCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_info.py",
+      "summary": "获取扩展行情市场中的商品信息列表。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "type": "file",
+      "name": "get_instrument_quote_list.py",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "summary": "获取扩展行情商品列表行情。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_instrument_quote_list.py:GetExInstrumentQuoteListCmd",
+      "type": "class",
+      "name": "GetExInstrumentQuoteListCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "summary": "按类别获取商品行情列表（期货/港股等）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "type": "file",
+      "name": "get_instrument_quote.py",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "summary": "获取扩展行情实时五档报价。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_instrument_quote.py:GetExInstrumentQuoteCmd",
+      "type": "class",
+      "name": "GetExInstrumentQuoteCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "summary": "获取单个商品的五档实时行情。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_markets.py",
+      "type": "file",
+      "name": "get_markets.py",
+      "filePath": "src/easy_tdx/ex/commands/get_markets.py",
+      "summary": "获取扩展行情市场列表。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_markets.py:GetExMarketsCmd",
+      "type": "class",
+      "name": "GetExMarketsCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_markets.py",
+      "summary": "获取扩展行情支持的市场列表。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_minute_time.py",
+      "type": "file",
+      "name": "get_minute_time.py",
+      "filePath": "src/easy_tdx/ex/commands/get_minute_time.py",
+      "summary": "获取扩展行情分时数据（当日 + 历史）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_minute_time.py:GetExMinuteTimeDataCmd",
+      "type": "class",
+      "name": "GetExMinuteTimeDataCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_minute_time.py",
+      "summary": "获取当日分时行情数据。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_minute_time.py:GetExHistoryMinuteTimeDataCmd",
+      "type": "class",
+      "name": "GetExHistoryMinuteTimeDataCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_minute_time.py",
+      "summary": "获取历史某日分时行情数据。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/get_transaction.py",
+      "type": "file",
+      "name": "get_transaction.py",
+      "filePath": "src/easy_tdx/ex/commands/get_transaction.py",
+      "summary": "获取扩展行情成交数据（当日 + 历史）。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_transaction.py:GetExTransactionDataCmd",
+      "type": "class",
+      "name": "GetExTransactionDataCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_transaction.py",
+      "summary": "获取当日分笔成交数据。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/get_transaction.py:GetExHistoryTransactionDataCmd",
+      "type": "class",
+      "name": "GetExHistoryTransactionDataCmd",
+      "filePath": "src/easy_tdx/ex/commands/get_transaction.py",
+      "summary": "获取历史某日分笔成交数据。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/login.py",
+      "type": "file",
+      "name": "login.py",
+      "filePath": "src/easy_tdx/ex/commands/login.py",
+      "summary": "MAC EX 扩展行情登录命令（msg_id=0x2454）。  MAC EX 服务器（端口 7727）在数据查询前要求先完成 Login， 否则后续所有命令都会被服务器断开连接。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/commands/login.py:MacExLoginCmd",
+      "type": "class",
+      "name": "MacExLoginCmd",
+      "filePath": "src/easy_tdx/ex/commands/login.py",
+      "summary": "MAC EX 扩展行情登录命令。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/commands/setup.py",
+      "type": "file",
+      "name": "setup.py",
+      "filePath": "src/easy_tdx/ex/commands/setup.py",
+      "summary": "扩展行情握手命令。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/mac_client.py",
+      "type": "file",
+      "name": "mac_client.py",
+      "filePath": "src/easy_tdx/ex/mac_client.py",
+      "summary": "MAC 协议扩展市场高层 API：MacExClient（同步）和 AsyncMacExClient（asyncio）。  期货/港股/美股等扩展市场通过 MAC 协议命令（0x122B/0x122E/0x122D/0x122F/0x2562） 获取数据，使用 ExTdxConnection（端口 7727，单包握手）。",
+      "complexity": 8,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/mac_client.py:MacExClient",
+      "type": "class",
+      "name": "MacExClient",
+      "filePath": "src/easy_tdx/ex/mac_client.py",
+      "summary": "同步 MAC 协议扩展市场客户端（期货/港股/美股，端口 7727）。  使用示例::      with MacExClient() as c:         df = c.goods_kline(ExMarket.CFFEX_FUTURES, \"IFL0\", Period.DAILY)         df = c.goods_quotes([(ExMarket.HK_MAIN_BOARD, \"00700\")])",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/mac_client.py:AsyncMacExClient",
+      "type": "class",
+      "name": "AsyncMacExClient",
+      "filePath": "src/easy_tdx/ex/mac_client.py",
+      "summary": "异步 MAC 协议扩展市场客户端（asyncio，端口 7727）。  使用示例::      async with AsyncMacExClient() as c:         df = await c.goods_kline(ExMarket.CFFEX_FUTURES, \"IFL0\", Period.DAILY)",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/ex/mac_client.py:_quotes_to_df",
+      "type": "function",
+      "name": "_quotes_to_df",
+      "filePath": "src/easy_tdx/ex/mac_client.py",
+      "summary": "将 MacQuoteField 列表展开为 DataFrame。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "扩展行情数据模型与常量。",
+      "complexity": 5,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExMarketInfo",
+      "type": "class",
+      "name": "ExMarketInfo",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "市场定义（GetMarkets 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExInstrumentInfo",
+      "type": "class",
+      "name": "ExInstrumentInfo",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "合约/证券信息（GetInstrumentInfo 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExInstrumentQuote",
+      "type": "class",
+      "name": "ExInstrumentQuote",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "五档行情（GetInstrumentQuote 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExInstrumentBar",
+      "type": "class",
+      "name": "ExInstrumentBar",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "K线数据（GetInstrumentBars / GetHistoryInstrumentBarsRange 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExMinuteBar",
+      "type": "class",
+      "name": "ExMinuteBar",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "分时数据（GetMinuteTimeData / GetHistoryMinuteTimeData 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/models.py:ExTransactionRecord",
+      "type": "class",
+      "name": "ExTransactionRecord",
+      "filePath": "src/easy_tdx/ex/models.py",
+      "summary": "逐笔成交记录（GetTransactionData / GetHistoryTransactionData 返回）。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/transport/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/ex/transport/__init__.py",
+      "summary": "扩展行情传输层。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/transport/async_.py",
+      "type": "file",
+      "name": "async_.py",
+      "filePath": "src/easy_tdx/ex/transport/async_.py",
+      "summary": "扩展行情异步 TCP 连接（asyncio，端口 7727）。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/transport/async_.py:AsyncExTdxConnection",
+      "type": "class",
+      "name": "AsyncExTdxConnection",
+      "filePath": "src/easy_tdx/ex/transport/async_.py",
+      "summary": "扩展行情异步 TCP 连接（asyncio，端口 7727，单包握手）。  Parameters ---------- mac_ex_mode : bool     为 True 时自动将 MAC 命令的 head_flag 从 0x1C 转为 0x01，     以兼容 MAC EX 服务器（需要 head_flag=0x01）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/ex/transport/sync.py",
+      "type": "file",
+      "name": "sync.py",
+      "filePath": "src/easy_tdx/ex/transport/sync.py",
+      "summary": "扩展行情同步 TCP 连接（端口 7727）。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/ex/transport/sync.py:ExTdxConnection",
+      "type": "class",
+      "name": "ExTdxConnection",
+      "filePath": "src/easy_tdx/ex/transport/sync.py",
+      "summary": "扩展行情同步 TCP 连接（端口 7727，单包握手）。  Parameters ---------- mac_ex_mode : bool     为 True 时自动将 MAC 命令的 head_flag 从 0x1C 转为 0x01，     以兼容 MAC EX 服务器（需要 head_flag=0x01）。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/ex/transport/sync.py:ping_ex_host",
+      "type": "function",
+      "name": "ping_ex_host",
+      "filePath": "src/easy_tdx/ex/transport/sync.py",
+      "summary": "测量扩展行情服务器延迟（秒）。通过发送 get_instrument_count 验证可用性。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/ex/transport/sync.py:ping_ex_all",
+      "type": "function",
+      "name": "ping_ex_all",
+      "filePath": "src/easy_tdx/ex/transport/sync.py",
+      "summary": "并发测量多台扩展行情服务器延迟，按延迟排序返回。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/ex/transport/sync.py:_recv_exact_sock",
+      "type": "function",
+      "name": "_recv_exact_sock",
+      "filePath": "src/easy_tdx/ex/transport/sync.py",
+      "summary": "Function _recv_exact_sock() defined in src/easy_tdx/ex/transport/sync.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/exceptions.py",
+      "type": "file",
+      "name": "exceptions.py",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "easy-tdx 异常层次",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxError",
+      "type": "class",
+      "name": "TdxError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "所有 easy-tdx 异常的基类",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxConnectionError",
+      "type": "class",
+      "name": "TdxConnectionError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "TCP 连接失败或超时",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxDecodeError",
+      "type": "class",
+      "name": "TdxDecodeError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "响应报文解析失败",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxCommandError",
+      "type": "class",
+      "name": "TdxCommandError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "命令执行失败（服务器返回错误）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxFileNotFoundError",
+      "type": "class",
+      "name": "TdxFileNotFoundError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "本地数据文件不存在",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/exceptions.py:TdxOfflineError",
+      "type": "class",
+      "name": "TdxOfflineError",
+      "filePath": "src/easy_tdx/exceptions.py",
+      "summary": "离线数据读取失败（路径未配置、文件格式错误等）",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/factor/__init__.py",
+      "summary": "因子研究模块。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/analysis.py",
+      "type": "file",
+      "name": "analysis.py",
+      "filePath": "src/easy_tdx/factor/analysis.py",
+      "summary": "因子有效性分析引擎。",
+      "complexity": 6,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/analysis.py:FactorReport",
+      "type": "class",
+      "name": "FactorReport",
+      "filePath": "src/easy_tdx/factor/analysis.py",
+      "summary": "单因子分析报告。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/analysis.py:FactorAnalyzer",
+      "type": "class",
+      "name": "FactorAnalyzer",
+      "filePath": "src/easy_tdx/factor/analysis.py",
+      "summary": "因子有效性分析引擎。",
+      "complexity": 7,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/base.py",
+      "type": "file",
+      "name": "base.py",
+      "filePath": "src/easy_tdx/factor/base.py",
+      "summary": "因子基类与全局注册表。",
+      "complexity": 2,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/base.py:Factor",
+      "type": "class",
+      "name": "Factor",
+      "filePath": "src/easy_tdx/factor/base.py",
+      "summary": "因子基类 — 所有因子的抽象契约。  子类必须定义:     name: str        — 唯一标识，如 \"momentum_20d\"     category: str    — 分类：momentum / value / quality / volatility / technical / chanlun     description: str — 人类可读描述     inputs: tuple[str, ...] — 需要的列名，如 (\"close\", \"vol\")  并实现 compute(df) -> pd.Series。",
+      "complexity": 4,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/factor/base.py:register_factor",
+      "type": "function",
+      "name": "register_factor",
+      "filePath": "src/easy_tdx/factor/base.py",
+      "summary": "类装饰器，将 Factor 子类注册到全局表。  Raises:     ValueError: 如果 name 已被注册。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/builtin/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/easy_tdx/factor/builtin/__init__.py",
+      "summary": "内置因子库 — 导入子模块触发注册。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/factor/builtin/__init__.py:list_factors",
+      "type": "function",
+      "name": "list_factors",
+      "filePath": "src/easy_tdx/factor/builtin/__init__.py",
+      "summary": "返回所有已注册因子的元数据。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "function:src/easy_tdx/factor/builtin/__init__.py:get_factor",
+      "type": "function",
+      "name": "get_factor",
+      "filePath": "src/easy_tdx/factor/builtin/__init__.py",
+      "summary": "按名称获取因子类。  Raises:     ValueError: 因子不存在。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "function"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/builtin/chanlun.py",
+      "type": "file",
+      "name": "chanlun.py",
+      "filePath": "src/easy_tdx/factor/builtin/chanlun.py",
+      "summary": "缠论因子 — 桥接 ChanlunAnalyser。",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/builtin/chanlun.py:ChanlunBiDir",
+      "type": "class",
+      "name": "ChanlunBiDir",
+      "filePath": "src/easy_tdx/factor/builtin/chanlun.py",
+      "summary": "Class ChanlunBiDir defined in src/easy_tdx/factor/builtin/chanlun.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/builtin/chanlun.py:ChanlunMMD",
+      "type": "class",
+      "name": "ChanlunMMD",
+      "filePath": "src/easy_tdx/factor/builtin/chanlun.py",
+      "summary": "Class ChanlunMMD defined in src/easy_tdx/factor/builtin/chanlun.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "file:src/easy_tdx/factor/builtin/momentum.py",
+      "type": "file",
+      "name": "momentum.py",
+      "filePath": "src/easy_tdx/factor/builtin/momentum.py",
+      "summary": "动量类因子。",
+      "complexity": 1,
+      "tags": [
+        "python",
+        "src",
+        "library"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/builtin/momentum.py:Momentum20D",
+      "type": "class",
+      "name": "Momentum20D",
+      "filePath": "src/easy_tdx/factor/builtin/momentum.py",
+      "summary": "Class Momentum20D defined in src/easy_tdx/factor/builtin/momentum.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/builtin/momentum.py:Momentum60D",
+      "type": "class",
+      "name": "Momentum60D",
+      "filePath": "src/easy_tdx/factor/builtin/momentum.py",
+      "summary": "Class Momentum60D defined in src/easy_tdx/factor/builtin/momentum.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    },
+    {
+      "id": "class:src/easy_tdx/factor/builtin/momentum.py:Reversal5D",
+      "type": "class",
+      "name": "Reversal5D",
+      "filePath": "src/easy_tdx/factor/builtin/momentum.py",
+      "summary": "Class Reversal5D defined in src/easy_tdx/factor/builtin/momentum.py.",
+      "complexity": 3,
+      "tags": [
+        "python",
+        "class"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/easy_tdx/ex/client.py",
+      "target": "file:src/easy_tdx/exceptions.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..exceptions"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/client.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from .models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/client.py",
+      "target": "class:src/easy_tdx/ex/client.py:ExTdxClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/client.py defines class ExTdxClient."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/client.py",
+      "target": "class:src/easy_tdx/ex/client.py:AsyncExTdxClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/client.py defines class AsyncExTdxClient."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_history_bars_range.py",
+      "target": "class:src/easy_tdx/ex/commands/get_history_bars_range.py:GetExHistoryInstrumentBarsRangeCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_history_bars_range.py defines class GetExHistoryInstrumentBarsRangeCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_bars.py",
+      "target": "class:src/easy_tdx/ex/commands/get_instrument_bars.py:GetExInstrumentBarsCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_instrument_bars.py defines class GetExInstrumentBarsCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_count.py",
+      "target": "class:src/easy_tdx/ex/commands/get_instrument_count.py:GetExInstrumentCountCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_instrument_count.py defines class GetExInstrumentCountCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_info.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_info.py",
+      "target": "class:src/easy_tdx/ex/commands/get_instrument_info.py:GetExInstrumentInfoCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_instrument_info.py defines class GetExInstrumentInfoCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "target": "file:src/easy_tdx/exceptions.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ...exceptions"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_quote_list.py",
+      "target": "class:src/easy_tdx/ex/commands/get_instrument_quote_list.py:GetExInstrumentQuoteListCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_instrument_quote_list.py defines class GetExInstrumentQuoteListCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_instrument_quote.py",
+      "target": "class:src/easy_tdx/ex/commands/get_instrument_quote.py:GetExInstrumentQuoteCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_instrument_quote.py defines class GetExInstrumentQuoteCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_markets.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_markets.py",
+      "target": "class:src/easy_tdx/ex/commands/get_markets.py:GetExMarketsCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_markets.py defines class GetExMarketsCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_minute_time.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_minute_time.py",
+      "target": "class:src/easy_tdx/ex/commands/get_minute_time.py:GetExMinuteTimeDataCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_minute_time.py defines class GetExMinuteTimeDataCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_minute_time.py",
+      "target": "class:src/easy_tdx/ex/commands/get_minute_time.py:GetExHistoryMinuteTimeDataCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_minute_time.py defines class GetExHistoryMinuteTimeDataCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_transaction.py",
+      "target": "file:src/easy_tdx/ex/models.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..models"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_transaction.py",
+      "target": "class:src/easy_tdx/ex/commands/get_transaction.py:GetExTransactionDataCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_transaction.py defines class GetExTransactionDataCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/get_transaction.py",
+      "target": "class:src/easy_tdx/ex/commands/get_transaction.py:GetExHistoryTransactionDataCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/get_transaction.py defines class GetExHistoryTransactionDataCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/commands/login.py",
+      "target": "class:src/easy_tdx/ex/commands/login.py:MacExLoginCmd",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/commands/login.py defines class MacExLoginCmd."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/mac_client.py",
+      "target": "file:src/easy_tdx/exceptions.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ..exceptions"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/mac_client.py",
+      "target": "class:src/easy_tdx/ex/mac_client.py:MacExClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/mac_client.py defines class MacExClient."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/mac_client.py",
+      "target": "class:src/easy_tdx/ex/mac_client.py:AsyncMacExClient",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/mac_client.py defines class AsyncMacExClient."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/mac_client.py",
+      "target": "function:src/easy_tdx/ex/mac_client.py:_quotes_to_df",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/mac_client.py defines function _quotes_to_df()."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExMarketInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExMarketInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExInstrumentInfo",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExInstrumentInfo."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExInstrumentQuote",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExInstrumentQuote."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExInstrumentBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExInstrumentBar."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExMinuteBar",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExMinuteBar."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/models.py",
+      "target": "class:src/easy_tdx/ex/models.py:ExTransactionRecord",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/models.py defines class ExTransactionRecord."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/async_.py",
+      "target": "file:src/easy_tdx/exceptions.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ...exceptions"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/async_.py",
+      "target": "class:src/easy_tdx/ex/transport/async_.py:AsyncExTdxConnection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/transport/async_.py defines class AsyncExTdxConnection."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/sync.py",
+      "target": "file:src/easy_tdx/exceptions.py",
+      "type": "imports",
+      "weight": 0.7,
+      "reason": "Relative import within batch: from ...exceptions"
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/sync.py",
+      "target": "class:src/easy_tdx/ex/transport/sync.py:ExTdxConnection",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/transport/sync.py defines class ExTdxConnection."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/sync.py",
+      "target": "function:src/easy_tdx/ex/transport/sync.py:ping_ex_host",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/transport/sync.py defines function ping_ex_host()."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/sync.py",
+      "target": "function:src/easy_tdx/ex/transport/sync.py:ping_ex_all",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/transport/sync.py defines function ping_ex_all()."
+    },
+    {
+      "source": "file:src/easy_tdx/ex/transport/sync.py",
+      "target": "function:src/easy_tdx/ex/transport/sync.py:_recv_exact_sock",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/ex/transport/sync.py defines function _recv_exact_sock()."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxError."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxConnectionError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxConnectionError."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxDecodeError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxDecodeError."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxCommandError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxCommandError."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxFileNotFoundError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxFileNotFoundError."
+    },
+    {
+      "source": "file:src/easy_tdx/exceptions.py",
+      "target": "class:src/easy_tdx/exceptions.py:TdxOfflineError",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/exceptions.py defines class TdxOfflineError."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/analysis.py",
+      "target": "class:src/easy_tdx/factor/analysis.py:FactorReport",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/analysis.py defines class FactorReport."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/analysis.py",
+      "target": "class:src/easy_tdx/factor/analysis.py:FactorAnalyzer",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/analysis.py defines class FactorAnalyzer."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/base.py",
+      "target": "class:src/easy_tdx/factor/base.py:Factor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/base.py defines class Factor."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/base.py",
+      "target": "function:src/easy_tdx/factor/base.py:register_factor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/base.py defines function register_factor()."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/__init__.py",
+      "target": "function:src/easy_tdx/factor/builtin/__init__.py:list_factors",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/__init__.py defines function list_factors()."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/__init__.py",
+      "target": "function:src/easy_tdx/factor/builtin/__init__.py:get_factor",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/__init__.py defines function get_factor()."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/chanlun.py",
+      "target": "class:src/easy_tdx/factor/builtin/chanlun.py:ChanlunBiDir",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/chanlun.py defines class ChanlunBiDir."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/chanlun.py",
+      "target": "class:src/easy_tdx/factor/builtin/chanlun.py:ChanlunMMD",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/chanlun.py defines class ChanlunMMD."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/momentum.py",
+      "target": "class:src/easy_tdx/factor/builtin/momentum.py:Momentum20D",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/momentum.py defines class Momentum20D."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/momentum.py",
+      "target": "class:src/easy_tdx/factor/builtin/momentum.py:Momentum60D",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/momentum.py defines class Momentum60D."
+    },
+    {
+      "source": "file:src/easy_tdx/factor/builtin/momentum.py",
+      "target": "class:src/easy_tdx/factor/builtin/momentum.py:Reversal5D",
+      "type": "contains",
+      "weight": 1.0,
+      "reason": "src/easy_tdx/factor/builtin/momentum.py defines class Reversal5D."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 70,
+    "edgesCreated": 58,
+    "complexity": {
+      "min": 1,
+      "max": 8,
+      "avg": 3.0
+    },
+    "notes": "Batch 14 analyzed via AST. 70 nodes, 58 edges from 25 files."
+  }
+}

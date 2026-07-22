@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "batchIndex": 4,
+  "projectRoot": "/Users/lichao/work/jytx/easy_tdx",
+  "filesAnalyzed": [
+    {
+      "path": "docs/superpowers/specs/2026-06-09-backtest-engine-design.md",
+      "language": "markdown",
+      "sizeLines": 549,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md",
+      "language": "markdown",
+      "sizeLines": 355,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md",
+      "language": "markdown",
+      "sizeLines": 437,
+      "fileCategory": "docs"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "doc:spec-backtest-engine",
+      "type": "spec",
+      "name": "Backtest Engine Design Spec",
+      "filePath": "docs/superpowers/specs/2026-06-09-backtest-engine-design.md",
+      "summary": "Approved rev-2 internal design spec (2026-06-09) for the new `easy_tdx.backtest` module — the first piece of the full quantitative toolchain. Defines a pure-compute (pandas/numpy only, no network) vectorized execution pipeline (signal → matching → portfolio → performance) with two strategy modes: Python class inheritance with `init()`/`next()` lifecycle + `StrategyDataProxy` (exposes OHLCV columns plus any precomputed indicator columns via `__getattr__`) and a P1 DSL with both `@dsl_strategy` decorator and CLI string forms (`CROSS(MA(close,5),MA(close,20))`). Core datatypes: `Signal`, `Trade`, `Position`, `BacktestResult`. Engine `run()` accepts an easy-tdx standard K-line DataFrame plus optional `chanlun_result` injected as `self.chanlun`. `OrderSimulator` supports five execution-price rules (next_open default; this_close logs red future-leak warning and sets `BacktestResult.config.future_leak_warning=True`), four position modes (full/fixed/percent/signal_only), and two order-reject policies (reduce/skip). `PerformanceAnalyzer` computes 18 metrics (total/annual return, max_drawdown + duration, sharpe/sortino/calmar, win_rate/profit_factor/avg_win/loss, alpha/information_ratio). CLI integration: `easy-tdx backtest` auto-fetches K-lines, supports `--strategy`/`--strategy-file`/`--params`/`--grid`/`--indicators`/`--table`/`--output csv`. v1 P1 deferrals documented: event-driven execution, multi-symbol portfolio backtest, risk controls, real-time paper trading, visualization.",
+      "complexity": 8,
+      "tags": ["spec", "design-doc", "backtest", "engine", "vectorized", "strategy-base-class", "dsl", "order-simulator", "performance-analyzer", "portfolio-tracker", "chanlun-integration", "p0-p1-roadmap"],
+      "languageNotes": "Markdown design spec for `src/easy_tdx/backtest/` (P0 implementation target). Uses Python pseudocode blocks for dataclasses (`Signal`, `Trade`, `Position`, `BacktestResult`), abstract base class `Strategy`, and engine signature `BacktestEngine(strategy, cash=100000, commission=0.0003, min_commission=5.0, stamp_tax=0.001, slippage=0.0, execution='next_open', position_mode='full', order_reject_policy='reduce')`. Includes ASCII architecture diagram (`backtest/` file tree) and a `Signal → Execution → Portfolio → Performance` interaction diagram. Document is bilingual (Chinese narrative, English code) — has been formally 'Approved (rev 2 — incorporated DeepSeek feasibility review)'."
+    },
+    {
+      "id": "doc:spec-advanced-backtest",
+      "type": "spec",
+      "name": "Advanced Backtest Enhancement Spec",
+      "filePath": "docs/superpowers/specs/2026-06-12-advanced-backtest-design.md",
+      "summary": "Internal design spec v1.0 (2026-06-12) for the three-Plan-B enhancements to the existing `BacktestEngine` + `OrderSimulator`: pluggable slippage models, execution simulation, and return attribution. Newly introduces `SlippageModel` ABC in `slippage.py` with four implementations — `FixedSlippage(per_share=0.01)` (backward-compatible), `PercentSlippage(rate=0.001)`, `SquareRootSlippage(impact_coeff=0.1)` (A-share mainstream: `σ × √(Q/V) × price × Q × coeff`, degrades to `PercentSlippage` when vol or volatility is 0), `VolumeSlippage(base_bps=10.0)` (volume-proportional). New `ExecutionModel` ABC in `execution.py` with `ImmediateExecution` (current behavior, backward-compatible), `TWAPExecution(n_bars=5)` (even split + 100-share-lot rounding per child), `VWAPExecution(n_bars=5, volume_lookback=20)` (split by historical volume distribution), `LimitExecution(ttl_bars=5)` (only fills if bar's low≤target for BUY or high≥target for SELL, degrades to immediate if price is None). New `AttributionAnalyzer` in `attribution.py` implements Brinson-Hood-Beebower decomposition (`Allocation + Selection + Interaction`), factor regression (`R = Σ(β_i × f_i) + α`), and cost breakdown (commission/slippage/stamp_tax). `BacktestEngine` gains `slippage_model=` and `execution_model=` kwargs (both nullable for full backward compat); `engine._generate_signals` loop must be rewritten to handle multi-Trade emission from execution models. Ship plan: v1.14.0 (slippage + execution, ~35 tests), v1.15.0 (attribution, ~20 tests). Files explicitly NOT modified: `strategy.py`, `performance.py`, `portfolio.py`, `combo.py`. Out-of-scope: order-book sim (Level-2 unavailable), margin/short, futures/options hedging, HFT.",
+      "complexity": 7,
+      "tags": ["spec", "design-doc", "backtest", "slippage-model", "execution-model", "twap", "vwap", "limit-orders", "brinson-attribution", "factor-attribution", "a-share-only", "backward-compatible"],
+      "languageNotes": "Markdown design spec extending `src/easy_tdx/backtest/` with three new modules (`slippage.py`, `execution.py`, `attribution.py`) and modifying `engine.py`, `orders.py`, `types.py`. Pseudocode blocks define ABCs with abstract `compute(price, size, volume, volatility, direction) -> float` and `execute(signal, df, bar_idx, cash, position, ...) -> list[Trade]`. Target A-share market only — explicitly excludes margin, index-futures hedging, and order-book simulation."
+    },
+    {
+      "id": "doc:spec-factor-engine",
+      "type": "spec",
+      "name": "Quantitative Factor Engine + Portfolio Spec",
+      "filePath": "docs/superpowers/specs/2026-06-12-quantitative-factor-engine-design.md",
+      "summary": "Internal design spec v1.0 (2026-06-12) for Plan A — adding factor research infrastructure + portfolio management to easy-tdx as a closed loop 'idea → factor → weighting → rebalance → performance'. New `src/easy_tdx/factor/` package: `base.py` (`Factor` ABC with `name`/`category`/`description`/`inputs`/`compute()` + `@register_factor` decorator mirroring `indicator._REGISTRY`), `engine.py` (`FactorEngine.compute_single`, `compute_cross_section`, `compute_forward_returns`), `analysis.py` (`FactorAnalyzer` with `compute_ic`/`compute_quantile_returns`/`compute_decay` returning `FactorReport` with ic_mean/ir/quantile_returns/top_minus_bottom/turnover_rate/autocorr), `transform.py` (pure functions `winsorize`/`zscore`/`rank_normalize`/`fill_missing`/`orthogonalize` + `preprocess()` one-shot pipeline), and `builtin/` with six category files — momentum/volatility/quality/volume/technical (bridges `indicator.py` via `TechnicalFactor` wrapper) /chanlun (bridges `ChanlunAnalyser` via `ChanlunFactor`). 15-18 initial factors documented (momentum_20d, reversal_5d, volatility_20d, atr_14d, sharpe_20d, max_drawdown_20d, win_rate_20d, obv_trend, vol_surge, amount_ma_ratio, macd_hist_signal, rsi_14, boll_position, chanlun_bi_dir, chanlun_mmd, pe_ratio, pb_ratio). New `src/easy_tdx/portfolio/` package: `optimizer.py` with `EqualWeight/FactorWeighted/RiskParity/MeanVarianceOptimizer` (Markowitz + scipy optional with graceful degradation to equal-weight), `risk.py` (`RiskModel` with Ledoit-Wolf shrinkage covariance + portfolio_risk decomposition), `rebalance.py` (`RebalanceEngine(optimizer, factor_name, n_stocks=50, rebalance_freq='W|M|Q')` producing `RebalanceResult` with multi-period equity_curve). Deliverable cadence: v1.11.0 (factor base + engine + 15 builtins), v1.12.0 (transform + analysis), v1.13.0 (portfolio). Optional dependency: `scipy>=1.10` under extra `factor`. Explicitly NOT adding: cvxpy, sklearn, statsmodels. Bridges `BacktestEngine` via new `factors=` kwarg injecting factor columns into `StrategyDataProxy`.",
+      "complexity": 9,
+      "tags": ["spec", "design-doc", "factor-engine", "factor-registry", "factor-analyzer", "ic-analysis", "quantile-returns", "portfolio-management", "rebalance-engine", "weight-optimizer", "risk-model", "a-share-only", "p1-bridge"],
+      "languageNotes": "Markdown design spec for two new top-level packages `src/easy_tdx/factor/` and `src/easy_tdx/portfolio/`. Detailed ASCII file-tree diagrams for both packages. Pseudocode defines `Factor`/`register_factor`/`FACTORY_REGISTRY` (mirrors existing `indicator._REGISTRY` pattern), pipeline data shape `columns=[date, code, factor_1, factor_2, ...]`, dataclasses `PortfolioState`/`RebalanceResult`, and abstractions `WeightOptimizer`/`RiskModel`/`RebalanceEngine`. Single most complex spec in this batch: spans factor research AND portfolio management AND bridges to backtest + indicators + chanlun."
+    }
+  ],
+  "edges": [
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Document section 6 is the authoritative design for `BacktestEngine` (cTor signature with `cash=100000, commission=0.0003, min_commission=5.0, stamp_tax=0.001, slippage=0.0, execution='next_open', position_mode='full', order_reject_policy='reduce', benchmark=...`, plus `run(df, chanlun_result=None) -> BacktestResult`) and the four-step pipeline (signal → simulator → portfolio → performance). This is P0 implementation."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/strategy.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 4 fully specifies the `Strategy` ABC (`init()`, `next()`, `I(func)`, `buy/sell`, `data` proxy, `position`, `chanlun`), `StrategyDataProxy` (`__getattr__` exposes arbitrary DataFrame columns), and `_SeriesAccessor` (`[0]` current, `[-1]` previous). Documented example `MACrossStrategy(MaCrossStrategy)` matches the implementation's `MaCrossStrategy` in `strategies/builtin.py`."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/types.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 3 defines the four core dataclasses `Signal`/`Trade`/`Position`/`BacktestResult` (including `BacktestResult.config['future_leak_warning']` flag and the `to_json`/`to_dict`/`summary` methods). Implemented verbatim in `types.py`."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/orders.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Sections 6.3-6.6 enumerate the five execution rules (`next_open`/`next_close`/`this_close` with future-leak warning/`worst`/`best`), four position modes (`full`/`fixed`/`percent`/`signal_only`), two order-reject policies (`reduce`/`skip`), and commission/StampTax/slippage formulas — all of which drive the `OrderSimulator` implementation. Future-leak warning contract is enforced per the spec."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/portfolio.py",
+      "type": "specifies",
+      "weight": 0.9,
+      "reason": "Pipeline step 3 implements `PortfolioTracker` (cash + position + market value + drawdown tracking) which produces the `equity_curve` columns that the spec promises in `BacktestResult.equity_curve` (`datetime, cash, position_value, total, drawdown, drawdown_pct`)."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/performance.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 7 table is the full definition of the 18 metrics in `PerformanceAnalyzer` (total/annual return, max_drawdown + duration, sharpe/sortino/calmar, win/lose trades, rejected_trades, win_rate, profit_factor, avg_win/loss, max_win/loss, avg_holding_days, volatility, alpha, information_ratio). Spec keys (`sharpe`, `sortino`, `calmar`, etc.) must match the implementation output exactly."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/dsl.py",
+      "type": "specifies",
+      "weight": 0.9,
+      "reason": "Section 5 fully specifies the P1 `@dsl_strategy` decorator + string-compiler path (Python-function-call capture → `(buy_mask, sell_mask)` recording → dynamic `Strategy` subclass generation) and the built-in DSL function table reusing `MyTT.py` (`MA`/`EMA`/`RSI`/`BOLL`/`MACD`/`CROSS`/`REF`/`HHV`/`LLV`/`BETWEEN`/`COUNT`). `dsl.py` implements this — non-P0 but explicitly deferred, not omitted."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/cli.py",
+      "type": "specifies",
+      "weight": 0.9,
+      "reason": "Section 8 documents the `easy-tdx backtest` CLI surface: `--strategy` / `--strategy-file` / `--params` / `--grid` / `--indicators` / `--table` / `--output csv` plus auto-fetching K-lines. `cli.py` provides the `backtest` Click command with `_load_strategy` / `_load_strategy_from_file` / `_load_combo_strategies`."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/backtest/strategies/builtin.py",
+      "type": "specifies",
+      "weight": 0.7,
+      "reason": "Section 4.3 example `MACrossStrategy` (init registers MA5/MA20 via `self.I(MA, ...)`, then emits buy/sell on `crossover()`) maps directly to the `MaCrossStrategy` in `strategies/builtin.py`. The spec lists 18 indicator strategies as reference patterns (`MaCross`, `Macd`, `BollBreakout`, etc., all visible in `exportsByPath`)."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:src/easy_tdx/chanlun",
+      "type": "references",
+      "weight": 0.6,
+      "reason": "Section 4 + section 6.1 commit to engine-level integration with the existing chanlun package via the optional `chanlun_result` parameter (strategy reads `self.chanlun.mmds[-1]`); timestamp alignment documented as 'most recent K-line whose datetime <= signal time'. This binds backtest to `src/easy_tdx/chanlun/` (fractal.py, bi.py, xd.py, zs.py, mmd.py)."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/slippage.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 3 specifies the new `SlippageModel` ABC (`compute(price, size, volume, volatility, direction) -> float`) plus four implementations (`FixedSlippage`/`PercentSlippage`/`SquareRootSlippage`/`VolumeSlippage`). Section 3.3 documents the A-share σ × √(Q/V) formula and degradation rule. `slippage.py` implements exactly this."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/execution.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 4 specifies the `ExecutionModel` ABC and four implementations (`ImmediateExecution` for backward compat, `TWAPExecution(n_bars=5)` with 100-share-lot rounding, `VWAPExecution(n_bars=5, volume_lookback=20)` by historical volume weights, `LimitExecution(ttl_bars=5)` with low/high target checks). `execution.py` implements the ABC + the four models."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/attribution.py",
+      "type": "specifies",
+      "weight": 1.0,
+      "reason": "Section 5 specifies `AttributionAnalyzer` (constructor takes `trades` + `equity_curve` + optional `benchmark`/`factor_exposures`/`factor_returns`/`groups`) and three decomposition methods (`brinson_attribution` using Brinson-Hood-Beebower Total = Allocation + Selection + Interaction; `factor_attribution` using R = Σ(β_i × f_i) + α; `cost_attribution` breaking down commission/slippage/stamp_tax) plus the `AttributionReport` dataclass. `attribution.py` implements both the analyzer and report."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "modifies",
+      "weight": 0.9,
+      "reason": "Section 4.6 explicitly documents the change to `engine._generate_signals`: when `execution_model` is set, the loop changes from `for signal in signals: trades = simulator.simulate([signal], ...)` to `for signal in signals: sub_trades = execution_model.execute(...); all_trades.extend(sub_trades)`. Sections 3.4 and 4.6 add the `slippage_model=` and `execution_model=` kwargs to `BacktestEngine.__init__`. When both `slippage_model` and `slippage` are passed, `slippage_model` wins."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/orders.py",
+      "type": "modifies",
+      "weight": 0.8,
+      "reason": "Section 3.4 states `OrderSimulator` gains a `slippage_model: SlippageModel | None = None` parameter; when non-None it bypasses the legacy `self.slippage` scalar and calls `slippage_model.compute()`. Section 6 explicitly preserves `OrderSimulator(df, slippage=0.01)` for backward compatibility."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/backtest/types.py",
+      "type": "modifies",
+      "weight": 0.4,
+      "reason": "Section 2 file-table marks `types.py` as modified with 'new AttributionReport' added in v1.15.0; v1.14.0 has no types changes. The current `types.py` (per batches.json) does not yet export `AttributionReport`, confirming this future change."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "doc:spec-backtest-engine",
+      "type": "extends",
+      "weight": 0.8,
+      "reason": "Spec header explicitly states '前置: 方案 A（v1.11.0–v1.13.0）已完成' — these plan-B enhancements build on the backtest engine approved in `doc:spec-backtest-engine` (rev 2). Section 6 commits to full backward compatibility for `BacktestEngine(strategy, slippage=0.01)` callers."
+    },
+    {
+      "source": "doc:spec-advanced-backtest",
+      "target": "file:src/easy_tdx/factor",
+      "type": "references",
+      "weight": 0.5,
+      "reason": "Section 5.3 states `factor_exposures` / `factor_returns` for `AttributionAnalyzer` come from `FactorEngine` (v1.11.0 — already implemented per the factor spec). This creates a deferred dependency: attribution analysis needs the factor package to exist. Currently the file `src/easy_tdx/factor/` is NOT in `exportsByPath`, indicating it may not yet be implemented in this snapshot."
+    },
+    {
+      "source": "doc:spec-factor-engine",
+      "target": "file:src/easy_tdx/indicator",
+      "type": "references",
+      "weight": 0.7,
+      "reason": "Section 3.3 + section 5 note `technical.py` uses a `TechnicalFactor` wrapper to bridge the existing `indicator.py` (`IndicatorSpec` + `_REGISTRY`) into the factor system — explicitly '不重复实现' (no re-implementation). Bridges MyTT wrappers like `MACD`/`RSI`/`BOLL` into `macd_hist_signal`/`rsi_14`/`boll_position` factors."
+    },
+    {
+      "source": "doc:spec-factor-engine",
+      "target": "file:src/easy_tdx/chanlun",
+      "type": "references",
+      "weight": 0.7,
+      "reason": "Section 3.3 specifies `chanlun.py` factor module bridges `ChanlunAnalyser` via `ChanlunFactor` to expose `chanlun_bi_dir` (current bi direction ±1) and `chanlun_mmd` (last buy/sell-point encoded value). No re-implementation — pure wrapper around `src/easy_tdx/chanlun/`."
+    },
+    {
+      "source": "doc:spec-factor-engine",
+      "target": "file:src/easy_tdx/backtest/engine.py",
+      "type": "extends",
+      "weight": 0.5,
+      "reason": "Section 3.2 documents a future extension where `BacktestEngine` gains a `factors=` kwarg and `FactorEngine` output is auto-injected into `StrategyDataProxy`. This bridges the planned Plan B (advanced backtest) back to factor signals — currently deferred."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:tests/unit/test_backtest_strategy.py",
+      "type": "specifies",
+      "weight": 0.6,
+      "reason": "Section 9 lists the test file `test_backtest_strategy.py` covering Strategy base + indicator injection + precomputed columns + chanlun injection — coordinated with the CI coverage gate (`--cov src/easy_tdx --cov-fail-under=60`). The spec explicitly states all tests are offline with hand-rolled DataFrame fixtures."
+    },
+    {
+      "source": "doc:spec-backtest-engine",
+      "target": "file:tests/unit/test_backtest_engine.py",
+      "type": "specifies",
+      "weight": 0.6,
+      "reason": "Section 9 lists `test_backtest_engine.py` for the core engine pipeline (signal → matching → portfolio). Combined coverage of all 7 listed test files (~50 tests) drives the CI ≥60% threshold."
+    },
+    {
+      "source": "doc:spec-factor-engine",
+      "target": "file:tests/unit/test_factor_base.py",
+      "type": "specifies",
+      "weight": 0.5,
+      "reason": "Section 9 lists 8 test files for factor + portfolio (`test_factor_base.py`/`test_factor_engine.py`/`test_factor_builtin.py`/`test_factor_transform.py`/`test_factor_analysis.py` + three `test_portfolio_*`); tests are 100% offline (no network) using `np.random`-generated price fixtures."
+    }
+  ],
+  "summary": {
+    "nodesCreated": 3,
+    "edgesCreated": 24,
+    "complexity": {
+      "min": 7,
+      "max": 9,
+      "avg": 8.0
+    },
+    "notes": "Batch 4 covers three internal design specs (1341 lines total, all markdown, fileCategory=docs) describing planned architectures for the quantitative stack. No source imports are resolved (markdown specs do not import Python/TS). Each spec is a high-level architectural document written before implementation — they all have status 'Approved' or v1.0 with explicit P0/P1/V1.XX version sequencing. The three documents form a layered narrative: the backtest-engine spec (2026-06-09) is the foundational engine, the factor-engine spec (2026-06-12, Plan A) builds on it via `BacktestEngine.factors=` extension plus portfolio/backtest integration, and the advanced-backtest spec (2026-06-12, Plan B) extends it additively (slippage/execution/attribution) with backward-compat contract. Cross-spec edges capture these layering relationships (`extends`, `specifies`, `references`, `modifies`). Module-level targets: `src/easy_tdx/backtest/{engine,strategy,types,orders,portfolio,performance,dsl,cli,strategies/builtin,slippage,execution,attribution}.py` (from all three specs); `src/easy_tdx/factor/{base,engine,analysis,transform,builtin/*}.py` + `src/easy_tdx/portfolio/{optimizer,risk,rebalance,types}.py` (from factor spec — none currently in `exportsByPath`, so likely not yet implemented); `src/easy_tdx/indicator/` + `src/easy_tdx/chanlun/` (wrapped, not re-implemented). Several test files are pinned by spec section 9 (`test_backtest_*.py`, `test_factor_*.py`, `test_portfolio_*.py`). Complexity skews high (avg 8.0) because each spec describes an entire subsystem architecture with ABC definitions, dataclasses, integration points, and version plans."
+  }
+}
